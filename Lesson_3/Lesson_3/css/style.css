@@ -1,0 +1,275 @@
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+img {
+	vertical-align: top;
+}
+
+/* --------------- */
+
+/* Uzbūve */
+/*
+selektors{
+	css parametrs;
+	css parametrs;
+	...
+	css parametrs;
+}
+*/
+/* css parametrs */
+/*
+css īpašība: īpašības nozīme(s);
+*/
+
+/* Selektori */
+
+/* Tag selektors */
+/*
+tag nosaukumus{
+	css parametrs;
+	css parametrs;
+	...
+	css parametrs;
+}
+*/
+/* Tag selektora piemēri */
+p {
+	/* Vēršamies pie VISIEM tag: <p></p>, kas ir HTML lapā */
+	/* color: red; */
+}
+span {
+	/* Vēršamies pie VISIEM tag: <span></span>, mūsu HTML lapā */
+	/* color: green; */
+}
+
+/* Klases selektors, sākās ar PUNKTU */
+/*
+.klases nosaukums {
+	css parametrs;
+	css parametrs;
+	...
+	css parametrs;
+}
+*/
+.text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .text, mūsu HTML lapā */
+	/* color: green; */
+}
+.paragraph {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .paragraph, mūsu HTML lapā */
+	/* color: red; */
+}
+
+/* ID selektors */
+/*
+#id nosaukums{
+	css parametrs;
+	css parametrs;
+	...
+	css parametrs;
+}
+*/
+#menu {
+	/* color: red; */
+}
+
+/* Prioritāte */
+
+/* 1. Pieraksta kārtība pie vienāda tipa selektoriem */
+
+p {
+	/*  */
+	/* color: red; */
+}
+
+/* Šim ir lielāka izpildes prioritāte */
+p {
+	/* Vēršamies pie VISIEM tag: <p></p>, kas ir HTML lapā */
+	/* color: yellowgreen; */
+}
+
+.text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .text, mūsu HTML lapā */
+	/* color: green; */
+}
+/* Šim ir lielāka izpildes prioritāte */
+.paragraph {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .paragraph, mūsu HTML lapā */
+	/* color: red; */
+}
+
+/* PRECIZĒŠANA */
+
+/* 2. Klases selektoram ir augstāka prioritāte nekā tag selektoram */
+
+.text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .text, mūsu HTML lapā */
+	/* color: green; */
+}
+p {
+	/* Vēršamies pie VISIEM tag: <p></p>, kas ir HTML lapā. */
+	/* color: red; */
+}
+
+/* ID selektoram ir visaugstākā izpildes prioritāte */
+
+#main-text {
+	/* Vēršamies pie objekta, kam ir ID nosaukums: main-text, mūsu HTML lapā */
+	/* color: blue; */
+}
+.text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .text, mūsu HTML lapā */
+	/* color: green; */
+}
+p {
+	/* Vēršamies pie VISIEM tag: <p></p>, kas ir HTML lapā.*/
+	/* color: red; */
+}
+
+/* 3. Vēršanās precizēšana  */
+
+/* Selektoru kombinēšana */
+
+span.text.blue-text {
+	/* Vēršamies pie VISIEM tag: <span></spam>, kam ir klases: .text un .blue-text, mūsu HTML lapā */
+	/* color: red; */
+}
+.text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .text, mūsu HTML lapā */
+	/* color: green; */
+}
+
+span.blue-text {
+	/* Vēršamies pie VISIEM tag: <span></spam>, kam ir klase: .blue-text, mūsu HTML lapā */
+	/* color: blue; */
+}
+
+/* Ielikšanas prioritātes */
+
+/* Prioritāte Nr.1 */
+
+div p {
+	/* color: blue; */
+}
+
+.content .content__item {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .content__item, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā */
+	/* color: yellowgreen; */
+}
+
+.content__item {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .content__item, mūsu HTML lapā */
+	/* color: violet; */
+}
+
+/* Iekšējiem CSS stiliem ir visaugstākā izpildes prioritāte */
+
+/* Citi selektori */
+
+/* * - Vēršanās pie VISIEM objektiem, kas ir mūsu HTML lapā */
+/*
+* {
+	color: green;
+}
+*/
+
+/* Vēršamies vienlaicīgi pie vairākiem objektiem, kas ir mūsu HTML lapā */
+
+.content p,
+.content span {
+	/* Vēršamies pie VISIEM tag: <p></p>, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu HTML lapā. Un pie VISIEM tag: <span></span>, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu HTML lapā. */
+	/* color: red; */
+}
+
+.content .content__item,
+.content .content__text {
+	/* Vēršamies pie VISIEM objektiem, kam ir klase: .content__item, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā. Un 
+	pie VISIEM objektiem, kam ir klase: .content__text, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā. */
+	/* color: red; */
+}
+
+.content__item,
+.content__text,
+footer {
+	/* color: yellowgreen; */
+}
+
+/* Tikai pirmais ielikšanas līmenis */
+
+.content span {
+	/* Vēršamies pie VISIEM tag: <span></spam>, bet tikai pie tiem, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā. */
+	/* color: red; */
+}
+.content > span {
+	/* Vēršamies pie VISIEM PIRMĀ ielikšanas LĪMEŅA tag: <span></spam>, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā. */
+	/* color: red; */
+}
+.content > p > span {
+	/* Vēršamies pie VISIEM OTRĀ ielikšanas LĪMEŅA tag: <span></spam>, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu hTML lapā. */
+	/* color: red; */
+}
+.content > div > p > span {
+	/* Vēršamies pie VISIEM TREŠĀ ielikšanas LĪMEŅA tag: <span></span>, kas atrodas jebkuros objektos, kam ir klase: .content, mūsu HTML lapā. */
+	/* color:violet; */
+}
+.content > * {
+	/* Mēs vēršamies pie VISIEM objektiem, VISOS ielikšanas LĪMEŅOS, kas atrodas jebkuros objektos, kam ir klase: .content. */
+	/* color:coral; */
+}
+.content__item + * {
+	/* Vēršamies TIKAI pie PIRMĀ objekta, NĀKOŠAJIEM objektiem tajā pašā LĪMENĪ. */
+	/* color: yellowgreen; */
+}
+.content__item ~ * {
+	/* Vēršamies pie VISIEM tāda paša LĪMEŅA objektiem, mūsu HTML lapā. */
+	/* color:red; */
+}
+
+.content__item ~ span {
+	/* Vēršamies TIKAI pie PIRMĀ tā paša LĪMEŅA tag: <span></span>, mūsu HTML lapā */
+	/* color: yellowgreen; */
+}
+.content__item {
+	/* color:coral !important; */
+}
+
+/* CSS parametra beigās mēs cenšamies neizmantot prioritāšu mainītāju: !important, jo tas nav pareizi. Mums ir jāsaprot kā darbojās selektoru izmantošanas prioritātes, jāprot tās lietot tā, lai mums nav iekš parametra beigām jāraksta vārds: !important, jo no tā izmantošanas ir maksimāli jāizvairās, kad vien tas ir iespējams. Papildinājumu: !important mēs izmantojam tikai ārkārtas gadījumos. */
+
+/* Šos visus piemērus sākot no sadaļas: Tikai pirmais ielikšanas līmenis mēs izmantosim ļoti reti, jeb pat vispār neizmantosim, jo mēs strādāsim pēc BEM metodoloģijas, kur tiks pārsvarā izmantotas klases, un mums būs arī vieglāk saprast selektoru izpildes kārtību, jo tikai ļoti retos gadījumos mēs lietosim ID selektoru un reti lietosim tags selektoru. Mēs strādāsim lielāko tiesu ar klasēm. Tas izskatīsies šādi: */
+
+.content {
+}
+.content__item {
+}
+.content__text {
+}

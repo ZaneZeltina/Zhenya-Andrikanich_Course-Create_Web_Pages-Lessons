@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2</title>
+  </head>
+  <body>
+    <div id="top"></div>
+    <h1>Par mani</h1>
+    <p id="zane">
+      Mani sauc Zane. Es mācos par Web Izstrādātāju, konkrētāk par mājaslapu izstrādātāju. Es mācos HTML, CSS un JavaScript programmēšanas valodu, lai es varētu izstrādāt mājaslapas.
+    </p>
+    <p>
+      Programmēšanu, Web mājaslapu izstrādi <br>es mācos no dažādiem zināšanu avotiem, gan no maksas kursiem, gan bezmaksas Youtube video lekcijām, kā arī no dažādiem bezmaksas interneta resursiem.
+    </p>
+    <h2>Mana pieredze</h2>
+    <p>Pašmācības ceļā esmu jau apguvusi HTML, CSS un JavaScript programmēšanas valodas.
+      <span>Esmu iesācēja līmenī izstrādājusi dažas lapas.</span>
+      Bet vēl ir jāiegūst daudz zināšanu, lai es varētu kļūst par pilnvērtīgu Web izstrādātāju.
+    </p>
+    <!-- Saite -->
+    <a href="https://google.lv" target="_blank">Google</a>
+    <p>
+      Jau no bērnības man interesēja tehniskas ierīces, interesēja visas jaunās
+      <mark>tehnoloģijas.</mark>
+      Skolas gados gan programmēšanu nemācījos zināmu apsvērumu dēļ, bet pēc vairākiem gadiem es izlēmu mainīt savu dzīvi, un sāku interesēties par mājaslapu izstrādi.
+    </p>
+    <span>ES ESMU SPAN AR TEKSTU</span>
+    <span>ES ESMU OTRS SPAN</span>
+  <!-- Marķētais saraksts -->
+  <ul>
+    <li>Punkts Nr. 1</li>
+    <li><a href="#zane">Zane</a></li>
+    <li>Punkts Nr. 3</li>
+    <ul>
+      <li><a href="#img1">Saite uz jaunbūves foto</a></li>
+      <li>Apakšpunkts Nr. 2</li>
+    </ul>
+    <li>Punkts Nr. 3</li>
+  </ul>
+  <!-- Numurētais saraksts -->
+  <ol>
+    <li>Sarkans</li>
+    <ol>
+      <li>Tumši sarkans</li>
+      <li>Gaiši sarkans</li>
+    </ol>
+    <li>Zils</li>
+    <li>Melns</li>
+    <li>Balts</li>
+    <li><a href="#top">Uz lapas augšu</a></li>
+  </ol>
+  <img id="img1" src="img/01.png" width="1136" height="632" alt="Jaunbūve">
+</body>
+</html>
+
+<!-- HTML - Hiperteksta iezīmēšanas valoda. HTML sastāv no tags. -->
+
+<!-- Tags uzbūve: (tags, kam ir aizverošais elements): <tag_nosaukums tag atribūts="atribūta vērtība"> tag atverošais elements, iekšā ir: tag saturs
+</tag_nosaukums> tag aizverošais elements -->
+
+<!-- Piemērs: <div class="class-name" id="id-name" title="Uzpeldošais teksts">
+Web izstrādes aģentūra, kas specializējas individuālu mājaslapu izstrādē, ekomercijas risinājumu izveidē, sistēmu integrēšanā un uzturēšanā. Nepieciešams piemeklēt pareizo risinājumu vai palīdzēt ar esoša interneta veikala pārņemšanu, izstrādātājs pazudis un nav kas uzņemās iesākto darbu? WD Market komandai ir kompetence un interese Tev palīdzēt!</div> -->
+
+<!-- Tags konstrukcijai: -->
+
+<!-- <div></div> -->
+
+<!-- tag: <div></div ir visbiežāk lietojamais tag, un tam nav konkrēta mērķa, tas nepieder pie semantiskajiem tags. Tag: <div></div> pēc pārlūka noklusējuma netiek piemēroti nekādi stili. -->
+
+<!-- Jebkura web lapa sastāv no trīs galvenajām daļām: <header></header> lapas cepure, <main></main> lapas vidus, lapas saturs un <footer></footer lapas noslēgums - pagrabs. Piemērs: 
+<header></header>
+<main></main>
+<footer></footer>  -->
+      
+<!-- Visbiežāk mēs varam sastapt tieši šādu web lapas uzbūvi. Lapas uzbūvē aiz tag: <header></header> bieži tiek vēl izmantots tag: <nav></nav> kas ir paredzēts lapas navigācijas izveidei. Lapas pamata struktūra ar tag: <nav></nav> izmantošanu izskatās šādi: 
+
+<header></header>
+<nav></nav>
+<main></main>
+<footer></footer> -->
+      
+<!-- Arī tag: <header></header> netiek piemēroti nekādi noklusējuma pārlūka CSS stili.-->
+
+<!-- Tags saturam -->
+
+<!-- Tags lapas virsrakstiem: 
+
+<h1>Galvenais lapas virsraksts</h1>  -->
+
+<!-- Tag: <h1>Galvenais lapas virsraksts</h1> Lapā var būt tikai vienu reizi.
+Pārējie tags no <h2></h2> līdz: <h6></h6> var atkārtoties neierobežotas reizes -->
+
+<!-- Kas ir SEO? SEO ir: Lapas optimizācija meklēšanas sistēmā. Bet SEO sistēmai nevajadzētu ietekmēt mūsu lapu izstrādi.  -->
+
+<!-- Visi tags: <h1></h1> līdz: <h6></h6> ir semantiskie tags. Kā arī tie ir bloka tags -->
+
+<!-- <h2>Nākošais lielākais lapas virsraksts</h2>
+<h3>Mazāks virsraksts</h3>
+<h4>Vēl mazāks virsraksts</h4>
+<h5>Vēl mazāks virsraksts</h5>
+<h6>Pats mazākais virsraksts</h6> -->
+    
+<!-- Jo mazāks skaitlis, jo mazāks virsraksta izmērs. Šiem satura tags ir jau iebūvētie CSS stili, kas jau ir piemēroti pēc noklusētajiem pārlūka iestatījumiem. -->
+  
+<!-- Bet ar virsrakstu tags izmantošanu jābūt uzmanīgiem, jo mēs ar pārmērīgu to izmantošanu varam pārslogot lapu un SEO sistēmu. -->
+
+<!-- Virsrakstiem ir vajadzīgs teksts. Teksta tags:
+    
+<p>Teksts</p>  Tag: <p></p> nozīmē: Paragrāfs. Tag: <p></p> pārlūks piemēro noklusētos CSS stilus. Izmantojot tag: <p></p> mēs varam tekstu sadalīt pa paragrāfiem. -->
+
+<!-- Šiem visiem tags ir nozīme, tiem ir mērķis, atšķirībā no tag: <div></div> kam nav konkrēta mērķa - nozīmes. -->
+
+<!-- Izskatīsim piemēru, kā mēs izmantojot tikai HTML dokumentu varam izveidot kādu lapas daļas sleju. Izskatīsim to ar praktisku piemēru: -->
+
+<!-- Ja mums ir tag, kam ir kāda nozīme lapā, tad mēs to izmantojam, jo tas apzīmē kādu lapas daļu. Nebūs pareizi tag: <p></p> vietā izmantot tag: <div></div>, jo tag: <p></p> ir paredzēts konkrētam mērķim -->
+
+<!-- Ja tag apzīmē kādu lapas daļu, tad mēs to izmantojam, bet ja nē, tad mēs izmantojam tag: <div></div> -->
+
+<!-- Šie visi tags, ko mēs izskatījām iepriekš pēc to piederības bija bloka tag, bet tagad izskatīsim rindas tags: 
+
+<span></span> -->
+
+<!-- Lai labāk saprastu kā šis tag darbojās, ieliksim to tūliņ aiz mūsu teksta. Kā mēs redzam, tā platums ir tieši tik cik tā saturs, tas neizplešas pa visu lapas platumu. Skatīt augstāk. -->
+
+<!-- Kas ir bloka tags? Bloka tags ir visi tie tags, kas sākās jaunā rindā. Bloka tags vienmēr aizņem visu lapas platumu no kreisās puses uz labo pusi. -->
+
+<!-- Rindas tags aizņem tikai tik lapas platumu, cik ir tā saturs, tik cik tajā ir teksts. -->
+
+<!-- Galvenā atšķirība no bloka tags un rindas tags ir tā, ka bloka tags aizņem visu lapas platumu, bet rindas tags tikai tik cik tajā ir saturs - teksts -->
+
+<!-- Otra atšķirība ir tā, ka ja rindas tag saturēs maz teksta un mēs izmantosim vēl kādu rindas tag, tad tie nostāsies vienā rindā, viens aiz otra. Tie pāries jaunā rindā samazinot lapas platumu. Tie sekos viens aiz otra. Skatīt piemērā augstāk: -->
+
+<!-- Tag: <span></span> ir domāts, lai savā veidā atdalītu kādu tekstu no cita teksta. Izskatīsim to ar piemēru, kad mēs tag: <span></span> ievietojam uzreiz paragrāfā. Skatīt piemēru augstāk: -->
+
+<!-- Ja mēs atsevišķu teksta gabalu ieliksim iekš tag: <p></p> tad par cik tas ir bloka tag, tas sāksies jaunā rindā un aizņems visu lapas platumu, bet izmantojot tag: <span></span> mēs varam ielikt kādu papildus nelielu tekstu iekš paragrāfa -->
+
+<!-- Tag: <span></span> mēs varam izmantot vairākos gadījumos, piemēram: kā papildus elementu lapā, papildus elements lapas dekorēšanai utt. Bet pagaidām mums jāzin, ka tas ir rindas tag, kas ļauj papildināt, atdalīt konkrētu tekstu, kas ir paragrāfā. -->
+
+<!-- Tālāk, kad izmantosim CSS stilus mēs varēsim ietekmēt tag: <span></span> -->
+
+<!-- Nākošais tag, kas mums ir jāzin ir tag: <mark></mark> Ar tā palīdzību mēs varam iezīmēt tekstu dzeltenā krāsā, tā pat kā iekš Word dokumenta. Tas pēc sava principa ir tāds pats tag kā tag: <span></span>, bet tas atšķiras ar to, ka teksts, kas ir tajā iekšā, tā satura fons tiek iezīmēts ar dzeltenu krāsu. Izskatīsim to ar piemēru ieliekot šo tag iekš tag: <p></p> Skatīt augstāk. -->
+
+<!-- Bet tag: <mark></mark> tiek izmantots ļoti reti, jo mūsdienās dizainā ļoti reti kad var sastapt šādu vajadzību. Un arī, ja tāda rodas, tad dzeltena fona efektu mēs varam panākt arī izmantojot tag: <span></span> un ar CSS stilu palīdzību iekrāsot tā fonu sev vēlamā krāsā -->
+
+<!-- Tālāk seko ļoti svarīgi saraksta tags. Un tie ir: <ul></ul> un <ol></ol>, kas paredzēti sarakstu izveidošanai. Tag: <ul></ul> nozīmē unordered list, kas nozīmē nenumurēts saraksts, marķētais saraksts, bet tag: <ol></ol> nozīmē ordered list, kas nozīmē, ka saraksts tiek numurēts, nemarķētais saraksts. Iekš tag: <ul></ul> jeb tag: <ol></ol> mēs liekam tag: <li></li> kas ir saraksta elements. Tag: <ul></ul> un <ol></ol> nav patstāvīgi tag, jo tie nevar būt vieni paši, iekš tiem obligāti ir jābūt vismaz vienam tag: <li></li> Šī skaitās tag konstrukcija. Mēs varam iztēloties, ka tags: 
+
+<ul></ul> un <ol></ol> ir kā kastīte, kurā ir iekšā tag: <li></li> Kad viens tag nevar pastāvēt bez otra tag. Mēs nedrīkstam izmantot tikai tag: 
+<li></li> Kā arī mēs nedrīkstam izmantot vienus pašus <ul></ul> un <ol></ol> Saraksta tags arī ir noklusētie stili. Izskatīsim to augstāk piemērā: -->
+
+<!-- Tā pat iekš jebkura saraksta var būt ielikti vēl iekšā saraksti, iekš saraksta tag: <li></li> var būt ielikti vēl papildus saraksti izmantojot tags: <ol></ol> un <ul></ul, kur iekšā ir: <li></li> Skatīt austāk piemērā: -->
+
+<!-- Šādi veidot papildus sarakstus iekš galvenā saraksta mēs redzam vizuālas izmaiņas, jo ieliktajam sarakstam arī tiek izmantoti noklusētie CSS stili -->
+
+<!-- Šie visi bija tags, kam ir aizverošais elements, bet tagad paskatīsimies uz tags, kam ir tikai atverošais elements: -->
+
+<!-- Mums obligāti ir jāzin kādu tag izmantot, lai lapā ieliktu bildi. Un tas ir tag: <img src="" alt=""> Tam ir divi obligātie atribūti: src="", kas nozīmē ceļu, kā piekļūt pie bildes, un atribūts: alt="", kas domāts gadījumā ja bilde neielādēsies, tur norādītais teksts tiks attēlots lietotājam, lai viņš saprastu, ka šeit vajadzēja būt bildei. Izskatīsim tag: <img src="" alt=""> lietošanu ar piemēru, skatīt augstāk: -->
+
+<!-- Kādēļ tag: <img src="" alt=""> nav aizverošās daļas? Tādēļ, ka tajā mēs nevaram neko ielikt iekšā, mēs nevaram iekš tag: <img> ielikt tag: <p></p> jeb kādu citu tag. Tādēļ arī tam nav aizverošās daļas. Tas ir viendaļīgs. Un tādēļ, ka tajā nevar neko ielikt iekšā tam ir obligātie atribūti: src="" un alt="" -->
+
+<!-- Atribūts: src="" tiek izmantots lai norādītu ceļu pie attēla, attēla atrašanās vietu.  -->
+
+<!-- Atribūts: alt="" ir domāts lai: parādītu alternatīvu tekstu ar ikonu, gadījumā, ja kādu iemeslu dēļ netiks ielādēta mūsu bilde, jeb, ja tā tiks dzēsta, ja kāds to būs izdzēsis. Lai uzlabotu SEO: Uzlabotu meklēšanas sistēmu. Lai uzlabotu pieejamību, cilvēkiem kam ir vajadzīgi screen reader, lai atvieglotu screen reader darbību. Screen reader lasa neredzīgam lietotājam bildi, bet, ja bildes nav, tad screen reader nolasa alternatīvo tekstu, kas ir norādīts atribūtā: alt="" -->
+
+<!-- Atribūts alt="" pēc piederības ir gan bloka rindas tag. Kādēļ tā? Tādēļ, ka HTML dokumentā tag: <img src="" alt=""> uzvedās kā rindas tag, bet CSS dokumentā mēs tam varam piemērot bloka stilus. Tādēļ tas tiek saukts par: bloka rindas tag -->
+
+<!-- Tag: <img> ir vēl dažādi atribūti piemēram atribūts: with="", kas nosaka tag img platumu pikseļos. Kā arī atribūts: height="", kas nosaka tag img augstumu pikseļos. Bet parasti šie parametri: width un height tiek noteikti CSS stila failā. Bet mums ir jāzin, ka tāda iespēja ir arī HTML dokumentā. Izmantosim to arī mūsu piemērā: skatīt augstāk -->
+
+<!-- <!-- Svarīgākais tag, bez kura nav iedomājama neviena HTML lapa, un pateicoties kuram vispār radās HTML dokuments ir tag: <a class="" href=""></a> Saites tag ir rindas tag kam ir noslēdzošais elements. Iekš atribūta href="" mēs rakstām to saites adresi uz kurieni mēs gribam nosūtīt lietotāju. Ja mēs negribam nekur nosūtīt lietotāju, tad mēs iekš pēdiņām "" rakstām: #, kas nozīmē, ka        -->
+  
+<!--  Bet starp tag atverošo elementu un aizverošo elementu rakstām saturu, to tekstu, ko mēs gribam attēlot lapā. Tag: <a></a> arī ir noklusētie pārlūka stili, pirms saites apmeklējuma tā ir tumši zila, bet pēc apmeklējuma tā iekrāsojās tumši violetā krāsā. 
+  
+<!-- Ja mēs vēlamies, lai mūsu norādītā saite atvērtos jaunā lapā, tad mums ir jānorāda atribūts target="_blank", kas nozīmē, ka noklikšķinot uz saiti tā atvērsies jaunā logā, neaizverot galveno lapu. Bet, ja nenorādīsim atribūtu target="_blank", tad saite atvērsies tajā pašā lapā un lietotājam lai atgrieztos atpakaļ lapā jāspiež uz atpakaļ bultiņu, kas nav ērti. Atceramies, ka vērtība: target obligāti ir jāraksta priekšā liekot strīpiņu: _ pirms vārda: blank. Pareizs pieraksts izskatās šādi: _blank -->
+
+<!-- Atribūtu: target="_blank" mēs parasti norādām gadījumos, kad mēs gribam novirzīt lietotāju uz ārēju resursu, vietni, kas nav saistīta ar mūsu lapu, bet, kad gribam novirzīt lietotāju uz vietu, kas ir saistīta ar mūsu lapu, uz kādu citu galvenās lapas lapu, tad mēs atribūtu: target="_blank" neizmantojam -->
+
+<!-- Saite, tag: <a href=""></a> var novirzīt lietotāju uz kādu citu mūsu lapas daļu. Lai to izdarītu mums konkrētajam lapas elementam, uz kuru vēlamies novirzīt lietotāju ir jāizmanto atribūts: id="img1", iekš atribūta pēdiņām "" norādot tā nosaukumu, piemēram: img1, p1, title1. Pēc tam iekš tag - saites <a></a> atribūta: href="" pēdiņām ir jāieraksta: #img1. Atceramies, ka priekšā pirms id nosaukuma ir jāliek restes zīme: #, jo savādāk nekas nedarbosies -->
+
+<!-- Svarīgs noteikums, kas mums ir jāievēro: Mēs nedrīkstam klases jeb id nosaukumu sākt ar skaitli, tam vienmēr ir jāsākas ar burtu -->
+
+<!-- Bet šāda pieeja tiek izmantota reti, jo notiek pārāk strauja pāreja, ja lapa ir gara, un tas nav pārāk labi, bet šādai lietai ir vieta būt, jo mēs varam novirzīt lietotāju uz mums vajadzīgo lapas daļu. izmantojot JavaScript mēs varam izveidot plūstošu lapas ritināšanu, un tad straujās pārejas problēma tiek atrisināta -->
+
+<!-- Svarīgi: atribūta: id="" nosaukums nedrīkst atkārtoties, tam ir jābūt unikālam. Atšķirībā no klases nosaukumiem, kas var atkārtoties lapā, bet id nosaukums nedrīkst atkārtoties. Tas attiecas uz vienu konkrētu lapu, citā lapā drīkst atkārtot id nosaukumu -->
+
+<!-- Mēs redzam, ka kad mēs ar peli uzvedam uz saites mums mainās kursors no parasta default uz rociņas - pointer tipa kursoru, kas nozīmē, ka mēs varam noklikšķināt uz saites. Tas arī ir pārlūka noklusējuma stils  -->
+  
+<!-- Saitei ir arī noklusētais active stils, kad mēs nospiežam un turam nospiestu pelīti uz saites, tā iekrāsojas sarkanā krāsā. Tas arī ir pārlūka noklusētais stils -->
+
+<!-- Tag: <a></a> ir rindas tipa tag, kas ļauj mums saiti ievietot jebkurā teksta vietā -->
+
+<!-- Visi tags, kas atbild par lapas uzbūvi, struktūru ir bloka tipa tags -->
+
+<!-- Kad mēs sāksim izmantot CSS stila failu, tad mēs visus šos pārlūka noklusētos stilus varēsim ietekmēt - mainīt -->
+  
+<!-- Izskatīsim tag: <a></a> izmantošanu ar piemēru augstāk: -->
+
+<!-- Lai pārnestu kādu virsrakstu jeb tekstu - paragrāfu jaunā rindā mums ir jāizmanto tag: <br> kas atbild par pārnesi jaunā rindā. Tag: <br> pieder pie tags grupas, kam ir tikai atverošais elements. Tag: <br> ir saīsinājums no vārda: break - lauzt. Tā tiešā darbība ir kādas teksta rindas, virsraksta laušana. Izmantojam to mūsu piemērā augstāk: -->
+
+<!-- Ļoti svarīga lieta, kas ir jāievēro: Ielikšanas struktūra. Vai mēs varam iekš konkrētā tag ielikt kādu tag vai vērtību vai nevaram. Atceramies, ka iekš satura tags mēs neliekam iekšā lapas struktūras - uzbūves tags, izņemot tag: <a></a> . Iekš saites tag: <a></a> mēs varam likt lapas struktūras uzbūves tags, jo tas ir atļauts. Kādēļ tā? Tādēļ, ka kā saite var būt vesels lapas bloks -->
+
+<!-- Mēs nedrīkstam iekš saites likt citu saiti, jo nevar būt saite iekš saites  -->
+
+<!-- Iekš struktūras - lapas uzbūves tags mēs varam likt iekšā visus satura tags un citus bloka tags, citus lapas struktūras - uzbūves tags -->
+
+<!-- Tag: <main></main> lapā drīkst būt tikai vienu reizi, mēs nedrīkstam to otro reizi izmantot vienā lapā, kā arī tag: <h1></h1> . Kā arī ir ieteicams tags: <header></header> un <footer></footer> arī izmantot vienu reizi vienā lapā, bet visus pārējos tags mēs varam izmantot tik reizes cik vien gribam, cik nepieciešams. izskatīsim šādu iespējamu lapas ielikšanas struktūru iekš tag: <header></header> :
+
+<header>
+  <div>
+    <a href=""></a>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a href=""></a>
+      </li>
+      <li>
+        <a href=""></a>
+      </li>
+      <li>
+        <a href=""></a>
+      </li>
+    </ul>
+  </nav>
+</header> -->
+
+<!-- Kā ir sanācis tā, ka iekš tag: <nav></nav> mēs veidojam navigāciju izmantojot marķēto sarakstu? No vienas puses tas ir pretrunā ar semantiku, bet tas ir izskaidrojams ar to, ka: lapas menu: tag: <nav></nav> neizskatās pēc marķētā saraksta, bet tā arī ir galvenā atšķirība. Tas ir tādēļ, ka agrāk lapas tika būvētas pēc nedaudz citādas struktūras. Tā bija šāda: augšā bija maza lapas cepurīte un tad lapa dalījās divās daļās, kur no vienas puses, no kreisās puses bija lapas menu, navigācija, kas tika likta iekš tag: <aside></aside> un otrā - labajā lapas pusē bija lapas saturs. Lapas apakšā tā pat kā tagad bija pagrabs - tag: <footer></footer>. Iekš lapas kreisās puses bija saraksts, tā bija navigācija pa lapu. Iekš tag: <aside></aside> bija marķētais saraksts. Un no tiem laikiem ir pieņemts marķēto sarakstu izmantot lapas navigācijas izstrādē. Tikai tagad navigācija pa lapu tiek izvietota lapas augšā, iekš tag: <header></header> aiz lapas logotipa. un tas ir ļoti ērti, tādēļ arī tiek izmantota šāda pieeja mūsdienu lapu izstrādē -->
+
+<!-- Atgriezīsimies pie marķētā saraksta konstrukcijas: tags: <ul><li></li></ul>. Atceramies par kastītes un to satura - atvilknes piemēru. Vēl mēs varam to iztēloties kā skapi ar mantām. Ja mums visas mantas būtu izmētātas pa visu skapi, tad mums būtu grūti ko atrast, tādēļ ir atvilknes, lai mēs varētu ērti sakārtot savas mantas. Šo metodi var izmantot visas lapas izstrādē. Kad mums ir grūti kaut ko sagrupēt, sakārtot lapā kādus elementus, tad mums ir jāiztēlojas šī pati struktūra: skapja un atvilknes struktūra. Iedomājamies, kad mums ir kāda sleja, kur ir virsraksts un daudzi paragrāfi. iedomājamies, ka tā nav sleja, bet gan kāds teksts iekš lapas. Izskatīsim to ar piemēru:
+
+<main>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+  <p>Paragrāfs ar tekstu</p>
+</main>
+<footer></footer>
+
+Mums var būt situācijas, kad paragrāfi ar tekstu ir neadekvātā kārtībā. Mums tie ir itkā iebērti iekš tag: <main></main>. Iztēlojamies piemēru ar skapi ar mantām, kad mēs ņemam un visas mantas iemetam skapī, kam nav atvilknes, neērta situācija. Lai atrisinātu šo situāciju mēs visus tags: <p></p> ieliekam iekš kastītes, iekš tag: <div class="text"></div>. Un kā mēs redzam, ka brīvie tags: <p></p> ir ieslēgti kastītē, iekš tag: <div></div> -->
+
+<!-- Mums parādās lieliska iespēja, saritināt konkrētu koda gabalu, izmantojot HTML dokumenta kreisajā malā esošo bultiņu, nospiežot uz tās konkrētā koda kastīte tiek saritināta, paliek tikai atvilkne un mēs neredzam mantas, kas tajā ir iekšā. Tādā veidā mēs savā kodā varam uzturēt kārtību un viegli tajā orientēties -->
+
+<!-- Tādas lietas kā tag: <p></p> ir jācenšas klasificēt, savācot tās atvilknē iekš tag: <div></div>, jo tādejādi, ik sevišķi kamēr mēs esam iesācēji mums ir daudz vieglāk strādāt, daudz vieglāk orientēties kodā. Šādu pieeju arī varam izmantot jau tad, kad esam profesionāļi, jo tas atvieglo darbu -->
+
+<!-- Šādas pieejas izmantošana - ar skapja un atvilknes piemēru mums ļauj ļoti viegli strādāt ar dizainu, nolasīt maketu. Mēs izmantojam lapas konstrukcijas tag: <div></div> un iekš tā ieliekam satura tags. Tā ir daudz vienkāršāk strādāt. Šādu atvilkni mēs varam veidot arī priekš tag: <img src="" alt=""> -->
+
+<!-- Bet kamēr mums nav stingras saprašanas par pareizu ielikšanas struktūras veidošanu, mums ir jāizvairās no liekas atvilknes veidošanas, jo pagaidām mēs vēl nevaram pielietot pieeju, kad mēs reizē veidojam lapas struktūru ar lapas konstrukcijas tags, un reizē izmantojam satura tags. Atceramies par pirmo lapas izstrādes prioritāti - lapas stabilitāte, kad mēs iespaidojam mūsu lapu izstrādi visdažādākajos veidos un mūsu izstrāde netiek nekur sabojāta, nekur nekas netiek lauzts. Mūsu izstrādātajai lapai ir stabilai, kas nozīmē to, ka lai kā mēs to iespaidotu, tā - nelūzt, tā paliek stabila. Un liekas atvilknes izveide mums šo stabilitāti var uzlabot, jo lapas izstrādes beigās mēs varēsim optimizēt mūsu kodu padarot to pilnīgu. Bet ar šo pieeju nevajag steigties, nevajag steigties kļūt par meistaru -->
+
+<!-- Izmantojot šo skapja un atvilknes pieeju tiek izstrādāts menu - navigācija pa lapu, jo tā ir daudz vienkāršāk un ērtāk. Un tikai pašās beigās mēs iekš atvilknēm liekam iekšā mantas -->
+
+<!-- Lai mēs varētu sevi pārbaudīt cik parezi - kvalitatīvi mēs esam izstrādājuši lapas struktūru - HTML dokumentu, mums ir jāizmanto: HTML validators. Sameklējam Google un saglabājam adresi. Katru reizi, kad izstrādājam HTML dokumentu, mums tas ir jāizlaiž caur HTML validator. Tādejādi mēs sevi pārbaudām cik pareizi esam vai cik nepareizi esam izstrādājuši HTML dokumentu. Tas palīdz novērst kļūdas, piemēram: mēs neesam aizvēruši kādu tag, jeb esam nepareizi pierakstījuši tag nosaukumu, jeb nepareizā vietā izmantojuši konkrēto tag, jeb neesam ievērojuši lapas uzbūves struktūru -->
+
+<!-- Mums vienmēr ir jāaizpilda atribūts: alt="" , jo savādāk mūsu lapas izstrādes fails neizies cauri validator -->
+
+<!-- Tag: <br> mēs izmantojam tikai tādos gadījumos, kad mēs nevaram nekādi citādi pārnest tekstu jaunā rindā -->
+
+<!-- Mums izstrādājot lapu jāmācās izmantot emmet saīsinājumi, jo tas ievērojami paātrina mūsu darbu, mēs varam izveidot veselus konstrukcijas blokus ātri, izmantojot emet saīsinājumu. Kā pareizi izmantot emmet saīsinājumus uzzināsim vēlāk, jo sākumā tas būtu pārāk sarežģīti. Par emmet saīsinājumu pareizu izmantošanu var atrast emmet dokumentācijā, internetā -->
+
+<!-- Katrā jaunā mācību lekcijā mēs kopējam iepriekšējās lekcijas mapi, attīrām no nevajadzīgā satura un turpinam darbu -->
+
+<!-- Atverot mūsu izstrādāto lapu iekš dažādiem pārlūkiem, tās attēlojums var atšķirties. Kā pielāgot maksimāli lapu visiem interneta pārlūkiem mēs parunāsim vēlāk. Mēs atliksim visus iebūvētos pārlūka CSS stilus pa nullēm ar īpaši izveidota CSS faila palīdzību  -->
+
+<!-- Tag konstrukciju: <ul><li></li></ul> mums nav nepieciešamības likt vēl papildus kastītē: <div></div>, jo tas jau ir iekš kastītes: <ul></ul> -->
+
+<!-- Iekš tag: <nav></nav> mēs varam uzreiz izmantot tag: <a></a>, bet marķētā saraksta izmantošana ir ērtāka un pareizāka -->
+
+<!-- Semantika nozīmē adekvātu tags izmantošana, konkrētu tag konkrētam mērķim  -->
+
+<!-- Tag: <br> nedrīkst izmantot, lai izveidotu atstarpi tekstā, tā ir bieža iesācēju kļūda -->
+
+<!-- HTML dokumenta validēšana nav tas pats, kas semantika, jo validators pārbauda vairāk rakstību, neuzmanības kļūdas, bet semantika pārbauda atbilstošu tags izmantošanu -->
+
+<!-- Mēs varam neizmantojot CSS stilus izstrādāt kādu rakstu, izmantojot tikai zināšanas par HTML tags -->
+
+<!-- Šie ir lapas izstrādes pamati, bet kuru zināšanas strādāt tālāk nav iespējams. Atšķirība starp bloka tags un rindas tags ir jāzin pašā sākumā, kad mācāmies par Web Izstrādātāju -->

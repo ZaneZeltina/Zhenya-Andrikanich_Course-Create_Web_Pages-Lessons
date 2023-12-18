@@ -1,0 +1,620 @@
+/* 
+&display=swap
+&subset=cyrillic-ext 
+*/
+
+/* CSS STYLES RESET */
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+img {
+	vertical-align: top;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	font-size: 16px; /* noklusētā vērtība */
+}
+
+body {
+	line-height: 1;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	padding: 20px;
+}
+
+/* ------------------- */
+
+/* Ņemot vērā iepriekšējās 5tās lekcijas mājas darbu, mums nāk klāt daži CSS parametri, kas mums ir jāzin, lai korekti varētu izpildīt 5tās lekcijas mājas darbu un nākošos mājas darbus. */
+
+/* Ir neliels ieteikums: Ja mums ir situācija, kad mums RINDAS jeb BLOKA RINDAS tipa elementiem ir atstarpes, jo esam tiem noteikuši fona krāsu izmantojot CSS parametru: background. Var būt situācijas, kad mums ir nepieciešams atbrīvoties no nepatīkamajām atstarpēm, kas rodas pēc noklusējuma un vizuāli slikti izskatās. Lai to izdarītu, mums vecāka elementam ir jāizmanto CSS parametrs: font-size: ar vērtību: 0. Bet tam elementam, kuram ir noteikta fona krāsa izmantojot CSS parametru: background, mums jānosaka CSS parametrs: font-size: vērtībā norādot nepieciešamo šrifta lielumu. Tādējādi mēs atbrīvojamies no nepatīkamajām atstarpēm, un iegūstam elementu saplūšanu, to foniem vairs nav atstarpes. */
+
+/*
+Vēl viens svarīgs CSS parametrs, kas mums reizēm var noderēt ir:
+vertical-align: ;, kas izlīdzina pa lapas vertikāli RINDAS tipa un BLOKA RINDAS tipa elementus. Tam ir šādas vērtības: 
+top - elements tiek izlīdzināts pa lapas vertikāli: augšā;
+middle - elements tiek izlīdzināts pa lapas vertikāli: vidū;
+bottom - elements tiek izlīdzināts pa lapas vertikāli: apakšā;
+*/
+
+/* SVARĪGI: Elementu ārējo atstarpju sakļaušanās attiecās tikai uz: BLOKA tipa elementiem. */
+
+/* No 5tās lekcijas 5tā mājas darba, mums šeit HTML dokumentā ir struktūra: kādam bija jābūt 5tās lekcijas 5 mājas darbam. Pēc tā struktūras. Kods ir aizkomentēts - izslēgts, lai netraucētu mums šinī 6tā lekcijā */
+
+/* Šinī lekcijā mēs apgūsim jaunus CSS parametrs, kas atbild par objektu stilizāciju, piešķir tiem labāku izskatu. */
+
+/* ATCERAMIES: Ka, ja ir iespēja, tad norādām iekšējās atstarpes elementa vecākam. Kā arī, ja kādi CSS parametri atkārtojas, tad katram CSS selektoram nerakstam tos pa jaunu, bet atdalām selektoru nosaukumus ar komatu un rakstām tiem tos CSS parametrus, kas tiem ir kopīgi - vienādi. Ja kādam CSS selektoram ir atšķirīgs CSS parametrs jeb atšķirīgas konkrētu CSS parametru vērtības, tad katram CSS selektoram rakstām tās atsevišķi. */
+
+/* Ievērojam principu: NEATKĀRTOT PAŠI SEVI: Don't Repeat Yourself, kas nozīmē to, ka kur vien iespējams mēs apvienojam nosaukumus, CSS selektorus, CSS parametrus. Šādi mēs ekonomejam laiku, uzlabojam koda pārskatāmību, samazinām dotā koda atmiņas patēriņu. */
+
+/* Mums atkal HTML dokumentā ir divi objekti: BLOKA tipa objekts un RINDAS tipa objekts. Mācīsimies jaunus CSS parametrus un skatīsimies kā tie darbojās uz  BLOKA un RINDAS tipa objektiem */
+
+/* Mēs izmantojam CSS parametru: background-color: ; un redzam, ka uz BLOKA tipa elementu tas darbojās tā, ka aizpilda visu elementu, visu tā platību, bet uz RINDAS tipa elementu tas darbojās savādāk, aizpildot tikai rindas, aizpildot tikai to platību, ko aizņem konkrētā rinda. */
+
+/* Atceramies, ka visa CSS parametru grupa: width un height darbojās tikai uz BLOKA un BLOKA RINDAS tipa elementiem, bet nedarbojās uz RINDAS tipa elementiem. Ārējās un iekšējās atstarpes: margin un padding darbojās uz BLOKA un BLOKA RINDAS tipa elementiem, bet uz RINDAS tipa elementiem tie darbojas savādāk, ne tā kā mums ir nepieciešams. */
+
+/* Šīs lekcijas tēma ir: BLOKU - objektu: NOFORMĒŠANA. Iepriekšējā lekcijā mēs mācījāmies tehniskas lietas, kuri CSS parametriem uz kāda tipa objektiem darbojās un uz kāda tipa objektiem nedarbojās. Bet šinī lekcijā mēs mācīsimies par bloku - objektu vizuālo noformēšanu. */
+
+/* Iepriekšējās lekcijās mēs mācījāmies strādāt ar tekstu, noformēt tekstu, bet šeit mēs mācīsimies noformēt blokus - objektus. veselus blokus, kam ir kāds saturs, bet, kas pēc to tipa ir atšķirīgi. Viens ir BLOKA tipa bloks, bet otrs: RINDAS tipa bloks. */
+
+/* Iepriekšējās lekcijās mēs ieguvām fundamentālas zināšanas, pamatu zināšanas, obligātās zināšanas, bez kurām mēs nevaram iztikt, bet šinī lekcijā mēs iegūsim papildus zināšanas, kuras nav tik būtiskas, jo tās mēs vienmēr varam atrast, atcerēties. Bet tās arī ir svarīgas, jo mēs tās izmantosim savā ikdienas darbā. Tādēļ ir svarīgi veidot konspektus un daudz praktizēties, mēģināt, vērot kā un kas darbojās. Neparastās situācijās prast domāt, izdomāt risinājumu. */
+
+/* Pirmais CSS parametrs, ko mēs šodien mācīsimies ir: border: ; Tas ir universāls CSS parametrs, kas ļauj mums vienlaicīgi noteikt objektam apmalas - robežas līnijas biezumu: norādot to pikseļos, apmales - robežas līnijas stilu, un apmales - robežas līnijas krāsu. */
+
+/* Apmales - robežas līnijas stilu vērtības var būt šādas:
+
+solid - apmales, robežas līnijas stils: vienmērīga līnija;
+dotted - apmales, robežas līnijas stils: punktiņi;
+dashed - apmales, robežas līnijas stils: svītras;
+double - apmales, robežas līnijas stils: divas līnijas; */
+
+/* CSS parametrs: border: sastāv no trīs vērtībām. */
+
+/* Pareizs CSS parametra: border: pieraksts, sintakse ir šāds:
+border: robežas_līnijas_biezums robežas_līnijas_stils robežas_līnijas_krāsa; 
+Mēs CSS parametram: border: norādām trīs vērtības katru atdalot ar atstarpi, beigās liekot ; */
+
+/* CSS parametra: border: robežas līnijas biezumu, stilu un krāsu mēs varam mainīt, pielāgot katram konkrētajam uzdevumam - mērķim. */
+
+/* Populārākais CSS parametra: border: izmantošanas veids ir šāds:
+border: 1px solid #000; */
+
+/* CSS parametrs: border: ; tiek ierēķināts kopējā objekta platībā, jo mums ir noteikts CSS parametrs iekš CSS STYLES RESET box-sizing: border-box; kas nodrošina to, ka iekšējās atstarpes: padding un border tiek ierēķināts objekta noteiktajā platumā. Ja mēs noteiksim objektam noteiktu platumu, tad tajā tiks iekļautas CSS parametru: padding un border vērtības. */
+
+/* CSS parametra: border: ; darbība un uzvedība ir tieši tāda pati kā CSS parametram: padding: ; tas grūž objekta saturu uz iekšu. */
+
+/* CSS parametrā: border: mēs varam norādīt krāsas jebkurā to sistēmā: heksadecimālajā, rgb, rgba, kā arī mēs kā krāsu varam izmantot gradientu, bet par to mēs mācīsimies vēlāk. */
+
+/* Ja mēs vēlamies CSS parametram: border: ; noteikt caurspīdīgu krāsu, tad krāsas vietā mēs varam rakstīt: transparent; kas nozīmē, ka mūsu apmales - robežas līnija kļūs caurspīdīga. */
+
+/* Lai noņemtu kādam objektam apmali - robežas līniju, mums ir jāizmanto šāds CSS parametra: border pieraksts: 
+border: none;
+Mēs panākam to, ka mūsu objektam pazūd apmales - robežas līnija. */
+
+/* Izskatīsim nepareizu CSS parametra: border pielietošanas piemēru, kuru izmanto daudzi iesācēji. Lai redzētu kā tas darbojās, izveidojam HTML dokumentā saiti, un izmantojot CSS parametrus to stilizējam. Mēs vēlamies izveidot pogu, kurai ir apmale - robežas līnija, vēlamies, lai tad, kad mēs ar peli uzvedam uz saites, tā pazūd. Un bieži iesācēji pieļauj sekojošu kļūdu: */
+
+/*
+.link {
+	display: inline-block;
+	background-color:#ff7f50;
+	color: #fff;
+	padding: 10px 25px;
+	margin: 20px 0px;
+	border: 2px solid #000;
+}
+*/
+
+/* Šeit mēs izveidojām izmantojot HTML dokumentu un CSS parametrus standarta pogu */
+
+/* ATCERAMIES: ka cik vien iespējams mēs ārējās atstarpes norādām elementam: pa labi un elementam: uz leju. Bet šis ir mācību piemērs, mēs pieļaujam izņēmumu. Šādās izņēmuma situācijās mēs drīkstam objektam norādīt ārējo atstarpi augšā. */
+
+/* 
+.link:hover {
+	border: none;
+}
+
+Šādu kļūdu pieļauj daudzi iesācēji, noņemot no pogas apmales - robežas līniju, kad mēs uz tās uzvedam ar peli. Bet tas ir nepareizi, jo tiek ietekmēts vis lapas saturs un izskats. Mēs iegūstam to, ka lapa, visi objekti, kas ir lapā raustās, jo pie uzvešanas ar peli, mainās pogas izmērs, jo tiek noņemta apmale - robežas līnija. Un tas ir nepareizi. 
+Ja mēs vēlamies, lai pie uzvešanas ar peli uz pogas pazūd tās apmale - robežas līnija, tad mums jānorāda CSS selektors: .link:hover un iekš tā {} iekavām jānorāda CSS parametrs: border: 2px solid transparent;
+Un mēs iegūsim vēlamo rezultātu, tikai izdarīsim visu pareizi un netiks sabojāta visa lapa, netiks sabojāts lapas izskats un mums nekas neraustīsies. */
+
+/* Pareizs šādas situācijas risinājums: */
+
+/*
+.link:hover {
+	border: 2px solid transparent;
+}
+*/
+
+/* It kā vienkārša situācija, bet daudzi iesācēji pieļauj šādas banālas kļūdas, jo neņem vērā, ka CSS parametrs: border: ; darbojās - uzvedās tieši tā pat kā CSS parametrs: padding: ; Un tādēļ neņemot vērā šos būtiskos darbības principus, mēs varam sabojāt visu lapu. */
+
+/* Mēs panākam vēlamo rezultātu nenoņemot apmales - robežas līniju, bet padarām to caurspīdīgu. Tā nekur nepazūd. */
+
+/* Šis piemērs mums tika dots ārpus šīs lekcijas tēmas, tādēļ, lai tas mums tālāk netraucētu, mēs tos izslēdzam - aizkomentējot. */
+
+/*
+.block {
+	background-color: #77608d;
+	border: 3px solid #ff0000;
+	border: 5px dotted #000;
+	border: 5px dashed #000;
+	border: 5px double #000;
+	color: #fff;
+	padding: 10px;
+	margin: 0px 0px 20px 0px;
+	width: 700px;
+}
+*/
+
+/*
+.inline {
+	background-color: #7a956b;
+	display: inline-block;
+	border: 3px solid #000;
+	padding: 10px;
+	width: 700px;
+}
+*/
+
+/* Ja mēs izmantojam CSS parametru: border: ; RINDAS tipa elementiem, tad tas darbojās tieši tā pat kā iekšējās atstarpes: padding, mēs redzam, ka CSS parametrs: border: ; tiek piemērots katrai rindai. Tas nav paredzēts izmantošanai RINDAS tipa elementiem. Lai redzētu kā izskatās RINDAS tipa bloks, kam tiek pielietots CSS parametrs: border: ; izmantojam to mūsu RINDAS tipa blokam: .inline. */
+
+/* Mēs redzam, ka mēs iegūstam ne to rezultātu ko vēlējāmies, mēs redzam, ka CSS parametrs: border: ; piemērojās katrai teksta rindai, kā rezultātā rodas nevēlams efekts. Tādēļ atceramies: ka ar RINDAS tipa blokiem CSS parametrs: border: ; NEDARBOJAS. */
+
+/* Īsi sakot: CSS parametrs: border: ; RINDAS tipa blokam darbojas uz katru tā rindu. */
+
+/* Paskatīsimies, kā CSS parametrs: border: ; darbojās uz saiti. Atceramies, ka saite arī ir RINDAS tipa elements. */
+
+/* 
+.text__link { 
+  border: 2px solid #000;
+}
+*/
+
+/* Mēs redzam, ka izmantojot saitei, kas ir RINDAS tipa elements CSS parametru: border: ; mēs iegūstam nevēlamu rezultātu. Tādēļ izdarām loģisku secinājumu: ka mēs NEVARAM izmantot CSS parametru: border: ; RINDAS tipa elementiem. */
+
+/* Ja mums ir nepieciešams izmantot CSS parametru: border RINDAS tipa elementam, tad mēs jau zinām, ka mēs to varam pārvērst par BLOKA RINDAS tipa elementu, izmantojot CSS parametru: display: inline-block; Mēs rezultātā iegūstam to rezultātu ko vēlējamies, jo CSS parametrs: border: ; darbojas ar BLOKA RINDAS tipa elementiem. */
+
+/* CSS parametram: border: ; ir četras izmantošanas iespējas. Tās ir:
+
+border-top: apmales - robežas līnija elementam: augšā;
+border-bottom: apmales - robežas līnija elementam: apakšā;
+border-left: apmales - robežas līnija elementam: pa kreisi; 
+border-right: apmales - robežas līnija elementam: pa labi;
+
+Iekš katra šī CSS parametra vērtībām mēs varam izmantot visas tās pašas iespējas, ko izmantojām kopējam CSS parametram: border; */
+
+/* ATCERAMIES: ka CSS parametrs: border, darbosies tikai uz BLOKA un BLOKA RINDAS tipa elementiem, tādēļ, ja mēs to gribam izmantot RINDAS tipa elementam, mums tas ir jāpārvērš par BLOKA vai BLOKA RINDAS tipa elementu izmantojot CSS parametru: display: vērtībā norādot: block vai inline-block; */
+
+/* Izskatīsim pareizu CSS parametra: border-bottom: pielietošanu situācijā, kad mums kādai saitei vajag noteikt apakšā punktotu apmali - robežas līniju. */
+
+/*
+.text__link {
+	display: inline-block;
+	color:#a52a2a;
+	border-bottom: 3px dotted #555;
+}
+*/
+
+/* CSS parametram: border: ; ir viena īpatnība: tas manto sava vecāka elementa krāsu. Kā rezultātā, ja mums uzdevumā ir nepieciešams, lai apmales - robežas līnija būtu tādā pašā krāsā kā elements, kuram mēs to piemērojam, mēs iekš CSS parametra: border: vērtībām varam nenorādīt krāsu. Tādejādi mēs ietaupām laiku, un atmiņas vietu ko aizņem kods. No vienas puses tas nav saprotams un šāda darbība ir neloģiska, bet no otras puses reizēm, attiecīgā uzdevumā mēs varam izmantot šo CSS parametra: border: ; īpatnību. */
+
+/* Mēs secinām to, ka CSS parametrs: border: ; manto krāsu no sava vecāka. */
+
+/* Izmantojot šo īpatnību praksē, pareizs pieraksts konkrētajā situācijā būtu šāds: */
+
+/*
+.text__link {
+	display: inline-block;
+	color:#a52a2a;
+	border-bottom: 3px dotted;
+}
+*/
+
+/* Šādu pieeju mēs varam izmantot situācijā, kad mums ir nepieciešams, lai tad, kad mēs uz saites uzvedam peli, mainītos saites krāsa un arī apakšējās apmales - robežas līnijas krāsa. Lai to panāktu, mums zem iepriekšējā piemēra jāpievieno šāds pieraksts: */
+
+/*
+.text__link:hover {
+	color:#8a2be2;
+}
+*/
+
+/* Mēs iegūstam vēlamo rezultātu: kad uzvedam uz saiti peli, mainās gan saites krāsa, gan apakšējās apmales - robežas līnijas krāsa */
+
+/* Ievērojot visus CSS parametra: border: ; izmantošanas nosacījumus, mēs redzam, ka esam ieguvuši to rezultātu ko vēlējāmies, mums ir saite, kurai apakšā ir apmale - robežas punktota līnija. */
+
+/* Vēl viens ieteikums kā mēs varam taupīt laiku un patērējamo koda atmiņu ir situācija, kad mums ir nepieciešama apmale - robežas līnija elementam trīs pusēs, bet ceturtajā pusē mums nevajag apmali - robežas līniju. Tā vietā, lai trīs reizes rakstītu CSS parametru: border: katru reizi norādot vajadzīgās puses, kas izskatītos šādi: 
+
+border-top: 2px solid #000;
+border-right: 2px solid #000;
+border-bottom: 2px solid #000;
+
+Mēs varam izmantot šādu pierakstu: 
+border: 2px solid #000;
+border-left: none;
+
+Bet ievērojam, ka šādu pieeju mēs varam izmantot TIKAI tad, ja ir zināms, ka apmales - robežas līnijas NETIKS mainītas. Jo, ja ir paredzēts, ka tās tiks mainītas, tad pareizi ir izmantot garo pierakstu, kur norādām katrai elementa pusei CSS parametru: border. */
+
+/* Visbiežāk mēs CSS parametru: border: apmales - robežas līnijas biezumu norādām pikseļos: px; Jo situācija, kad apmales - robežas līnijas biezums jānorāda citā CSS mērvienībā būs ļoti reti. */
+
+/* CSS parametram: border: ; ir vēl daudzas citas izmantošanas iespējas, bet reālajā dzīvē - projektos tās tiek izmantotas ĻOTI reti. Tādēļ mēs mācamies tikai tās, kas mums ir vajadzīgas. */
+
+/* Mācāmies nākošos priekš mums jaunus CSS parametrus. Lai mums netraucētu iepriekšējie aktīvie kodi, mēs tos izslēdzam, izslēdzam arī HTML dokumentā izveidoto saiti - aizkomentējot aktīvo kodu. */
+
+/* Nākošais CSS parametrs ir kā radinieks CSS parametram: border: ; un tas ir: outline: ; kas ir universāls CSS parametrs, kura vērtībās vienlaicīgi tiek norādīts apmales - robežas līnijas biezums stils un krāsa. Sintakses pieraksts ir tieši tāds pats kā cSS parametram: border: ; Galvenā atšķirība ir tā: ka mēs CSS parametru: outline: NEVARAM izmantot katrai elementa pusei atsevišķi. Tas tiek izmantots uzreiz no VISĀM elementa pusēm. CSS parametrs: outline: ; NEIETEKMĒ objekta - bloka stāvokli un tā platumu. */
+
+/* ATCERAMIES: ka CSS parametrs: outline: ir ĀRĒJĀ apmale - robežas līnija. Tā iet apkārt blokam - objektam: ārpus tā robežām. */
+
+/* CSS parametram: outline: NAV ķermeņa, jo tas nekādi neietekmē elementu, tas ir kā spoks. Tā nekādi NEIETEKMĒ citus lapas elementus. */
+
+/* Izskatām CSS parametra: outline: ;  izmantošanu abiem blokiem, kas ir dažāda tipa */
+
+/*
+.block {
+	background-color: #77608d;
+	width: 70%;
+	outline: 3px solid #ff0000;
+	margin: 0px 0px 20px 0px;
+	padding: 10px;
+}
+
+.inline {
+	background-color: #7a956b;
+	outline: 3px solid #000;
+}
+*/
+
+/* Lai iegūtu uzskatāmāku rezultātu izmantojam BLOKA tipa blokam mums jau zināmos CSS parametrs, par kuriem mēs zinām, ka tie DARBOJĀS uz BLOKA tipa elementiem. */
+
+/* Mēs redzam, ka CSS parametrs: outline: ; RINDAS tipa blokam darbojās savādāk, nekā BLOKA tipa blokam. Bet CSS parametrs: outline: ; DARBOJĀS arī ar RINDAS tipa elementiem. */
+
+/* Paskatīsimies, kā CSS parametrs: outline: ; darbojās kad mums ir vairāki BLOKA tipa elementi. izskatām to ar praktisku piemēru, pārvēršot mūsu RINDAS tipa bloku par BLOKA tipa bloku. Lai redzētu kā tas darbojās mums iepriekšējais aktīvais kods jāizslēdz. */
+
+/*
+.block {
+	background-color: #77608d;
+	width: 70%;
+	outline: 5px solid #000;
+	padding: 10px;
+}
+
+.inline {
+	display: block;
+	background-color: #7a956b;
+}
+*/
+
+/* Rezultātā mēs redzam, ka ĀRĒJĀ apmales - robežas līnija aizsedz mūsu otro nākošo bloku. Nākošais bloks ir it kā paslēpies apakšā zem pirmā bloka, kam ir noteikts CSS parametrs: outline: ; Redzam, ka ĀRĒJĀ apmales - robežas līnija nav atgrūdusi nākošo bloku. Apakšējais bloks tā pat paliek piespiest klāt augšējam blokam. Tas tādēļ, ka CSS parametram: outline : ; NAV ķermeņa. */
+
+/* CSS parametrs: outline: ; ir TIKAI kā dekors kādam objektam, kā dekoratīva lentīte apkārt elementam. */
+
+/* Izslēdzam šo piemēru un ieslēdzam iepriekšējo, lai labāk saprastu kā CSS parametrs: outline darbojās ar RINDAS tipa bloku. */
+
+/* Mēs redzam, ka CSS parametrs: outline: ; RINDAS tipa blokam iet apkārt pa tā saturu, apkārt tā rindām, pa to platību cik aizņem katra rinda. Bet atšķirībā no CSS parametra: border: ; kas iet apkārt katrai rindai, CSS parametrs: outline: ; iet apkārt visai tai platībai, ko aizņem rindas. */
+
+/* Atšķirībā no tā piemēra, kur pogai izmantojām: hover efektu ar CSS parametra: border: ; izmantošanu, un kur daudzi iesācēji pieļauj kļūdu izmantojot CSS parametru: border: none, tad šeit mēs VARAM izmantot šādu pieeju, un mums nebūs kļūdas, nekas lapā neraustīsies, jo ATCERAMIES: CSS parametrs: outline: ; NEIETEKMĒ citus lapas elementus. Lai labāk saprastu kā CSS parametrs: outline darbojās, ja to izmantojam iekš: hover, pierakstām šādu piemēru: */
+
+/*
+.block {
+	background-color: #77608d;
+	width: 70%;
+	outline: 3px solid #ff0000;
+	margin: 0px 0px 20px 0px;
+	padding: 10px;
+}
+
+.block:hover {
+	outline: none;
+}
+
+.inline {
+	background-color: #7a956b;
+	outline: 3px solid #000;
+}
+*/
+
+/* Un mēs redzam, ka šāda pieeja NEKĀDI neietekmē lapas darbību, mums nav nekādi traucējumi, bet tai pašā laikā vis darbojās, mēs panākam vēlamo rezultātu. Tas tādēļ, ka CSS parametram: outline: ; NAV fiziska ķermeņa, tas ir tikai kā dekors. */
+
+/* Kādās situācijās tiek izmantots CSS parametrs: outline? Un priekš kam tas ir vajadzīgs? Mēs to varam izmantot kā:hover efektu kādam elementam, netraucējot lapas darbību un NEIETEKMĒJOT citus lapas elementus. Mēs to izmantojam tad, kad mums ir nepieciešams dekorēt kādu elementu. */
+
+/* CSS parametrs pilda svarīgu uzdevumu. Tas nodrošina pieejamību. Lai mēs to varētu saprast kā tieši tas pilda šo uzdevumu, izskatām tā izmantošanu saitei. Ieslēdzam iekš HTML dokumenta abas saites. */
+
+/* Kas ir pieejamība un kādēļ tā ir tik svarīga? Iedomājamies situāciju, kad mums nav peles, datora peles. Kā mēs varam pārvietoties pa lapu. Mēs to varam izmantojot tabulāciju, izmantojot taustiņu: TAB uz klaviatūras. Pārvietojoties pa lapu izmantojot taustiņu: TAB, tiek izdalīti, parādīti tikai tie objekti, kuriem mēs esam norādījuši iekš hTML dokumenta speciālu atribūtu, par kuru mēs mācīsimies vēlāk. Bet, ja šis atribūts nav norādīts, tad mums izmantojot TAB tiek izdalīti tikai tie elementi, uz kuriem mēs varam nospiest, piemēram; saites, pogas, kuri mūs kaut kur novirza, kad mēs uz tiem nospiežam. ja mums nav datora peles, tad mēs izmantojam TAB un ENTER, un mums atverās konkrētā saite uz kuras mēs atrodamies izmantojot TAB. lai pārietu uz nākošo elementu, kas kaut kur novirza, piemēram: uz nākošo lapas saiti, mēs nospiežam vēlreiz TAB. */
+
+/* Kad mēs izmantojam tabulāciju: TAB, lai pārvietotos pa lapu, interaktīvie elementi, ar kuriem mēs varam mijiedarboties: saites un pogas tiek izdalītas: tiem apkārt ir melna līnija, kas tos tā kā izdala, lai mēs redzētu tieši kurā lapas vietā mēs atrodamies. Un tas ko mēs redzam elementam apkārt, šo melno kvadrāta tipa ĀRĒJO - apmales robežu ir CSS parametrs: outline: ; kas pēc noklusējuma tiek piemērots interaktīviem lapas elementiem, kad mēs pa tiem pārvietojamies izmantojot tabulāciju: TAB. */
+
+/* Šis stāvoklis, kad lapas interaktīvajiem elementiem parādās: ĀRĒJĀ apmales - robežas līnija: CSS parametrs: outline, ja mēs pārvietojamies pa lapu ar TAB, saucās: fokuss. Kad konkrētais elements ir fokusā. Tas ir vēl viens elementa stāvoklis, līdzīgs stāvoklim: hover. Par šiem un vēl citiem elementu stāvokļiem un to izmantošanu iekš CSS mēs mācīsimies vēlāk. */
+
+/* ATCERAMIES: ka izmantojot tabulāciju, lai pārvietotos pa lapas interaktīvajiem elementiem, tie maina savu stāvokli uz: focus. */
+
+/* Izmantojot tabulāciju lai pārvietotos pa lapas interaktīvajiem elementiem notiek DIVAS  būtiskas lietas: MAINĀS elementu stāvoklis uz: focus, un elementiem  TIEK piemērots CSS parametrs: outline: ; */
+
+/*  Katram interaktīvam lapas elementam ir noteikti tā iespējamie stāvokļi, kuriem ir pievienoti noklusētie CSS parametri. Šos noklusētos elementu stāvokļu CSS parametrus, kad pārvietojamies pa lapas interaktīvajiem elementiem izmantojot tabulāciju: TAB, piemēram saitei vai pogai mēs varam mainīt, noņemt, kā arī pievienot citus CSS parametrus. */
+
+/* Izskatīsim šo visu ar praktisku piemēru, izmantojot mūsu saiti, un mainot tās noklusētos CSS parametrus, kas tiek piemēroti, kad mainās elementu stāvoklis izmantojot TAB. */
+
+/*
+.text__link {
+	outline: none;
+}
+*/
+
+/* Mēs redzam, ka tagad, kad pārvietojamies pa lapu izmantojot tabulāciju, izmantojot taustiņu: TAB, mūsu saitei vairs nav ĀRĒJĀ apmales - robežas līnija. Mēs redzam, ka esam noņēmuši CSS noklusēto parametru: outline; */
+
+/* Katrs interneta pārlūks, kad izmantojam TAB lai pārvietotos pa lapas interaktīvajiem elementiem, tiem piemēro dažādus noklusētos CSS parametrus, tie atšķiras pēc to izskata. Un ļoti bieži reālajā darbā, mūsu klienti vēlās, lai tad, kad tiek izmantots: TAB lai pārvietos pa lapas interaktīvajiem elementiem šie noklusētie CSS parametri, piemēram: outline: ; saitei neparādītos. Tādēļ mums ir jāzin, ka mēs to varam noņemt. Bet tam ir savs MĪNUSS: lietotājs vairs neredz, kurā lapas vietā viņš atrodas, un ka piemēram: uz saites var nospiest, lai pārietu uz citu vietu. Un šādi tiek ierobežota lapas PIEEJAMĪBA. Bet vis ir atkarīgs no klienta, mums ir JĀIZPILDA tas, ko vēlās - prasa KLIENTS. */
+
+/* ATCERAMIES: ka tabulācija darbojas tikai uz tiem lapas elementiem, kuri mūs kaut kur novirza, uz kuriem mēs varam nospiest vai izmantot taustiņu ENTER, lai pārietu uz konkrētu vietu. Lai tā darbotos ar citiem lapas elementiem, kas pēc noklusējuma mūs nekur nenovirza un uz kuriem mēs nevaram nospiest: mums tiem ir jāizmanto speciāls hTML tag atribūts. */
+
+/* Agrāk šis noklusētais CSS parametrs: outline: ; kad izmantojam tabulāciju, tika noņemts visiem interaktīvajiem lapas elementiem, to norādot iekš CSS STYLE RESET. */ 
+
+/* Bet vēl agrāk, kad bija datori, lapas, bet nebija vēl datora peles, pa lapu pārvietojās tikai izmantojot tabulāciju. Un tieši tādēļ arī tika noteikts šis noklusējuma CSS parametrs lapas interaktīvajiem elementiem. */
+
+/* Laiki mainās, mainās arī lapas izstrādes principi, un tagad ir SVARĪGI: lai tiktu nodrošināta lapas PIEEJAMĪBA visiem cilvēkiem, arī cilvēkiem ar ierobežojumiem, kas var lapu izmantot - lietot tikai ar tabulācijas palīdzību. Tādēļ tagad šis noklusētais CSS parametrs: outline: ; tiek noņemts tikai tad, ja tāda ir KLIENTA prasība. */
+
+/* Vēlāk, kad mēs mācīsimies par CSS pseidoklasēm un to izmantošanu, pie kurām pieder arī visi elementu iespējamie stāvokļi: hover, active, focus. Tie visi ir CSS pseidoklases. */
+
+/* Šī pārvietošanās pa lapu, izmantojot tabulāciju arī ir lapas PIEEJAMĪBA. Un mums izstrādājot jebkuru lapu ir jānodrošina lapas PIEEJAMĪBA. */
+
+/* Lai mums šis augšējais piemērs netraucētu iepriekšējam un nākošajiem CSS parametriem, kurus mēs apgūsim, mēs šo piemēru izslēdzam. Izslēdzam arī HTML dokumentā saites. */
+
+/* Nākošais CSS parametrs ar kuru mēs iepazīstamies ir: 
+border-radius: ; kas norāda BLOKA tipa jeb BLOKA RINDAS tipa elementam tā malu noapaļošanās rādiusu. Mēs to varam norādīt dažādās CSS parametru mērvienībās: pikseļos, procentos: px, % un vēl citās, kuras mēs apgūsim vēlāk. Ja mums ir nepieciešams, lai elements iegūst apaļu formu, lai tas kļūst par apli, tad izmantojam šādu CSS parametra: border-radius: ; pierakstu: 
+
+border-radius: 50%;
+
+Mēs redzam, ka izmantojot to mūsu blokam, kas ir BLOKA tipa elements, tas kļūst par apli. */
+
+/* Īsi sakot, par CSS parametru: border-radius: Tas ir domāts lai NOAPAĻOTU elementa malas. */
+
+/* Lai mēs labāk saprastu kā darbojās CSS parametrs: border-radius, izmantojam to koda gabalu, kur tika izmantots CSS parametrs: border: ; abiem blokiem, kas ir dažāda tipa. */
+
+/*
+.block {
+	background-color: #77608d;
+	width: 70%;
+	font-size: 20px;
+	border: 5px solid #ff0000;
+	border-radius: 30px 0px;
+	margin: 0px 0px 20px 0px;
+	padding: 20px;
+}
+*/
+
+/* Izmantojot CSS parametru: border-radius: 30px; mēs redzam, ka mūsu BLOKA tipa elementam tā malas ir noapaļojušās pa 30px rādiusu. */
+
+/* Bet mēs varam izmantot CSS parametru: border-radius arī bez CSS parametra: border: ; Jo šos abus CSS parametrus var izmantot arī atsevišķi. Šinī piemērā mēs izmantojām abus tikai tādēļ, lai labāk saprastu kā darbojās CSS parametrs: border-radius: ; */ 
+
+/* Aizkomentējot - izslēdzot CSS parametru: border: ; un atstājot CSS parametru: border-radius: 20px; mēs redzam, ka mūsu bloka malas ir noapaļojušās pa 20px rādiusu. */
+
+.inline {
+	background-color: #7a956b;
+	/* border: 5px solid #000; */
+	font-size: 20px;
+	/* border-radius: 20px; */
+}
+
+/* Mēs redzam, ka ar RINDAS tipa elementiem CSS parametri: border: ; un border-radius: ; nestrādā tā kā mēs to gribētu, jo tie strādā ar RINDAS tipa bloka saturu, tie tiek piemēroti saturam, nevis visam blokam. Kā mūsu piemērā, tie tiek piemēroti katrai teksta rindiņai. */
+
+/* CSS parametra sintakse ir tāda pati kā CSS parametriem: padding un margin, jo mēs varam norādīt iekš cSS parametra: border-radius: vienu vērtību, kas nozīmē to, ka katram elementa stūrim būs vienāds noapaļošanas rādius. */
+
+/* Iekš CSS parametra: border-radius: vērtībām mēs varam norādīt arī atsevišķas vērtības, katram elementa stūrim norādot atšķirīgu noapaļošanās rādiusu. Vērtību piemērošana elementam darbojas pulksteņa rādītāja virzienā, kas nozīmē, ka tā sākas ar elementa augšējo kreiso stūri, un beidzās ar elementa apakšējo kreiso stūri. */
+
+/* Ja mēs vēlamies, lai CSS parametrs: border-radius: ; darbotos tikai uz diviem elementa stūriem, tad izmantojam sekojošu pierakstu: 
+border-radius: 20px 0px 20px 0px;
+Rezultātā: mēs iegūstam, ka elementa augšējais kreisais stūris ir noapaļots un elementa apakšējais labais stūris. Atlikušie divi elementa stūri ir palikuši nemainīgi, jo mēs tiem izmantojām 0px vērtību. */
+
+/* Šo CSS parametra: border-radius: ; katra stūra noapaļošanās rādiusa pierakstu mēs varam saīsināt rakstot šādi:
+border-radius: 20px 0px;
+Mēs iegūsim to pašu rezultātu. Izmantojam šādu pierakstu mūsu BLOKA tipa elementam, un mēs redzam, ka elementa: augšējais kreisais un apakšējais labais stūris ir noapaļoti 20px rādiusā, bet atlikušie divi stūri ir palikuši nemainīgi. Izmantojot šādu pieeju mēs varam saīsināt pierakstīto kodu. */
+
+/* Ērtāk un pareizāk ir izmantot garo CSS parametra: border-radius vērtību pierakstu, jo tad mēs jebkurā brīdī varam kādu stūra noapaļošanās rādiusa vērtību mainīt. Un kods kļūst saprotamāks, kura vērtība par kuru stūri atbild. Bet mēs varam izvēlēties, kuru pieraksta veidu izmantot, jo nav stingri noteikts, ka jāizmanto viens jeb otrs. */
+
+/* Secinām, ka CSS parametri: border: ; un border-radius: ; strādā tikai ar BLOKA un BLOKA RINDAS tipa elementiem. */
+
+/* ATCERAMIES: CSS parametri: border: ; un border-radius: ; strādā tikai ar BLOKA un BLOKA RINDAS tipa elementiem. Ar RINDAS tipa elementiem tie strādā NEADEKVĀTI. */
+
+/* CSS parametram: border-radius: ; ir vēl viena izmantošanas iespēja. Mēs aiz norādītajām vērtībām, varam izmantot zīmi / un norādīt vēl citas vērtības, kas nozīmē, ka mēs nosakām elementa stūru noapaļošanās rādiusu jau noteiktajam elementu stūru noapaļošanās rādiusam. Šāda pieeja nav gluži loģiska un nav viegli saprotama. Bet izmantojot šādu pieeju - pierakstu var iegūt ļoti interesantu rezultātu. Šādas pieejas pieraksts izskatās šādi: 
+
+border-radius: 20px 50px 10px 5px / 50px 10px 5px 50px; 
+*/
+
+/* Šādas pieejas izmantošanā mēs varam iegūt ļoti interesantu, nestandarta  rezultātu. Protams vērtības mēs varam norādīt atkarībā no tā kādu rezultātu vēlamies iegūt, atkarībā no konkrētā uzdevuma. */
+
+/* Lai mums nebūtu katru reizi saskaroties ar uzdevumu, kur ir nepieciešams noapaļot elementa stūrus, mums ir pieejams online instruments, ar kura palīdzību mēs varam ģenerēt mums vajadzīgo elementa stūru noapaļošanās rādiusu un iegūt jau gatavu kodu, kur ir jau gatavas CSS parametra: border-radius: ; vērtības, ko atliek tikai nokopēt un pielietot mūsu uzdevumā. */
+
+/* Šī online pieejamais elementa stūru noapaļošanās rādiusa ģeneratora nosaukums ir: FANCY BORDER RADIUS. Saglabājam to savās grāmatzīmēs, jo tas mums būs noderīgs. */
+
+/* ATCERAMIES, ka iekš CSS parametra: border-radius: ; mēs kā mērvienību vērtībām izmantojam pikseļus: px. */
+
+/* Kad mēs apgūstam fundamentālas - pamatu zināšanas, tad NAV ieteicams izmantot kādus online rīkus, bet par cik šodienas zināšanas pieder pie papildus zināšanām, tad šeit tieši ir IETEICAMS izmantot online rīkus, jo tas atvieglo un paātrina mūsu darbu. */
+
+/* Fundamentālās - pamatu zināšanas mums ir jāzin pašiem - no galvas, bez palīdzības, bet papildus zināšanas mums ir vajadzīgas tikai tādā līmenī, lai mēs zinātu kur meklēt attiecīgo rīku, informāciju, un kā to pareizi izmantot attiecīgajā uzdevumā. */
+
+/* Bet šādi gadījumi, kad mums būs vajadzīgs iegūt unikālu bloka stūru noapaļošanās rādiusu reālajā darbā būs reti, jo parasti tiek izmantots klasisks CSS parametra: border-radius: ; pieraksts, līdzīgi kā mūsu piemērā, kurā norādītas nepieciešamās vērtības konkrētam uzdevumam. */
+
+/* Šis kurs par Web Lapu Izstrādi ir balstīts uz to, lai mēs iemācītos tikai to, ar ko saskarsimies reālajā dzīvē - darbā, projektos. Mums nav jāzin tās lietas, ko izmantosim ļoti reti, jeb, kas vispār nav vajadzīgas. Bet mums ir vispārīgi jāzin kādas vēl ir iespējas, jo, ja realitātē gadīsies kāds projekts kur būs jāpielieto tas ko mēs nezinām, mums jāzin kur sameklēt vajadzīgo informāciju, rīku un jāprot to pareizi pielietot. */
+
+/* izskatām CSS parametra: border-radius: 50%; izmantošanu - pierakstu, lai iegūtu apli. Pielietojam to mūsu BLOKA tipa elementam. */
+
+/*
+.block {
+	background-color: #77608d;
+	width: 220px;
+	height: 220px;
+	padding: 20px;
+	margin: 0px 0px 20px 0px;
+	border: 5px solid #ff0000;
+	border-radius: 50%;
+	overflow: hidden;
+}
+*/
+
+/* Mēs izmantojam dažādus jau mums zināmus CSS parametrus, izmantojam CSS parametru: border-radius: ; un rezultātā iegūstam ideāli apaļu apli ar sarkanu apmales - robežas līniju, un iekšā mums ir teksts, kas nav redzams ārpus apļa robežām, jo izmantojam CSS parametru: overflow: hidden. */
+
+/* Ievērojam, lai iegūtu apli, mums ir jāievēro nosacījums, ka konkrētajam elementam sākotnēji ir jābūt KVADRĀTAM: tā platumam jābūt vienādam ar tā augstumu. Dotajā situācijā CSS parametriem: width: ; un height: ; jābūt ar vienādām vērtībām. Tikai tad mēs iegūsim ideāli apaļu apli, izmantojot CSS parametru: border-radius: 50%; */
+
+/* Šis CSS parametrs: border-radius: ; ļoti bieži tiek lietots kopā ar CSS parametru: overflow: hidden; Bet protams: tie darbojas katrs par sevi, mēs varam tos izmantot atsevišķi, jo tie nav viens no otra atkarīgi. */
+
+/* CSS parametrs: border-radius: ; tiek izmantots ļoti bieži, plaši izmantojams, jo ar tā palīdzību mēs varam veidot attēlus, profila bildes, avatar attēlus, iegūt dažādas figūras. */
+
+/* Lai mums netraucētu iepriekšējie aktīvie kodi apgūt un izmantot jaunus CSS parametrus, mēs tos izslēdzam - aizkomentējot. */
+
+/* Nākošais CSS parametrs ar kura palīdzību mēs varam stilizēt, piešķirt skaistu vizuālo efektu BLOKA vai BLOKA RINDAS tipa elementam ir: box-shadow: ; kas paredzēts, lai pievienotu elementam ēnu. */
+
+/* Šim CSS parametram ir sekojoša vērtību pieraksta sintakse:
+box-shadow: ēnas_nobīde: pa horizontāli ēnas_nobīde: pa vertikāli ēnas_izplūdums ēnas_attālums ēnas_krāsa; */
+
+/* Mēs vienam elementam - blokam varam pievienot vairākas ēnas vienlaicīgi, rakstot tās aiz komata. */
+
+/* ATCERAMIES: ka CSS parametros mēs varam izmantot arī negatīvas vērtības, tādejādi panākot nobīdi pretējā virzienā. Bet ne visos CSS parametros. Piemēram CSS parametrā: padding: ; mēs nevaram norādīt negatīvas vērtības, bet iekš CSS parametriem: margin: ; box-shadow: ; text-shadow: ; mēs varam izmantot negatīvas vērtības. */
+
+/* CSS parametrs: box-shadow: ; ir analogs CSS parametram: text-shadow: ; tikai šis CSS parametrs: box-shadow: ; ir paredzēts, lai pievienotu ēnu visam blokam, bet CSS parametrs: text-shadow: ; pievieno ēnu tieši tekstam. */
+
+/* Izskatīsim piemēru ar CSS parametra: box-shadow: ; pielietošanu mūsu blokam. */
+
+/*
+.block {
+	background-color: #77608c;
+	width: 240px;
+	height: 240px;
+	padding: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0px 0px 30px 0px;
+	box-shadow: 10px 10px 10px 10px #ff0000, -10px -10px 10px 10px #000;
+	/* filter: drop-shadow(10px 10px 10px #77608d);
+}
+*/
+
+/* Izmantojot šo CSS parametru: box-shadow: ar divām ēnām un kopā vēl ar citiem CSS parametriem, kas tiek izmantoti BLOKA tipa elementam, mēs esam ieguvuši interesantu vizuālu rezultātu. Otrai ēnai norādot negatīvas vērtības, mēs ieguvām, ka ēna pretēji pirmajai norādītajai ēnai, pretējā virzienā. */
+
+/* CSS parametrs: box-shadow: ; ir ļoti universāls, jo tam ir jānorāda daudz vērtības, kuras mēs varam mainīt attiecīgi katrai situācijai - uzdevumam. */
+
+/* Ar CSS parametra: box-shadow: ; mēs varam arī panākt to, ka pats elements - bloks iegūst izplūdumu. Mēs to varam panākt pierakstot sekojoši: 
+
+box-shadow: 0px 0px 10px 10px #77608d;
+
+Mēs iegūsim to, ka mūsu aplis, tā fona krāsa ir izplūdusi. Norādot iekš CSS parametra: box-shadow: ; dažādas vērtības, mēs varam iegūt dažādus rezultātus, attiecīgi tam, kādu rezultātu vēlamies iegūt. */
+
+/* CSS parametrs: box-shadow: ; darbojās kopā ar CSS parametru: border-radius: ; Lai redzētu kā tas izskatās, izmantojam CSS parametru: border-radius: ; iekš mūsu piemēra, un, izmantojam CSS parametru: overflow: hidden; lai teksts, kas neietilpst blokā - aplī: tiktu paslēpts. */
+
+/* Reizēm, retos gadījumos mums var būt situācija, kad mums vajag panākt, lai ēna būtu nevis elementa ārpusē, bet iekšpusē. Kā mēs to varam izdarīt? Mēs to varam panākt izmantojot sekojošu CSS parametra: box-shadow: ; pierakstu: 
+
+box-shadow: insert 10px 10px 10px #000; 
+
+Mēs iekš CSS parametra: box-shadow: vērtību pieraksta sākumā pierakstām: insert, kas nozīmē, ka mēs nosakām, ka ēna tiek ielikta iekš elementa. */
+
+/* ATCERAMIES: ka iekš CSS parametra: box-shadow: ; mēs varam vienam elementam izmantot vairākas ēnas vienlaicīgi, arī tad, ja izmantojam iekšējo ēnu, izmantojot: insert. */
+
+/* CSS parametram: box-shadow: ; ir viena īpatnība: tas nestrādā ar caurspīdīgu fonu - attēlu. Lai izmantotu caurspīdīgam fonam - attēlam CSS parametru: box-shadow: ; mums ir jāpielieto CSS parametrs: filter: ; Bet tam ir sekojoša sintakse, pieraksts: 
+
+filter: drop-shadow(10px 10px 10px #77608d);
+*/
+
+/* Ja izmantojam CSS parametru: filter: ; mēs iegūstam to pašu rezultātu, ko izmantojot CSS parametru: box-shadow: ; tikai tie paši parametri tiek it kā ieslēgti filtrā. Bet pagaidām mums to ir grūti saprast, jo tā nav iesācēju tēma. */
+
+/* CSS parametra: filter: ; izmantošana skaitās profesionālāka nekā CSS parametra: box-shadow: ; izmantošana, jo mēs to varam izmantot gadījumos: kad mums vajag uzzīmēt ēnu, kas iet tieši pa attēla kontūru, kad pats attēls ir daļēji caurspīdīgs. */
+
+/* Vajadzība izmantot šādu pieeju mums reālajā darbā būs ļoti reti, tik reti, ka iespējams pa 10 gadiem mēs to izmantosim vienu reizi, bet tomēr mēs varam saskarties, kad iekš kāda maketa dizaineris ir izmantojis: filter: ; lai kādam daļēji caurspīdīgam attēlam pievienotu ēnu, kas iet tieši pa attēla kontūru, tādēļ mums ir jāzin, kā mēs to varam realizēt izstrādājot lapu. ATCERAMIES: ka mums vienmēr jācenšas, lai mūsu izstrādātā lapa atbilstu maketam cik vien tas ir iespējams. */
+
+/* Šeit runa iet tieši par CSS parametra: filter: izmantošanu ēnām, iekš tā vērtības norādot: drop-shadow(ēnas vērtības); NEVIS par vispārīgu CSS parametra: filter: ; izmantošanu, jo to var izmantot daudzās lietās. Bet to mēs apgūsim vēlāk. */
+
+/* Pielietojot visas esošās un jaunās zināšanas mēs iegūstam vēlamo rezultātu. ATCERAMIES: ka mēs varam pielāgot, mainīt, daudziem CSS parametriem mēs varam norādīt negatīvas vērtības, noņemt CSS parametru vērtības, lai iegūtu to rezultātu, kas mums ir nepieciešams attiecīgajā situācijā - projektā. */
+
+/* CSS parametrs: box-shadow:; ir paredzēts izmantošanai tikai BLOKA vai BLOKA RINDAS tipa elementiem. Tas NAV paredzēts izmantošanai ar RINDAS tipa elementiem. Ja mēs to izmantosim uz RINDAS tipa elementiem, rezultāts būs vienkārši BRIESMĪGS. */
+
+/* Izslēdzam iepriekšējo aktīvo kodu - to aizkomentējot, lai tas mums netraucētu apgūt un izmantot jaunus CSS parametrus. */
+
+/* Vēl viens ļoti nozīmīgs un bieži sastopams CSS parametrs: opacity: ; kas nosaka elementa - bloka caurspīdīgumu. Kā tā vērtību mēs varam izmantot skaitli no: 0 - 1. Kur 0 nozīmē to, ka elements ir pilnībā caurspīdīgs, bet 1 nozīmē to, ka elements ir pilnībā necaurspīdīgs. Piemēram norādot vērtību 0.5; mēs iegūstam, ka elements kļūst pa pusei caurspīdīgs. */
+
+/* ATCERAMIES: ja iekš CSS parametriem kā vērtības izmantojam neveselus skaitļus, tad mēs tos pierakstām izmantojot punktu, nevis komatu, jo, ja izmantosim komatu, mūsu kods nedarbosies, jo tā būs kļūda. Tādi ir CSS - Kaskādes Tabulas Stilu sintakses - pieraksta nosacījumi. */
+
+/* Kāda ir atšķirība starp CSS parametra: display: none; un CSS parametra: opacity: 0; izmantošanu? Ir divas būtiskas atšķirības. 
+
+Pirmā: Kad izmantojam CSS parametru: opacity: 0; bloks netiek noņemts no lapas, tas paliek mūsu lapā, vienkārši mēs to neredzam, jo tas ir pilnīgi caurspīdīgs, bet, kad izmantojam CSS parametru: display: none; tad bloks tiek noņemts no lapas, un tā vieta netiek rezervēta. Tas tiek noņemts tā, it kā tā nekad nebūtu bijis.
+
+Otrā: kad izmantojam CSS parametru: opacity: 0; mēs neredzam bloku, bet par cik tā vieta, ko tas aizņem paliek, mēs varam ar to mijiedarboties. Piemēram, ja mūsu bloka saturā ir saite, tad kaut mēs to neredzam, mēs uzvedot uz tās atrašanās vietas ar peli, varam uz to nospiest. */
+
+/* Pēc noklusējuma visiem lapas elementiem tiek pielietots CSS parametrs: opacity: 1; kas nozīmē to, ka visi lapas elementi ir 100% necaurspīdīgi. Pēc vajadzības mēs varam šī cSS parametra vērtību mainīt, atkarībā no vajadzīgā rezultāta. */
+
+.block {
+	background-color: #77608d;
+	/* background-color: rgba(119, 96, 141, 0.5); */
+	/* color:rgba(0, 0, 0, 0.616); */
+	margin: 0px 0px 30px 0px;
+	padding: 20px;
+	border: 5px solid #ff0000;
+	border-radius: 30px 0px;
+	/* opacity: 0.8; */
+	/* visibility: hidden; */
+	/* display: none; */
+}
+
+/* Apgūstam vēl vienu CSS parametru: visibility: ; kas nosaka, vai mūsu elements - bloks būs redzams vai nebūs redzams. */
+
+/* Pēc noklusējuma visiem elementiem, kas ir mūsu lapā tiek piemērots CSS parametrs: visibility: visible; kas nozīmē to, ka visi mūsu lapas elementi ir redzami, bet mēs varam attiecīgajam elementam šī CSS parametra noklusēto vērtību mainīt. Vis atkarīgs no tā, ko mēs vēlamies panākt. */
+
+/* Kāda ir atšķirība CSS parametram: visibility: hidden; no CSS parametra: display: none;? Kad izmantojam CSS parametru: visibility: hidden; vita ko aizņem dotais bloks paliek, tā tiek rezervēta mūsu lapā, vienkārši mēs to neredzam. */
+
+/* Kāda ir atšķirība no CSS parametra: visibility: hidden; un CSS parametra: opacity: 0; Atšķirība ir tāda, ka izmantojot CSS parametru: opacity: 0: mēs VARAM mijiedarboties ar bloku, piemēram, ja tur ir saite, mēs to neredzam, bet uzvedot ar peli, saprotam, ka tur ir saite un mēs varam uz to nospiest, kā arī mēs varam iezīmēt tekstu, citus objektus. Īsi sakot: mēs varam mijiedarboties ar elementa saturu. */
+
+/* Bet, ja izmantojam CSS parametru: visibility: hidden: tad mēs NEVARAM mijiedarboties ar bloku, piemēram ar saiti, tekstu, citu saturu, jo pat tad, kad uzvedam uz tās ar peli, tas netiek parādīts. Un mums zūd jeb kāda iespēja mijiedarboties ar elementu, kuram ir izmantots CSS parametrs: visibility: hidden: */
+
+/* ATCERAMIES: ka izmantojot CSS parametrus: visibility: hidden; un opacity: 0; bloka vieta, ko tas aizņem lapā tiek rezervēta - tā paliek, jo tas nekur nepazūd, vienkārši mēs to neredzam. Atšķirībā no CSS parametra: display: none; kad bloks tiek noņemts no lapas, tā it kā tā nekad nebūtu bijis. tas paliek tikai mūsu HTML dokumentā. */
+
+/* SVARĪGI: kad mums ir nepieciešams, lai elements ir redzams, bet elementa fons - krāsa būtu vairāk vai mazāk caurspīdīga: mēs izmantojam CSS parametru: background-color: kā vērtību norādot krāsas pierakstu: rgba(), kam ir alpha kanāls, kas nosaka cik daudz krāsa būs caurspīdīga. */
+
+/* Šādos gadījumos mums NEVAJAG izmantot CSS parametru: opacity: ; jo tas nosaka caurspīdīgumu visam elementam, arī tā saturam, kas šinī gadījumā mums nav nepieciešams. */
+
+/* Tas pats attiecās arī uz TEKSTU, kas ir kādā elementā. Izmantojot mums jau zināmo CSS parametru: color: kā vērtību izmantojot rgba(); mēs varam noteikt teksta krāsu un tās caurspīdīgumu. */
+
+/* Visi šie nosacījumi ar uzskatāmiem pieraksta, izmantošanas piemēriem ir augstāk, šobrīd aktīvajā kodā. Mēs varam redzēt kādos gadījumos un kā tieši, un kuru no CSS parametriem mēs varam izmantot. */
+
+/* Tālākās lekcijās mēs mācīsimies izmantot CSS parametrus: visibility: ; un opacity: ; vienlaicīgi. Tie gan darbojās arī tad, ja tos izmantojam atsevišķi, bet tie ļoti bieži tiek izmantoti VIENLAICĪGI. Piemēram: situācijās, kad mums vajag kādus lapas elementus parādīt jeb noslēpt. Lai tas notiktu plūstoši un neradītos lapas darbības, elementu attēlojuma vai noslēpšanas traucējumi, mēs izmantojam šos abus CSS parametrus konkrētajiem lapas elementiem. */
+
+/* CSS parametriem: visibility: ; un display: none; ir viena būtiska īpašība: tos NEVAR animēt, veidot no tiem animācijas. */ 
+
+/* Tālāk, kad mēs mācīsimies veidot - izstrādāt mūsu lapā animācijas, mēs uzzināsim visas šīs īpatnības nianses, un kā pareizi tās izmantot, lai iegūtu vēlamo rezultātu. */ 
+
+/* Mācīsimies pareizi vienlaicīgi izmantot CSS parametrus: opacity: ; un visibility: ; lai iegūtu plūstošu elementu parādīšanos jeb pazušanu. Lai iegūtu animāciju. */
+
+/* Vēlāk tālākās lekcijās mēs mācīsimies kā un kur pareizi pielietot CSS parametru: display: none; Ļoti bieži tas tiek pielietots, kad strādājam pie lapas adaptīva, lai pie konkrēta lapas platuma noņemtu kādu elementu. Bet par to visu sīkāk mēs mācīsimies vēlāk. */
+
+/* SVARĪGI: saprast kāda ir atšķirība katram no šiem CSS parametriem, kurus šodien iemācījāmies, kā arī saprast, kad, kur, un kā tieši izmantot katru no šiem parametriem. Saprast ar ko tie ir atšķirīgi, un kādu rezultātu mēs iegūstam izmantojot katru no šiem CSS parametriem. */
+
+/* Iesācēji, kad sāk izstrādāt lapas, bieži nesaprot un jauc šo CSS parametru atšķirības, pielietošanas nosacījumus. Tādēļ, mums jau tagad ir labi JĀSAPROT: kad un kur, un kā tieši mēs izmantojam katru no mums jau zināmajiem CSS parametriem. Arī tos, ko mācījāmies iepriekšējās lekcijās. Jo, ja jau TAGAD mēs šo visu sapratīsim un izmantosim pareizi, tad tālāk mums NERADĪSIES nekādas problēmas un muļķīgas kļūdas, kad izstrādājam kādu lapu - strādājam pie kāda projekta. */
+

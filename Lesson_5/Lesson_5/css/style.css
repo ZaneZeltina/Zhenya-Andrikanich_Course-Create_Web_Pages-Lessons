@@ -1,0 +1,668 @@
+/* &display=swap */
+
+/* CSS STYLE RESET */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+img {
+	vertical-align: top;
+}
+html,
+body {
+	height: 100%;
+	font-size: 16px;
+	line-height: 1;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+/* ---------------------- */
+
+/* Iepriekšējā lekcijā mēs izskatījām CSS parametrus, ar kuru palīdzību mēs varam ietekmēt šrifta un teksta uzvedību, izskatu. Precīzāk: šriftu un teksta noformēšanas cSS parametrus. */
+
+/* Šinī lekcijā mēs mācīsimies par CSS parametriem, ar kuru palīdzību mēs varam ietekmēt: BLOKA, BLOKA_RINDAS un RINDAS tipa elementu uzvedību, izskatu. Vislielāko uzmanību mēs veltīsim tieši BLOKA elementiem - tags un tiem CSS parametriem, kas ietekmē to uzvedību un izskatu. Kā arī paskatīsimies kā šie CSS parametri ietekmē RINAS elementus - tagd. */
+
+/* Sāksim mēs ar CSS parametriem, kas ir atbildīgi par elementu atstarpēm. Zināt un parast izmantot atstarpes Web Pages Developer darbā ir ļoti svarīgi, jo nav neviena tāda projekta - maketa, kur nevajadzētu izmantot atstarpes. Prast izmantot atstarpes un saprast kurā gadījumā kādas atstarpes ir jāizmanto. */
+
+/* Tieši šinī lekcijā mēs tiksim ar to skaidrībā. */
+
+/* Ir diva tipa atstarpes: ārējās un iekšējās atstarpes: margin un padding; */
+
+/*  Ļoti daudzi Web Pages Developers mēdz jaukt šos atstarpju tipus. Īsti nesaprotot kas ir margin, un kas ir padding; */
+
+/* Ārējās atstarpes atiet prom no objekta robežām, uz āru, bet iekšējās atstarpes atiet no objekta robežām, uz iekšu, atgrūžot objektus. */
+
+/*  Kas tad ir ārējās atstarpes? Izskatīsim to ļoti smalki, lai nākotnē mēs šos divus atstarpju veidus nejauktu. lai mums būtu 100% skaidrs ar ko tās atšķiras un kuros gadījumos kuras no tām ir jāizmanto. */
+
+/* Kas tad ir ārējā atstarpe? Tā ir visa objekta atstarpe no tā iekšējiem objektiem, kas to ieskauj. Ārējās atstarpes vai nu atgrūž objektu no objektiem, kas to ieskauj, vai nu atgrūž objektus, kas to ieskauj no paša objekta, atkarībā no tā kādas ārējo  atstarpju vērtības mēs izmantojam, un uz kuru pusi mēs nosakām objekta ārējās  atstarpes. */
+
+/* Ārējās atstarpes CSS, kaskādes tabulas stili, tiek izteiktas izmantojot CSS parametru: margin: ; */
+
+/* Ja, mēs objektam noteiksim ārējo augšējo atstarpi, tad objekts atgrūdīsies no augšas tik daudz, cik mēs būsim norādījuši ārējo atstarpju CSS parametrā: margin-top. Tas pats attiecās arī uz ārējo apakšējo atstarpi, jo, tad objekts atgrūdīsies no apakšas tik, cik mēs būsim norādījuši ārējo atstarpju CSS parametrā: margin-bottom. Bet, ja mēs noteiksim objektam ārējo kreiso atstarpi, tad pats objekts atgrūdīsies no lapas kreisās puses, cik mēs būsim norādījuši ārējo atstarpju CSS parametrā: margin-left. Ja mēs izmantosim ārējo atstarpi pa labi, tad mūsu objekts atgrūdīs citus objektus uz labo pusi, cik mēs būsim norādījuši ārējo atstarpju CSS parametrā: margin-top. Pats objekts paliks uz vietas. */
+
+/* Atstarpes */
+
+/* Iekšējās atstarpes: padding */
+
+/* Tās bija ārējās atstarpes. Bet, kas gan ir iekšējās atstarpes?  */
+
+/* Kas tad ir iekšējās atstarpes? Iekšējās atstarpes atgrūž objekta saturu, to, kas ir iekš objekta. Tas ir atkarīgs no tā: No kuras puses mēs veidojam iekšējo objekta atstarpi. Vai mēs to veidojam tikai no vienas puses jeb uz reiz no visām četrām pusēm. Jo atkarībā no tā: Saturs, kas ir objektā sarausies, saspiedīsies. Taas atgrūdīsies no objekta robežām, robežas. */
+
+/*
+padding
+Elementa iekšējā atstarpe.
+Ja CSS parametra: padding vērtību norādīsim: procentus %, tad tā tiks aprēķināta ņemot vērā objekta VECĀKA elementa platumu.
+Šis CSS parametrs netiek mantots.
+Šī CSS parametra vērtība var būt TIKAI pozitīvs skaitlis.
+
+padding: no visām pusēm; - ja mēs norādām vienu vērtību;
+padding: augšā pa-labi apakšā pa-kreisi: - ja mēs norādām četras vērtības;
+padding: augšā_apakšā pa-labi_pa-kreisi: - ja mēs norādām divas vērtības;
+padding: augšā pa-labi_pa-kreisi apakšā: - ja mēs norādām trīs vērtības;
+*/
+
+/* Ieteicams ir izmantot garo padding pierakstu, jo tas padara mūsu CSS parametru daudz elastīgāku, un mums ir ērti jeb kurā brīdī kādu no padding: vērtībām pamainīt. Un mēs uzreiz redzam rezultātu. 
+Ieteicamais pieraksts ir šāds:
+padding: 20px 0px 0px 0px; 
+*/
+
+/* Katrai iekšējās atstarpes pusei ir savs atsevišķs CSS parametrs. Un tie ir:
+padding-top: 0;
+padding-right: 0;
+padding-bottom: 0;
+padding-left: 0;
+*/
+
+/* Šos konkrētos iekšējo atstarpju CSS parametrus mēs varam izmantot gadījumā, kad mums vajag izveidot iekšējo atstarpi tikai vienā elementa pusē. */
+
+/* Ieteicams ir izmantot garo padding pierakstu, jo tas padara mūsu CSS parametru daudz elastīgāku, un mums ir ērti jeb kurā brīdī kādu no padding: vērtībām pamainīt. Un mēs uzreiz redzam rezultātu. 
+Ieteicamais pieraksts ir šāds:
+padding: 20px 0px 0px 0px; 
+
+Bet līdzvērtīgs pieraksts būs šāds:
+padding-top: 20px;
+*/
+
+/* 
+Vēl citi dažādi iekšējo atstarpju pieraksta veidi:
+Mēs norādām divas iekšējo atstarpju vērtības:
+padding: 20px 50px;
+līdzvērtīgs pieraksts:
+Mēs norādām četras iekšējo atstarpju vērtības:
+padding: 20px 50px 20px 50px; 
+Mēs norādām trīs iekšējo atstarpju vērtības;
+padding: 20px 50px 100px;
+*/
+
+/* Bet par cik mēs otrajā piemērā atkārtojam tās pašas iekšējo atstarpju vērtības mums ir jāizmanto pirmais pieraksta veids:
+padding: 20px 50px;
+*/
+
+/* Katrai iekšējās atstarpes pusei ir savs atsevišķs CSS parametrs. Un tie ir:
+padding-top: 0;
+padding-right: 0;
+padding-bottom: 0;
+padding-left: 0;
+*/
+
+/* Bet nepastāv vienota nosacījuma: kāds pieraksts ir labākais un kurš no pieraksta veidiem ir jāizmanto. Mēs kā Web Pages Developer varam izvēlēties mums piemērotāko CSS parametru: padding: un margin: ; pieraksta veidu. */
+
+/* Kamēr mēs esam iesācēji Web Pages Developer kā mērvienība mums ir jānorāda: px - pikseļi, jo mēs vēl neprotam pareizi aprēķināt procentus. Jo ATCERAMIES, ka, ja mēs nosakām kādu vērtību procentos: %, tad tā tiek aprēķināta ņemot vērā VECĀKA objekta platību - lielumu. Lai mēs prastu pareizi norādīt vērtību %, mums ir jāiegūst lielāka pieredze. Bet kursa beigās mums jau tā būs un mēs mācēsim norādīt vērtības procentos: %. */
+
+/* Kur gan realitātē tiek izmantotas iekšējās atstarpes? Tās tiek izmantotas vienmēr, kad mums ir objekts un mums vajag atgrūst tā saturu no tā robežas uz iekšu. */
+
+/* Kad mums kādam objektam ir aizpildīts fons, fona krāsa, un citās līdzīgās situācijās, mums ir jāizmanto iekšējās atstarpes. */
+
+/* Mums ir vienkārši jāsaprot, ka iekšējās atstarpes atgrūž objekta saturu uz iekšu, un, ja mēs saprotam kā tas darbojās, tad praksē, saskaroties ar noteiktām situācijām, mēs jau zināsim, ka šeit ir jāizmanto tieši iekšējās atstarpes. */
+
+/* Mums būs situācija, kad mums būs kāds objekts, kuram jāizmanto atstarpes. Un, lai mēs varētu saprast kādas atstarpes izmantot mums vienkārši ir jāuzdod sev jautājums: Kas mums ir jāizdara? Vai mums ir jāatgrūž objekts no tā apkārtnes, vai, mums ir jāatgrūž tā saturs no tā robežām uz iekšu. Un atbildot uz šo jautājumu, mēs arī zināsim kādas atstarpes kurā gadījumā mums ir jāizmanto. */
+
+/* Un, lai zinātu kā rīkoties konkrētā situācijā: Mums ir jāzin - teorija. MUms ir jāzin iekšējās un ārējās atstarpes atšķirība. Mums ir jāsaprot kurā gadījumā kuru izmantot. */
+
+/* Ārējās atstarpes: margin */
+
+/*
+margin
+Elementa ārējā atstarpe.
+Ja CSS parametra: padding vērtību norādīsim: procentus %, tad tiks aprēķināta elementa vērtība, ņemot vērā VECĀKA elementa platumu.
+Šis CSS parametrs netiek mantots.
+Šī CSS parametra vērtība var būt GAN pozitīvs skaitlis, GAN negatīvs skaitlis.
+
+Mēs varam izmantot margin: ar negatīvu vērtību, piemērs:
+margin: -100px 0px 0px 0px;
+
+margin: no visām pusēm: - ja mēs norādām četras vērtības;
+margin: augšā pa labi apakšā pa kreisi: - ja mēs norādām četras vērtības;
+margin: augšā_apakšā pa-labi_pa-kreisi: - ja mēs norādām divas vērtības;
+margin: augšā pa-labi_pa-kreisi apakšā: - ja mēs norādām trīs vērtības;
+*/
+
+/* Ieteicams ir izmantot garo margin pierakstu, jo tas padara mūsu CSS parametru daudz elastīgāku, un mums ir ērti jeb kurā brīdī kādu no margin: vērtībām pamainīt. Un mēs uzreiz redzam rezultātu. 
+Ieteicamais pieraksts ir šāds:
+margin: 20px 0px 0px 0px; 
+
+Bet līdzvērtīgs pieraksts būs šāds:
+margin-top: 20px;
+*/
+
+/* 
+Vēl citi dažādi ārējo atstarpju pieraksta veidi:
+Mēs norādām divas ārējo atstarpju vērtības:
+margin: 20px 50px;
+līdzvērtīgs pieraksts:
+Mēs norādām četras ārējo atstarpju vērtības:
+margin: 20px 50px 20px 50px; 
+Mēs norādām trīs ārējo atstarpju vērtības;
+margin: 20px 50px 100px;
+*/
+
+/* Bet par cik mēs otrajā piemērā atkārtojam tās pašas ārējo atstarpju vērtības mums ir jāizmanto pirmais pieraksta veids:
+margin: 20px 50px;
+*/
+
+/* Katrai iekšējās atstarpes pusei ir savs atsevišķs CSS parametrs. Un tie ir:
+margin-top: 0;
+margin-right: 0;
+margin-bottom: 0;
+margin-left: 0;
+*/
+
+/* Bet nepastāv vienota nosacījuma: kāds pieraksts ir labākais un kurš no pieraksta veidiem ir jāizmanto. Mēs kā Web Pages Developer varam izvēlēties mums piemērotāko CSS parametru: padding: un margin: ; pieraksta veidu. */
+/* Mēs varam izmantot: margin: ar negatīvu vērtību, liekot lapas apakšējam objektam uzbraukt virsū augšējam lapas objektam. Var gadīties, ka mūsu darbā mums vajadzēs izmantot margin: ar negatīvu vērtību lai panāktu mums vajadzīgo efektu, tādēļ mums ir jāzin, ka mums ir tāda iespēja. */
+
+/* Ja mēs norādām ārējo atstarpi augšējam objektam ar negatīvu augšējo vērtību, un, ja mums apakšā ir vēl kādi objekti, tad tie visi tiks vilkti augšup, tik cik mēs būsim norādījuši augšējā ārējā atstarpē izmantojot negatīvu vērtību. Visi apakšējie objekti, kas nāk zem esošā objekta tiks vilkti itkā uz augšu. */
+
+/* Tieši šīs īpatnības dēļ, CSS parametrs: margin: ar negatīvu vērtību tiek bieži pielietots, lai panāktu vēlamo efektu, jo izmantojot citus CSS parametrus nevar panākt šo efektu, kad vis atlikušais lapas saturs tiek pavilkts uz augšu, kad izmantojam margin: ar negatīvu vērtību. */
+
+/* Ir vēl citi CSS parametri, kas atbild par objekta atrašanās vietu, pozicionēšanu utt, bet par to mēs mācīsimies vēlāk. */
+
+/* Atceramies, ka iekš: padding: mēs NEVARAM izmantot negatīvas vērtības. */
+
+/* Mēs vienlaicīgi varam izmantot abas atstarpes: gan iekšējās, gan ārējās. */
+
+/* ATCERAMIES, ka: IEKŠĒJĀ atstarpe ir: atstarpe starp elementa apmali un elementa saturu: uz iekšu, bet ĀRĒJĀ atstarpe ir: Tā atgrūž objektu no apkārtesošajiem objektiem, vizuāli izmantojot objektam ārējo atstarpi mēs atgrūžam to tā apkārtējos objektus. */
+
+/* Parasti tiek ievērots nosacījums: Mēs nosakām augšējam objektam ārējo APAKŠĒJO atstarpi: margin-bottom: , NEVIS apakšējam objektam ārējo augšējo atstarpi. */
+
+/* Ar RINDAS tipa elementiem tās strādā citādāk. */
+
+.block {
+	background-color: #008000;
+	color: #fff;
+	font-size: 22px;
+	padding: 35px;
+	margin: 0px 0px 30px 0px;
+}
+
+.block_2 {
+	background-color: #77608d;
+	color: #fff;
+	font-size: 22px;
+	padding: 35px;
+	margin: 20px;
+}
+
+.block_3 {
+	background-color: #794f45;
+	color: #fff;
+	font-size: 22px;
+	padding: 35px;
+	margin: 20px;
+}
+
+/* Sakļaušanās */
+
+/* Kas ir objektu sakļaušanās, un kā no tās izvairīties? Objektu sakļaušanās ir, kad mēs nosakām diviem objektiem gan vienam, gan otram ārējās augšējās un ārējās apakšējās atstarpes. mēs domājam, ka tās summējās, bet tā tas nav. Tās sakļaujas un rezultātā mēs redzam tikai to ārējo augšējo atstarpi, ko esam norādījušo otrajam objektam. Kādēļ tā? Tādēļ, ka: Kad mums ir vairākas ārējās atstarpes, tās sakļaujas un mēs redzam to, kuras vērtība ir lielāka. 
+
+Izbēgt no objektu sakļaušanās var ievērojot principu: Mēs apakšējo ārējo atstarpi nosakām augšējam objektam, nevis apakšējam objektam ārējo augšējo atstarpi. Ja ievērosim šo principu, tad mēs izbēgsim no objektu sakļaušanās.
+
+Bet kādēļ, ja izmantosim nosacījumu, ka mēs nosakām augšējam objektam ārējo apakšējo atstarpi, mēs izbēgsim no objektu sakļaušanās? Tādēļ, ka tiek ievērots princips, ka lapa tiek lasīta no aušas uz leju. kad mēs saņemam maketu, mēs arī to lasām no augšas uz leju, jo tas ir loģiski. 
+
+Tādēļ arī ir neloģiski apakšējam objektam noteikt ārējo augšējo atstarpi. Jo tad mēs izjaucam visu loģiku, un rodas iespēja ka, abu mūsu objektu atstarpes sakļausies. */
+
+/* Mums šis loģikas princips ir jāievēro. Bet protams reizēm ir izņēmuma gadījumi, kad mēs to varam neievērot, jo mums ir tāds uzdevums, ka mēs vienkārši nevaram to ievērot. Bet kā rīkoties katrā konkrētā gadījumā, atbilde nāk tikai ar pieredzi. */
+
+/* Kā arī, ja mums vajag atdalīt divus objektus, kas atrodas viens otram blakus, tad mēs pirmajam objektam nosakām ārējo atstarpi pa_labi, nevis otrajam objektam ārējo atstarpi pa_kreisi. Jo tā mēs sekojam loģikai un izpildām loģiskas darbības. */
+
+/* Mums vienmēr jācenšas ievērot šie loģikas nosacījumi, lai izbēgtu no nevēlama rezultāta. */
+
+/*
+width
+Nosaka bloka un bloka_rindas tipa elementu platumu, piemēram: tag: <img>.
+Šis CSS parametrs netiek mantots.
+Piemēri:
+
+width: 100px;
+width: 10%;
+*/
+
+/* CSS parametrs: width nosaka stingru objekta platumu. Katram objektam (bloka vai bloka_rindas) ir pārlūka noteiktais noklusētais platums, bet mēs to varam mainīt. 
+
+Šis CSS parametrs darbosies stingri tikai tam objektam, kuram mēs to būsim noteikuši. 
+
+ja mēs gribam kādam objektam ierobežot platumu, tad mēs izmantojam: width: un norādām vērtību, cik lielu platumu aizņems konkrētais objekts. Mēs varam norādīt dažādas vērtības, bet kamēr esam iesācēji izmantojam: pikseļus: px vai procentus: %. Kad mums būs jau lielāka pieredze, mēs varēsim izmantot citas CSS mērvienības. */
+
+/* Atceramies, ka jebkurš bloka elements pēc noklusējuma platuma vērtības aizņem visu lapas platumu. */
+
+/* CSS parametra: width noklusētā vērtība ir: auto. bet, ja mēs noteiksim width: vērtībā 100%, tad tā nebūs vienāda ar width: auto vērtību, jo kad mēs ņemam 100% platumu no vecāka, mums tiek pieskaitītas klāt ārējo un iekšējo atstarpju vērtības. Un mēs redzam, ka objekts aizņem 100% platumu + ārējās un iekšējās atstarpes. 
+
+Šādā gadījumā mums parādās horizontālā ritināšana - horizontal scroll. Jo sanāk tā, ka mēs norādām objektam lielāku platumu nekā tā vecāka - elementa platums.
+
+Bet, kad mēs nosakām: width: auto, tad ārējo un iekšējo atstarpju vērtības tiek automātiski ierēķinātas objekta platumā. Tāpēc arī ir tāda CSS parametra: width: auto vērtība. */
+
+/* Faktiski, kad mēs kādam objektam norādām platumu: width: mēs norādām tā satura platumu. Blokam, kas satur tekstu mēs norādām to platumu, ko aizņem teksts (bloka saturs), jo atstarpes netiek ieskaitītas bloka platumā, bet mēs varam to mainīt, norādot: width: auto. */
+
+/* Pēc noklusējuma, lai aprēķināts kāda objekta platumu tiek izmantots CSS parametrs: box-sizing: content-box; Bet mēs šo noklusējuma parametru mainīsim no: box-sizing: content-box uz: box-sizing: border-box; 
+
+Kāpēc mēs šo noklusējuma CSS parametru mainīsim? Tādēļ, ka, kad mēs norādām kādam blokam: width: 300px mēs gribam, lai vis bloks aizņem 300px platumu, bet tiek pieliektas klāt vēl ārējās un iekšējās atstarpes kā rezultātā mūsu bloks aizņem 300px platumu + ārējās un iekšējās atstarpes.
+
+Lai to mainītu, mēs mainām CSS noklusējuma parametru: box-sizing: content-box; uz: box-sizing: border-box; Kā rezultātā, kad mēs noteiksim kādam objektam platumu, iekš tā tiks ierēķinātas ārējās un iekšējās atstarpes. Un mēs iegūsim vēlamo rezultātu. 
+
+Šo CSS parametru mums ir jāmaina iekš RESET stiliem, iekš CSS selektora: 
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+Kad mēs esam noteikuši šo CSS parametru, redzam, ka tagad, kad mēs nosakām kāda objekta platumu, tā ārējās un iekšējās atstarpes tiek ierēķinātas norādītajā: width: vērtībā. 
+*/
+
+.block {
+	/* width: 50%; */
+}
+
+/*
+box-sizing
+Tiek izmantots, lai mainītu CSS augstuma un platuma aprēķināšanas shēmu - algoritmu.
+
+Mainot CSS parametra: box-sizing vērtību, mēs mainām šo platuma un augstuma aprēķināšanas algoritmu - shēmu. 
+
+Šis CSS parametrs ir mantojams. 
+CSS parametram: box-sizing ir šādas vērtības:
+
+content-box; - Balstīts uz noteiktajiem CSS standartiem, kad izmantojam CSS parametrus: width un height, lai noteiktu objekta platumu un augstumu, noteiktajās vērtībās netiek ierēķinātas ne ārējās, ne iekšējās atstarpes, lauki un robežas.
+
+border-box; - Izmantojot CSS parametrus: width un height, lai noteiktu objekta platumu un augstumu, noteiktajās vērtībās tiek ierēķinātas iekšējās atstarpes: padding: vērtības, lauku un robežu vērtības. Bet netiek ierēķinātas ārējo atstarpju: margin: vērtības. Šo modeli izmanto Internet Explorer pārlūks nesaderības režīmā.
+
+padding-box; - Izmantojot CSS parametrus: width un height, lai noteiktu objekta platumu un augstumu, noteiktajās vērtībās tiek ierēķinātas lauku vērtības, bet netiek ierēķinātas ārējo atstarpju (margin) un robežu (border) vērtības.
+*/
+
+/* Ja mēs CSS parametrus: width vai height: vērtību norādīsim procentos: %, tad mums jāņem vērā, ka tā tiks aprēķināta no vecāka elementa platuma. Kā mūsu dotajā piemērā, tik cik ir lapas platums. Nosakot bloka platumu: width: 10%; mēs redzam, ka tie tiek aprēķināti ņemot vērā vecāka elementa platumu, kas mūsu gadījumā ir: tag: <main></main>. */
+
+/* Bet, ja mēs mūsu gadījumā blokam izmantojam CSS parametru: width: un norādām tam: 100%, tad mēs redzam, ka lapai parādās horizontālā ritināšana - scroll, jo objekts aizņem 100% lapas platumu + ārējās atstarpes, jo tās netiek ierēķinātas iekš: width, jo mēs izmantojam CSS parametru: box-sizing: border-box visiem lapas elementiem. */
+
+/* Bet, ja mums objektam nav ārējās atstarpes: margin: tad CSS parametra: width: 100% un width: auto abas norādītās vērtības darbojās vienādi. bet tikko mēs objektam norādīsim ārējo atstarpi tā izmantojot procentus: 100%, mums jārēķinās ar to, ka mums radīsies lapas horizontālais scroll. */
+
+/* ATCERAMIES: ka iekš CSS parametriem: width un height tiek ieskaitīts viss, izņemot objekta ārējās atstarpes! */
+
+/* Mums bieži ir ērti izmantot CSS parametru: width un height vērtības tieši procentos. Bet kur un kādēļ tiek izmantotas fiksētās CSS parametru: width un height vērtības. Mēs mācoties un vēlāk strādājot izmantosim tieši adaptīvās CSS parametru: width un height vērtības. Mēs izmantosim: % procentus, kas ir adaptīva CSS parametru vērtība. Mēs praktiski nekad neizmantosim CSS parametriem: width un height fiksētās vērtības, kas ir pikseļi: px; Jo izmantojot šiem CSS parametriem fiksētās vērtības mēs stingri nosakām kāda objekta platumu jeb augstumu, tādejādi ierobežojot lietotāju, kas mūsu lapu gribēs atvērt uz dažāda platuma un augstuma ierīcēm - ekrāniem. Bet izmantojot adaptīvās vērtības, mūsu objekti pielāgosies katram ekrāna platumam un augstumam. */
+
+/* Kad mēs mācīsimies par lapas adaptīvu, tad mēs labāk sapratīsim kā un kapēc tiek izmantotas tieši adaptīvās CSS parametru: width un height vērtības. kā arī mēs sapratīsim kādos gadījumos tiek izmantotas šo parametru fiksētās vērtības. Kamēr mēs mācāmies mums ir jāizvairās no šo CSS parametru fiksēto vērtību izmantošanas, jo mums jāsaprot, ka tas ierobežo, gan mūs kā izstrādātājus, gan lapas gala lietotāju. */
+
+/* Strādāt izmantojot: box-sizing: border-box; ir daudz loģiskāk un ērtāk. Tādēļ arī pārsvarā visi izstrādātāji to pielieto. */
+
+/* Mums atliek tikai vienu reizi CSS faila sākumā, jeb atsevišķā CSS RESET stila failā norādīt CSS parametru: box-sizing: border-box, un tālāk mums vairs nav jāuztraucas kā tiks aprēķināti objektu platumu un augstumu CSS parametri: width un hight. */
+
+/* Izskatīsim ārējo atstarpju: margin: ar vērtību: auto; izmantošanas iespējas. Atceramies, ka pilnais margin pieraksts ir šāds:
+
+margin: 0px auto 0px auto; 
+
+Bet mēs izmantojam saīsināto margin pierakstu, kas ir šāds:
+margin: 0px auto; 
+
+Mēs redzam, ka mūsu bloka elements izmantojot: margin: 0px auto; ir nostājies lapas vidū. Šī ir viena no objekta centrēšanas metodēm, kad mēs izmantojam CSS parametra: margin: 0px auto; vērtības. */
+
+/*
+Objekta centrēšanas pielietojums izmantojot CSS parametru: margin: ar vērtību: auto nostrādās tikai tad, ja tiks ievēroti trīs nosacījumi:
+
+1) Objektam ir jābūt bloka elementam;
+2) Objektam ir jābūt noteiktam CSS parametram: width, un tam jābūt šaurākam nekā tā vecākam;
+3) margin: 0px auto;
+
+Jo, ja objektam nebūs noteikts platums: width, tad tas aizņems visu vecāka platumu, kas dotajā gadījumā ir vis lapas platums, un tam nebūs kur centrēties. 
+*/
+
+/* kad mēs izmantojam CSS parametru: margin: 0px auto; mēs nosakām, ka ārējai objekta atstarpei no augšas un uz leju jābūt 0px, bet no labās un kreisās puses tai ir jābūt ar vērtību: auto, kas nozīmē, ka objektam pa_labi un pa_kreisi tiks noteiktas automātiskas atstarpes ņemot vērā vecāka elementa platumu, automātiski pielāgojoties ekrāna platumam.
+
+Šinī gadījumā nav svarīgi, vai CSS parametra: width: vērtība ir adaptīva vai fiksēta. Bet atceramies, ka mums vienmēr jācenšas CSS parametriem: width un height norādīt adaptīvas vērtības. */
+
+/* Bet ko mums darīt gadījumā, ja mums ir nepieciešams kādu objektu piespiest pie lapas labās puses? Pēc noklusējuma, ja neizmantojam CSS parametru: margin: 0px auto, mūsu objekts tiek piespiests pie lapas kreisās puses. Lai to piespiestu pie lapas labās puses, mums ir nepieciešams norādīt šādu CSS parametra: margin pierakstu:
+
+margin: 0 0 0 auto; 
+
+Izmantojot šādu: margin: vērtību pierakstu, mēs redzam, ka tagad mūsu bloka elements ir piespiests pie lapas labās puses.
+
+Atceramies: ka mēs varam izmantot katrai objekta pusei dažādas margin: vērtības. Mēs varam tās kombinēt izmantojot vērtību: auto; iegūstot mums vēlamo rezultātu. Vis atkarīgs no tā: ko mums vajag izdarīt ar konkrēto objektu. CSS parametra: margin: vērtību kombinācijas izmantojot vērtību: auto; var būt ļoti dažādas.
+*/
+
+/* Šī ir tikai viena no metodēm kā mēs varam panākt lai kāds objekts tiktu centrēts. Ir daudz dažādas metodes lai to panāktu. bet šeit ir svarīgi saprast, ka: šī objekta centrēšanas metode darbojās tikai tad, ja mēs centrējam BLOKA tipa elementu - objektu. 
+
+Izmantojot šo centrēšanas metodi tā darbojas uz visu objektu - elementu, nevis tikai uz tā saturu, kā tas ir ar rindas tipa elementiem. Jo šeit tiek centrēts pats objekts, nevis tā saturs. */
+
+/* Atceramies, ka lai centrētu RINDAS tipa elementu, mums ir jāizmanto CSS parametrs: text-align: center; Bet tas darbojās tikai uz elementa saturu, piemēram: uz elementa tekstu. */
+
+.block {
+	/* margin: 0px auto; */
+}
+
+/* Lai mēs labāk redzētu un saprastu kā katrs CSS parametrs darbojās uz mūsu elementiem, mums ir jāizslēdz iepriekšējie CSS parametri, tos aizkomentējot, lai tie nebūtu aktīvi. */
+
+/* Ir vēl divi CSS parametri ar kuru palīdzību mēs varam ierobežot objektu platumu. Un tie ir: min-width: un max-width. Šie abi CSS parametri ir objektu ierobežošanas parametri. 
+
+Mēs nosakot CSS parametru: min-width: liekam objektam nebūt mazākam par norādīto minimālo platumu. Objekts nevar būt mazāks par norādīto: min-width: vērtību, bet tas var būt lielāks. 
+
+Bet nosakot: max-width: liekam objektam nebūt lielākam par norādīto maksimālo platumu. Objekts nevar būt lielāks par norādīto: max-width: vērtību, bet tas var būt mazāks. */
+
+/* Iekš CSS parametriem: min-width un max-width ir ieteicams norādot vērtību izmantot tieši pikseļus: px, jo, ja izmantojot procentus: % mēs neiegūsim vēlamo rezultātu. Visbiežāk šo abu CSS parametru vērtībās tiek izmantoti tieši pikseļi: px. */
+
+/* Atceramies: Iekš CSS parametriem: width un height mēs norādām adaptīvas vērtības, piemēram: procentus: %, bet iekš CSS parametriem: min-width un max-width mēs norādām fiksētas vērtības izmantojot pikseļus: px. Ja mēs šos nosacījumus neievērosim, mainoties ekrāna platumam tiks salauzta lapas izstrāde, jo tā nepielāgojas. Tādēļ, mums ir obligāti jāievēro šie nosacījumi. */
+
+/* Izstrādājot lapu mēs daudzās vietās, kur gribam norādīt: width, varam norādīt: max-width, tādā veidā aizsargājot savu izstrādāto lapu no iespējas, ka tā varētu salūzt. */
+
+/* Kad izmantojam CSS parametru: min-width: ar kādu vērtību, un ekrāns sašaurinās, tad, ja: min-width: vērtība ir lielāka nekā ekrāna platums, tad mums atkal parādās lapā horizontālais scroll. lai no tā izvairītos, mums norādot CSS parametram: min-width vērtību ir jāizvēlas piemērots lielums.
+
+Lai mēs ievērotu vienu no galvenajiem lapas izstrādes principiem: Mūsu izstrādei jābūt ir stabilai, pie izmaiņām tā nedrīgst salūzt. */
+
+/*
+max-width
+Nosaka maksimālo BLOKA un BLOKA RINDAS tipa elementu platumu. 
+
+min-width
+Nosaka minimālo BLOKA un BLOKA RINDAS tipa elementu platumu. 
+*/
+
+/* Piemērs: */
+.block {
+	/*
+	max-width: 700px;
+	margin: 0px auto;
+	*/
+}
+
+/*
+height:
+Nosaka BLOKA un BLOKA RINDAS tipa elementu augstumu.
+Šis CSS parametrs netiek pārmantots.
+Piemēri:
+
+height: 100px;
+height: 10%;
+
+min-height
+Nosaka minimālo BLOKA un BLOKA RINDAS tipa elementu augstumu. 
+Šis CSS parametrs netiek pārmantots.
+
+max-height
+Nosaka maksimālo BLOKA un BLOKA RINDAS tipa elementu augstumu. 
+Šis CSS parametrs netiek pārmantots.
+*/
+
+/* Uz šiem CSS parametriem: height, min-height un max-height ATTIECĀS gandrīz VISI tie paši nosacījumi, kas uz parametriem: height, min-height un max-height.
+
+Bet ie viena atšķirība: iekš CSS parametra: width netiek ierēķinātas ārējās atstarpes (margin), bet iekš CSS parametra: height: tiek ierēķināts vis, arī ārējās atstarpes (margin). Ja mēs esam noteikuši, ka objekta: height: 500px, tad tieši tā tas arī ir. */
+
+/* Ja izmantosim kādam objektam: min-height: un objektam tiks pievienots klāt piemēram: teksts, tad tas automātiski kļūs augstāks, lai tajā ietilptu vis teksts, bet tas nebūs mazāks kā norādītais: min-height. */
+
+/* Bet, ja mēs objektam norādīsim: max-height un, ja mums palielināsies teksta apjoms, tad objekta augstums nepalielināsies, kā rezultāta, ja teksta būs daudz, tas neietilps objektā, mūsu izstrāde atkal tiks lauzta. Tādēļ norādot šī CSS parametra vērtību mums jābūt uzmanīgiem. */
+
+/* ATCERAMIES: Vienmēr, kad mēs izstrādājam lapu, mums ir jāņem vērā, ka pasūtītājs mainīs lapas saturu. Mums ir jāizstrādā lapa tā, lai, pasūtītājs varētu veikt jebkādas lapas satura izmaiņas un lapas izstrāde paliktu nemainīga, lai tā būtu stabila. Noturīga pret jebkādām izmaiņām. Mums lapa jāizstrādā tā, lai tā izturētu jebkādas izmaiņas, pārbaudījumus. 
+
+Mūsu lapai ir jābūt stabilai, adaptīvai, ar labu pieejamību. */
+
+/* Iekš CSS parametriem: min-height un max-height ir ieteicams norādot vērtību izmantot tieši pikseļus: px, jo, ja izmantojot procentus: % mēs neiegūsim vēlamo rezultātu. Visbiežāk šo abu CSS parametru vērtībās tiek izmantoti tieši pikseļi: px. */
+
+/* Atceramies: Iekš CSS parametriem: width un height mēs norādām adaptīvas vērtības, piemēram: procentus: %, bet iekš CSS parametriem: min-height un max-height mēs norādām fiksētas vērtības izmantojot pikseļus: px. Ja mēs šos nosacījumus neievērosim, mainoties ekrāna platumam tiks salauzta lapas izstrāde, jo tā nepielāgojas. Tādēļ, mums ir obligāti jāievēro šie nosacījumi. */
+
+/* Atceramies: Iekš CSS parametriem: width un height mēs norādām adaptīvas vērtības, piemēram: procentus: %, bet iekš CSS parametriem: min-height un max-height mēs norādām fiksētas vērtības izmantojot pikseļus: px. Ja mēs šos nosacījumus neievērosim, mainoties ekrāna platumam tiks salauzta lapas izstrāde, jo tā nepielāgojas. Tādēļ, mums ir obligāti jāievēro šie nosacījumi. */
+
+.block {
+	/* height: 500px; */
+}
+
+/* CSS parametrs: overflow kontrolē to kā objekts uzvedās, ja tas tiek pārpildīts. Pēc noklusējuma CSS parametra: overflow: vērtība ir: visible, kas nozīmē, ka objekta satura pārpildes gadījumā mēs redzēsim, ka piemēram: texts iziet ārpus objekta noteiktajām robežām. */
+
+/*
+overflow 
+Kontrolē to, kas notiek ar objekta saturu, tā pārpildes gadījumā. 
+visible - tiek attēlots vis objekta saturs, pat, ja objekta saturs pārsniedz norādīto objekta platumu un augstumu: width un height;
+hidden - tiek attēlots tikai tas objekta saturs, kas ietilps tā norādītajā platumā un augstumā: width un height, bet pārējais tiek noslēpts, bet netiek ņemtas vērā objekta iekšējās apakšējās atstarpes. Objekta saturs aizpilda objektu; 
+scroll - vienmēr tiek parādīts lapas scroll - lapas ritināšanas iespējas, gan horizontāli, gan vertikāli. Lapas ritināšanas iespējas parādīsies pat, tad, ja objekta saturs nepārsniedz objekta platumu un augstumu;
+auto - lapas ritināšanas iespēja tiek parādīta tikai pie nepieciešamības;
+*/
+
+/* Visbiežāk tiek izmantots CSS parametra: overflow: vērtības: hidden un auto; Šis CSS parametrs lapu izstrādē tiek izmantots ļoti bieži, jo tas atrisina daudzas lapu izstrādes problēmas */
+
+/* Izskatīsim tās problēmas, kuras mēs varam atrisināt izmantojot CSS parametru: overflow. 
+
+Mēs izmantosim ārējo atstarpi (margin) objekta labajā un kreisajā pusē ar negatīvu vērtību. Šādā gadījumā mums parādīsies lapas horizontālais scroll. 
+
+Atceramies: Ja mēs izmantojam ārējo atstarpi objekta labajā un kreisajā pusē, tad tā velk visus objektus uz kreiso pusi. Dotajā gadījumā mūsu objekts vēl izstiepjas uz labo pusi.
+
+Bet mūsu gadījumā mēs no tā izvairamies, jo mēs esam visu lapas saturu, iekš tag: <body></body> ievietojuši iekš atsevišķas atvilknes: <div><div> ar klasi wrapper. Atvilkne: wrapper, kas mūs pasargā no daudzām problēmām kā piemēram: ārējo atstarpju izmantošana ar negatīvām vērtībām. Kā arī no absolūtās pozicionēšanas problēmām, pārlūka platuma problēmām: view port: lapas platums ko mēs redzam.
+
+Par visām šīm iespējamām problēmām un to risināšanu mēs mācīsimies vēlāk. 
+
+Atvilkne: wrapper mūsdienās tiek izmantota visās lapās, jo tā darbojās kā aizsargs, tā pasargā mūs kā lapas izstrādātājus no daudzām problēmām.
+
+Ar atvilkni: wrapper mēs vēl daudz strādāsim, vēlāk izmantojot JavaScript izstrādāsim lapai plūstošu parādīšanos, un vēl izstrādāsim daudz dažādas funkcijas. Izmantojot tieši to, ka mums lapā ir atvilkne: wrapper. 
+
+Turpmāk katrā lekcijā un mājas darbā mēs vienmēr visu lapas saturu, kas ir iekš tag: <body></body> liksim iekš atvilknes, iekš tag: <div></div> ar klasi: wrapper.
+
+Lai labāk saprastu kas ir wrapper, mēs to varam iztēloties kā mūsu lapas ietvaru. Kad visa lapa ir ietīta iekš apvalka: wrapper. 
+
+Mums var rasties priekšstats: ka mēs varam kā lapas ietvaru izmantot tag: <body></body>. Bet mēs to nevaram darīt, jo tādā gadījumā mums pazudīs lapas oriģinālais: vertikālais scroll, lapas vertikālā standarta ritināšanas iespēja. Un tieši tādēļ mums ir jāizmanto papildus atvilkne - ietvars lapai: wrapper. 
+
+Visām lapas konstrukcijām ir jābūt ietītām iekš atvilknes: wrapper, arī lapas tag: <header></header un <footer></footer. */
+
+.block {
+	/* overflow: hidden; */
+}
+
+/* Bet tagad, kad mēs zinām daudzus jaunus CSS parametrus, izskatīsim kā tie visi strādā ar RINDAS tipa elementiem. */
+
+.inline {
+	background-color: #794f45;
+	color: #fff;
+	font-size: 22px;
+	/* padding: 30px; */
+	/* margin: 30px; */
+}
+
+/* CSS parametri, ko mēs mācījāmies ieprieks un izmantojām ar BLOKA rindas elementiem, uz RINDAS tipa elementiem darbojās savādāk, atšķiras. */
+
+/* Mēs varētu padomāt, ka CSS parametrs: padding: 30px nedarbojās uz RINDAS tipa elementiem, bet tas tā nav. 
+
+Mēs redzam, ka CSS parametrs: padding: 30px ir nostrādājis rindas tipa elementa sākumā, beigās, pa kreisi un pa labi. bet mēs redzam, ka tas ir nostrādājis katrai rindai. 
+
+Bet BLOKA elementam CSS parametrs: padding: 30px; nostrādā iespiežot tekstu uz iekšu, visam blokam. Padding: 30px darbojas rindas sākumā un rindas beigās, bet starp rindām tas faktiski nedarbojās. */
+
+/* Mēs izmantojot CSS parametru: line-height izstiepjam mūsu tekstu, nosakot, ka line-height: 100px. Mēs to darām, lai redzētu kā darbojās CSS parametrs: padding: 30px. Lai saprastu kā tas darbojās ar rindas tipa elementiem. */
+
+/* Ja RINDAS tipa elementam mēs nebūtu noteikuši fona krāsu un rindas augstumu, tad mēs iekšējo atstarpi: padding nemaz neredzētu. Jo bez CSS parametriem: background-color un line-height BLOKA tipa un RINDAS tipa elementi sakļautos un mēs neredzētu, ka darbojās: padding: 30px. Bez šiem parametriem tas ir kā gaiss, kas nemaina RINDAS tipa elementu vizuālo izskatu. 
+
+Var teikt, ka CSS parametram: padding: 30px uz RINDAS tipa elementiem augšā un apakšā nav fiziska ķermeņa. */
+
+/* Mums ir jāatceras ka: RINDAS tipa objekts ir kā: teksta rinda. */
+
+/* Ar laiku, kad mums jau būs daudz pieredzes, reizēm mums būs maketā tāds uzdevums, kur mums būs RINDAS tipa elementiem jāizmanto: padding: ; Bet mums jābūt pilnīgām lapu izstrādes zināšanām, lai mēs prastu panākt sev vēlamo rezultātu izmantojot CSS parametru: padding un vēl citus CSS parametrus. Jo, aj mums ir pilnīgas izstrādes zināšanas un liela pieredze, mēs zinām kā panākt to, lai CSS parametra: padding izmantošana uz RINDAS tipa elementiem būtu iespējama, un, lai tas būtu vizuāli skaisti, kā arī, lai mūsu izstrāde saglabātu uzticamību un stabilitāti.
+
+Bet šādas situācijas, kad mums uz RINDAS tipa elementiem vajadzēs izmantot CSS parametru: padding būs ļoti reti. Bet to mēs izmantosim tikai tad, kad būsim izmācījušies visu izstrādes teoriju, kad mums jau būs pieredze. Bet pagaidām atceramies ka:
+
+CSS parametrs: padding; 30px ar RINDAS tipa elementiem strādā daudz savādāk. Un vairums gadījumu mēs neizmantojam RINDAS tipa elementiem atstarpes. */
+
+/* Ja mēs RINDAS tipa elementam izmantojam ārējās atstarpes margin: 30px, tad mēs rezultātā redzam, ka notiek gandrīz tas pats, kas tad, ja izmantojam padding: 30px. CSS parametrs: margin: 30px darbojas rindas sākumā un rindas beigās, bet tas nav redzam starp rindām. 
+
+Vienīgais izmantojot CSS parametru: padding: 30px mēs redzējām, ka RINDAS tipa elements uzpeldēja virsū BLOKA tipa elementam, bet izmantojot: margin: 30px pat to neredzam. */
+
+/* Šo CSS parametru: margin: 30px RINDAS tipa elementiem mēs varam izmantot tikai tad, kad mums ir daudz zināšanu par lapu izstrādi un, kad mēs jau zinām kā mēs varam panākt, lai margin: 30px izmantošana darbotos un labi izskatītos uz RINDAS tipa elementiem. */
+
+/* Vienīgā atšķirība starp CSS parametru: padding un margin izmantošana RINDAS tipa elementiem ir tā: Mēs margin: izmantošanu vizuāli vispār neredzam. Mēs to neredzam pat, ja: atveram Google Chrome, izstrādātāja rīkus un noklikšķinot uz konkrētā RINDAS tipa elementa. */
+
+/* Tieši tas pats notiek, kad mēs izmantojam CSS parametrus: width, min-width un max-width RINDAS tipa elementiem. Mēs redzam, ka mūsu RINDAS tipa elements nemaina savu izskatu.  */
+
+/* Un tieši tas pats attiecās uz CSS parametru: height, min-height un max-height izmantošanu. Mūsu RINDAS tipa elements nemaina savu izskatu.
+
+Šie CSS parametri VISPĀR nedarbojās uz RINDAS tipa elementiem. Ja ar ar atstarpju izmantošanu mēs vēl kaut ko varējām redzēt un ar to kaut ko iesākt, tad šeit ir pilnīgs nulles variants. */
+
+/* CSS parametrs: overflow strādā kopā ar platuma un augstuma parametriem, tādēļ: uz RINDAS tipa elementiem to pat nav jēgas izmantot. */
+
+/* CSS parametri: height,..., width,..., un overflow vispār NESTRĀDĀ ar RINDAS tipa elementiem. */
+
+/* Bet kas notiek ar BLOKA RINDAS tipa elementiem? Piemēram ar tag: <img>. Ja mēs tūlīt aiz bildes rakstīsim tekstu, tad tas centīsies nostāties vienā rindā ar bildi. */
+
+/* Visi CSS parametri, ko mēs šodien iemācījāmies strādā ar BLOKA RINDAS elementiem. */
+
+/* Paskatīsimies kā CSS parametri darbojās uz bildi. Piemērs: */
+
+.main__img {
+	width: 500px;
+	height: 700px;
+	background-color: #555;
+	padding: 10px;
+	margin: 30px;
+}
+
+/* Mēs redzam, ka visi CSS parametri, kas darbojās ar BLOKA tipa elementiem, darbojas arī uz BLOKA RINDAS elementiem. Ja mūsu bilde HTML dokumentā ir kā RINDAS tipa elements, tad iekš Kaskādes Tabulas Stiliem tā ir faktiski BLOKA tipa elements. */
+
+/* Ja mēs vēlamies, lai mūsu bilde būtu pa visu lapas platumu, mums ir jānoņem CSS parametrs: margin, un jāpievieno CSS parametrs: width: 100%; Un tagad, kad mēs mainām ekrāna platumu, mūsu bilde mainās tam līdzi, pielāgojas ekrāna platumam. Lai bilde proporcionāli samazinātos, mums no HTML dokumenta ir jāizņem no tag: <img> atribūts: height. Uz bildi darbojās visa veida height un visa veida width parametri, kā arī visa veida atstarpes, gan padding, gan margin. */
+
+/* Bet uz bildes, kas ir BLOKA RINDAS elements nedarbojas CSS parametrs: overflow: ; */
+
+/* CSS parametri, kas NEDARBOJAS ar RINDAS tipa elementiem. 
+ - visa veida height;
+ - visa veida width;
+ - overflow;
+*/
+
+/* CSS parametri, kas darbojas SAVĀDĀK ar RINDAS tipa elementiem. 
+ - margin;
+ - padding;
+*/
+
+.link {
+	font-size: 24px;
+	color: #ff0000;
+}
+
+/* Uz saiti nedarbojās iekšējās atstarpes, tāpēc, ka tā ir: RINDAS tipa elements. */
+
+/* Lai uz saiti jeb uz kādu citu RINDAS tipa elementu darbotos CSS parametri, kurus mēs šodien iemācījāmies, mums ir jāmaina to tips, izmantojot CSS parametru: display. */
+
+/* CSS parametrs: display var saturēt kā tā vērtību veselus moduļus, moduļu sistēmas. Izmantojot šo parametru mēs varam mainīt kāda HTML dokumenta elementa tipu. Mēs varam BLOKA tipa elementus pārvērst par RINDS tipa elementiem, par BLOKA RINDAS tipa elementiem. Mēs varam RINDAS tipa elementus pārvērst par BLOKA vai BLOKA rindas tipa elementiem. Un BLOKA RINDAS tipa elementus mēs varam pārvērst par BLOKA vai RINDAS tipa elementiem. 
+
+Mēs jebkuru HTML dokumenta elementa tipu izmantojot CSS varam mainīt tā kā mums ir nepieciešams. Mēs varam izmantojot CSS parametru: display: ar vērtību: none; izslēgt no lapas kādu elementu. Elements netiks attēlots mūsu lapā, un tā atrašanās vieta netiks rezervēta. Lapa izskatīsies tā, itkā tāda elementa nekad nav bijis. Bet hTML dokumentā šis elements mums ir, un mēs jebkurā brīdī, kad mums vajag to parādīt lapā varam display: vērtību no: none mainīt uz citu, lai elements tiktu atkal parādīts. */
+
+/*
+display:
+CSS parametrs: display ir daudzfunkcionāls CSS parametrs, kas nosaka, kā objekts tiks attēlots mūsu lapā. Kāds tips būs konkrētam elementam. 
+Šis CSS parametrs nav mantojams. 
+Tam ir šādas vērtības:
+
+block - Elements tiek attēlots kā BLOKA tipa elements. Šīs vērtības izmantošana RINDAS tipa elementiem, piemēram: tag: <span></span>, liek tam uzvesties, izskatīties kā BLOKA tipa elementam, vis tā saturs tiek pārnests jaunā rindā, tā pat kā ar BLOKA tipa elementiem.
+
+inline - Elements tiek attēlots kā RINDAS tipa elements. Izmantojot šo vērtību BLOKA tipa elementiem, piemēram: tag: <p></p> un tag: <div><div>, kad vis tā saturs tiek pārnests jaunā rindā, vērtība: inline atceļ visu šo uzvedības modeli, un šie elementi tagad sākas tai pašā rindā kur beidzas iepriekšējie elementi.
+
+inline-block - Šī vērtība ģenerē BLOKA tipa elementu, kurš saplūst ar citiem lapas elementiem, piemēram: vecāka elementu. Faktiski tāds elements pēc uzvedības ir līdzīgs BLOKA RINDAS tipa elementiem, piemēram: tag: <img>. Pie tam tā iekšējā daļa attēlojas kā BLOKA tipa elements, bet lapā tas tiek attēlots kā BLOKA tipa elements. 
+
+none - Uz laiku noņem elementu no lapas, mēs to neredzam. Un tā atrašanās vieta netiek rezervēta. Lapa izskatās tā, itkā tā nekad nebūtu bijis. 
+*/
+
+/* Pēc noklusējuma HTML elementiem tiek izmantots CSS parametrs: display: ar šādām vērtībām: */
+
+/* Visiem RINDAS tipa elementiem */
+.link {
+	/* Pēc noklusējuma */
+	/* display: inline; */
+}
+/* Visiem BLOKA tipa elementiem */
+.header {
+	/* Pēc noklusējuma */
+	display: block;
+}
+/* Visiem BLOKA RINDAS tia elementiem */
+.main__img {
+	/* Pēc noklusējuma */
+	/* display: inline-block; */
+}
+
+.text {
+	/* display: none; */
+	font-size: 24px;
+}
+
+
+/* Bet mēs šo noklusēto CSS parametru: display: tā vērtības varam mainīt, atkarīgi no tā ko mēs vēlamies panākt. izskatīsim to ar piemēru par saiti: */
+
+.link {
+	display: inline-block;
+	margin: 0px 0px 30px 0px;
+}
+
+.main__img {
+	display: block;
+}
+
+/* Kāpēc mēs saitei norādām tieši: display: inline-block, nevis vienkārši: display: block;? Tādēļ, ka: ja mēs norādīsim: display: block, tad saite aizņems visu lapas platumu, visu to platumu, kas ir vecākam. Ir gadījumi, kad tas mums neder. Tādēļ, mums saitei ir jānorāda: display: inline-block;, lai tā kļūtu par  BLOKA RINDAS tipa elementu, un mēs vajadzības gadījumā varētu tai pašā rindā pievienot vēl citus elementus. 
+
+Jo laba prakse ir tā, ka mēs savu darbu darām profesionāli. Un saitei ir jāaizņem tikai tik daudz vietas cik ir tās saturs. Jo mēs gribam, lai lietotājs, kad redzētu saiti, varētu klikšķināt tikai uz to vietu, kur ir saite, nevis pa visu lapas rindu. 
+
+Tādēļ, gan no loģikas viedokļa, gan no mūsu profesionalitātes puses, mums saitei ir jānorāda tieši: display: inline-block;. */
+
+/* Otra ļoti svarīga lieta, kas mums ir jāievēro, kad strādājam ar saiti: Mēs nedrīkstam norādīt iekšējo augšējo jeb apakšējo atstarpi, jo tādā veidā mēs paplašinām saites robežas, un atkal: lietotājs var klikšķināt pa visu saites teritoriju, un tas ir neloģiski un neprofesionāli. Tādēļ Atceramies: Ka, ja mēs strādājam ar saiti mēs izmantojam ārējās atstarpes: margin;. */
+
+/* Daudzi iesācēji, kas īsti nesaprot kā darbojas CSS parametrs: display: ar vērtību: none, mēģina tam izveidot animāciju, bet nekas nesanāk, jo izmantojot display: none elements pilnībā pazūd, un mēs nevaram darboties ar neesošu elementu. */
+
+/* Un šeit darbojās atkal nosacījums, kas darbojās HTML dokumentā, kad mēs izmantojam konkrētus tag konkrētiem mērķiem. Ar CSS tas strādā tieši tā pat: Mēs izmantojam konkrētus CSS parametrus - konkrētam mērķim. Kā arī mēs ievērojam loģikas principus un sīkos ieteikumus, kas atšķir profesionālu izstrādātāju no neprofesionāļa. Tādēļ mēs cenšamies šos ieteikumus un nosacījumus - IEVĒROT. */
+
+/* Mūsu piemērā mēs varam arī bildi, kas pēc noklusējuma ir BLOKA RINDAS tipa elements pārveidot par BLOKA tipa elementu. Līdz ar to mēs panāksim to, ka tā nostāsies jaunā rindā, jo tai būs visas īpašības, kas ir BLOKA tipa elementiem. Un mūsu situācijā mēs to varam pielietot. */
+
+/* Jautājumi un atbildes */
+
+/* Pieredzējuši lapu izstrādātāji, ja tas ir iespējams cenšas neizmantot CSS parametru: display: none. Izņemot, ja tiek izstrādāts lapas adaptīvs - lapas mobilā versija. Bet, ja mums ir nepieciešams kādu elementu izņem no lapas, lai tas nebūtu redzams, mēs varam izmantot HTML atribūtu, kas tiek rakstīts iekš tag atverošās daļas. Atribūts: hidden, kas nozīmē to pašu ko display: none. 
+
+Atribūtam: hidden nav vērtības, jo tas ir pats par sevi. Viens pats. 
+
+Atšķirība ir tikai tā, ka atribūts: hidden darbojās no HTML dokumenta, bet display: none no CSS faila. 
+
+No semantikas viedokļa ir ieteicams: Izmantot tieši HTML atribūtu: hidden, nevis CSS parametru: display: none, jo tā ir labāk priekš ekrāna lasītājiem, tie labāk saprot HTML atribūtu: hidden. 
+
+Vēl viens pluss izmantot atribūtu: hidden ir tas, ka mēs varam tam tikt klāt, strādāt ar to no javaScript faila, ietekmēt to. */
+
+/* Mēs CSS parametru: width: 100% norādām tikai RINDAS tipa un BLOKA RINDAS tipa elementiem, ja mums ir nepieciešams, lai tie būtu pa visu lapas platumu. Bet BLOKA tipa elementiem mums nav nepieciešams norādīt: width ar tādu vērtību, jo tie jau pēc noklusējuma ir pa visu lapas platumu. */
+
+/* Atvilkni: wrapper mums ir jāierobežo norādot tai CSS parametru: min-height, jo, ja norādīsim vienkārši: height: 100%, tad, ja mums būs vairāk satura nekā 100% lapas augstums, tad tas saturs ies pāri atvilknes: wrapper augstumam, līdīs no tā ārā, tādēļ mums tas ir jāierobežo norādot tieši: min-height: 100%. */
+
+/* <body></body> ir pa visu lapas augstumu, bet atvilkne: wrapper ir pa visa satura augstumu. */
+
+
+
+

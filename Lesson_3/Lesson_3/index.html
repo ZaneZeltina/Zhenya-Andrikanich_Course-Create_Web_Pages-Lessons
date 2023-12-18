@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 3</title>
+	<!-- <style>
+			p{
+				color: green;
+			}
+		</style> -->
+</head>
+
+<body>
+
+	<!-- (1) CSS iekšējie stili - rakstīti iekš konkrēta tag jeb JavaScript 
+		     faila - Tiem ir visaugstākā izpildes prioritāte;
+	     (2) Vēršanās pie CSS stiliem izmantojot tag: <style></style - Zemākā 
+				 izpildes prioritāte;
+			 (3) Ārējā CSS faila pieslēgšana HTML dokumentam izmantojot tag: <link 
+			   rel="stylesheet" href="css/style.css"> - Parasta - vidēja izpildes prioritāte;
+			-->
+
+	<!-- Rakstam klases nosaukumus ievērojot šos nosacījumus:
+			Latīņu burti;
+			Bez atstarpēm;
+			Vienā vārdā;
+			Ar mazajiem burtiem;
+		-->
+	<header>
+		<h1>Я заголовок</h1>
+		<nav>
+			<ul>
+				<li>
+					<a href="">Я ссылка</a>
+				</li>
+				<li>
+					<a href="">Я ссылка</a>
+				</li>
+				<li>
+					<a href="">Я ссылка</a>
+				</li>
+				<li>
+					<a href="">Я ссылка</a>
+				</li>
+				<li>
+					<a href="">Я ссылка</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div>
+			<p id="menu">
+				Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+			<p>
+				Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+			<!-- style="color:red;" -->
+			<p id="main-text" class="text">
+				Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+			<p>
+				Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+			<p>
+				Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+		</div>
+		<div class="content">
+			<img width="400" src="img/01.png" alt="Jaunbūve">
+			<p class="content__item">
+				Es esmu SATURS. Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+			<span class="content__text">
+				Es esmu PIRMĀ līmeņa SPAN. Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</span>
+			<p class="content__item">
+				<span class="content__text">
+					Es esmu OTRĀ līmeņa SPAN. Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+				</span>
+				</p>
+				<div class="content__item">
+					<p>
+					  <span class="content__text">
+						  Es esmu TREŠĀ līmeņa SPAN. Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+					  </span>
+					</p>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<span class="text blue-text">Es esmu pagrabs</span>
+			<p class="text paragraph">
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			  Es esmu iesākusi mācīties kursu par lapu izstrādi, un šī jau ir trešā mācību stunda, kurā mēs turpināsim mācīties par HTML struktūru, tags. Kā arī sāksim mācīties par kaskādes stiliem - CSS. Kā tos pareizi izmantot, un kam tie ir paredzēti.
+			</p>
+		</footer>
+	</body>
+
+</html>
+
+<!-- Šinī lekcijā mēs turpinām strādāt, mācīties par HTML dokumenta struktūru, un sākam mācīties par kaskādes tabulas stiliem - CSS -->
+
+<!-- Kas ir kaskādes tabulas stili? Mēs izmantojam kaskādes tabulas stilus, lai ietekmētu HTML dokumenta vizuālo izskatu. Mēs izmantojam kaskādes tabulas stilus, metodes, parametrus, lai mainītu HTML dokumenta izskatu, attēlojumu Mēs varam ietekmēt ar kaskādes stilu palīdzību visus hTML dokumenta tags, mēs varam mainīt to platumu, augstumu, atrašanās vietu, teksta lielumu, pozīciju, krāsu, teksta izmēru un vēl daudz ko citu -->
+
+<!-- Atceramies, ka ir tags, kam jau ir iebūvētie kaskādes tabulas stili. Visiem semantiskajiem tags ir savi noklusētie kaskādes tabulas stili, un ne tikai semantiskajiem tags -->
+
+<!-- Bez kaskādes tabulas stilu izmantošanas mums ir tikai HTML dokumenta skelets, salīdzinājumā ar cilvēku, mums ir tikai kauli, bet izmantojot kaskādes tabulas stilus mēs mūsu HTML dokumenta skeletam varam nodrošināt vizuālo daļu. Salīdzinājumā ar cilvēku, mēs kauliem varam iedot muskuļus, acīm - krāsu, matiem - krāsu, regulēt roku, kāju lielumu, ādas krāsu, iedot cilvēkam apģērbu, kāds tas izskatīsies. Bet, lai šis cilvēks, mūsu HTML lapa ar CSS stiliem varētu darboties, funkcionēt, mums ir nepieciešams JavaScript, mums ir nepieciešams iedvest cilvēkā dzīvību, lai tas varētu funkcionēt. Jo mūsdienās jebkurai Web lapai ir noteikta funkcionalitāte, tā pilda noteiktas funkcijas. Un par to atbild JavaScript -->
+
+<!-- Kaskādes tabulas stili var būt trīs veidi. Ir trīs iespējas, kā izmantojot CSS tabulas stilus mēs varam ietekmēt HTML dokumentu -->
+
+<!-- Pirmais veids: Iekšējais stila veids (atribūta stils). Tas nozīmē, ka mēs jebkuram tag varam pievienot atribūtu: style="" un iekš tā pēdiņām: "" ierakstīt tos stilus, kurus vēlamies pielietot konkrētajam tag. Izmantojot šādu variantu mēs tieši iekš HTML dokumenta varam noteikt kaskādes tabulas stilus. Šim stila pielietošanas veidam ir visaugstākā prioritāte, kas nozīmē, ka visi pārējie kaskādes stili ir zemākas prioritātes. Pārlūks atverot mūsu lapu vispirms izpildīs tos stilus, kam ir visaugstākā prioritāte, un tikai tad izpildīsies kaskādes tabulas stili ar zemāku prioritāti. Ja viens un tas pats stils būs pierakstīts dažādās prioritātēs, piemēram tag krāsa, tad tiks pielietota tā krāsa, kurai ir visaugstākā prioritāte. Bet krāsa, kas norādīta zemākā prioritātē netiks izmantota. Atverot izstrādātāju rīkus, šādā gadījumā mēs redzēsim, ka zemākas prioritātes stils būs nostrīpots, jo izpildās augstākās prioritātes stils. Augstākās prioritātes kaskādes tabulas stila piemēru skatīt augstāk kodā: -->
+
+<!-- Iekšējie stili bieži tiek izmantoti strādājot ar JavaScript failu, tos ietekmējot, uzstādot, mainot tieši no JavaScript faila. JavaScript failā tiek izmantota tikai iekšējos kaskādes tabulas stilu metode -->
+
+<!-- Otrais veids: CSS stilu izmantošana iekš HTML dokumenta (tag stils). Mēs varam izveidot HTML dokumentā atsevišķu tag: <style></style> iekš kra mēs varam aprakstīt visus kaskādes tabulas stilus, kurus vēlamies piemērot. Varam vērsties pie visiem HTML dokumenta tags, kuriem mēs vēlamies mainīt kaskādes tabulas stilus -->
+
+<!-- Šāds kaskādes tabulu stilu izmantošanas veids palēnina lapas ielādi, tādēļ šāds izmantošanas veids nav ieteicams, ik sevišķi, ja mūsu HTML lapa ir liela. Ļoti mazai lapai mēs varam izmantot šādu pieeju, bet tas nav pareizākais veids -->
+
+<!-- Galvenā atšķirība starp iekšējā kaskādes tabulas stila un tag kaskādes stila izmantošanu ir tā, ka iekšējais stils tiek rakstīts HTML dokumentā iekš tag, bet tag: <style></style> tiek rakstīts iekš tag: <head></head>, lapas augšā. Mēs iekš tag: <style></style> rakstām tā tag nosaukumu, kura stilus vēlamies mainīt. Tad liekam {} iekavas kurās rakstām stila nosaukumu - īpašību, liekam punktiņu zīmi : un rakstām īpašības vērtību, beigās liekam semikolu ;. Mūsu gadījumā CSS īpašība  ir: color bet īpašības vērtība ir: green; Mēs redzam, ka visi mūsu tags: <p></p> ir iekrāsojušies zaļā krāsā, izņemot to tag: <p></p>, kuram mēs pierakstījām iekšējo stilu, iedodot tam citu krāsu. Kādēļ tā? Tādēļ, ka atceramies par prioritātēm, iekšējiem stiliem ir visaugstākā prioritāte, bet tag: <style></style> ir zemāka prioritāte. Tādēļ arī konkrētais tag: <p></p> netiek pārkrāsots zaļā krāsā, jo tam jau ir augstākas prioritātes krāsa -->
+
+<!-- Trešais veids: Iekšējā CSS faila pieslēgšana izmantojot HTML dokumentu (tag: <link rel="stylesheet" href="css/style.css">) Atceramies, ka tas ir jādara iekš tag: <head></head> pirms tag: <title></title>. Tieši šis variants, kad mēs pieslēdzam atsevišķu CSS style failu mūsu HTML dokumentam ir vispareizākais, un mums tas ir jāizmanto vienmēr, kad izstrādājam lapas. Mums ir jāievēro šāda struktūra, kad mums ir atsevišķi HTML dokuments, atsevišķi style.css fails un vēlāk arī atsevišķs JavaScript fails - main.js. Mēs iekš tag: <link> redzam atribūtu: rel="stylesheet", kas nozīmē, ka tas kam mēs veidojam link ir tabulas stila fails. Atribūts: rel="stylesheet" nosaka faila tipu. Bet atribūts href="" nosaka adresi, kur atrodas mūsu CSS fails. Tas var atrasties uz mūsu datora, jeb kaut kur citur internetā, kādā serverī. Mūsu gadījumā mēs pieslēdzam to style.css failu, kas atrodas mūsu datora css mapītē. Atveramies, ka mums ir pareizi jānorāda ceļš pie style.css faila. Ja ievērojam standarta struktūru, tad mūsu ceļš ir šāds: href="css/style.css"> -->
+
+<!-- Lai mēs varētu turpināt strādāt style.css failā, mums ir jāizslēdz stili, kas ir HTML lapā, vienkārši tos aizkomentējot, jo tad ti nebūs aktīvi - pārlūks tos neredzēs, un mums pilnvērtīgi darbosies style.css fails -->
+
+<!-- Atceramies: Jebkura veida programmēšanas valodas fails, arī HTML un CSS tiek lasīts no augšas uz leju. Vis tiek izpildīts pēc kārtas, viens aiz otra -->
+
+<!-- Lai lietotu kādu programmēšanas valodu, jeb arī HTML un CSS mums ir jāievēro tā sintakse, noteikti valodas lietošanas - izmantošanas noteikumi -->
+
+<!-- Kaskādes tabulas stilus uzbūve. Selektori. Kas tad ir selektori. Selektori ir: tag nosaukumi, klašu nosaukumi. Atceramies, ka rakstot klašu nosaukumus mums pirms nosaukuma ir jāliek punkts. Bet rakstot tikai tags nosaukumus mums priekšā nav jāliek punkts -->
+
+<!-- Kaskādes tabulas stila īpašību un tās vērtību sauc par : CSS parametru. Iekš CSS selektora var būt neierobežota daudzuma parametri -->
+
+<!-- Atceramies, ka aiz katra CSS kaskādes tabulas stila parametra ir jāliek semikols, jo savādāk mums būs kļūda, mūsu kods nedarbosies. Tā ir svarīga sintakses īpašība -->
+
+<!-- Kaskādes tabulas stiliem ir noteikta izpildes kārtība pēc to prioritātēm:
+	 1. Pirmie tiek izpildīti kaskādes tabulas iekšējie parametri;
+	 2. Otrie tiek izpildīti id selektoru parametri;
+	 3. Trešie tiek izpildīti klases selektoru parametri;
+	 4. Ceturtie tiek izpildīti tags selektoru parametri; 
+-->
+
+<!-- Sīkāks skaidrojums par kaskādes tabulas stilu uzbūvi, izmantošanu un izpildes kārtību ir failā: css/style.css -->
+
+<!-- Vēlāk, kad mēs sāksim izstrādāt HTML lapas, mēs strādāsim pēc BEM metodoloģijas, kur vis tiek būvēts pēc klašu izmantošanas principa. Mēs strādāsim visvairāk ar klašu selektoru izmantošanu, retāk ar tag selektoru izmantošanu un vēl retāk ar ID selektora izmantošanu CSS failā-->

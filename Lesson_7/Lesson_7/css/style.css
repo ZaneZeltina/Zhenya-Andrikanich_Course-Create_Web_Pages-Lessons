@@ -1,0 +1,463 @@
+/* 
+&display=swap
+&subset=cyrillic-ext 
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,700,900&display=swap");
+
+/* CSS STYLE RESET */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+img {
+	vertical-align: top;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	font-size: 16px; /* Noklusētā vērtība */
+}
+
+body {
+	line-height: 1;
+	font-family: "Roboto";
+	background: #f5f5f5;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	padding: 50px;
+}
+
+/* ------------- */
+
+/* Šinī lekcijā mēs izskatīsim jaunus Kaskādes tabulas stilus.  */
+
+/* Mācīsimies par mums jaunu CSS parametru: background: Un tā vērtībām, jo mums ir jāzin tā pielietošanas un izmantošanas iespējas. Lapu izstrādē CSS parametrs: background ir ļoti svarīgs un tiek izmantots gandrīz katrā projektā. */
+
+/* Lai labāk saprastu kā tiek lietots CSS parametrs: background: ; izveidosim mūsu HTML dokumentā atvilkni ar tekstu. */
+
+/* Stilizējam izveidoto atvilkni izmantojot CSS parametrus, arī parametru: background. */
+
+/* CSS parametram: background ir vesela izmantošanas grupa. Izskatīsim visas. Sāksim ar CSS parametra: background-color izmantošanas iespējām. */
+
+/* CSS parametrs background-color nosaka elementa fona krāsu, bet parametrs: color: ; nosaka teksta, RINDAS tipa objekta krāsu. Savukārt background-color nosaka BLOKA elementu fona krāsu. */
+
+/* Ja mēs izmantojam iekšējās atstarpes, tad fona krāsa paplašinās, par tik, cik ir norādīts CSS parametra: padding: vērtībā. Bet, ja izmantosim ārējās atstarpes: margin: tad fona krāsas izmērs nemainīsies. Šo īpatnību ir ļoti SVARĪGI atcerēties. */
+
+.block {
+	/* font-size: 30px; */
+	/* padding: 30px; */
+	/* color: #fff */
+	/* background-color: green;
+	/* background: green url("../img/01.png"); */
+	/* background-image: url("../img/icon.png") */
+	/* background-image: linear-gradient(to bottom, rgba(236, 232, 157, 1) 0%, rgba(94, 83, 115, 1) 50%, rgba(24, 181, 164, 1) 100%); */
+}
+
+/* Universāls CSS parametrs ir: background: ; kas darbojās tieši tā pat kā parametrs: background-color: ; */
+
+/* Nākošais CSS parametrs, kas ari pieder pie background grupas ir: background-image, kas nosaka objekta fona attēlu. Izmantojot CSS parametru: background-image: mēs varam noteikt gradienta krāsas izmantošanu. */
+
+/* Izmantojot CSS parametru: background-image: SVARĪGI ir: norādīt vērtībā: url(), kur mēs rakstām attēla atrašanās ceļu. Vai lokāla faila atrašanās vietu uz mūsu datora, vai globālu interneta adreses ceļu, kur atrodas mums vajadzīgais attēls. */
+
+/* Visbiežāk CSS parametrs: background-image: tiek izmantots lai pievienotu attēlu, nevis krāsu. */
+
+/* Ļoti SVARĪGI ir: ATCERĒTIES: ka krāsa un attēls iet pa virsu elementam, uzklājoties pa kārtām, vispirms krāsa pēc tam attēls. Bet tas NEDARBOJAS, ja attēla formāts ir JPG, jo tad tas pārklāj krāsu, bet, ja attēla formāts ir PNG, bet ar nosacījumu, ka attēls ir ļoti mazs, jo ja tas ir lielāks par objekta platumu, tad krāsu mēs vairs neredzam, jo attēls to pārklāj. Bet, ja attēls PNG formātā ir maza izmēra, tad vispirms uzklājās krāsa un pēc tam attēls, un mēs redzam, ka darbojās abi CSS parametri: background-color un: background-image vienlaicīgi. */
+
+/* Mēs izmantojam CSS parametru: background: tā vērtībā vispirms rakstam krāsu izmantojot: #, pēc tam rakstam: atrašanās ceļu, izmantojot: url(), pēc tam rakstam: no repeat, lai attēls neatkārtotos. */
+
+/* SVARĪGI: pierakstot CSS parametra: background vērtības mēs tās atdalām vienu no otras ar atstarpi. */
+
+/* Nav tik svarīgi kādā kārtībā mēs pierakstām CSS parametra: background: vērtības, bet, ja gribam ievērot loģiku, tad mums jāievēro tieši šāds pieraksts kā norādīts augstāk, jo tā ir vieglāk atcerēties un saprast kā kura vērtība darbojās. */
+
+/* Kā jau tika teikts iekš CSS parametra: background-image: var tikt norādīts gradients.
+Lai automātiski iegūtu mums vajadzīgo gradient mēs varam izmantot color-zila online mājaslapu, kur mēs varam ģenerēt sev nepieciešamo gradientu. Linear gradient nozīmē to, ka gradients ir lineārs, no punkta A uz punktu B. */
+
+/* Aiz linear gradient mēs liekam () iekavas, krās norādām gradienta pozīciju, atrašanās vietu: to top - augšā, To bottom - apakšā, to left - pam kreisi, to right - pa labi.Kā arī varam norādīt gradienta atrašanās vietu kādā stūri. */
+
+/* Aiz gradienta atrašanās vietas pozīcijas mēs liekam komatu un norādām gradienta krāsu izmantojot rgba un () iekavās rakstām krāsas kodu un caurspīdīguma vērtību, kur 0 ir pilnībā caurspīdīgs, bet 1 pilnībā necaurspīdīgs. Mēs varam norādīt vairākus rgba, tādejādi iegūstot daudzkrāsainu gradientu. */
+
+/* Pēc rgba nāk skaitlis procentos: %, kas norāda no kurienes sāksies konkrētas krāsas gradients, piemēram no 0% - tas sāksies no objekta sākuma, 50% - tas sāksies no objekta vidus, 100% - tas ies līdz objekta beigām. */
+
+/* Visus šos gradienta vērtības un skaitļus. % mēs varam mainīt, bet realitātē tas netiek mainīts, jo mēs strādājot ar Figma maketu: kopējam tur norādīto gradientu, jeb, ja nepieciešams: ģenerējam to online color-zila servisā un kopējam jau gatavu kodu, un mums nav nepieciešams ko mainīt. */
+
+/* Gradient var būt dažādi: lineāri, radiāli, diagonāli, vertikāli, lineāri, horizontāli. Redzēt, kā katrs no gradienta veidiem darbojās un izskatās mēs varam izpētot online gradienta ģenerēšanas servisu: color-zila. */
+
+/* Gradient izmantošanas, ģenerēšanas iespējas ir ļoti plašas, bet mums šobrīd nav nepieciešams zināt gradient izmantošanu visos sīkumos. Jo tad, kad mums būs nepieciešams pielietot kādu specifisku gradientu, kas nav figma maketā, jeb, ja strādāsim pie personīga projekta, tad mēs vienmēr varēsim ģenerēt tā kodu online servisā: color-zila. */
+
+/* Mēs nevaram vienlaicīgi izmantot gan attēlu, gan gradientu. */
+
+/* Visus CSS parametru kopas: background izmantošanas piemērus mēs varam redzēt augstāk. */
+
+/* Nākošais CSS parametrs, kas arī pieder pie background kopas ir: 
+background-repeat: kas nosaka to, vai attēls atkārtosies. Mēs varam noteikt kā atkārtot attēlu, pa X asi, pa Y asi. */
+
+/* Kādos gadījumos mēs varam izmantot attēla atkārtošanos pa X vai Y asi? Tas tiek izmantots lai iegūtu bezšuves attēlus, moduļu attēlus. Ja mēs izmantojot šādu pieeju saliksim kopā vairākus attēlus, mēs neredzēsim attēlu šuves. Rezultātā mēs iegūsim kopēju fonu, kas sastāv no daudziem maziem attēliem, vietu, kas tiktu izmantota vienkārši saliekot kopā attēlus, neizmantojot repeat, un gala rezultāts šādai repeat izmantošanai izskatās ļoti skaisti. */
+
+/* CSS parametra: background-repeat: no-repeat nozīmē to, ka mūsu attēls neatkārtosies. Tas tiks attēlots mūsu objektā tikai vienu reizi. */
+
+/* Reālajā dzīvē, darbā šāda pieeja tiek izmantota, saliekot kopā daudzus mazus attēlus. Bet šāda pieeja tiek izmantota diez gan reti. Bet visbiežāk tiek izmantots tieši: no-repeat. Arī mēs savā darbā visbiežāk izmantosim tieši CSS parametru: background-repeat: no-repeat. */
+
+/* Vēl CSS parametram: background-repeat: tiek izmantota vērtība: space, kad starp attēlu atkārtošanos tiek ielikta automātiska atstarpe. mainoties ekrāna izmēram mainās atstarpe starp attēliem. tas ir kaut kas līdzīgs CSS parametram: text-align: justify, kad mainās atstarpes mainoties ekrāna izmēram. Kad izmantojam CSS parametru: background-repeat: space notiek tieši tas pats, tikai ar attēlu. */
+
+/* Bet CSS parametra: background-repeat: repeat izmantošanai ļauj attēlam tikt apgrieztam, kad mainās lapas izmērs, bet vērtība: space neļauj apgriezt attēlu, jo tā pievieno attēlam atstarpes tā, lai tas netiktu apgriezts, kad mainās lapas izmērs. */
+
+/* CSS parametram: background-repeat: ir vēl vērtība: round, kuras efekts ir tas pats, kas izmantojot vērtību: space, bet round vērtības pielietošana ir slikts risinājums, jo tā izmantošana deformē attēlu, kad mainās lapas izmērs. */
+
+/* CSS parametra: background: space un round vērtības praktiski nekad netiek izmantotas. */
+
+/* CSS parametra: background-repeat noklusētā vērtība ir: repeat, kas nozīmē, ka attēls atkārtojas tik reizes, cik liela ir objekta platība, cik reizes tas ietilpst mūsu objektā. */ 
+
+/* Universālajā CSS parametra background: vērtību pierakstā, kas pagaidām izskatās šādi mēs rakstām:
+background: green url("../img/icon.png") no-repeat; 
+*/
+
+/* Pie CSS parametra: background grupas ir vēl parametrs, kas ļauj noteikt attēla pozīciju, pozicionēšanu. Un tas ir: background-position: kas nosaka attēla pozīciju, kur atradīsies konkrētais attēls. Tā noklusētā vērtība ir: 0 0, kas nozīmē to, ka attēls sākās no objekta augšējā kreisā stūra. */
+
+/* Šim CSS parametram mēs varam norādīt dažādas vērtību noteikšanas sistēmas, gan pikseļos, gan procentos, gan ar vārdiem noteikt attēla pozīcijas vērtības. */
+
+/* Šī CSS parametra: background-position: 0 0 vērtība ar vārdiem būtu šāda: background-position: top (atstarpe) left. Pirmā vērtība nozīmē lapas objekta horizontāli, bet otra: lapas objekta vertikāli. Kas šinī gadījumā nozīmē, ka mūsu attēls atrodas horizontāli: objekta augšā, vertikāli: objektā pa kreisi. */
+
+/* Šīs vērtības mēs varam mainīt, piemēram: background-position: bottom left; Mēs redzam, ka mūsu attēls novietojas objektā pa horizontāli: apakšā, pa objekta vertikāli: kreisajā pusē. */
+
+/* Mēs CSS parametra: background-position: center left, norādām, ka attēls atrodas pa objekta horizontāli: centrā, bet pa objekta vertikāli: pa kreisi */
+/* Mēs nevaram vienlaicīgi norādīt attēla pozīciju gan augšā, gan apakšā, jeb, gan pa labi, gan pa kreisi, jo tas ir neloģiski un tāds pielietojums nedarbosies. */
+
+/* Kā arī mēs varam norādīt CSS parametra: background-position: center center; Kas nozīmē, ka gan pa objekta horizontāli, gan pa objekta vertikāli: attēls atrodas centrā. Un, kad mums ir divas vienādas center vērtības: Mēs varam rakstīt šādi: background-position: center. */
+
+/* Izmantojot šādu pieeju mēs centrējam attēlu. Ja, mēs vēlamies centrēt attēlu objektā pa kreisi jeb pa labi, mēs iekš CSS parametra: background-position: vērtības norādām: left vai right, kas nozīmē, ka attēls novietojas objektā: pa kreisi centrā vai objektā: pa labi centrā. */ 
+
+/* Izmantojot vienas vērtības norādīšanu mēs iegūstam automātisku attēla centrēšanu kādā objektā. */
+
+/* Bet mēs varam iekš CSS parametra; background-position: norādīt arī konkrētas vērtības pikseļos vai procentos, piemēram:
+background-position: 10px 100px; Kas nozīmē, ka attēls objektā novietosies pa horizontāli 10 pikseļus no objekta augšējās kreisās puses, un pa vertikāli: 100 pikseļus uz leju. */
+
+/* ATCERAMIES: Ka, ja mēs iekš CSS parametra: background-position: vērtības norādām pikseļos jeb procentos tad pirmā vērtība darbojās: horizontāli, bet otrā: vertikāli. Atskaites punkts ir objekta augšējais kreisais stūris. */
+
+/* Ja mēs iekš CSS parametra: background-position: vērtības norādīsim: 50%. tas būs tieši tas pats, kas: background-position: center. Bet mēs varam norādīt arī konkrētus %, piemēram: background-position: 10% 30%. Pirmā vērtība: pa horizontāli, otrā: pa vertikāli. Atskaites punkts ir objekta augšējais kreisais stūris. */
+
+/* Ja norādām CSS parametra: background-position: vērtības % procentos, tad tie tiek aprēķināti ņemot vērā vecāka platumu, ņemot vērā ekrāna platumu, kā arī augstumu. Ja mainās ekrāna izmērs, tad mainās arī attēla atrašanās vieta. Tā tiek automātiski aprēķināta atkarīgi no vecāka elementa platuma un augstuma. */
+
+/* Iekš CSS parametriem: mēs varam norādīt kombinētas vērtību izmantošanas, piemēram: iekš CSS parametra: background-position: mēs varam norādīt: 10px un 20%;. Šis nosacījums attiecās arī uz citiem CSS parametriem, kur tiek norādītas vairāk kā viena vērtība. */
+
+/* Iekš CSS parametriem, kuros vērtības var norādīt ar vārdiem, piemēram CSS parametrā: background-position: center, tomēr ir IETEICAMS: norādīt vērtības ar skaitļiem izmantojot CSS mērvienības, vai mērvienību kombināciju. Jo tas ir lakoniski pareizāk, un arī datoru valodā saprotamāk, kā arī mums pašiem ir vieglāk pārskatāms, saprotamāks kods, un mēs varam vienkāršāk mainīt šīs te vērtības. */
+
+/* Mums jua no paša sākuma jāpierod attiecīgos CSS parametros vērtības norādīt tieši ar skaitļiem, nevis ar vārdiem. */
+
+/* Attēla pozīcijas norādīšana, izmantojot CSS parametru: background-position: 0 0 nemaina attēla izmēru, bet maina tā pozīciju, liekot tam atrasties konkrētā objekta vietā. Ja attēls ir lielāks par objekta lielumu, kurā tas tiek izmantots, tad izmantojot pozīcijas norādīšanas CSS parametru: background-position: 50%; mēs liekam attēlot attēla vidu, centru. */
+
+/* Atceramies, ka attēls ir objekta fons, bet pats attēla izmērs nemainās, ja mēs neizmantojam citus CSS parametrus, kas maina attēla izmērus. Attēls var būt gan lielāks gan mazāks, nekā pats objekts, kuram mēs to izmantojam. */
+
+/* Izmantotais attēls kļūst par objekta fonu, un mēs izmantojot CSS parametru: background-position norādām attēla pozīciju kā fonu konkrētam objektam, kuram mēs to izmantojam. */
+
+/* Mēs vēl mācīsimies par vērtību norādīšanu: % procentos iekš noteiktiem CSS parametriem, jo tā ir ļoti plaša tēma, ļoti interesanta tēma, un ļoti svarīga, jo, kad strādāsim ar lapas adaptīva izstrādi, mums būs ļoti labi jāzina pareizu procentu izmantošana, norādīšana, lai mūsu lapas adaptīvs strādātu perfekti uz visām ierīcēm. */
+
+/* Mūsu pašreizējais kompaktais CSS parametra: background pieraksts izskatās šādi: */
+
+/* .block {
+background: green url("../img/icon.png") 0 0 no-repeat; 
+} */
+
+/* Tālāk mēs iepazīstamies ar vēl vienu CSS parametru, kas pieder pie: background kopienas. Tas ir: background-size, kas nosaka attēla mērogu, attiecīgi noteiktajiem vērtībām, kas var būt pikseļi, procenti: px, % vai ar vārdiem. Šis CSS parametrs izskatās šādi: 
+background-size: auto auto; 
+Tā noklusētā vērtība ir: auto auto, kas kā pirmā nosaka: attēla - fona platumu, bet otra: attēla - fona augstumu, vai arī specifisku vērtību. */
+
+/* Šī CSS parametra: background-size: vērtības mēs varam mainīt norādot gan pikseļos, gan procentos, sākumā attēla platumu pēc tam augstumu, atdalot vienu no otra ar atstarpi. Ja mēs norādām tikai vienu vērtību - platumu, tad attēla augstums tiks aprēķināts automātiski, ņemot vērā norādīto platumu. Bet, ja mēs gribam norādīt konkrētu attēla - fona augstumu, tad ļoti SVARĪGI: iekš CSS parametra: background-size: vērtības pirmo - platuma vērtību norādīt: auto, bet otru: augstuma vērtību: norādīt konkrētu vērtību izmantojot pikseļus jeb citas CSS parametru vērtību mērvienības, piemēram: % procentus. */
+
+/* Ja mēs iekš CSs parametra: background-size: vērtībām norādām procentus, tad ņemam vērā, ka attēla - fona lielums mainīsies mainoties vecāka elementa platumam un augstumam, tas kļūst adaptīvs. ja mums mainās ekrāna platums jeb augstums, tad mainās ari attēla platums un augstums, bet TIKAI tad, ja to esam norādījuši procentos. */
+
+/* Pašas interesantākās un populārākās CSS parametra: background-size: vērtības ir tieši: vērtības ar vārdiem. izskatīsim tās.
+background-size: cover;
+Šī vērtība nozīmē to, ka mūsu attēls - fons tiek mērogots tā, lai tas pēc iespējas ietilptu norādītajā objektā, lai tas  */
+
+/* CSS parametrs: background-size: cover; vislabāk strādā tad, kad mēs iekš CSS parametra: background-position: norādām: 50%. Lai mēs labāk saprastu kā šo CSS parametru kombinācija darbojās un izskatās mūsu lapā, izveidojam sekojošu pierakstu, aizkomentējot iepriekšējos aktīvos pierakstus. */
+
+/* .block {
+	background: green url("../img/01.png") 50% / cover no-repeat ;
+} */
+
+/* Izmantojot šādu CSS parametra: background: universālo pierakstu mēs rezultātā redzam, ka mūsu attēls vienmēr, pat tad, kad mainās ekrāna platums un augstums cenšas ietilpt mūsu objektā - blokā, un mainoties vecāka elementa platumam un augstumam attēls nekad nepārsniedz bloka platumu jeb augstumu. Tas vienmēr cenšas to pilnībā aizpildīt. Bet mēs redzam arī bloka tekstu, kas iet pāri attēla fonam. */
+
+/* Par cik attēla pozicionēšana izmantojot CSS parametru: background-position: ir noteikta: 50%, attēls ir centrā, kas nodrošina to, ka pat tad, ja mainās ekrāna platums un augstums, tiek attēlota attēla - fona centrālā daļa, mēs redzam tā centrālo daļu, jo to mēs esam panākuši nosakot attēla pozīciju pa centru, izmantojot CSS parametru: background-position: 50%. */
+
+/* Vēlāk mēs mācīsimies kā šo pašu var izdarīt, panākt izmantojot HTML tag: <img>. */
+
+/* Vēl CSS parametram: background-size: ir tāda vērtība kā: contain, kas nozīmē, ka mūsu attēls - fons aizņems vietu pa mazāko tā izmēra vērtību. Tas nozīmē, šinī gadījumā, mums attēla augstums ir mazāks nekā attēla platums, un tas aizņems objektā - blokā tik daudz vietas cik ir tā augstums. Un, ja mainīsies vecāka - bloka augstums jeb platums, tad attēls aizņems tikai stingri noteikto attēla augstumu un šinī gadījumā mēs ieraudzīsim pārējo bloka saturu, gan tekstu, gan zaļo krāsu. Mūsu attēls - fons cenšas ietilpt blokā pēc tā mazākā lieluma vērtības - augstuma arī tad, ja mainās vecāka - bloka, lapas platums, attēls aizņem tikai tik vietas - cik ir norādīts tā augstums. */
+
+/* Mums ir iespēja par visu CSS parametra: background saimes izmantošanu paskatīties un atcerēties kā pareizi un kur tos izmantot atverot speciāli sagatavotu špikeri, kas ir saglabāts mūsu pārlūka bookmarks sarakstā. Šī špikera adresi mēs varam iegūt zem Freelancer mācību video par šo tēmu. */
+
+/* Pie CSS parametra: background saimes pieder vēl viens tā parametrs:
+background-attachment; 
+Šis CSS parametrs nosaka to, vai mūsu attēlam - fonam būs ritināšanas iespējas. Pēc noklusējuma CSS parametra: background-attachment: vērtība ir: scroll, kas nozīmē, ka attēlam ir ritināšanas iespēja. Ka tas ritinās atbilstoši lapas ritināšanas iespējām. */
+
+/* Šim CSS parametram: background-attachment: ir vēl vērtība: fixed; Kas liek attēlam - fonam kļūt fiksētam, un tas neritinās kopā ar parasto lapas vertikālo scroll, un mēs iegūstam interesantu efektu. Īsāk sakot mūsu attēls - fons kļūst fiksēts. BET šo CSS parametra: background-attachment: fixed; NAV ieteicams izmantot, kaut gan tā izmantošana - pielietošana ir ļoti vienkārša. To NAV ieteicams izmantot, jo: nav īsti saprotams kā un no kurienes attēls - fons tiek pozicionēts. kā arī izmantojot šo vērtību tiek mainīts attēla mērogs, kas var radīt nevēlamu rezultātu. Kā arī ir interneta pārlūki, kuriem nedarbojas pareizi šī CSS parametra: background-attachment: vērtība: fixed; */
+
+/* Ja mēs tomēr kādu iemeslu dēļ gribam izmantot šo CSS parametra: background-attachment; fixed; vērtību, tad universālais CSS parametra: background pieraksts būtu šāds: 
+background: green url("../img/01.png") 50% / cover no-repeat fixed; */
+
+/* Kad mums ir nepieciešams iegūt tieši šādu efektu kādu mēs varētu iegūt izmantojot CSS parametru: background-attachment: fixed; mums ir NEPIECIEŠAMS izmantot citus daudz pareizākus CSS parametrus, kurus izmantojot mēs iegūsim tieši šo pašu efektu, bet par tiem mēs mācīsimies vēlāk. */
+
+/* Mums jau no paša sākuma ir jāpierod izmantot CSS parametra: background: universālo pierakstu, IZŅEMOT gadījumu, kad mums vajag norādīt tikai fona krāsu. Tad mēs izmantojam tikai CSS parametru: 
+background-color: tā vērtībā norādot mums nepieciešamo krāsu. ATCERAMIES, ka krāsas mēs norādām heksadecimālajā jeb rgb, rgba formātā. */
+
+/* Tagad izskatīsim iespēju kā mēs izmantojot universālo CSS parametra: background: pierakstu varam norādīt - ievietot vairākus attēlus konkrētā objektā. Neaizmirstam izslēgt - aizkomentēt iepriekšējos aktīvos CSS parametru saimes: background: ; piemērus. */
+
+/* lai labāk saprastu kā darbojās, un kā mēs varam vienam objektam pievienot vairākus attēlus - fonus, izmantojam mūsu konkrētajā piemērā šādu pierakstu: Piemērs norādīts zem visiem aprakstītajiem nosacījumiem, kuri ir jāievēro, ja mēs iekš CSS parametra: background vēlamies norādīt vairākus attēlus. */
+
+/* 
+SVARĪGI: Ja mēs pievienojam vairākus attēlus vienam blokam - objektam, tad mums ir jāievēro noteikti CSS: Kaskādes Tabulu stilu noteikumi. Un tie ir:
+
+1) Jo tuvāk ir norādītais attēls pie CSS parametra: background. jo augstāks ir tā uzklāšanās slānis mūsu objektā - blokā, bet, jo tālāk ir attēls, jo tam ir zemāks uzkāšanās slānis mūsu objektā - blokā. 
+
+2) Ja mēs gribam norādīt krāsu mūsu objektam - blokam, tad mēs to varam darīt tikai VIENU reizi un obligāti mums tā ir jānorāda pēdējam attēlam. attēla sākumā. Jo, ja mēs norādīsim krāsu pirmā attēla sākumā, tad mūsu kods nedarbosies.
+
+3) Mums ir jāievēro pareizs CSS parametra: background: pieraksts, lai mums būtu viegli orientēties, kura vērtība par ko atbild un vajadzības gadījumā to mainīt. 
+*/
+
+/* Katram attēlam mēs varam mainīt tā uzstādījumus, piemēram, pozīciju, atkārtošanos, attēla izmērus. */
+
+/* Mūsu piemērā sanāk tā, ka mūsu objektā - blokā mēs izmantojot CSS parametru: background nosakām, ka ikona tiks attēlota vispirms, un pēc tās, precīzāk: ZEM tās būs attēls ar jaunbūvi. */
+
+/* Mūsu piemērā pareizs CSS parametra: background: pieraksts, kur konkrētam blokam mēs vēlamies norādīt trīs dažādus attēlus ir šāds: */
+
+/* .block {
+	background: url("../img/icon.png") top right no-repeat, 
+	url("../img/image_1.jpg") 0 0 / 200px no-repeat,
+	green url("../img/01.png") 50% / cover no-repeat;
+} */
+
+/* Ja mēs esam visus trīs attēlus norādījuši pareizi ievērojot visus CSS parametra: background likumus, tad mums vis darbojās un mēs redzam: bloka - objekta augšējā labajā stūrī mūsu ikonu, redzam bloka - objekta augšējā kreisajā stūrī otru attēlu, un redzam trešo jaunbūves attēlu, kas pateicoties vērtībai: cover ir zem abiem iepriekšējiem attēliem un aizpilda visu objekta - bloka fonu. */
+
+/* Šādi mēs varam norādīt daudzus attēlus vienam objektam - blokam, tikai ATCERAMIES: Mums ir jāievēro attēlu uzklāšanās likums, krāsas norādīšanas likums un pareizs sintakses pieraksts, lai mēs iegūtu vēlamo rezultātu, kā arī, vajadzības gadījumā varētu attēlu vērtību uzstādījumus mainīt. */
+
+/* Mēs varam izmantojot CSS parametru: background: aiz mūsu attēliem norādīt arī gradientu. Paskatīsimies kā tas darbojās. Lai mēs redzētu rezultātu, mums iepriekšējais aktīvais kods jāizslēdz, un jāmaina trešajam attēlam attēla lielums no: cover uz citu adekvātu vērtību, jo patreiz tas aizpilda visu bloku - objektu, ja mēs to nemainīsim, tad mēs neredzēsim gradientu. */
+
+/* Mūsu CSS parametra: background: pierakstam, izmantojot gradientu ir jāizskatās šādi: */
+
+/* .block {
+	background: url("../img/icon.png") top right no-repeat, 
+	url("../img/image_1.jpg") 0 0 / 200px no-repeat,
+  url("../img/01.png") bottom right / 200px no-repeat,
+	green linear-gradient(to bottom, rgba(236, 232, 157, 1) 0%, rgba(94, 83, 115, 1) 50%, rgba(24, 181, 164, 1) 100%);
+} */
+
+/* Ievērojot visus CSS parametra: background: ; pierakstīšanas likumus, mēs redzam, ka mums vis darbojās, mums ir trīs bildes un vēl kā ceturtais elements: lineārais gradients. ATCERAMIES, ka, ja vēlamies izmantot arī krāsu, tad tā mums jānorāda iekš pēdējā attēla, kas šajā gadījumā ir gradients, mums tā jānorāda gradienta sākumā, jo citādi mums nekas nedarbosies. */
+
+/* Ja mēs vēlamies mūsu gadījumā uz visiem trīs attēliem uzlikt virsū gradientu, šinī gadījumā caurspīdīgu gradientu ar pāreju no melnas krāsas uz caurspīdīgu, tad mums tas ir jānorāda iekš CSSparametra: background: pašā sākumā, un tikai aiz tā visi trīs attēli. */
+
+/* Paskatīsimies kāds būtu pareizs pieraksts, un kā tas darbojās: Lai redzētu rezultātu mums ir jāizslēdz iepriekšējais aktīvais kods - mums tas jāaizkomentē. */
+
+/* .block {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%),
+	url("../img/icon.png") top right no-repeat,
+	url("../img/image_1.jpg") 0 0 / 200px no-repeat,
+	green url("../img/01.png") 50% / cover no-repeat;
+} */
+
+/* Izpildot pareizu CSS parametra: background: ; pierakstu, ievērojot attēlu uzklāšanās likumu un krāsu noteikšanas likumu, mēs redzam, ka esam ieguvuši vēlamo rezultātu. */
+
+/* Lai mēs labāk redzētu tekstu, kas ir mūsu blokā, mainām tā krāsu. */
+
+/* ATCERAMIES: ka CSS parametrs: background: ; ir objekta fons. Un, ja objekts ir TUKŠS, tad fona attēls NEPARĀDĪSIES, jo mēs nevaram tukšam objektam noteikt fonu. Ja tam nav satura, tad tam nevar būt arī fona. Un šī ir ļoti bieži sastopama iesācēju kļūda, kad tie tukšam objektam - blokam norāda CSS parametru: background: kādu attēlu jeb krāsu kā fonu un tas neparādās. */
+
+/* Tādēļ SVARĪGI: ja mēs izmantojam CSS parametru: background: ; tad tas objekts - bloks, kam mēs to norādām NEDRĪKST būt tukšs. */
+
+/* Ja mēs vēlamies norādīt attēlu - fonu, neizmantojot HTML tag: <img>, bet izmantojot CSS parametru: background: tad mums, ja mūsu objekts - bloks ir tukšs, tam ir jānorāda platums un augstums un tad jānorāda CSS parametrs: background: ; un tikai tad mums parādīsies fons - attēls. */
+
+/* Ja mūsu objektā - blokā ir saturs, tad jau automātiski tiek noteikts platums un augstums. */
+
+/* Tālāk mēs darbosimies praktiski, un lai mums netraucētu iepriekšējie aktīvie kodi, mēs tos izslēdzam - aizkomentējot, gan CSS stilus, gan HTML dokumentā. */
+
+/* Pielietosim visas jaunās iegūtās zināšanas praktiski. izveidosim sarakstu iekš HTML dokumenta, izmantojot tags: <ul> un <li> konstrukciju. */
+
+
+/* ul {
+	margin: 20px 0px;
+}
+
+ul li {
+	margin: 0px 0px 15px 0px;
+	font-size: 12px;
+	min-height: 30px;
+	background: url("../img/icon.png") 0 0 / 30px no-repeat;
+	padding: 7px 0px 0px 30px;
+} */
+
+/* Šādi mēs izmantojot CSS parametru: background: ; varam stilizēt jebkuru sarakstu. */
+
+/* ATCERAMIES: ka lai iegūtu simetrisku izskatu, attēlam ar tekstu, mums ir jānorāda CSS parametrs: min-height: ; lai kontrolētu līnijas augstumu, lai iegūtu vēlamo rezultātu. */
+
+/* SVARĪGI: Mēs lietojam CSS parametru: background: ; tur, kur mums nav iekš HTML dokumenta bilde, tag: <img>, jo CSS parametrs: background; ; nozīmē - FONS, ko mēs izmantojam kādam elementam, objektam, blokam. Mēs to izmantojam tur, kur mēs zinām, ka fons nemainīsies, netiks noņemts. */
+
+/* Pārsvarā CSS parametrs: background tiek izmantots kā dekors, kā dizaina dekors kādam elementam. Kā fons kādam elementam. */
+
+/* Mēs izmantojot CSS: Kaskādes Tabulas Stilus varam kontrolēt katra elementa parametru vērtības un noteikt tās attiecīgi konkrētajam uzdevumam - mērķim. */
+
+/* ATCERAMIES: ka iekš viena saraksta var būt ielikti iekšā vēl citi saraksti, ieliktie saraksti, un visus mēs varam stilizēt izmantojot attiecīgos CSS parametrus. */
+
+/* Strādājot pie uzdevumiem mums ir jāiemācās domāt arī pašiem, nevis tikai pielietot iegūtās zināšanas, lietot tās pēc standarta. Mums ir jāprot domāt arī pašiem, kā mēs ko varam pamainīt, pielietot iegūtās zināšanas, lai atrisinātu konkrētu uzdevumu. Mums ir jāprot atrast papildus informāciju, analizēt katru uzdevumu, pielietot analītisko domāšanu, loģisko domāšanu, zināšanas, lai maksimāli kvalitatīvi - pareizi atrisinātu katru uzdevumu. */
+
+/* Atgriežamies pie mūsu sākotnējā darba ar maketa bloka izstrādi, stilizēšanu. izslēdzam iepriekšējos aktīvos kodus un ieslēdzam mums vajadzīgos koda gabalus, gan CSS, gan HTML dokumentā. */
+
+/* --------------- */
+
+.who-we-are {
+	padding: 0px 0px 170px 0px;
+}
+
+.who-we-are__container {
+	max-width: 1020px;
+	margin: 0px auto;
+	border: 1px solid transparent;
+	padding: 100px 87px 0px 87px;
+	background: #fff url("../img/bg.png") 100% 0 no-repeat;
+}
+
+/* Šeit mēs redzam pareizu CSS parametra: background: pielietošanu, jo mēs to izmantojam kā fonu noteiktam elementam. */
+
+.who-we-are__content {
+}
+
+.who-we-are__subtitle {
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 27px;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	margin: 0px 0px 28px 0px;
+	background: url("../img/icon.png") 0 0 no-repeat;
+	padding: 0px 0px 0px 30px;
+}
+
+/* Šeit arī, lai iegūtu pirms teksta ikonu, kas ir kā dekors - fons konkrētajam elementam, mēs izmantojam CSS parametru: background un iegūstam vēlamo rezultātu. */
+
+/* Mūsu uzdevuma maketā ir arī bilde, kura ir bloka saturā un tā ir iekš HTML dokumenta, jo tā ir satura elements, kas var tikt mainīts jeb noņemts. Mēs bildei neizmantojam CSS parametru: background; */
+
+.who-we-are__title {
+	color: #02133c;
+	font-weight: 900;
+	font-size: 36px;
+	line-height: 42px;
+	max-width: 583px;
+	margin: 0px 0px 33px 0px;
+}
+
+.who-we-are__text {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+	margin: 0px 0px 52px 0px;
+}
+
+.who-we-are__image {
+	margin: 0px 0px -120px 0px;
+}
+
+.who-we-are__image img {
+	max-width: 100%;
+}
+
+.text {
+	margin: 0px 0px 30px 0px;
+}
+
+/* --------------- */
+
+.some-block {
+	padding: 15px;
+	color: #fff;
+	max-width: 350px;
+	background: #252525;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 6px;
+	font-size: 0;
+}
+
+.some-block__rating {
+	vertical-align: middle;
+	display: inline-block;
+	width: 60%;
+}
+
+.rating {
+}
+
+.rating__stars {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.rating__value {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.some-block__action {
+	vertical-align: middle;
+	width: 40%;
+	text-align: right;
+	display: inline-block;
+}
+
+.some-block__button {
+	font-size: 14px;
+	background: #262626;
+	border: 2px solid #303030;
+	border-radius: 30px;
+	padding: 11px 32px;
+	text-transform: uppercase;
+	display: inline-block;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Atbildes uz jautājumiem: */
+
+/* Mums vienmēr, kad strādājam pie kāda projekta, kur mums ir iedots makets, mums ir jāizstrādā lapa tieši tā, kā ir norādīts maketā. */
+
+/*  Tālāk mēs mācīsimies sīkāk par attēliem, attēlu formātiem, un kuros gadījumos labāk izmantot tieši attēlu, bet kuros gadījumos labāk izmantot CSS parametru: background; jo šinī lekcijā mēs izskatījām tikai konkrētu uzdevumu ar konkrētiem piemēriem. */
+
+/* Kādēļ priekš objekta, kam ir mazs tā saturs ir svarīgi izmantojot CSS parametru: background; norādīt arī CSS parametru: min-height; ? Jo, ja objekta saturs ir mazāks nekā fons, tad fons tiek apgriezts, un tas neietilpst objekta augstumā. Tādēļ, šādā situācijā: OBLIGĀTI: ir jānorāda CSS parametrs: min-height: ; lai fona elements ietilptu objekta saturā. Mēs norādām CSS parametru: min-height: tik cik ir fona elementa augstums un rezultātā mēs iegūstam simetrisku izskatu. redzam, ka mūsu fona elements ietilpst mūsu objektā, tas netiek apgriezts. Bet pats objekta saturs, piemēram, teksts var būt vairāk. Bet par cik mēs esam ierobežojuši minimālo augstumu fona attēls paliek nemainīgs, tam ir konkrēts norādītais augstums, bet objekta saturs - teksta daudzums var mainīties. */
+
+/* Mums nav nepieciešamības noteikt katram elementam atsevišķu augstumu, jo tādējādi, ierobežojot elementu augstumu, mums zūd praktiskums, tas nevar tikt papildināts, mainīts, dzēsts. tādēļ nenorādām elementiem augstumu, ik sevišķi fiksētos augstumus: pikseļos. par pareizu augstumu norādīšanu atsevišķās situācijās izmantojot adaptīvās CSS parametru vērtības mēs mācīsimies vēlāk. */
+
+/* Pie CSS STYLE RESET mēs jau esam noteikuši, ka mūsu kopējais lapas apvalka atvilknes: wrapper augstums ir 100% no ekrāna augstuma, kas regulē visas lapas augstumu uz dažādiem ekrāniem, tādēļ mums nav nepieciešams atsevišķiem lapas elementiem noteikt augstumu. */
+
+/* Izstrādājot lapas mums jāievēro viens no principiem, lai lapa būtu: UZTICAMA un PRAKTISKA: lai ja mainās tās saturs, ja mainās ekrāna augstums, platums, lai tā saglabātu savu uzticamību un praktiskumu, lai mums nekas nesalūztu izmaiņu gadījumā. Mums izstrādājot lapu jau no paša izstrādes sākuma ir jādomā par to kā katrs parametrs ietekmēs lapu, tad, kad strādāsim pie tās adaptīva. tādēļ, piemēram, mēs neizmantojam HTML dokumentā tag: <br>, ja vien tas ir iespējams, jo tas ietekmē lapas adaptīva izstrādi.Kā arī neizmantojam katram elementam fiksēto augstumu. */
+
+/* Šādi mums ir jādomā visā lapas izstrādes procesā, kā katra mūsu darbība ietekmēs lapas praktiskumu, lietojamību, pieejamību un adaptīvu. */
+
