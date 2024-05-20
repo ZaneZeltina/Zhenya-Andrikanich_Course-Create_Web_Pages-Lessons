@@ -1,0 +1,96 @@
+
+/* Šinī lekcijā mēs izskatīsim jaunu tēmu: pseido elementi un pseido klases. */
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.block {
+
+}
+
+.link {
+	color: #9acd32;
+	font-size: 40px;
+}
+
+/* Iesākumā, pirmajā lekcijas daļā uzzināsim, kas ir pseido klases. Mums HTML dokumentā ir katram tegam klase, bet CSS mums ir selektori. HTML klases nav tas pats, kas CSS dokumentā pseido klases. Pseido klases ir nosacīti kāda elementa stāvoklis. */
+
+/* Sintakse ir šāda: .link:hover {} iekš iekavām varam rakstīt dažādus CSS parametrus. Un pie šī stāvokļa, kad uzvedam ar peli uz saites, tad tiek pielietoti noteikti CSS parametri. */
+
+/* Pseido klases var sadalīt divās daļās. Viena daļa: noteikti elementa stāvokļi. Izskatīsim CSS selektora link:hover stāvokli ar piemēru. */
+
+.link:hover {
+	color: red;
+	/* opacity: 0;
+	visibility: hidden; */
+}
+
+/* :hover stāvokli mēs varam izmantot jebkuram CSS selektoram. */
+
+/* Izskatīsim citu situāciju, kad mums ir bloks. Piemēram: */
+
+.block {
+	padding: 30px;
+	background: #909090;
+}
+
+/* Mēs pievienojam saitei :hover stāvoklim divus CSS parametrus: opacity un visibility. Mēs redzam, ka mēs iegūstam ne gluži to ko mēs gribējām. Un lapu izstrādē tā skaitās kā kļūda. Ko mums darīt lietas labā? */
+
+/* Bet, ja mēs sākotnēji CSS selektoram: .link {} pievienojam CSS parametrus: opacity un visibility, tad mums nestrādās :hover stāvoklis, jo mums jau sākotnēji ir noteikts, ka mēs nevaram mijiedarboties ar .link.  */
+
+/* Bet kā mēs varam rīkoties, lai mums vis strādātu tā kā vēlējāmies. Mums ir nedaudz jāpārraksta CSS parametri. Mums ir jāvēršas pie CSS selektora: .block un jānorāda tam šādi CSS parametri izmantojot stāvokli: hover un jāpievieno CSS selektors: .link */
+
+/* .block:hover .link {
+	opacity: 1;
+	visibility: visible;
+} */
+
+/* Mēs izmantojam CSS selektoru, kurš atrodas augstāk un vēršamies pie elementa, kas ir iekš tā, izmantojot stāvokli :hover, kad mēs uzvedam ar peli uz augstāka līmeņa selektora. */
+
+/* Mēs ar šādu pieeju iegūstam vēlamo rezultātu. Mēs to varam izmantot, kad mums ir kāds neredzams objekts, mēs vēršoties pie tā vecāka, iekš kā ir šis neredzamais objekts, varam panākt, ka pie stāvokļa :hover {} izmantojot CSS parametrus: opacity un visibility tie kļūst redzami. */
+
+/*
+.link {
+	color: #9acd32;
+	font-size: 40px;
+  opacity: 0;
+	visibility: hidden;
+} */
+
+/* Šo pieeju mēs varam izmantot jebkuram augstāka līmeņa tegam, kaut vai uz tega: body. Vienmēr atceramies, ka mums ir šāda iespēja. */
+
+/* Lai mums netraucētu iepriekšējie aktīvie kodi, mēs tos aizkomentējam. */
+
+/* CSS selektoram, HTML dokumentam a, kas ir saite ir vēl viens stāvoklis, kas tiek izmantots retāk, bet par to mums ir jāzin. tas ir stāvoklis :visited */
+
+/* Kad mēs esam noklikšķinājuši uz saites, apmeklējuši to, tad tā mainās izmantojot stāvokli : visited. Mēs varam to iekrāsot citā krāsā, izmantojot CSS stilus utt. */
+
+
+
