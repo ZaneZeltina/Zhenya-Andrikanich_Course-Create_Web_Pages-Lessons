@@ -35,10 +35,10 @@ body {
 
 }
 
-.link {
+/* .link {
 	color: #9acd32;
 	font-size: 40px;
-}
+} */
 
 /* Iesākumā, pirmajā lekcijas daļā uzzināsim, kas ir pseido klases. Mums HTML dokumentā ir katram tegam klase, bet CSS mums ir selektori. HTML klases nav tas pats, kas CSS dokumentā pseido klases. Pseido klases ir nosacīti kāda elementa stāvoklis. */
 
@@ -46,17 +46,18 @@ body {
 
 /* Pseido klases var sadalīt divās daļās. Viena daļa: noteikti elementa stāvokļi. Izskatīsim CSS selektora link:hover stāvokli ar piemēru. */
 
-.link:hover {
+/* .link:hover {
 	color: red;
-	/* opacity: 0;
-	visibility: hidden; */
-}
+	opacity: 0;
+	visibility: hidden;
+} */
 
 /* :hover stāvokli mēs varam izmantot jebkuram CSS selektoram. */
 
 /* Izskatīsim citu situāciju, kad mums ir bloks. Piemēram: */
 
 .block {
+	display: inline-block;
 	padding: 30px;
 	background: #909090;
 }
@@ -76,13 +77,13 @@ body {
 
 /* Mēs ar šādu pieeju iegūstam vēlamo rezultātu. Mēs to varam izmantot, kad mums ir kāds neredzams objekts, mēs vēršoties pie tā vecāka, iekš kā ir šis neredzamais objekts, varam panākt, ka pie stāvokļa :hover {} izmantojot CSS parametrus: opacity un visibility tie kļūst redzami. */
 
-/*
+
 .link {
 	color: #9acd32;
 	font-size: 40px;
-  opacity: 0;
-	visibility: hidden;
-} */
+  /* opacity: 0;
+	visibility: hidden; */
+} 
 
 /* Šo pieeju mēs varam izmantot jebkuram augstāka līmeņa tegam, kaut vai uz tega: body. Vienmēr atceramies, ka mums ir šāda iespēja. */
 
@@ -90,7 +91,132 @@ body {
 
 /* CSS selektoram, HTML dokumentam a, kas ir saite ir vēl viens stāvoklis, kas tiek izmantots retāk, bet par to mums ir jāzin. tas ir stāvoklis :visited */
 
-/* Kad mēs esam noklikšķinājuši uz saites, apmeklējuši to, tad tā mainās izmantojot stāvokli : visited. Mēs varam to iekrāsot citā krāsā, izmantojot CSS stilus utt. */
+/* Kad mēs esam noklikšķinājuši uz saites, apmeklējuši to, tad tā mainās izmantojot stāvokli :visited. Mēs varam to iekrāsot citā krāsā, izmantojot CSS stilus utt. */
 
+/* .link:visited {
+	color:#fff;
+} */
 
+/* Izpildot šādu darbību ar pseido klasi, mēs nospiežot uz saites redzam, ka tā iekrāsojas baltā krāsā. Par to atbild tieši stāvoklis: visited. */
 
+/* Atceramies, ka HTML dokumentā mēs saitei ar klasi: .link, atribūtā: href="" varam norādīt konkrētu vietni uz kuru mēs gribam pāriet, piemēram: https://www.google.lv */
+
+/* Pagaidām mēs HTML dokumentā atribūtā: href="#" liekam restīti, kas nozīmē, ka mēs paliekam tur pat mūsu lapā. Atceramies, ka, kad lapa mums ir gara, mēs izmantojot atribūtu: id="" varam norādīt konkrētu mūsu lapas vietu, kur mēs gribam pāriet, un tad ar saites palīdzību mēs varam to realizēt. */
+
+/* Šīs saites stāvoklis :visited ir ļoti labi redzams, kad izmantojam google. Mēs apmeklējam kādu vietni, un norāde uz to saiti tiek pārkrāsota citā krāsā. */
+
+/* Kad realitātē mēs izstrādājam kādu lapu, tad pareizi ir izmantot šo pseido klasi :visited priekš saitēm. Neaizmirstam arī izmantot pseido klasi :hover. */
+
+/* Atšķirība no pseido klases :hover, kuru mēs varam izmantot jeb kuram HTML dokumenta tegam, pseido klasi: visited mēs varam izmantot tikai saitēm. */
+
+/* Būtiski ir tas, ka uz pseido klases :hover mēs varam izmantot visus CSS parametrus, bet uz pseido klases :visited mēs nevaram izmantot visus CSS parametrus, bet gan tikai noteiktus. CSS stilu izmantošanu uz pseido klases :visited tiek ierobežota ar interneta pārlūku drošības apsvērumu dēļ. */
+
+/* Lielāko tiesu, kurus CSS stilus mēs varam izmantot pseido klasei :visited saistās ar background saimi, dažādus krāsu parametrus un ar border izmantošanu. Pārējos mēs nevaram izmantot. */
+
+/* Vēl viena pseido klase, kas tiek izmantota saitēm ir :active, kas nozīmē to, ka kad mēs uz tās uzspiežam, neatlaižot peli, tā piemēram maina krāsu. Bet realitātē šī pseido klase tiek reti kad izmantota. Bet šī pseido klase :active tiek lietota biežāk nekā pseido klase :visited. */
+
+/* .link:active {
+	color: #000;
+} */
+
+/* Rezultātā mēs redzam, ka saite, kad nospiežam peles kreiso taustiņu un neatlaižam to, tad saite iekrāsojas melnā krāsā. */
+
+/* Bet mēs šīs pseido klases izmantošanu praktiski neredzam, jo realitātē mēs uzklikšķinam uz saites, un uzreiz pārejam uz kādu vietu lapā jeb uz citu lapu, jo neviens realitātē netur nospiestu peles kreiso taustiņu. Mēs knapi redzam šo efektu. */
+
+/* Pseido klasei :active ir viena laba priekšrocība, kad mēs saiti izveidojam kā pogu mūsu HTML dokumentā. izskatām to ar piemēru: */
+
+/* .button {
+	border-radius: 20px;
+	position: relative;
+	top: 0;
+	padding: 15px 25px;
+	background-color: #0000ff;
+	color: #fff;
+	margin: 10px;
+	box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.75);
+} */
+
+/* .button:hover {
+	background-color: #5d5def;
+} */
+
+/* Praktizējamies taisot pogu, un izmantojam mums jau zināmās pseido klases. Izmantojot pseido klasi :hover mēs redzam, ka, kad uzvedam uz pogas, tad tā kļūst gaišāka. */
+
+/* Izmantojam interesantu pieeju, izmantojot mūsu pogai pseido klasi :active. Aizkomentējam HTML dokumentā bloku, lai tas mums netraucētu redzēt kā darbojas pseido klases :hover un :active uz pogas. */
+
+/* .button:active {
+	top: 4px;
+	box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.5);
+ }  */
+
+/* Pielietojot mums vēl dažus nezināmus CSS parametrus, mēs redzam, ka mūsu pogai nostrādā pseido klase :hover, tā maina krāsu uz gaišāku un mums nostrādā pseido klase :active, kad mēs klikšķinām uz pogu. Mēs iegūstam interesantu efektu. */
+
+/* Kad mums ir poga, tad ir ieteicams izmantot šīs abas pseido klases, jo šāds efekts izskatās ļoti labi. Kā arī lapas lietotājam uzreiz ir saprotams, ka viņš ir noklikšķinājis uz pogas. */
+
+/* Ejam tālāk, aizkomentējam CSS selektorus: .button un ieslēdzam HTML dokumentā mūsu bloku. Jo tā mums būs vienkāršāk strādāt tālāk. */
+
+/* Tālāk mums ir diez gan specifiska pseido klase :focus, kas atbild par fokusu uz konkrētu elementu. Vis biežāk šī pseido klase tiek izmantota formām, input lodziņos, bet par formām mēs  mācīsimies nedaudz vēlāk. Bet mēs varam pseido klasi :focus izmantot arī mūsu saitei. */
+
+/* Pseido klase :focus var tikt izmantota visiem elementiem ar kuriem mēs varam mijiedarboties, kas atrodas mūsu lapā. */
+
+/* .link:focus {
+	outline: 2px dotted #000;
+} */
+
+/* Pseido klases stāvoklis :focus, ja neesam tai neko norādījuši pēc noklusējuma darbojas ar visiem lapas elementiem, ar kuriem mēs varam mijiedarboties, veidojot ap tiem CSS parametru: outline: 1px solid #000. Bet mēs varam izmantojot CSS parametru outline to mainīt jeb noņemt, rakstot: outline: none. */
+
+/* Mēs iegūstam iespēju stilizēt kādu elementu, kad tas atrodas fokusā. Atceramies, ka mēs varam pārvietoties pa mūsu lapu izmantojot tabulāciju, taustiņu Tab. Tādejādi mēs varam mijiedarboties ar lapas elementiem. Agrāk, kad nebija vēl datora peles, tad tieši tā pārvietojās pa lapu, izmantojot Tab. */
+
+/* Vēl interesanta lieta, Ja mēs iekš CSS selektora izmantojam pseido klasi :focus un tajā norādām kādus mūsu stilus, tad mēs šo fokusa stāvokli varam novērot uzklikšķinot un turot peles kreiso taustiņu. Vienkārši uz to noklikšķinot mēs praktiski neredzam šo stāvokli. */
+
+/* Elementiem ar kuriem mēs varam mijiedarboties ir vēlams norādīt CSS selektora pseido klasi :focus, bet tikai tad, ja mēs gribam tam norādīt kādu īpašu stilu, jo pēc noklusējuma visiem lapas elementiem, ar kuriem mēs varam mijiedarboties jau ir šī pseido klase ar CSS parametru: outline. */
+
+/* Kad mēs mācīsimies par formu izstrādi mūsu lapā, tad mēs vēl atgriezīsimies pie CSS pseido klases :focus. Izmantojot pseido klasi :focus, mēs varam norādīt arī citus CSS parametrus, piemēram: color, background utt. */
+
+/* Ļoti svarīga ir kārtība kādā mēs izmantojam pseido klases, jo, ja mēs pseido klasi :focus uzliksim augstāk pirms pseido klases :visited, tad mums tā nedarbosies. Tādēļ vienmēr, kad izmantojam šīs apgūtās pseido klases, pseido klase :focus mums jānorāda beigās. CSS selektora beigās. */
+
+/* Ja mēs pseido klasi :focus norādām pirms pseido klases :visited, tad mēs neiegūstam vēlamo rezultātu, arī tad, ja izmantosim taustiņu: Tab, jo neievērojam kārtību, kas pseido klasēs ir ļoti svarīga. Mums pseido klase :focus ir jānorāda aiz pseido klases :visited, un tad mums vis darbosies. */
+
+/* Pseido klases izmantošana :focus saitēm ir reti sastopama, jo interneta pārlūks jau to izmanto pēc noklusējuma. Tādēļ mums ļoti reti būs tādi gadījumi, kad vajadzēs stilizēt saiti ar pseido klasi :focus. */
+
+/* Pareiza CSS pseido klašu izmantošana būtu šāda: vispirms :visited, pēc tam :hover, :focus, :active. Izlabojam arī mūsu piemērus, lai vienmēr zinātu kādā kārtībā ir jāizmanto šīs CSS pseido klases. Aizkomentējam iepriekšējo kodu un saliekam visu pareizajā kārtībā. */
+
+.link {
+	color: #9acd32;
+	font-size: 40px;
+} 
+
+.link:visited {
+	color:#fff;
+} 
+
+.link:hover {
+	color: red;
+}
+
+.link:focus {
+	outline: 3px dotted #0000ff;
+}
+
+.link:active {
+	color: #000;
+}
+
+/* Lai labāk saprastu nākošo pseido klasi, mums ir nedaudz jāpieraksta HTML dokumentā, jāizveido kastīte ar tekstu un jāpielieto daži CSS parametri, Nākošā pseido klase, kas mums ir jāzin ir: target, kas tiešā tulkojumā nozīmē: mērķis, ceļš. */
+
+.window {
+	padding: 20px;
+	background-color: #77608d;
+	color: #fff;
+	display: none;
+}
+
+/* Mēs gribam panākt, lai kastīte mūsu lapā nav redzama, bet kad noklikšķinām uz saites, tad, lai tā parādītos. Kā mēs to varam izdarīt? Mēs iekš iepriekšējā HTML dokumenta kastītes saites ieliekam href="#window", un izveidojam jaunu kastīti ar id="window" un klasi window. Izmantojam CSS parametru jaunajai kastītei ar tekstu: display:none. Pēc tam izmantojam CSS selektoru ar klasi . window, izmantojam pseido klasi :target {} iekavās norādot display: block. */
+
+.window:target {
+	display: block;
+}
+
+/* Izpildot visu pareizi mēs iegūstam vēlamo rezultātu. Sākumā mēs redzam tikai saiti, bet, kad noklikšķinām uz tās mums parādās mūsu otrā kastīte: window. Šādu pieeju var izmantot daudz kur, tā reizēm ir ļoti izdevīga un vajadzīga pieeja, bet tai ir viens mīnuss: Mēs redzam, ka mēs, kad izmantosim scroll, tas vienmēr atgriezīsies pie šī elementa. Tā pat, kad iepriekšējās lekcijās un mājas darbos taisījām navigāciju pa lapu. Un tas ne vienmēr mums ir izdevīgi. */
+
+/* Un tieši šī mīnusa dēļ mēs centīsimies pseido klasi :target neizmantot. Bet mums ir par to jāzin, ka tāda iespēja ir, jo ļoti reti mums var gadīties tāda situācija, ka citādāk nevar. */
