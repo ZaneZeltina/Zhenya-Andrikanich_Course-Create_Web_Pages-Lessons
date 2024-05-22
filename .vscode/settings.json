@@ -150,5 +150,6 @@
 		"editorIndentGuide.activeBackground1": "#5d6880",
 		"minimap.background": "#00000000",
 		"scrollbar.shadow": "#00000000"
-	}
+	},
+	"cSpell.ignoreWords": ["tegiem"]
 }

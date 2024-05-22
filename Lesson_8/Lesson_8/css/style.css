@@ -27,8 +27,8 @@
 
 body {
 	font-family: "Gilroy", sans-serif;
-	font-size: 30px;
-	font-weight: 700;
+	font-size: 20px;
+	font-weight: 400;
 }
 
 .block {
@@ -54,12 +54,15 @@ body {
 
 /* :hover stāvokli mēs varam izmantot jebkuram CSS selektoram. */
 
+/* Pseido klasei :hover, mēs varam izmantot visus CSS parametrus. */
+
 /* Izskatīsim citu situāciju, kad mums ir bloks. Piemēram: */
 
 .block {
 	display: inline-block;
 	padding: 30px;
 	background: #909090;
+	margin-bottom: 20px;
 }
 
 /* Mēs pievienojam saitei :hover stāvoklim divus CSS parametrus: opacity un visibility. Mēs redzam, ka mēs iegūstam ne gluži to ko mēs gribējām. Un lapu izstrādē tā skaitās kā kļūda. Ko mums darīt lietas labā? */
@@ -78,12 +81,13 @@ body {
 /* Mēs ar šādu pieeju iegūstam vēlamo rezultātu. Mēs to varam izmantot, kad mums ir kāds neredzams objekts, mēs vēršoties pie tā vecāka, iekš kā ir šis neredzamais objekts, varam panākt, ka pie stāvokļa :hover {} izmantojot CSS parametrus: opacity un visibility tie kļūst redzami. */
 
 
-.link {
+/* .link {
 	color: #9acd32;
 	font-size: 40px;
-  /* opacity: 0;
-	visibility: hidden; */
-} 
+	font-weight: 700;
+  opacity: 0;
+	visibility: hidden;
+} */
 
 /* Šo pieeju mēs varam izmantot jebkuram augstāka līmeņa tegam, kaut vai uz tega: body. Vienmēr atceramies, ka mums ir šāda iespēja. */
 
@@ -184,6 +188,7 @@ body {
 .link {
 	color: #9acd32;
 	font-size: 40px;
+	font-weight: 700;
 } 
 
 .link:visited {
@@ -220,3 +225,104 @@ body {
 /* Izpildot visu pareizi mēs iegūstam vēlamo rezultātu. Sākumā mēs redzam tikai saiti, bet, kad noklikšķinām uz tās mums parādās mūsu otrā kastīte: window. Šādu pieeju var izmantot daudz kur, tā reizēm ir ļoti izdevīga un vajadzīga pieeja, bet tai ir viens mīnuss: Mēs redzam, ka mēs, kad izmantosim scroll, tas vienmēr atgriezīsies pie šī elementa. Tā pat, kad iepriekšējās lekcijās un mājas darbos taisījām navigāciju pa lapu. Un tas ne vienmēr mums ir izdevīgi. */
 
 /* Un tieši šī mīnusa dēļ mēs centīsimies pseido klasi :target neizmantot. Bet mums ir par to jāzin, ka tāda iespēja ir, jo ļoti reti mums var gadīties tāda situācija, ka citādāk nevar. */
+
+/* ievērojam, ka CSS pseido klases, elementa stāvoklis :target, nav tas pats, kas HTML dokumenta atribūts: target="_blank", jo tās ir divas dažādas lietas. HTML dokumenta saitei var izmantot atribūtu: target="_blank", lai ceļš, kas norādīts atribūtā: href="", lai tas atvērtos jaunā logā. */
+
+/* Šie bija visi pseido klašu stāvokļi. Izslēdzam, aizkomentējam HTML aktīvo kodu, atstājam saiti, lai mums ir ērtāk strādāt. Izslēdzam arī austāk esošo CSS selektoru: .link, lai tas mums netraucētu apgūt jaunas pseido klases. */
+
+/* Mēs sadalījām pseido klases divās daļās, tikai, lai labāk uztvertu jauno informāciju. Jo tās visas darbojās vienādi, un pa lielam tās visas ir pseido klases stāvokļi. */
+
+/* Izveidojam HTML dokumentā sarakstu, izmantojot tegu pāri <ul> un <li> un izveidojam pirms saraksta, kastīti ar tekstu, izmantojot iekš kastītes paragrāfus. */
+
+/* Sāksim strādāt ar pseido klašu stāvokļiem kodā. Ko īsti nozīmē šīs pseido klases, pseido klases pēc stāvokļa kodā? Tas nozīmē, ka mēs varam no CSS, nemainot neko HTML dokumentā vērsties objektiem izmantojot tā stāvokli, ievērojot to kārtību, kas mums ir HTML dokumentā */
+
+.text {
+	margin-bottom: 40px;
+}
+
+.text p {
+	margin-bottom: 20px;
+}
+
+.list {
+
+}
+
+.list li {
+	margin-bottom: 20px;
+}
+
+/* izskatām pirmo elementa stāvokli kodā :first-child, kas nozīmē, ka mēs vēršamies pie pirmā bloka elementa. Tas vēršas pie pirmā objekta, kas ir iekš vecāka (augstāka līmeņa) objekta. */
+
+/* Izskatīsim šo pseido klasi ar mūsu CSS selektoriem ar piemēru. */
+
+.text p:first-child {
+	color: #ff0000;
+}
+
+
+/* Kad mums vajag panākt, lai vienmēr pirmais bloka elements, kas iekš tā atrodas būtu ar noteiktiem stiliem, mēs izmantojam pseido klases stāvokli :first-child. */
+
+/* Izmantojot pseido klašu stāvoklis mūsu lapa iegūst izturību, jo atceramies, ka mūsu lapas saturs var mainīties, mūsu lapai ir jābūt praktiskai, uzticamai, izturīgai. */
+
+/* ja mēs izmantojam pseido klašu stāvokļus kodā, mums nav nepieciešams katram HTML elementam rakstīt klasi: class="", jo mēs uz tiem iedarbojamies ar pseido klašu stāvokļiem kodā ar CSS. */
+
+/* Ja mēs pirms pirmā paragrāfa HTML dokumentā ieliksim kādu citu tegu, piemēram: <span></span>, tad mūsu pseido klases stāvoklis :first-child vairs nedarbosies. */
+
+/* Šādā situācijā mums jāizmanto uzlabotais pseido klases stāvoklis, jo tad mums vis darbosies kā piemērā ar CSS selektoru: p, arī tad, ja virs tā būs vēl kādi citi elementi HTML dokumentā. Šis pseido klases stāvoklis ir :first-of-type. Izskatīsim to mūsu piemērā. */
+
+.text p:first-of-type {
+	color: #ff0000;
+}
+
+/* Pielietojot šādu pseido klases stāvokli mēs iegūstam vēlamo rezultātu: mūsu pirmais paragrāfs ir sarkanā krāsā neskatoties uz to, ka virs tā HTML dokumentā ir cits tegs. */
+
+/* Kādu pseido klases stāvokli mums labāk izmantot? Vis atkarīgs no uzdevuma - mērķa, ko tieši mēs vēlamies panākt. */
+
+/* Ja mums ir situācija, kad gribam lietot CSS parametrus tieši pirmajam, iekš bloka esošam elementam, neatkarīgi no tā tipa, nosaukuma, tad mēs veicam sekojošu pierakstu: */
+
+.text *:first-child {
+	color: #ff0000;
+}
+
+/* Mēs jau zinām, ka CSS selektors: * nozīmē to, ka mēs vēršamies pie visiem tegiem, kas ir HTML dokumentā. */
+
+/* Izpildot šādu pierakstu mēs iegūstam to, ka jeb kurš elements, kas ir pirmais iekš bloka (vecāka) ir sarkanā krāsā. */
+
+/* :first-child pretējs pseido klases stāvoklis ir :last-child, kas darbojas uz pēdējo elementu, kas ir iekš bloka, iekš (vecāka). */
+
+.text p:last-child {
+	color: #9acd32;
+}
+
+/* Uz šo pseido klases stāvokli attiecās visi iepriekšminētie nosacījumi, kas pseido klases stāvoklim :first-child. */
+
+/* Un vēl viens pseido klases stāvoklis, kas pēc darbības un nosacījumiem ir pretējs pseido klases stāvoklim :first-of-type ir :last-of-type. Uz to arī attiecās visi nosacījumi.  */
+
+.text p:last-of-type {
+	color:#0000ff;
+}
+
+.text *:last-child {
+	color: #0000ff;
+	margin-bottom: 0;
+}
+
+/* Tas pats attiecās uz pseido klases stāvokli, kad mēs vēršamies pie jeb kura tipa tega, kas ir pēdējais mūsu blokā (vecākā). */
+
+/* :first-child un :last-child ir divi pseido klašu stāvokļi, kas ir kā spogulis viens otram. */
+
+/* Lai noņemtu pēdējam bloka elementam mums nevajadzīgo atstarpi, mums ir jāizmanto pseido klases stāvoklis, kur izmantojam CSS selektoru: * aiz tā liekot : un rakstot :last-child {} iekavās noņemot atstarpes. Uzskatāmu rezultātu mēs varam redzēt, ja noņemam HTML dokumentā pēdējo elementu, kas ir iekš bloka - kastītes: <span></span>. Bet, ja mēs atliekam atpakaļ iekš HTML dokumenta tegu <span></span>, tad mēs redzam, ka ārējā atstarpe pēdējam paragrāfam nav pazudusi, un tas ir pareizi, jo tegs <p></p> vairs nav pēdējais bloka elements. */
+
+/* Šis bija pirmais variants kā mēs varam noņemt pēdējam bloka elementam ārējo apakšējo atstarpi, ebt ir vēl citi varianti. Šinī lekcijā mēs izmantosim citu pseido klases stāvokli, kas ir labāks lai noņemtu pēdējam kastītes elementam atstarpi. */
+
+/* Turpinam apgūt vēl dažādus pseido klašu stāvokļus. Un tas ir :nth-child(elementa kārtas numurs, kuram mēs gribam pielietot CSS parametrus) {}. Tas vēršas pie konkrēta elementa, kas ir mūsu HTML blokā - kastītē. Lai labāk saprastu kā tas darbojās izveidojam HTML dokumentā vēl vienu 4to paragrāfu un noņemam span, lai uzskatāmāk redzētu pseido klases stāvokļa :nth-child() darbību. */
+
+.text p:nth-child(2) {
+	color: #008000;
+}
+
+/* Šis pseido klases stāvoklis vienmēr piemērosies 2jam bloka - kastītes elementam. Ja mums pirms paragrāfa būs tags: <span></span>, tad attiecīgi mums iekrāsosies 1mais paragrāfs. Lai redzētu kā tas notiek, pierakstām mūsu blokam - kastītei kā pirmo elementu tag: <span></span>. */
+
+/* Izpildot šādas darbības, mēs redzam, ka mūsu pirmais paragrāfs ir zaļā krāsā, jo tas tagad skaitās blokā - kastītē otrais elements. Turpinam strādāt ar CSS pseido klašu stāvokļiem. Izņemam no HTML dokumenta tag span. */
+
