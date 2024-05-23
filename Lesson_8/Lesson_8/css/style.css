@@ -40,11 +40,11 @@ body {
 	font-size: 40px;
 } */
 
-/* Iesākumā, pirmajā lekcijas daļā uzzināsim, kas ir pseido klases. Mums HTML dokumentā ir katram tegam klase, bet CSS mums ir selektori. HTML klases nav tas pats, kas CSS dokumentā pseido klases. Pseido klases ir nosacīti kāda elementa stāvoklis. */
+/* Iesākumā, pirmajā lekcijas daļā uzzināsim, kādi ir pseido klašu stāvokļi. Mums HTML dokumentā ir katram tegam klase, bet CSS mums ir selektori. HTML klases nav tas pats, kas CSS dokumentā pseido klases. Pseido klases ir nosacīti kāda elementa stāvoklis. */
 
 /* Sintakse ir šāda: .link:hover {} iekš iekavām varam rakstīt dažādus CSS parametrus. Un pie šī stāvokļa, kad uzvedam ar peli uz saites, tad tiek pielietoti noteikti CSS parametri. */
 
-/* Pseido klases var sadalīt divās daļās. Viena daļa: noteikti elementa stāvokļi. Izskatīsim CSS selektora link:hover stāvokli ar piemēru. */
+/* Pseido klases var sadalīt divās daļās. Viena daļa: noteiktu elementa stāvokļi. Izskatīsim CSS selektora link:hover stāvokli ar piemēru. */
 
 /* .link:hover {
 	color: red;
@@ -240,9 +240,9 @@ body {
 	margin-bottom: 40px;
 }
 
-.text p {
+/* .text p {
 	margin-bottom: 20px;
-}
+} */
 
 .list {
 
@@ -299,14 +299,14 @@ body {
 
 /* Un vēl viens pseido klases stāvoklis, kas pēc darbības un nosacījumiem ir pretējs pseido klases stāvoklim :first-of-type ir :last-of-type. Uz to arī attiecās visi nosacījumi.  */
 
-.text p:last-of-type {
+/* .text p:last-of-type {
 	color:#0000ff;
-}
+} */
 
-.text *:last-child {
+/* .text *:last-child {
 	color: #0000ff;
 	margin-bottom: 0;
-}
+} */
 
 /* Tas pats attiecās uz pseido klases stāvokli, kad mēs vēršamies pie jeb kura tipa tega, kas ir pēdējais mūsu blokā (vecākā). */
 
@@ -318,11 +318,157 @@ body {
 
 /* Turpinam apgūt vēl dažādus pseido klašu stāvokļus. Un tas ir :nth-child(elementa kārtas numurs, kuram mēs gribam pielietot CSS parametrus) {}. Tas vēršas pie konkrēta elementa, kas ir mūsu HTML blokā - kastītē. Lai labāk saprastu kā tas darbojās izveidojam HTML dokumentā vēl vienu 4to paragrāfu un noņemam span, lai uzskatāmāk redzētu pseido klases stāvokļa :nth-child() darbību. */
 
-.text p:nth-child(2) {
+/* .text p:nth-child(2) {
 	color: #008000;
-}
+} */
 
 /* Šis pseido klases stāvoklis vienmēr piemērosies 2jam bloka - kastītes elementam. Ja mums pirms paragrāfa būs tags: <span></span>, tad attiecīgi mums iekrāsosies 1mais paragrāfs. Lai redzētu kā tas notiek, pierakstām mūsu blokam - kastītei kā pirmo elementu tag: <span></span>. */
 
 /* Izpildot šādas darbības, mēs redzam, ka mūsu pirmais paragrāfs ir zaļā krāsā, jo tas tagad skaitās blokā - kastītē otrais elements. Turpinam strādāt ar CSS pseido klašu stāvokļiem. Izņemam no HTML dokumenta tag span. */
+
+/* Tādēļ pseido klases stāvokļa :nth-child() izmantošana nav pārāk laba, jo pie satura maiņas HTML dokumentā tā nedarbojas tieši tā kā mēs gribētu. */
+
+/* Vēl divi veidi kā mēs varam izmantot šo pseido klases stāvokļi ir :nth-child(odd), kas nozīmē, ka tas darbosies uz nepāra kārtas HTML dokumenta elementiem, bet :nth-child(even) darbosies ar pāra kārtas HTML elementiem. */
+
+.text p:nth-child(odd) {
+	color: #ff0000;
+}
+
+.text p:nth-child(even) {
+	color: #0000ff;
+}
+
+/* Izpildot šīs darbības mēs redzam, ka HTML dokumenta nepāra un pāra tegi <p></p> ir iekrāsojušies tādā krāsā kā mēs esam norādījuši. */
+
+/* Šādu pieeju mums ir ērti izmantot, kad mums ir kādas tabulas, tabulu dati utt. */
+
+/* Ir vēl sarežģītākas darbības ar šo CSS pseido klases izmantošanu, kad mēs varam rakstīt :nth-child(3n +1) {}, bet šīs darbības praksē praktiski netiek izmantotas. Bet arī, ja mums gadījumā būs vajadzība tās izmantot, mēs varēsim internetā atrast sīkāku skaidrojumu. */
+
+/* CSS pseido klases stāvokļiem :nth-child(odd) un :nth-child(even) ir ļoti liela priekšrocība: tā darbojas arī tad, ja mūsu blokā - kastītē mainās saturs, bet sarežģītajam :nth-child(3n +1) nav šīs priekšrocības, kas nozīmē to, ka, ja mums HTML dokumentā mainīsies saturs, tad šis pseido klases stāvoklis nedarbosies tā kā mēs vēlamies. */
+
+/* Apgūsim vienu interesantu CSS pseido klases stāvokli, ar kura palīdzību mēs varam noņemt pēdējam elementam ārējo apakšējo atstarpi. Pirmo variantu mēs jau zinam, tagad izskatīsim daudz labāku variantu. */
+
+.text p:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+/* Šāds īpatnējs CSS pseido klases stāvoklis :not(:last-child) {} nozīmē to, ka mēs visiem tegiem <p></p> nosakām ārējo apakšējo atstarpi, izņemot pēdējam paragrāfam. Tā tiešā nozīme būtu: visiem, bet ne pēdējam :not - ne. */
+
+/* Ar ko šis CSS pseido klases stāvoklis, lai noņemtu pēdējam paragrāfam ārējo atstarpi ir labāks par iepriekšējo? Ļoti vienkārši: pirmajā variantā mums vajadzēja izpildīt divus pierakstus, lai panāktu efektu, kad pēdējam elementam tiek noņemta ārējā apakšējā atstarpe, bet šeit mēs to pašu panākam ar vienu pierakstu. */
+
+/* Mēs varam arī izmantot mums jau zināmo zvaigznīti *, lai panāktu, ka kad HTML dokumenta saturs mainās, tad pēdējam elementam ārējā apakšējā atstarpe tiek noņemta. Izskatām to ar piemēru, ievietojot mūsu blokā pēc paragrāfa <span></span>. */
+
+/* .text *:not(:last-child) {
+	margin-bottom: 20px;
+} */
+
+/* Mēs redzam, ka visiem paragrāfiem ir ārējā apakšējā atstarpe, bet mūsu tegam span tās nav. Atceramies, ka visu pārbaudīt mēs varam atverot chrome pārlūkā izstrādātāju rīkus. */
+
+/* Noņemam tag span un izslēdzam pēdējo aktīvo kodu CSS dokumentā. */
+
+/* Mēs varam izmantot vairākus CSS pseido klašu stāvokļus vienlaicīgi. Izskatīsim to ar praktisku piemēru, strādājot ar otro paragrāfu mūsu HTML dokumentā. */
+
+.text p:nth-child(2):hover {
+	color:#9acd32;
+}
+
+/* Mēs redzam, ka mums otrais paragrāfs, kad uzvedam uz tā ar peli iekrāsojas gaiši zaļā krāsā. Šeit ļoti svarīga ir pieraksta kārtība. Sākumā mēs vēršamies pie klases, pie paragrāfa, tad rakstam pseido klases stāvokli :nth-child() iekavās norādām elementa kārtas numuru un tūlīt aiz tā rakstam pseido klases stāvokli :hover {} iekavās norādot tos CSS parametrus, kurus gribam izmantot šinī gadījumā otrajam paragrāfam. */
+
+/* Mēs varam izmantot vairākus CSS pseido klašu stāvokļus vienlaicīgi, bet mums ir jāievēro kārtība, kādā mēs tos rakstām. */
+
+/* Ja mēs gribam izmantot kādas CSS pseido klases stāvokli :nth-child() vairākiem elementiem, tad mums tā ir jāizmanto tik reizes, cik elementiem mēs to vēlamies pielietot, () iekavās norādot konkrētos elementus, piemēram: */
+
+.text p:nth-child(1), 
+.text p:nth-child(2) {
+	color: #8a2be2;
+}
+
+/* Izpildot šādu pierakstu mēs redzam, ka pirmais un otrais paragrāfs ir iekrāsojies violetā krāsā. */
+
+/* Turpinām ar jaunu tēmu: CSS pseido elementi. */
+
+/* CSS pseido elements ::first-line ir paredzēts, lai mēs varētu izmantot CSS stilus kāda objekta - teksta pirmajai rindai, tikai tekstam. Mēs varam izmantot tikai tādus CSS stilus, kas attiecās uz tekstu, krāsu un fonu. */
+
+/* Bet realitātē pseido elementu ::first-line mēs izmantosim ļoti reti, pat iespējams, ka nekad to neizmantosim. Izskatīsim to ar piemēru, izveidojot HTML dokumentā - kastīti ar tekstu. */
+
+.content {
+	margin-bottom: 20px;
+}
+
+.content::first-line {
+	color: #a52a2a;
+}
+
+/* Mēs redzam, ka mūsu bloka - kastītes teksta pirmā rinda ir brūnā krāsā. Bet šim pseido elementam ir būtisks trūkums: kad mēs samazinām vai palielinām pārlūka loga platumu, tad teksts mainās, pārlec uz augšu jeb uz leju, teksts, kas ietilps pirmajā rindā ir brūnā krāsā. Bet tieši tādēļ, ka pārlūka platums var mainīties, nav ieteicams izmantot šo pseido elementu. */
+
+/* Būtiski atšķiras CSS pseido klašu stāvokļu un CSS pseido elementu sintakse. Pseido klašu stāvokļi tiek rakstīti izmantojot vienu : zīmi, bet CSS pseido elementi tiek rakstīti izmantojot :: zīmes. Tā mēs viegli varam saprast kurš ir pseido klases stāvoklis un kurš pseido elements. */
+
+/* Kaut gan, ja mēs pseido klasi uzrakstīsim ar vienu : zīmi, tad tā arī darbosies, bet laba prakse ir ievērot sintaksi un rakstīt tās izmantojot :: zīmes. */
+
+/* Līdzīgs CSS pseido elements ir ::first-letter, kas paredzēts, lai pielietotu CSS parametrus teksta pirmajam burtam. Tam mēs varam izmantot tikai tos CSS parametrus, kas attiecas uz tekstu, atstarpēm, robežām un krāsu. Izskatīsim tā pielietošanu ar piemēru: */
+
+.content {
+	text-indent: 50px;
+}
+
+/* Lai labāk redzētu kā šī pseido klase strādā, izmantojam mūsu blokam ar tekstu CSS parametru: text-ident. */
+
+.content::first-letter {
+	color: #ff0000;
+	font-size: 40px;
+}
+
+/* Mūsu teksts ir pabīdīts pa labi un mēs redzam, ka mūsu teksta pirmais burts ir sarkans un 40px liels. Šis pseido elements mums realitātē var būt ļoti noderīgs, lai atdarinātu tā kā grāmatās, kāda teksta pirmais burts ir īpaši izcelts. */
+
+/* Tālāk izskatīsim divas populārākās pseido klases: ::before un ::after. Lai redzētu kā tās strādā, pierakstīsim to pielietošanu piemēros. Sākumā mūsu blokam - kastītei content samazinam tekstu, lai tas ietilptu vienā rindā un paliktu vēl nedaudz vietas no abām pusēm. */
+
+/* Kam tieši ir domātas pseido klases ::before un ::after? Ar to palīdzību mēs varam veidot elementus teksta sākumā un teksta beigās. Piemēram content bloka teksta rindas sākumā vai beigās. */
+
+/* Priekš kam mums tas ir vajadzīgs? Ar ::before un ::after mēs ietaupām, samazinām HTML kodu, koda apjomu. Mēs izteikti to varam samazināt. Kā mūsu piemērā ar content kastīti, lai panāktu, ka mūsu lapā parādās vēl kādi elementi, mums būtu atkal jāveido kastīte - bloks jeb span, un tas palielinātu HTML koda apjomu. Bet pateicoties CSS pseido klasēm ::before un ::after mēs to varam izdarīt iekš CSS faila. */
+
+/* Pirmais likums, kas mums ir jāzin ir: ka pseido elementi ::before un ::after ir rindas tipa elementi. */
+
+/* Otrais likums, kas mums ir jāzin ir: ka CSS pseido klases ::before un ::after nestrādā bez CSS parametra content:"". Kādēļ tā? Tādēļ, ka ::before un ::after ir kā savienojumi pirms rindas un pēc rindas, un bez CSS parametra: content:"" tie vienkārši neparādīsies, mēs neredzēsim rezultātu. Neredzēsim neko rindas sākumā un beigās. */
+
+/* CSS parametrs content:"" var būt tukšs, bet tam ir obligāti jābūt, ja izmantojam CSS pseido klases ::before un ::after.  */
+
+/* Mēs iekš CSS parametra: content:"" pēdiņām varam ierakstīt jeb pievienot to, ko mēs vēlamies redzēt rindas sākumā vai beigās. Izskatīsim to ar piemēru: */
+
+.content::before {
+	content:"("
+}
+
+.content::after {
+	content:")"
+}
+
+/* Uzrakstot šādu kodu mēs redzam, ka mūsu teksta rindas sākumā un beigās ir iekavas. */
+
+/* CSS pseido elementi ::before un ::after ir daudz plašāk pielietojami nekā tikai iekavām, pēdiņām. Izveidojam mūsu HTML dokumentā tegu h1 ar klasi title un ierakstām tur kādus vārdus. Stilizējam nedaudz mūsu title. */
+
+.title {
+	font-size: 40px;
+	font-weight: 700;
+	margin-bottom: 40px;
+	color: #ffa500;
+	display: inline-block;
+}
+
+/* Mums ir situācija, kad mums ir virsraksts un mums maketā vajag, lai zem tā būtu līnija. Agrāk mēs būtu to taisījuši ar HTML dokumenta palīdzību, veidojuši  bloku - kastīti. Bet tagad mēs to varam izdarīt ar pseido elementa ::after pievienošanu mūsu title - virsrakstam. Izskatīsim to ar piemēru: */
+
+.title::after {
+	content: "";
+	display: block;
+	width: 50%;
+	height: 2px;
+	background-color: #04da04;
+	margin-top: 15px;
+}
+
+/* Un te mēs redzam CSS pseido klašu ::before un ::after maģiju. Mēs ar vienu rindu HTML dokumentā panācām, ka zem teksta ir līnija. Atceramies, ka lai varētu izmantot šādu pieeju mums ir jānorāda: content: "" un display :block, jo bez content: "" mums nekas neparādīsies, bet bez display :block mēs nevarēsim lietot atstarpes un platumu, augstumu. Display :inline-block šinī gadījumā mums neder, jo tad mūsu līnija novietosies vienā rindā ar tekstu, bet mums vajag zem teksta. */
+
+/* Mēs varam mūsu title norādīt: display :inline-block, un tad ar CSS pseido elementu ::after izmantot nevis konkrētu platumu izmantojot px, bet gan varam izmantot % procentus. Platums tiks piemērots atkarībā no title platuma. */
+
+/* Paskatīsimies kā tas darbojas ar augstāk esošo piemēru. Un mēs redzam, ka zaļā 2px biezuma līnija aizņem pusi title platuma. */
+
 
