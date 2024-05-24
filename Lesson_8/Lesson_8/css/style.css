@@ -245,6 +245,7 @@ body {
 } */
 
 .list {
+	margin-bottom: 30px;
 
 }
 
@@ -471,4 +472,135 @@ body {
 
 /* Paskatīsimies kā tas darbojas ar augstāk esošo piemēru. Un mēs redzam, ka zaļā 2px biezuma līnija aizņem pusi title platuma. */
 
+/* Atceramies, ka mums obligāti jābūt diviem CSS parametriem: content: "" un display: block, jo atceramies, ka CSS parametri: margin, height, width strādā tikai ar bloka un bloka rindas tipa elementiem. Tie nedarbojas uz rindas tipa elementiem. */
 
+/* CSS pseido klases ::before un ::after pēc noklusējuma ir rindas tipa elementi, tādēļ ir tik svarīgi, lai kad mēs tos izmantojam norādīt tiem CSS parametru: display: block jeb display: inline-block. */
+
+/* Vēlāk, kad mācīsimies par pozicionēšanu tad mēs uzzināsim daudz jaunas lietas par CSS pseido klasēm ::before un ::after. Bet jau tagad mēs tās varam plaši izmantot mūsu praksē, jo tā mēs gūstam unikālas iespējas. */
+
+/* Ja mums nebūtu šīs CSS pseido klases, tad mēs nevarētu izstrādāt praktiski nevienu maketu, jo tās ir tik plaši pielietojamas un nepieciešamas. */
+
+/* Izskatīsim šo abu CSS pseido klašu izmantošanu ::before un ::after mūsu sarakstos. */
+.list li {
+	padding: 0 0 0 30px;
+}
+
+.list li::before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: #ff0000;
+	vertical-align: top;
+	margin: 0px 10px 0px -30px;
+	border-radius: 50%;
+}
+
+/* Ja mēs izpildām šādu CSS parametru pierakstu CSS pseido klasei ::before, mēs iegūstam skaistu sarkanu punktu pirms mūsu saraksta katrā rindā. Ja mums kādā no punktiem parādās vairāk teksta, tad mums nedaudz jāpielabo CSS parametri. */
+
+/* Vēlāk, kad mācīsimies par pozicionēšanu, tad mēs pozicionēsim elementus tā kā mums vajag konkrētā uzdevumā, bet pagaidām izmantojam tos CSS parametrus, kurus mēs jau zinam. Pielabojam mūsu kodu, pievienojam HTML dokumentā saraksta punktam tekstu un šeit CSS nedaudz pievienojam parametrus. */
+
+/* Izpildot šāda koda pierakstu mēs redzam, ka mums ir izveidojies saraksts, un pat, ja mums klāt nāk teksts, tas izskatās līdzens, jo mēs sākumā izmantojam katram saraksta elementam iekšējo kreiso atstarpi, bet pēc tam ar CSS pseido klases ::before izmantošanu nosakām negatīvu ārējo kreiso atstarpi. */
+
+/* izskatīsim kā mēs varam izmantot CSS pseido klases ::before un ::after kopā ar CSS pseido klašu stāvokļiem. Šeit ļoti svarīga ir pieraksta kārtība. */
+
+/* Sākumā mēs rakstām aiz CSS selektora pseido klases stāvokli :hover, bez atstarpes rakstām CSS pseido klasi ::before un iekš {} rakstām CSS parametru: background-color. Rezultātā mēs iegūstam to, ka uzvedot ar peli uz punkta, mums mainās krāsa, no sarkanas uz zilu. Izskatām kā tas darbojas reālā piemērā: */
+
+.list li:hover::before {
+	background-color: #0000ff;
+	border-radius: 0;
+}
+
+/* Mēs varam izmantot CSS pseido klases stāvokli :hover kopā ar pseido klasi ::before, norādīt CSS parametru: border-radius: 0, un redzam, ka, kad uzvedam uz punkta ar peli, mūsu aplis kļūst par kvadrātu. Izskatām to ar piemēru: */
+
+/* Par cik mums darbojas vēl iepriekšējais kods mums, kad uzvedam ar peli uz saraksta mainās krāsa un mainās figūra, no apļa uz kvadrātu, kvadrāts kļūst zils. Šos abus CSS parametrus mēs varam pierakstīt vienā piemērā. */
+
+/* Pierakstot visu vienā piemērā mēs redzam, ka mums vis turpina darboties. */
+
+/* uz viena CSS selektora mēs varam izmantot abas CSS pseido klases, gan ::before, gan ::after, kā arī izmantot CSS pseido klašu stāvokļus, tikai atceramies par pieraksta kārtību. */
+
+.list li::after {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: #ff0000;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.list li:hover::after {
+	background-color: green;
+	border-radius: 0;
+}
+
+/* Mēs redzam, ka visu to pašu mēs varam panākt izmantojot CSS pseido klasi ::after un pēc tam kopā ar pseido klases stāvokli :hover::after {} iekavās norādot attiecīgus CSS parametrus. rezultātā mums sanāk vis tieši tā kā gribējām, mūsu saraksts tagad ir stilizēts gan no sākuma, gan beigās. */
+
+/* Paskatīsimies kā mēs varam izmantot CSS pseido klases un pseido klašu stāvokļus ja mums HTML dokumentā ir numurētais saraksts: ordered list. Lai redzētu kā tas ir realitātē izveidojam HTML dokumentā numurēto sarakstu. */
+
+.list-2 {
+	counter-reset: item;
+}
+
+/* Šāds CSS parametrs: counter-reset: item ļauj mums anulēt numurēta saraksta skaitīšanu, numurēšanu. */
+
+.list-2 li:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+/* Šeit mēs pievienojam visiem saraksta elementiem (izņemot pēdējo) ārējo apakšējo atstarpi, izmantojot CSS pseido klases stāvokli :not(:last-child) {} iekavās rakstot CSS parametru: margin-bottom. Pievienojam pirmajam sarakstam ar klasi .list ārējo apakšējo atstarpi, lai mēs uzskatāmāk redzētu kas notiek. */
+
+/* Tālāk strādājam ar mūsu otro sarakstu izmantojot CSS pseido klasi ::before. */
+
+.list-2 li::before {
+	content: counter(item) ")";
+	counter-increment: item;
+	display: inline-block;
+	vertical-align: top;
+	color:#0000ff;
+	margin-right: 20px;
+	font-weight: 700;
+	font-size: 22px;
+}
+
+.list-2 li:hover::before {
+	color: #ff0000;
+}
+
+/* Redzam, ka izmantojot CSS pseido klasi ::before mēs varam izdarīt unikālas lietas, ko mēs līdz šim nevarējām izdarīt. Mums pateicoties CSS pseido klasēm ::before un ::after paveras milzīgas iespējas. Un tas vēl nav vis. Kad mācīsimies tālāk, mēs uzzināsim vēl daudzas šo CSS pseido klašu iespējas. */
+
+/* Ja mūsu numurētajā sarakstā kādam punktam jāpievieno garš teksts, tad mums nedaudz izjūk mūsu saraksts, bet to mēs atrisināsim, kad mācīsimies par elementu pozicionēšanu, pagaidām atstājam kā ir, nepievienojam papildus tekstu. */
+
+/* Ja mums rodas situācija, kad mums ir nepieciešams izmantot kādam CSS selektoram uzreiz divas pseido klases, gan ::before, gan ::after, mēs to varam darīt, pierakstot tās vienu aiz otras atdalot ar komatu. Piemēram: */
+
+/* .list-2 li::before,
+.list-2 li::after {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: #ff0000;
+	border-radius: 50%;
+	vertical-align: middle;
+} */
+
+/* Izmantojot CSS pseido klasi ::before un iekš content ieliekot attēlu, mēs zaudējam daudzas iespējas, lai koriģētu, iedarbotos uz attēlu. Šādā gadījumā ir ieteicams rakstīt CSS parametru content: ""; un izmantot CSS parametru: background, jo tad mēs varam operēt ar attēlu daudz plašāk. Tā, kā mācījāmies agrāk. Tādēļ arī nav ieteicams to likt iekš: content, jo tad tam ir konkrēts izmērs, tas atrodas konkrētā vietā un mums zūd iespēja to regulēt. */
+
+/* Ja mums ir kāds bloks, piemēram ar nosaukumu: item, un iekš tā ir daudz citu elementu, piemēram: item__title, item__text, item__link, tad, lai mēs varētu nodrošināt, ka mūsu lapu izstrāde ir droša pret izmaiņām tajā, lai vienmēr neatkarīgi no tā, kā mainās item bloka saturs, tā pēdējam elementam nebūtu ārējās apakšējās atstarpes. Un, ja mainās saturs, tad, lai kāds arī nebūtu blokā item pēdējais elements, tam ārējās apakšējās atstarpes nebūs. Lai to panāktu mums ir jāizmanto CSS selektors, atstarpe, jāliek zvaigznīte, aiz tās rakstot CSS pseido klases stāvokli:last-child {} iekavās rakstot CSS parametru: margin-bottom: 0. */
+
+/* Realitātē šāds pieraksts izskatīsies šādi: */
+
+.item *:last-child {
+	margin-bottom: 0;
+}
+
+/* Bet šī pieeja der tikai tad, kad bloka elementiem ir dažādas ārējās apakšējās atstarpes, bet, ja tās ir vienādas, tad mēs daram savādāk. 'Tā kā norādīts piemērā: */
+
+.item *:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+/* Šinī pieejā mums visiem bloka elementiem būs ārējā apakšējā atstarpe 20px, bet pēdējam bloka elementam nebūs. Un, ja arī mainīsies saturs, jeb elementu kārtība blokā, tad pēdējam elementam nebūs ārējās apakšējās atstarpes. Šī metode der tikai tad, ja mums nepieciešams, lai visiem pārējiem bloka elementiem būtu ārējā apakšējā atstarpe: 20px. */
+
+/* Šie bija divi varianti kā mēs varam noņemt konkrētā bloka pēdējam elementam ārējo apakšējo atstarpi. Divi dažādi veidi, viens, kad ir dažādas atstarpes, bet otrs, kad mums ir vienādas ārējās apakšējās atstarpes. */
