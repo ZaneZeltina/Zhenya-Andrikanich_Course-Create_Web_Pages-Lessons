@@ -604,3 +604,7 @@ body {
 /* Šinī pieejā mums visiem bloka elementiem būs ārējā apakšējā atstarpe 20px, bet pēdējam bloka elementam nebūs. Un, ja arī mainīsies saturs, jeb elementu kārtība blokā, tad pēdējam elementam nebūs ārējās apakšējās atstarpes. Šī metode der tikai tad, ja mums nepieciešams, lai visiem pārējiem bloka elementiem būtu ārējā apakšējā atstarpe: 20px. */
 
 /* Šie bija divi varianti kā mēs varam noņemt konkrētā bloka pēdējam elementam ārējo apakšējo atstarpi. Divi dažādi veidi, viens, kad ir dažādas atstarpes, bet otrs, kad mums ir vienādas ārējās apakšējās atstarpes. */
+
+/* Šādu lietu zināšanas un prasmes arī atšķir profesionālu lapu izstrādātāju no neprofesionāļa. Jo šeit mēs ņemam vērā, ka mūsu klients, kam piederēs mūsu izstrādāta lapa varēs to ērti izmantot, jo tā būs uzticama, pareizi izstrādāta. 
+Vienā vārdā sakot mēs ņemam vērā, ka lapas saturs mainīsies. */
+
