@@ -1,0 +1,115 @@
+
+/* Šinī lekcijā mēs izskatīsim jaunu tēmu: pseido elementi un pseido klases. */
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+/* Šinī lekcijā mēs uzzināsim visu par attēlu formātiem. */
+
+/* Bet vispirms pastrādāsim vēl ar praktiskiem piemēriem, iekšējām, ārējām atstarpēm. */
+
+/* Atceramies par atstarpēm. Mums nevajag katram elementam norādīt atstarpes, ārējās vai iekšējās. Mums tās ir jānorāda kopējam - vecākajam blokam. Ievērojam šo likumu, ka ja vien ir iespēja, tad atstarpes, gan ārējās, gan iekšējās norādām vecākajam blokam, tas, kas ir vis augstāk kodā. Izskatīsim to ar piemēru, kas ir zemāk. */
+
+/* Gadījumā, ja mums kādam blokam atstarpes ir vienādas starp elementiem, tad mēs izmantojam pseido klases stāvokli :not(:last-child), pirms tā norādot bloku, liekot zīmi > un zīmi *, kas nozīmē, ka mēs vēršamies pie visiem bloka elementiem, izņemot pēdējo, bet iekš iekavām {} norādot kopīgu ārējo atstarpi. */
+
+/* Kad mēs izstrādājam lapu, atceramies, mēs to daram no āra uz iekšu. Citiem vārdiem sakot, no augšas uz leju. Tā kā mums iet HTML dokumenta saturs. Iekš CSS dokumenta pierakstot stilus mēs daram tieši tā pat. CSS selektorus pierakstam tā kā tie nāk pēc kārtas HTML dokumentā. */
+
+/* Kad mēs rakstām CSS parametrus CSS selektoriem, mums nav obligāti jāapstrādā pilnībā galvenais bloks - elements. Mēs varam piemēram CSS parametru: font-size norādīt zemāk esošiem elementiem un tad atgriezties pie galvenā - kopējā bloka, jo tā mums būs vieglāk uztvert saturu, kuru mēs izstrādājam. */
+
+/* Cenšamies pēc iespējas kopējā - vecāka blokā norādīt visus CSS parametrus, kas tālāk iekšējiem bloka elementiem ir kopīgi. Bet, ja mums ir situācija, kad kaut kas atšķiras, tad mēs jebkurā gadījumā varam vērsties atsevišķi pie kāda elementa. Atceramies noteikumu: no augšas uz leju. Bet mēs zinam, ka var būt izņēmumi. */
+
+/* reizēm var gadīties, kad maketam norādītie CSS parametri neatbilst īstenībai. Piemēram norādīts neadekvāts CSS parametrs: line-height: 100px, bet mēs skaidri redzam, ka tas tāds nav. Tādā gadījumā mums jācenšas to norādīt uz aci, maksimāli cenšoties, lai atbilstu maketam. */
+
+/* Atceramies, ka mums nav jānorāda vienmēr lielumi ar procentiem, kā iekš CSS parametra: line-height: 120%, jo mēs varam iegūt to pašu rezultātu vienkārši norādot: line-height: 1.2. Rezultāts būs tāds pats. Pie lapu izstrādes dažos CSS parametros ir ieteicama tieši šāda pieeja, kad izmantojam parastus skaitļus, atdalot tos ar punktu un nenorādot konkrētas mērvienības. */
+
+/* Atceramies, ka CSS parametrs: line-height tiek mantots no CSS parametra: font-size. Atkarībā no font-size tiek aprēķināts line-height. Abi šie parametri ir mantojami no vecāka, bet mēs varam protams tos katram elementam mainīt, ievērojot to, ka mums ir maksimāli jāatbilst maketam. */
+
+/*
+.block {
+	background: url('../img/image_1.jpg') center / cover no-repeat;
+	color: #fff;
+	padding: 100px 50px;
+}
+
+.block > *:not(:last-child) {
+	margin: 0px 0px 30px 0px;
+}
+
+.block__title {
+	font-size: 50px;
+}
+
+.block__subtitle {
+	font-size: 30px;
+}
+
+.block__text {
+	font-size: 20px;
+	padding: 0px 20px;
+	line-height: 1.2;
+}
+
+.block__button {
+	display: inline-block;
+	color: #fff;
+	background: #c40b0b url('../img/button.png') right no-repeat;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 17px 50px 17px 20px;
+	font-weight: 700;
+} */
+
+/* Izskatām arī piemēru kā mēs varam no saites izveidot pogu. Atceramies, ka veidojot pogu, tai ir jābūt saitei, uz kuras lietotājs var nospiest, lai pārietu uz kādu vietu. Vēlāk mēs mācīsimies citādāk veidot pogas, izmantojot fiksētus lielumus, flex un citas lietas, bet pagaidām izmantojam tās zināšanas, kas mums jau ir. Tā, kā augstāk piemērā. */
+
+/* Mums vienmēr jācenšas, pēc iespējas pierakstīt mazāk kodu. Jo tā ir laba izstrādātāja pazīme. Jo, jo mazāk koda mēs pierakstīsim, jo vieglāks tas būs (aizņems mazāk atmiņas) un mēs varēsim vieglāk tajā orientēties, atrast vajadzīgo, kā arī cits izstrādātājs, kas strādās ar to, labāk tajā orientēsies. Tas arī atšķir izstrādātāju iesācēju no izstrādātāja eksperta. */
+
+/* Tagad sāksim jauno tēmu, par attēliem. Kādi ir to formāti, un, kur tieši un kādu formātu mums ir jāizmanto. Mēs uzzināsim kādas ir attēlu grupas un attiecīgi katrai grupai ir vēl kategorijas. Izslēdzam iepriekšējo aktīvo kodu, lai tas mums netraucē apgūt šīs lekcijas tēmu par attēliem. */
+
+/* Mēs uzzināsim dažādus attēlu formātus. Tādus kā: jpg, gif, png, svg, avif un ico: (ikonām). */
+
+/* Prast pielietot pareizos attēlu formātus pareizajās vietās, skaitās izstrādātāja profesionālisms. Tā arī ir vēl viena lieta, kas atšķir iesācēju no profesionāla izstrādātāja. */
+
+/* Ļoti svarīgi visā lapas izstrādes laikā domāt par lapas nākotni, kad tai tiks mainīts saturs. Tādēļ ir jāpievērš uzmanība liekot pareizos attēlu formātus pareizajās vietās. */
+
+/* ir divas grupas - tehnoloģijas kā tiek izstrādāti attēli. Attēli tiek dalīti divās grupās: vektorgrafika un rastrgrafika. Mēs runāsim par satura grafiku, dekora grafiku un ikonu grafiku. */
+
+/* Kas tad ir vektorgrafika un rastrgrafika? Rastrgrafikas attēlus, ja mēs tos maksimāli pietuvinām, mēs redzam kvadrātus. Viens kvadrāts ir viens pikselis. Šāda veida attēls, ja to maksimāli pietuvina zaudē kvalitāti. Rastrgrafika sastāv no pikseļiem. Rastrgrafikas attēli ir ar šādiem formātiem: jpg, gif un png, webp. */
+
+/* Praktiski visi attēlu formāti, kurus mēs šodien mācāmies ir rastrgrafikas attēli, izņemot vienu: svg formāts, kas ir vektorgrafikas formāts, kas sastāv no koda. Koda, kas ir līdzīgs saspiestam CSS kodam. Attēlu ar svg formātu mēs redaktorā VSCode neredzam, mēs redzam tikai garu kodu. Protams ir paplašinājumi, kas ļauj mums redzēt arī attēlu. */
+
+/* Attēla formāts: svg nezaudē savu kvalitāti, pat ja mēs to palielinām daudzas reizes, jo tas principā nav attēls, tas ir kods, vektorgrafikas kods. Šādi attēli ir zīmēti izmantojot speciālas programmas, ar līnijām, un tādēļ šis svg formāts nekad nezaudē savu kvalitāti. */
+
+/* Viena ikona, kas ir svg formātā var sastāvēt no vairākām daļām. Mēs to varam redzēt Figma, kad strādājam ar maketiem. Jo tie ir zīmēti ar līnijām, katru atsevišķi. Vektorgrafikas attēli: svg formāta ir vienkārši attēli, kas nav sarežģīti, kas nesatur vairākus slāņus, ēnas utt. */
+
+/* Rastrgrafikas attēli var būt ļoti sarežģīti. Tādēļ lielākā daļa no tiem, kad mēs tos maksimāli pietuvinam zaudē savu kvalitāti. */
+
+/* Vektorgrafika ir arī visi šrifti, kurus mēs izmantojam savos projektos, kuri tiek izmantoti maketos, visas šriftu saimes. */
+
+/* Ja rastrgrafikas attēlus atver uz ļoti augstas izšķirtspējas monitoriem, tad uzreiz ir redzami pikseļi, attēls zaudē savu kvalitāti. Parasti ļoti labas izšķirtspējas monitori ir retina monitori, kur uzreiz ir redzams, ka attēls ir sliktas kvalitātes. */
