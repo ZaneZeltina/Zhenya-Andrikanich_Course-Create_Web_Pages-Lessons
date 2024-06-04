@@ -53,7 +53,8 @@ body {
 
 /*
 .block {
-	background: url('../img/image_1.jpg') center / cover no-repeat;
+	background: url('../img/repair_page/who_we_are/image_1.jpg') center / cover 
+	no-repeat;
 	color: #fff;
 	padding: 100px 50px;
 }
@@ -79,7 +80,8 @@ body {
 .block__button {
 	display: inline-block;
 	color: #fff;
-	background: #c40b0b url('../img/button.png') right no-repeat;
+	background: #c40b0b url('../img/repair_page/buttons/button.png') right no- 
+	repeat;
 	font-size: 12px;
 	text-transform: uppercase;
 	padding: 17px 50px 17px 20px;
@@ -113,3 +115,106 @@ body {
 /* Vektorgrafika ir arī visi šrifti, kurus mēs izmantojam savos projektos, kuri tiek izmantoti maketos, visas šriftu saimes. */
 
 /* Ja rastrgrafikas attēlus atver uz ļoti augstas izšķirtspējas monitoriem, tad uzreiz ir redzami pikseļi, attēls zaudē savu kvalitāti. Parasti ļoti labas izšķirtspējas monitori ir retina monitori, kur uzreiz ir redzams, ka attēls ir sliktas kvalitātes. */
+
+/* Mēs nekādā gadījumā nedrīkstam saglabāt rastrgrafikas attēlus kā vektorgrafikas attēlus svg formātā. Jo rezultātā tos atverot VSCode mēs redzēsim daudz attēla kodu, kas ir parasta rastrgrafikas attēla kods. Ja mēs to saglabāsim kā svg formātu, tad pirmkārt: tas svērs ļoti daudz, bet otrkārt: ja mēs to izmantosim mūsu projektā - web lapā, tas vienalga būs sliktas kvalitātes, ja mēs to pietuvināsim. */
+
+/* Tādēļ mēs nedrīkstam tā darīt, jo tas ir nepareizi. Tādēļ arī ir tik stingri nodalīts, kas ir rastrgrafika un kas ir vektorgrafika, un kādi attēlu formāti pieder katrai no šīm grupām. Atceramies, ka vektorgrafikas attēliem ir tikai viens formāts: svg, visi pārējie attēlu formāti ir rastrgrafikas attēli. */
+
+/* Kuros gadījumos kādu attēla formātu mums ir jāizvēlas? Ja mēs redzam bildi, kas ir kā fotogrāfija, tad mēs to vienmēr saglabājam jpg formātā un lietojam to kā parastu attēlu. */
+
+/* Kādēļ tieši mums ir jāizmanto attēla formāts jpg? Tādēļ, ka tas vislabāk padodas attēla saspiešanai un tas minimāli zaudē savu kvalitāti, kad mēs to saspiežam, lai tas mazāk svērtu. Jo, ja tas svērs mazāk, tad mūsu lapa darbosies - ielādēsies daudz ātrāk. */
+
+/* Izstrādājot lapas mums vienmēr jāievēro prasība, lai tā pēc iespējas ātrāk ielādētos, tādēļ mums ir jāizmanto attēlu jpg saspiešana, jo tieši attēli jpg formātā sver visvairāk. */
+
+/* Ja mums ir attēls jpg formātā un iekš Figma tam ir uzlikta kāda ēna, tad mums ir jānoņem ēna un jāsaglabā attēls bez jebkādiem papildinājumiem. Tīrs jpg attēls. Ēnas un citus attēla efektus mēs varam uzlikt izmantojot CSS parametrus, piemēram: filter:drop shadow utt. */
+
+/* Vēlāk mēs, kad mums jau lapā ir vairāki attēli, piemēram jpg formātā, mēs varam izmantojot atsevišķus online servisus tos saspiest, jo tie vislabāk padodas saspiešanai, īpaši nezaudējot kvalitāti. Vēlāk mēs to darīsim izmantojot dažādas savācēj - saspiešanas (optimizācijas) programmas. Tādas kā Gulp un Webpack. Bet par to mēs mācīsimies kursa beigās. */
+
+/* Tālāk paskatīsimies uz tādiem attēliem, kas ir caurspīdīgi, kur mums vajag tikai attēlu, bet fons mums nav vajadzīgs. Tādus attēlus mums ir jāsaglabā png formātā, jo tas nodrošina to, ka attēla fons ir caurspīdīgs. */
+
+/* Kādēļ mēs nevaram visus attēlus saglabāt png formātā? Tādēļ, ka tie slikti padodas saspiešanai un līdz ar to sver vairāk. Attēli png formātā ir vissmagākie - tie aizņem daudz atmiņas. Un līdz ar to, ja mēs visus attēlus saglabāsim png formātā, tad mēs zaudēsim lapas darbības ātrumu. */
+
+/* Mēs jau zinām kā panākt to, ka attēlu stūri ir noapaļoti. Tādēļ mēs varam droši saglabāt attēlus, kam ir noapaļotas malas jpg formātā un ar CSS parametra: border-radius palīdzību panākt attēla stūru noapaļošanu tik cik mums tas ir nepieciešams. Mums nav jābaidās, ka sākotnēji mēs redzam jpg attēlu un, ka tam ir noapaļoti stūri, jo mēs jau zinam kā to var labot. */
+
+/* Par cik attēla formāts png sver ļoti daudz, uz pusi vairāk nekā tāds pats attēls, kas ir saglabāts jpg formātā, mums ir jācenšas pēc iespējas visus attēlus - bildes saglabāt tieši jpg formātā. */
+
+/* Bet ir gadījumi, kad mums neder pieeja saglabāt attēlu jpg formātā. Tādā gadījumā mēs to saglabājam png formātā. */
+
+/* Tagad paskatīsimies uz attēlu kategorijām. Šie visi attēlu formāti, kurus mēs izskatījām ir satura attēli. kas ir lapas satura elementi. Un šiem satura attēliem mēs iekš HTML dokumenta izmantojam tegu: <img>, Tie skaitās visi attēli, kurus var mainīt, aizstāt ar citiem, jo tie ir lapas satura attēli, bet ir vēl viena attēlu kategorija - fona attēli vai dekora attēli, dizaina attēli, kuri parasti paliek nemainīgi lapā. tā ir atsevišķa attēlu kategorija. */
+
+/* Dekora attēli - dizaina attēli parasti paliek nemainīgi. Un, ja arī pēc kāda gada lapas īpašnieks gribēs tos mainīt, to varēs izdarīt izmantojot CSS kodu. Dizaina attēli nav satura attēlu, un mums nevajag HTML dokumentā izmantot tegu: <img>. */
+
+/* Vēlviena attēlu kategorija ir: ikonu attēli. Mēs maketos bieži tos redzam, kā arī varam atrast dažādos online servisos. */
+
+/* Kādēļ vispār ir vajadzīgas ikonas, kādēļ tās ir visos lapas maketos? Ikonas parasti ir kopā ar tekstu. Pavada tekstu, iet līdzi tekstam. Tā ir obligāta dizaina prasība, lai teksts tiktu pavadīts, lai tas būtu kopā ar ikonām, kas lietotājam nodrošina labāku teksta uztveri un viņam ir patīkamāk izmantot šādas lapas. Mēs atvieglojam informācijas uztveri. Jo, ja nebūtu ikonas, tad uztvert informāciju, kas ir lapā, lietotājam būtu ļoti grūti. Bet tā kā ikonas tiek izmantotas katrā dizainā, tad lietotājam ir viegli uztvert visu lapas informāciju. */
+
+/* Lietotājam ir vieglāk aizķerties aiz teksta, jo izmantojot ikonas, tas tiek itkā papildināts. Ja mēs ātri pārskrienam ar acīm pāri lapai, tad mēs labāk ievērojam visus tekstus, kam ir pievienotas ikonas. Tādēļ tā arī ir obligāta dizaina prasība - lietot ikonas. */
+
+/* Mēs varam tā pat kā šriftus, ikonas pārvērst par ikonu šriftu. Vēlāk mēs par to uzzināsim sīkāk, kur un kā tās veidot, dabūt. ir daudzi online servisi, kur mēs varam izveidot jeb paņemt jau gatavu ikonu šriftu un to izmantot savos projektos. Bet parasti, ja mēs esam lapas izstrādātāji, tad dizaineris mums iedod ikonas. Mums atliek tikai tās saglabāt svg formātā. */
+
+/* Visas ikonas, kā nosacījums ir vektorgrafika, kas mums ir jāsaglabā, jāveido svg formātā. Tā pat kā šrifti. */
+
+/* Ikonas tiek pieskaitītas pie dizaina elementu attēliem. Bet ne vienmēr. Dažos gadījumos tās var būt lapas satura elementi. Nevienmēr mēs varam tās realizēt iekš CSS izmantojot: background parametru, jo ir reizes, kad tās mums ir jārealizē izmantojot HTML kodu. */
+
+/* Vairākums gadījumu ikonas ir dekora elements, kas papildina tekstu, un kas netiek bieži mainītas. Tādēļ mēs droši varam tās izstrādāt izmantojot CSS kodu. Bet ko darīt gadījumā, ja mēs redzam, ka kāda ikona ir satura elements? Tādas ikonas, kas ir pie telefona, adresēm, tekstiem, mazas ikonas tās parasti ir dizaina elementi, un tās parasti netiek bieži mainītas, un tās mēs droši varam realizēt caur CSS. Bet, ja mēs redzam krāsainu, samērā lielu ikonu, sarežģītu ikonu, tad visdrīzāk tā ir satura ikona, kas mums ir jārealizē caur hTML dokumentu, jo pastāv liela iespēja, ka tās bieži mainīsies. */
+
+/* Katrā gadījumā, mums ir jāizvērtē kā mēs realizēsim konkrētu ikonu. Jo, piemēram: mums ir lapas navigācijā bultiņa, kas norāda, ka uz tās klikšķinot ir jābūt vēl kādiem elementiem vai, ka tā ved uz citu lapu. Tādā gadījumā mums tā ir jārealizē caur HTML dokumentu, jo mums būs jātiek tai klāt un jāizstrādā papildus elementi, kad lietotājs nospiedīs piemēram uz teksta, kuram blakus ir šī ikona. */
+
+/* Mācoties šo lekciju, mēs skatamies uz konkrētu maketu, lai labāk saprastu attēlus, to formātus, grupas. Konkrēti šinī maketā mēs redzam, ka iekš navigācijas mums ir divi elementi, kuriem ir jābūt ar papildus iespējām, kuriem blakus ir bultiņa, kas norāda, ka mēs uz tiem varam klikšķināt. Tādēļ šādā situācijā ikonas mums ir jārealizē caur HTML dokumentu. */
+
+/* Kādēļ tieši tā? Jo, kad izstrādāsim lapas, tad mums vajadzēs tiem tikt klāt no JavaScript faila. Lai to izdarītu tiem ir jābūt HTML dokumenta elementiem. */
+
+/* Bet mums katru reizi izvēloties kā pievienot ikonu ir jāņem vērā, kāds ir mērķis. Ja mērķis ir klikšķināt uz tekstu, atvērt kādu menu, tad mēs ikonu, kas ir tam blakus varam realizēt izmantojot CSS. Bet, ja ir paredzēts klikšķināt uz ikonu, lai parādītos menu, tad mums tā ir jārealizē izmantojot HTML dokumentu. Vis ir atkarīgs no konkrētā uzdevuma - mērķa. */
+
+/* Bija laiks, kad rastrgrafikā ļoti populārs bija attēlu formāts: gif. Animāciju attēli. Kādreiz tie tika arī izmantoti lapu izstrādē, jo tie bija ļoti populāri. Visa lapa varēja sastāvēt no gif attēliem. bet mūsdienās tie vairs nav tik populāri. Mūsdienās mēs animācijas veidojam izmantojot CSS kodu. Retos gadījumos mēs šo attēlu formātu varam sastapt vēl kādās lapās. tas nav vēl pavisam izzudis. */
+
+/* rastrgrafikā ir vēl viens formāts, kuru mēs neesam izskatījuši. Tas ir: webp attēlu formāts. Tas ir daudz mūsdienīgāks nekā jpg attēlu formāts. Tam ir daudz labāka kvalitāte nekā jpg formātam, un tas arī mazāk sver - aizņem mazāk vietas, līdz ar to, ja mēs to izmantojam, lapa ielādējās - darbojas daudz ātrāk. */
+
+/* Attēlu formātu: webp ir izstrādājusi Google. Tas ir mūsdienīgākais attēlu formāts. Galvenā tā priekšrocība ir tā, ka tas principā aizstāj visus rastrgrafikas attēlu formātus. kādēļ tā? Tādēļ, ka webp attēlu formāts ir gan caurspīdīgs, gan var tikt izmantots kā animācija, kā arī, tas sver daudz mazāk nekā visi mums jau zināmie rastrgrafikas attēlu formāti: jpg, png, gif. */
+
+/* Tādēļ arvien biežāk izvēloties attēlus tiek meklēts, lai tie būtu webp formātā. Jo tad mums paveras plašas to izmantošanas iespējas. */
+
+/* ir viena problēma. Maketi parasti ir Figma programmā un tā nepiedāvā iespēju saglabāt attēlu webp formātā. Šeit mēs varam uzdot jautājumu Figma izstrādātājiem kādēļ tā? Bet internetā ir miljoniem iespēju, kur mēs varam dabūt bezmaksas attēlus webp formātā. */
+
+/* izmantojot konvert iespējas internetā mēs varam visus jpg attēlus konvertēt webp formātā un mēs redzam, ka kvalitāte nezūd, un attēls sver gandrīz 10x mazāk nekā jpg attēls. Līdz ar to šāda attēlu optimizēšana uzlabo mūsu izstrādātās lapas darbību - ielādes ātrumu. Tādēļ ieteicams visus jpg attēlus konvertēt webp attēlu formātā. */
+
+/* Šī konvertēšanas iespēja attiecās arī uz png attēlu formātu. Mēs varam attēlu png formātā konvertēt par webp attēlu. To izdarot mēs redzam, ka tas arī nezaudē kvalitāti, ir ar caurspīdīgu fonu, kā arī tas sver 10x mazāk nekā parastais tāds pats png attēls. */
+
+/* Atceramies, ka jebkuru lietu, ko mēs gribam lietot mēs varam pārbaudīt online servisā can i use. Tas attiecās arī uz HTML un CSS dokumentiem. */
+
+/* Mēs paskatīsimies uz praktiskiem piemēriem, kā mēs varam izmantot HTML dokumentā webp attēlus, neuztraucoties par to, ka radīsies problēmas ar can i use (ar citiem interneta pārlūkiem). */
+
+/* Mēs iekš HTML dokumenta izmantojam tags: <picture>, <source> un <img>. Ievērojam, ka mēs iepazīstamies ar jauniem tags un to atribūtiem: srcset, kur mēs norādām ceļu pie attēla, kas ir webp formātā un type, kur mēs norādām image/webp, bet iekš tag <img> mēs norādām atribūtā src ceļu pie tās pašas bildes, bet tās, kas ir png formātā. Aizpildām atribūtu alt ierakstot pup - kucēns. Šinī gadījumā tag: <picture> mums ir kā kastīte, kurā mēs ieliekam tag source un tag img. */
+
+/* Mūsdienās attēlu formāts: webp tiek labi atbalstīts tādēļ mums nav jānorāda HTML dokumentā otrs attēla formāts png, jo vienīgais interneta pārlūks Internet Explorer, kas neatbalsta attēlu formātu webp ir jau pagātnē. */
+
+/* Cenšamies vienmēr pie attēlu pievienošanas caur HTML dokumentu aizpildīt atribūtu: alt, jo tas ir svarīgi, ja gadījumā attēls neielādējās, tad vismaz parādās teksts kam tur vajadzēja būt. Tas atvieglo arī ekrānu lasītāju programmu darbu, jo ir cilvēki ar ierobežotām spējām, kam ir vajadzīgs izmantot ekrāna lasītāju programmas. */
+
+/* Tālāk, kad mēs strādāsim ar saspiešanas, uzlabošanas programmu GULP, tad mums vairs nevajadzēs HTML dokumentā rakstīt priekš attēliem tādu konstrukciju, jo mums pietiks tikai uzrakstīt tag: <img> un visu pārējo mums izdarīs savācēja programma GULP. */
+
+/* Ieteicams parastos foto attēlus ielādēt tieši jpg formātā un pēc tam konvertēt uz webp attēlu formātu, jo tie vieglāk konvertējas nekā png formāta attēli. */
+
+/* Attēlu formātu svg, kas ir vektorgrafika mēs nevaram konvertēt uz webp attēlu formātu. Un mēs jau zinām kādēļ. Tādēļ, ka tas sastāv no koda, no līnijām. */
+
+/* Mēs varam konvertēt visus rastrgrafikas attēlus uz webp attēlu formātu, bet vektorgrafikas (ikonas) mēs nevaram konvertēt. */
+
+/* Turpmāk, kad strādāsim veidosim ne tikai projekta mapju struktūru, bet arī mapes: img struktūru. Ieejam failu pārvaldniekā un savedam kārtību, izveidojot jaunas mapes (iekš mapes: img), tā, lai mums pašiem būtu ērti atrast attiecīgos attēlus jeb ikonas. */
+
+/* Kad mēs saglabājam attēlus iekš mūsu mapēm, ja tie ir domāti vienam blokam un ir vairāki, tad mums ir ērti tos vienkārši nosaukt: 01.svg, 02.svg, 03.svg utt. Bet tam ir liels mīnuss, jo SEO optimizācijai, kad meklēšanas robots meklē atbilstošu attēlu, tam ir vieglāk to atrast, ja tam ir konkrēts nosaukums, ar vārdu, kas apraksta to, kas ir attēlā, nevis vienkārši 01.svg utt. */
+
+/* Bet, ja ņemam vērā to, ka tā pat pēc mūsu izstrādes, lapas īpašnieks mainīs attēlus uz saviem attēliem, tad mēs droši varam izmantot tādus nosaukumus, kas mums ir ērtāk un galvenais paātrinās lapas izstrādes laiks. Mums nav jāraksta gari attēlu nosaukumi, jo gala rezultātā tie tiks mainīti un tiem tiks doti citi adekvāti nosaukumi, tā kā lapas īpašnieks vēlēsies. */
+
+/* Ir situācijas, kad attēli tā pat kā teksts ir lorem tipa, un tad nav tik būtiski nosaukt tos adekvāti. Bet katrai situācijai ir jāpieiet individuāli. Mēs varam izlemt, ja mums ir daudz laika, varam rakstīt katram attēlam nosaukumu, bet, ja gribam būtiski paātrināt lapas izstrādi, tad rakstam vienkārši ciparus, jo tas ir daudz ātrāk. */
+
+/* Bet, ja mums ir klients, kas iedod jau mums lapas saturu, vismaz tādu kāds tas būs lapas lietošanas sākumā, tad mums obligāti visiem attēliem jādod adekvāti nosaukumi. Un tad vēlāk klients un SEO speciālists varēs mainīt saturu un nosaukumus. */
+
+/* Zelta likums, izvērtēt katru situāciju. Izdarīt tā, kā vēlas klients, kā viņam labāk, jo atceramies, ka mēs pildam biznesa uzdevumu, mums ir jāatrisina biznesa uzdevums nevis jādara tā kā mēs uzskatām par pareizu. Tas attiecas uz visu programmēšanu, nevis tikai uz lapu izstrādi. */
+
+/*  */
+
+
+
+
+
+
+
