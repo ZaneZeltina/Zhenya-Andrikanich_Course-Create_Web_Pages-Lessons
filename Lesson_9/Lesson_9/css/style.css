@@ -210,7 +210,41 @@ body {
 
 /* Zelta likums, izvērtēt katru situāciju. Izdarīt tā, kā vēlas klients, kā viņam labāk, jo atceramies, ka mēs pildam biznesa uzdevumu, mums ir jāatrisina biznesa uzdevums nevis jādara tā kā mēs uzskatām par pareizu. Tas attiecas uz visu programmēšanu, nevis tikai uz lapu izstrādi. */
 
-/*  */
+/* Pareizs iepriekšējā mājas darba atrisinājums, ņemot vērā šodienas tēmu ar img izmantošanu: */
+
+.perspiciatis {
+	font-size: 0;
+}
+.perspiciatis__item {
+	display: inline-block;
+	width: 365px;
+	vertical-align: top;
+	padding: 0px 30px 0px 0px;
+}
+.perspiciatis__title {
+	color: #f2726f;
+	font-size: 19px;
+	line-height: 1.37;
+	font-weight: 900;
+	margin: 0px 0px 10px 0px;
+}
+.perspiciatis__text {
+	color: #4b4b4b;
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: 0.15px;
+}
+.perspiciatis__icon {
+	display: inline-block;
+	width: 86px;
+	vertical-align: top;
+}
+.perspiciatis__body {
+	width: 235px;
+	display: inline-block;
+	vertical-align: top;
+}
+
 
 
 
