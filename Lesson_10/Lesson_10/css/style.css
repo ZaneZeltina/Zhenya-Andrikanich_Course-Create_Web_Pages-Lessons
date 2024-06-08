@@ -1,0 +1,113 @@
+
+/* Šinī lekcijā mēs izskatīsim jaunu tēmu: pseido elementi un pseido klases. */
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+/* Šinī lekcijā mēs uzzināsim visu par BEM metodoloģiju. Kādēļ ir tik svarīgi to izmantot. */
+
+/* Ikdienas darbā, ja strādājam freelance mēs varam neizmantot šo BEM metodoloģiju, bet būtībā visur tā ir obligāta prasība, strādāt pēc kādas no metodoloģijām. Populārākā ir tieši BEM metodoloģija. BEM- Bloks__Elements-Modifikators. */
+
+/* Tā mums ir vajadzīga, lai celtu mūsu līmeni - kvalifikāciju, profesionālisma līmeni, kā speciālistam. */
+
+/* BEM metodoloģija ir ļoti plaša, sākot no HTML dokumenta un CSS faila līdz pat datora mapju nosaukumiem. Tā skar daudzas lietas, jo tiek ielietota ļoti plaši.  */
+
+/* BEM metodoloģija tiek izmantota, lai HTML dokumentā veidotu bloku struktūras, atkārtotu blokus, dodot tiem tādus nosaukumus (ievērojot BEM metodoloģiju), lai mēs varētu tos izmantot vairākkārt. Tādēļ mums savā darbā jāizmanto BEM metodoloģija. */
+
+/* kas tad ir metodoloģija? Tā ir vairāku likumu, ieteikumu ievērošana, rekomendāciju ievērošana, labas prakses ieteikumi, lai gala rezultātā mēs dabūtu kaut ko labu. */
+
+/* Vienkārši sakot - metodoloģija ir rekomendācija ievērot noteiktus ieteikumus, ievērojot to kārtību, lai piepildītos nosacījumi un mēs iegūtu vēlamo rezultātu. */
+
+/* BEM - B. - Bloks, E. - Elements, M. - Modifikators. B.E.M. */
+
+/* Pēc šīs lekcijas, visi mājas darbi (arī tie, kas sekos vēlāk) mums ir jau jāpilda ievērojot BEM metodoloģiju. */
+
+/* Šī lekcija sastāvēs no teorijas un praktiskās daļas, kur mēs mācīsimies HTML dokumentā nosaukt blokus un tā elementus, modifikatorus ievērojot BEM metodoloģiju. */
+
+/* Izskatīsim no kā tad tieši sastāv BEM metodoloģija? Bloks - patstāvīgs neatkarīgs objekts. Kapēc tas ir tik svarīgi? Tāpēc, ka šī metodoloģija palīdz mums izstrādāt lapas ļoti ātri. Piemēram, ja mums ir vairāku lapu projekts, kur bloki atkārtojas, tad, ja ievērojam metodoloģiju BEM mēs varam vienādos blokus vienkārši kopēt, ja tie mums kaut kur jau ir bijuši. */
+
+/* Mēs jau esam pieraduši, ka hTML dokumentā bloks ir tag: <div></div>, bet tas nav tas pats, kas BEM bloks. Tādēļ mēs šos abus objektus sauksim dažādi, HTML dokumenta bloks un BEM bloks. */
+
+/* Piemēram vairāku lapu projektā mums var atkārtoties header visās lapās jeb footer, jeb kādi HTML bloki, kur ir virsraksts, teksts, attēls. Izmantojot BEM metodoloģiju mēs varam vienādos BEM blokus vienkārši kopēt. Un uzrakstot CSS stilus, CSS parametrus vienam BEM blokam, tie tiek piemēroti visur, kur ir konkrētais BEM bloks. Tādēļ arī mūsu lapu izstrāde kļūst daudz ātrāka. Mēs vienkārši atkārtoti izmantojam jau rakstītu kodu. Tas var būt jebkas, piemēram daudzu lapu projektā saziņas forma. */
+
+/* Ja, mēs pareizi iemācīsimies ar šo BEM metodoloģiju strādāt, tad mums kļūs ļoti viegli izstrādāt lapas, iksevišķi, ja tas būs projekts, kas sastāv no daudzām lapām. */
+
+/* Otrs veids kā mēs varam aprakstīt BEM bloku ir: tas neietekmē lapas apkārtni - lapas saturu. Mēs varam vienkārši paņemt un ielikt to citā vietā, un mūsu lapas izstrāde nesalūzīs, jo BEM bloks ir neatkarīgs, un nekādi neiespaido citus lapas elementus. */
+
+/* Galvenais, lai mēs varētu kopēt likt citur jau gatavus BEM blokus, mums ir pareizi tas jāizveido - jāizstrādā. */
+
+/* Tālāk, izskatot teoriju, mēs lēnām sapratīsim kas un kā. Tagad mums ir vēl diezgan nesaprotama šī tēma, bet mēs to sapratīsim, kad strādāsim ar reāliem piemēriem. */
+
+/* Paskatīsimies ar piemēru. Izveidojot HTML dokumentā kastīti, kāds mums būtu tai jādod klases nosaukums, lai tas būtu BEM bloks? Rakstot klases nosaukumus, mums ir jāievēro četri likumi: 1) pats galvenais: nosaukumam jāatbilst tam, kas ir blokā vai tā konstrukcijai, piemēram, par ko ir šis bloks: about-us, price utt., 2) latīņu burti, obligāti Angļu valodā, 3) nosaukumam jābūt ar mazajiem burtiem, 4) ja tas sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ; */
+
+/* Pārnesam mūsu bloku no HTML dokumenta šeit. */
+
+/* Divi vissvarīgākie metodoloģijas BEM nosacījumi:
+1) Bloks - neatkarīgs objekts;
+2) Neietekmē apkārt (ārējos) esošos objektus; */
+
+/* Mēs nedrīkstam izmantot tādus CSS parametrus BEM blokam, kas izraisīs to, ka netiek ievēroti šie galvenie BEM metodoloģijas nosacījumi. Lai labāk saprastu kādus CSS parametrus mēs nedrīkstam izmantot izveidojam paragrāfus pirms un pēc mūsu bloka HTML dokumentā. */
+
+/* Pievienojam paragrāfiem nedaudz CSS parametrus, lai mēs labāk saprastu, kur ir teksts un kur ir BEM bloks. */
+
+p {
+	background-color: #794f45;
+	padding: 15px;
+	color: #fff;
+}
+
+.who-we-are {
+	background-color: #7a956b;
+	color: #fff;
+	padding: 15px;
+	/* margin: 0 0 15px 0 */
+}
+
+/* Redzam, ka CSS parametri, kas ir ieslēgti neietekmē apkārt esošos objektus bet, tie, kas ir izslēgti - ietekmē apkārtējos blokus. */
+
+/* Varētu šķist, ka CSS parametrs: margin: 15px neietekmē apkārt esošos objektus, bet tas tā tomēr nav, jo atceramies, ka CSS parametrs: margin: atgrūž citus lapas elementus no esošā, kam ir pievienots šis parametrs. */
+
+/* Visus CSS parametrus, kas kaut kādi skar objektu ārieni, mēs nedrīkstam izmantot BEM blokam. Kādēļ tā? Tādēļ, ka mēs neievērojam vienu vienkāršu nosacījumu, ko mēs jau zinam: BEM bloks ir neatkarīgs objekts. */
+
+/* Ja mēs kopējam BEM bloku, tas nekādi nedrīkst ietekmēt lapas apkārtni, pārējo lapas saturu. Izmēģinām to, kopējot objektus HTML dokumentā. */
+
+/* Kas tad ir BEM neatkarīgs bloks? Tas skar ielikšanas selektorus. Piemēram mūsu BEM bloks atrodas citā kastītē, iekš cita tag: <div></div>, citā blokā. Izskatām to ar piemēru: */
+
+/*
+.item .who-we-are {
+	background-color: #7a956b;
+} */
+
+/* Redzam, ka pēc šī piemēra zūd nosacījums, ka BEM bloks ir neatkarīgs objekts, jo apskatot rezultātu redzam, ka šis BEM bloks, kas atrodas iekš bloka: item ir zaļā krāsā, bet otrs BEM bloks tāds nav. Mēs redzam, ka BEM bloks kļūst atkarīgs kur tas atrodas. Šādi zūd šis nosacījums, izveidojas atkarība, kas vairs neatbilst BEM metodoloģijai. */
+
+/* Tādēļ šādi, kā augstāk piemērā mēs nedrīkstam rīkoties, jo BEM blokam ir jābūt neatkarīgam objektam, lai mēs to varētu kopēt pārvietot, brīvi ar to rīkoties, un, lai tas neietekmētu lapas apkārtni, ārējos objektus. */
+
+
+
