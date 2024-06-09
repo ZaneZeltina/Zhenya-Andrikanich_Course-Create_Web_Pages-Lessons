@@ -65,7 +65,12 @@ body {
 
 /* Tālāk, izskatot teoriju, mēs lēnām sapratīsim kas un kā. Tagad mums ir vēl diezgan nesaprotama šī tēma, bet mēs to sapratīsim, kad strādāsim ar reāliem piemēriem. */
 
-/* Paskatīsimies ar piemēru. Izveidojot HTML dokumentā kastīti, kāds mums būtu tai jādod klases nosaukums, lai tas būtu BEM bloks? Rakstot klases nosaukumus, mums ir jāievēro četri likumi: 1) pats galvenais: nosaukumam jāatbilst tam, kas ir blokā vai tā konstrukcijai, piemēram, par ko ir šis bloks: about-us, price utt., 2) latīņu burti, obligāti Angļu valodā, 3) nosaukumam jābūt ar mazajiem burtiem, 4) ja tas sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ; */
+/* Paskatīsimies ar piemēru. Izveidojot HTML dokumentā kastīti, kāds mums būtu tai jādod klases nosaukums, lai tas būtu BEM bloks? Rakstot klases nosaukumus, mums ir jāievēro četri likumi: 
+1) Pats galvenais: nosaukumam jāatbilst tam, kas ir blokā vai tā konstrukcijai, piemēram, par ko ir šis bloks: about-us, price utt.;
+2) Latīņu burti, obligāti Angļu valodā;
+3) Nosaukumam jābūt ar mazajiem burtiem; 
+4) Ja tas sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ;
+5) Nekādas hierarhijas; */
 
 /* Pārnesam mūsu bloku no HTML dokumenta šeit. */
 
@@ -109,5 +114,132 @@ p {
 
 /* Tādēļ šādi, kā augstāk piemērā mēs nedrīkstam rīkoties, jo BEM blokam ir jābūt neatkarīgam objektam, lai mēs to varētu kopēt pārvietot, brīvi ar to rīkoties, un, lai tas neietekmētu lapas apkārtni, ārējos objektus. */
 
+/* Lai mūsu BEM bloki būtu neatkarīgi un neietekmētu citus ārējos lapas elementus mums jāievēro nosacījums, ka tie nedrīkst atrasties iekš kāda cita bloka. Nedrīkst būt tā, kā augstāk piemērā, jo tad mūsu BEM bloks kļūst atkarīgs no augstāk esošā bloka, un zūd galvenais princips: BEM bloks ir neatkarīgs. */
 
+/* BEM blokam ir jābūt pirmā ielikšanas līmeņa blokam. Mums no CSS jāvēršas pie tā kā pie pirmā ielikšanas līmeņa objekta. Tā kā pareizajā piemērā, kur mēs rakstām: .who-we-are {} iekavās norādot tikai tos CSS parametrus, kas nekādi neietekmē apkārt (ārēji) esošos objektus, mēs izmantojam neatkarīgus CSS parametrus BEM blokam. */
 
+/* Bet, mēs varam vienu BEM bloku likt iekš cita BEM bloka, neskaitāmas reizes, cik vien nepieciešams. */
+
+/* Ņemot vērā piemēru, kur mēs izdarījām tā kā nedrīkstam darīt, kad iekš viena bloka likām BEM bloku, izskatīsim variantu kā būtu pareizi. Iekš HTML dokumenta mums vis ir pareizi, bet mums tas jāizdara arī šeit izskatām to ar piemēru: */
+
+.item {
+
+}
+
+.who-we-are {
+
+}
+
+/* Redzam, ka šajā piemērā mēs ievērojam BEM metodoloģijas nosacījumus, jo mēs ievērojam, ka BEM bloks ir neatkarīgs objekts, un neietekmē apkārt esošos objektus. */
+
+/* Izveidojam iekš HTML dokumenta vēl dažus blokus, iekš BEM bloka: who-we-are. Vēršamies pareizi pie tiem no CSS faila, rakstot tos pirmajā līmenī. Zemāk piemērā ir pareizi uzrakstīts kā vērsties pie BEM blokiem pirmajā to līmenī. */
+
+.item {
+}
+
+.who-we-are {
+}
+
+.item-block {
+}
+
+.item-block-2 {
+}
+
+/* Turpināsim mūsu tēmu par BEM metodoloģiju. Mēs tagad saprotam, kas ir BEM bloks. Izskatīsim, kas tad ir BEM elements? 
+1) BEM elements ir atkarīgs objekts no sava BEM bloka. 
+2) Tas var iespaidot apkārtni (uz ārējiem objektiem). 
+3) Tas vienmēr atrodas iekš sava BEM bloka. */
+
+/* Kā mēs veidojam BEM elementa nosaukumu? Šeit atkal tiek ievēroti vairāki nosacījumi.
+1) Tā nosaukums sākās ar BEM bloka (vecāka bloka) nosaukumu, kas tiek atdalīts ar diviem apakšējiem pastrīpojumiem, ar šādu zīmi: __ ;
+2) Nosaukumam jāatbilst BEM elementa saturam vai konstrukcijai;
+3) Nosaukumam jābūt Angļu valodā, jāsastāv no latīņu burtiem;
+4) Nosaukumam jābūt ar mazajiem burtiem;
+5) Ja nosaukums sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ;
+6) Nedrīgst būt nekādas hierarhijas. */
+
+/* Pats galvenais nosacījums BEM elementa nosaukumam jāsākas ar vecāka BEM bloka nosaukumu. */
+
+/* Izveidojam HTML dokumentā BEM bloku: who-we-are un iekš tā izveidojam galveno virsrakstu: who-we-are__title. Šādi mēs pierakstam BEM bloka nosaukumu kopā jau ar elementu. Šinī gadījumā BEM elements mums ir: __title. */
+
+/* Par cik BEM elements ir atkarīgs no sava vecāka BEM bloka, mēs nevaram to izmantot ārpus BEM bloka. Mums tas ir jāizmanto tikai iekš konkrētā BEM bloka.  */
+
+/* Izveidojam HTML dokumentā iekš mūsu BEM bloka vēl vienu BEM elementu: who-we-are__text, ieliekam tur kādu zivs tekstu. Pārnesam abus objektus CSS failā, lai tiem piemērotu CSS parametrus. */
+
+.who-we-are__title {
+	margin: 0 0 15px 0;
+}
+
+/* Kādēļ BEM elementam mēs varam izmantot CSS parametru: margin? Tādēļ, ka BEM elements nevar tikt izmantots ārpus BEM bloka. Un tādēļ iekš sava BEM bloka tas var ietekmēt visu, kas ir BEM blokā. Jo BEM bloks ir neatkarīgs objekts, bet BEM elements ir atkarīgs objekts, atkarīgs no sava vecāka, BEM bloka. */
+
+.who-we-are__text {
+
+}
+
+/* Bem elements ir neatņemama BEM bloka sastāvdaļa un tas strādā iekš sava BEM bloka. */
+
+/* Mums nav jāraksta šādi, ja izmantojam BEM metodoloģiju:
+.who-we-are .who-we-are__title {
+} ;, jo tas nav nepieciešams, ja mēs pareizi izmantojam BEM metodoloģiju, pareizi rakstam objektu nosaukumus. */
+
+/* Par cik mēs izmantojam BEM metodoloģiju, lai rakstītu objektu nosaukumus, tad jebkurš, kurš atvērs mūsu kodu, ja kaut nedaudz saprot Angļu valodu, tad varēs viegli orientēties mūsu koda, saprast, kas kam atbilst, un, kas ir mūsu lapā. Šī arī ir BEM metodoloģijas viena no priekšrocībām. Ka pat cilvēks, ja viņš praktiski neko nesaprot no lapas izstrādes, tad paskatoties uz mūsu kodu, viņš aptuveni saprot, kas ir lapā - gala rezultātā. */
+
+/* Mūsu kods kļūst viegli lasāms un viegli saprotams, ja mēs izmantojam BEM metodoloģiju. */
+
+/* Kā arī mums pašiem jeb cilvēkam, kurš tālāk strādās ar mūsu kodu būs viegli to uzturēt, papildināt, jo vis būs viegli saprotams, kas kur ir un kas par ko atbild. */
+
+/* Mēs varam BEM blokus likt iekš BEM elementiem. Atceramies, ka mēs varam BEM blokus likt iekš citiem BEM blokiem neskaitāmas reizes, bet tagad mēs zinām, ka mēs varam BEM blokus likt iekš BEM elementiem. */
+
+/* Dodamies uz HTML dokumentu un izveidojam atsevišķu BEM bloku: .link, saiti, aiz paragrāfa. Bet ieliekam to iekš mūsu BEM bloka: who-we-are. Par cik tas atkal ir neatkarīgs BEM bloks, mēs to varam izvietot kur vien vēlamies, arī iekš BEM elementa. Ieliekam saiti iekš BEM elementa: who-we-are__text. */
+
+/* Šādi rīkojoties mēs nepārkāpjam nevienu BEM metodoloģijas principu. Un, joprojām mūsu saite paliek BEM bloks. Mēs vienkārši varam to paņemt, nokopēt un ielikt piemēram - pagrabā iekš tag: <footer></footer>. */
+
+/* Bet CSS failā, tas būs vienkārši pierakstīts šādi: .link {} iekavās dodot tam stilus, kas netraucē lapas apkārtnei - lapas ārējiem objektiem. */
+
+.link {
+	font-size: 20px;
+	color: #ffff00;
+}
+
+/* Tālāk mazliet prakses. Izveidojam HTML dokumentā jaunu BEM bloku: contacts. */
+
+/* Atceramies, ka, ja mums iekš BEM vecāka bloka ir vēl kāds BEM bloks un iekš tā jau ir BEM elements, mums tas jānosauc ņemot vērā pirmā vecāka BEM bloka nosaukumu, kas mūsu gadījumā būtu: about__text. Skatīt piemēru HTML dokumentā.  */
+
+/* Vienmēr, kad veidojam BEM bloka elementu, sekojam līdzi, kas tam ir vecāks pēc pirmā augšējā līmeņa. Kā sauc pirmo augšējo BEM bloku iekš kā ir ielikts BEM elements, jo tas ir ļoti svarīgi, lai nezustu BEM metodoloģijas principi. */
+
+/* Mums varētu ienākt prātā ievērot hierarhiju. Bet kā redzam BEM elementu nosaukumu veidošanas nosacījumā: 6: nekādas hierarhijas būt nedrīkst. */
+
+/* BEM elementus mēs varam likt iekš citiem BEM elementiem, bet tikai savā BEM blokā. Ko tas nozīmē? Tas nozīmē, piemēram: mēs gribam iekš BEM elementa, kas atrodas BEM blokā: who-we-are ielikt saiti tag: <a>/<a>. Pareizs nosaukums, ievērojot BEM metodoloģiju būs šāds: who-we-are__link. Nekādas hierarhijas. Mums ir jāievēro visi BEM elementu nosaukumu veidošanas likumi. Atgriežamies HTML dokumentā, lai uzskatāmāk redzētu šo piemēru. */
+
+/* Šie BEM metodoloģijas nosaukumu veidošanas principi ir jāievēro pat tad, ja mēs atrodamies BEM elementā, un iekš tā izveidojam citu BEM elementu. */
+
+/* Ņemot vērā mūsu piemēru, mums var rasties priekšstats, ka mēs šo BEM elementu varam nosaukt arī šādi: who-we-are__text-link. Un pēc visiem BEM metodoloģijas noteikumiem, mums būs taisnība, bet šeit izpildīsies viens liegums: hierarhija, bet mums jāatceras: Nekādas hierarhijas. Un tieši tādēļ, šāds BEM elementa nosaukums ir nepareizs. */
+
+/* BEM elementu nosaukšanas sesto punktu: nekādas hierarhijas mums ir jāievēro arī nosaucot BEM blokus. Atgriežamies un pievienojam to arī tur, jo mums var šķist, ka tā, kā piemērā HTML dokumentā, kur mums ir BEM bloks iekš BEM bloka, mēs varētu rakstīt šādi: item-who-we-are, bet tas ir nepareizi, jo mēs atkal cenšamies ievērot hierarhiju. Bet mums jāatceras nekādas hierarhijas nosaukumu veidošanā, vienalga, vai tas ir BEM bloks, vai BEM elements. */
+
+/* Praktizējamies vēl ar BEM bloku un BEM elementu nosaukumu veidošanu, izstrādājot mazu gabaliņu no maketa: promise. Atgriežamies HTML dokumentā. */
+
+/* Promise ir BEM bloks, kam mēs cenšamies nedod nekādus CSS parametrus, ja vien tas nav nepieciešams. */
+
+.promise {
+}
+
+/* Tālāk mums jau seko BEM elementi, kuriem katram mēs varam dot dažādus CSS parametrus, ja tas mums ir vajadzīgs, lai panāktu vēlamo rezultātu. */
+
+.promise__sub-title {
+}
+.promise__title {
+}
+.promise__items {
+}
+.promise__item {
+}
+.promise__icon {
+}
+.promise__body {
+}
+.promise__label {
+}
+.promise__text {
+}
