@@ -27,7 +27,7 @@
 
 body {
 	font-family: "Gilroy", sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 400;
 }
 
@@ -66,7 +66,7 @@ body {
 /* Tālāk, izskatot teoriju, mēs lēnām sapratīsim kas un kā. Tagad mums ir vēl diezgan nesaprotama šī tēma, bet mēs to sapratīsim, kad strādāsim ar reāliem piemēriem. */
 
 /* Paskatīsimies ar piemēru. Izveidojot HTML dokumentā kastīti, kāds mums būtu tai jādod klases nosaukums, lai tas būtu BEM bloks? Rakstot klases nosaukumus, mums ir jāievēro četri likumi: 
-1) Pats galvenais: nosaukumam jāatbilst tam, kas ir blokā vai tā konstrukcijai, piemēram, par ko ir šis bloks: about-us, price utt.;
+1) Pats galvenais: nosaukumam jāatbilst tam, kas ir blokā vai tā konstrukcijai, piemēram, par ko ir šis bloks: about-us, price utt. Tam jāatbild uz jautājumu: kas tas ir? ;
 2) Latīņu burti, obligāti Angļu valodā;
 3) Nosaukumam jābūt ar mazajiem burtiem; 
 4) Ja tas sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ;
@@ -153,7 +153,7 @@ p {
 
 /* Kā mēs veidojam BEM elementa nosaukumu? Šeit atkal tiek ievēroti vairāki nosacījumi.
 1) Tā nosaukums sākās ar BEM bloka (vecāka bloka) nosaukumu, kas tiek atdalīts ar diviem apakšējiem pastrīpojumiem, ar šādu zīmi: __ ;
-2) Nosaukumam jāatbilst BEM elementa saturam vai konstrukcijai;
+2) Nosaukumam jāatbilst BEM elementa saturam vai konstrukcijai. Jāatbild uz jautājumu: Kas tas ir? ;
 3) Nosaukumam jābūt Angļu valodā, jāsastāv no latīņu burtiem;
 4) Nosaukumam jābūt ar mazajiem burtiem;
 5) Ja nosaukums sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ;
@@ -169,6 +169,7 @@ p {
 
 .who-we-are__title {
 	margin: 0 0 15px 0;
+	font-size: 20px;
 }
 
 /* Kādēļ BEM elementam mēs varam izmantot CSS parametru: margin? Tādēļ, ka BEM elements nevar tikt izmantots ārpus BEM bloka. Un tādēļ iekš sava BEM bloka tas var ietekmēt visu, kas ir BEM blokā. Jo BEM bloks ir neatkarīgs objekts, bet BEM elements ir atkarīgs objekts, atkarīgs no sava vecāka, BEM bloka. */
@@ -197,7 +198,7 @@ p {
 
 /* Bet CSS failā, tas būs vienkārši pierakstīts šādi: .link {} iekavās dodot tam stilus, kas netraucē lapas apkārtnei - lapas ārējiem objektiem. */
 
-.link {
+.who-we-are__link {
 	font-size: 20px;
 	color: #ffff00;
 }
@@ -220,7 +221,7 @@ p {
 
 /* Praktizējamies vēl ar BEM bloku un BEM elementu nosaukumu veidošanu, izstrādājot mazu gabaliņu no maketa: promise. Atgriežamies HTML dokumentā. */
 
-/* Promise ir BEM bloks, kam mēs cenšamies nedod nekādus CSS parametrus, ja vien tas nav nepieciešams. */
+/* Promise ir BEM bloks, kam mēs cenšamies nedod nekādus CSS parametrus. Atceramies, ka daļu CSS parametrus mēs nevaram izmantot, jo tie ietekmē apkārtni, ārējos lapas elementus. Izmantojam tikai tos CSS parametrus, kas neietekmē apkārt esošos lapas elementus, ja vien tas nav nepieciešams. */
 
 .promise {
 }
@@ -243,3 +244,105 @@ p {
 }
 .promise__text {
 }
+
+/* Ir vēl viens variants kā mēs varējām izveidot promise BEM bloku. Iekš tā izveidojot citu BEM bloku: item. Bet tad mums jāatceras, ka arī tālāk BEM elementu nosaukumiem jāsākas ar BEM bloka nosaukumu: item. Paskatamies kā tas izskatās piemērā. Atgriežamies HTML dokumentā. */
+
+/* CSS dokumentā tas izskatīsies šādi. Šādi mēs varam darīt. Likt BEM bloku iekš BEM bloka. */
+
+/* Item ir BEM bloks */
+
+.item {
+}
+
+/* BEM elementi */
+
+.item__icon {
+}
+.item__body {
+}
+.item__label {
+}
+.item__text {
+}
+
+/* HTML dokumentā mums ir divi piemēri, kā mēs pareizi varam veidot BEM nosaukumus blokiem un BEM elementiem. Šeit CSS dokumentā mums ir CSS selektori, gan no viena piemēra, gan no otra piemēra, kas ir HTML dokumentā. */
+
+/* Kad saņemam maketu, kas mums ir jāizstrādā mēs uz to jau skatamies ņemot vērā BEM metodoloģiju. Mēs to analizējam, domājot, kur un kas mums būs, kādus nosaukumus dosim vienam vai otram elementam. Mēs skatamies uz maketu un uzreiz domājam, kas būs BEM bloks, kas būs BEM elements. */
+
+/* BEM blokam mēs nedrīkstam arī izmantot CSS parametru: margin: 0 auto. Vēlāk mēs uzzināsim kāpēc. */
+
+/* Sākumā, kad centīsimies savā lapu izstrādē ievērot BEM metodoloģiju mūsu darbs ies ļoti lēni uz priekšu. Mēs lapas, uzdevumus pildīsim ļoti lēni. BEt tad, kad mēs iemācīsimies to pareizi darīt, tad mēs izstrādāsim lapas zibenīgā ātrumā, jo mēs jau zināsim no galvas kur un kas mums jāraksta un kur un kas mums jāliek. */
+
+/* Atceramies, ka mēs izstrādājam lapas no ārienes uz iekšu, no sākuma uz leju, tā kā mums iet HTML un CSS kods. Un līdz ar to mums ir ļoti viegli saprotams kur ir BEM bloks un kur ir BEM elementi. */
+
+/* Paskatoties uz maketu no augšas uz leju, uz katru bloku, no sākuma uz iekšu mums ir jābūt skaidrs kas mums būs BEM bloks un, kas mums būs BEM elementi. */
+
+/* Ja mēs kādu BEM elementu gribam lietot vēl kādā lapas vietā, tad tas mums jau sākotnēji ir jāizstrādā kā BEM bloks. */
+
+/* BEM metodoloģijā ir vēl: Modifikators. Kas tas ir? BEM metodoloģijas modifikators ļauj veikt izmaiņas BEM blokā jeb BEM elementā. Rakstot BEM modifikatoram nosaukumu, mums ir jāievēro atkal noteikumi. Un tie ir: 
+1) Tas tiek pievienots kā vēl viens klases nosaukums priekš BEM bloka jeb BEM elementa, kas sākas ar pilnu BEM bloka jeb BEM elementa nosaukumu un tiek atdalīts ar zīmi: _ (ar vienu pastrīpojuma zīmi). Nosaukumam jaatbilst pievienotajai kādai modifikācijai tas tiek izmantots un tam jāatbild uz jautājumu: Kāds? Ko tieši mēs modificējam? ;
+3) Nosaukumam jābūt Angļu valodā, jāsastāv no latīņu burtiem;
+4) Nosaukumam jābūt ar mazajiem burtiem;
+5) Ja nosaukums sastāv no vairākiem vārdiem, atdalām tos ar zīmi: - ;
+6) Nedrīgst būt nekādas hierarhijas. */
+
+/* Izskatīsim jauno apgūstamo tēmu BEM modifikators ar praktisku piemēru. Atgriežamies HTML dokumentā pie BEM bloka: who-we-are. */
+
+/* Izmantojam mūsu piemēru ar BEM bloku: who-we-are rakstot tam otru klases nosaukumu: who-we-are_purple. Šādi tas atbilst visiem BEM nosaukuma likumiem un tas atbild uz jautājumu: kāds? Kā šinī piemērā pareizi ir uzrakstīts, un šeit iekš CSS dokumenta mēs mainām tā krāsu. Izskatām to ar piemēru: */
+
+/* Modificēts BEM bloks */
+
+.who-we-are_purple {
+	background-color: #77608d;
+}
+
+/* Mēs redzam, ka mūsu BEM bloks: who-we-are_purple ir violetā krāsā. Atceramies, ka mums ir jāraksta pilns BEM bloka jeb BEM elementa nosaukums un tikai tad BEM modifikators. */
+
+/* Parasti BEM bloka jeb BEM elementa Modifikators ir paredzēts nelielām izmaiņām, tikai nedaudz, izmantojot CSS parametrus krāsai utt. Tas neparedz lielas izmaiņas. */
+
+/* Ja mēs paredzam, ka būs lielas izmaiņas, tad ir ieteicams veidot jaunu BEM bloku. */
+
+/* Paskatīsimies kā BEM modifikators darbojas ar BEM elementiem. Atgriežamies HTML dokumentā un paskatamies ar piemēru. Pievienojam pareizu klases nosaukumu, ar BEM bloka nosaukumu, ar BEM elementa nosaukumu, un ar Modifikatora: _margin nosaukumu, jo dotajā gadījumā mums ir jāveic nelielas izmaiņas, kas skar ārējo atstarpi. Mēs iekš HTML dokumenta pat varam likt zīmi: - un norādīt skaitli. Darbojamies ar piemēru šeit. */
+
+.who-we-are__title_margin-font {
+	font-size: 24px;
+	margin: 0 0 30px 0;
+}
+
+/* Mēs redzam, ka tur, kur ir šāds BEM modifikators mums tiešām ir ārējā apakšējā atstarpe 30px un mēs izmainām šrifta lielumu, konkrēti šim virsrakstam, kam ir šāds BEM modifikators. */
+
+/* Šādi strādājot mums, arī, ja mēs pēc gada atvērsim šo projektu, mums būs skaidrs, kas par ko atbild un ko tieši mēs esam domājuši veidojot kādu BEM bloku, BEM elementu un BEzm modifikatorus. Kā arī, ja mūsu kods nonāks kur tālāk, tad arī tam cilvēkam būs viegli orientēties mūsu kodā. */
+
+/* Mēs nedrīkstam vienam un tam pašam BEM blokam jeb BEM elementam mainīt tā elementa nosaukumu kā modifikatoru, pareizi būs piemēram: who-we-are__title_margin-font (nepareizi): who-we-are__margin-font, jo tas iziet ārpus loģikas un netiek vairs ievēroti BEM naming principi - nosacījumi. Jo šādi kā otrajā nepareizajā nosaukuma piemērā sanāk, ka mēs izveidojam vēl vienu BEM elementu, nevis modifikatoru. Tādēļ tā darīt nedrīkst. */
+
+/* Ārpus šīs dienas tēmas. Mēs HTML dokumentā veidojam kastītes tikai tik cik nepieciešams, lai izpildītu kādu uzdevumu. Ja mums nav nepieciešams, tad neveidojam neskaitāmas kastītes. Ja vien tas nav sarežģīts makets, kur tiešām ir vajadzīgas šīs te daudzās kastītes. Cenšamies strādāt vienkārši, paši sev nesarežģījot dzīvi un uzdevumus, paātrinot darbu. */
+
+/* Mēs esam nonākuši pie sarežģītākās BEM metodoloģijas tēmas: miks. Šādus nosaukumus mēs lietojam tad, kad gribam kaut ko izmantot vairākas reizes. Mēs varam pielietot miks, miksējot BEM elementus ar BEM blokiem, lai kaut ko, kas maketā atkārtojas vairākas reizes, mēs varētu vienkārši kopēt, un tikai atsevišķos gadījumos, kad kāds kopīgs parametrs atšķiras, mēs ar miks palīdzību to atrisinām. Paskatīsimies uz šo situāciju ar praktisku piemēru HTML dokumentā. */
+
+/* Īsi sakot miks ir: BEM bloku un BEM elementu sajaukums kopā priekš viena objekta. Pie tam BEM elements var būt BEM modifikators. */
+
+/* Praktizējamies atkal HTML dokumentā ar mums jau zināmo BEM bloku: who-we-are. */
+
+/* Mēs no mūsu piemēra, kur mums ir main-page bloks, kur iekšā ir BEM bloks: who-we-are, no BEM bloka: who-we-are izveidojam miks, un tagad mūsu piemērs vienlaicīgi ir gan BEM bloks, gan BEM elements. Tas izskatās šādi: who-we-are main-page__who-we-are. */
+
+/* Šādi rīkojoties mēs panākam to, ka no BEM bloka mēs izveidojam BEM bloku un BEM elementu, kas ļauj mums iekš CSS faila izmantot tādus CSS parametrus, kas ietekmē apkārtni, ārējos elementus, piemēram: izmantot CSS parametru: margin. Mums ir jāraksta šādi iekš CSS faila kā zemāk piemērā: */
+
+.main-page__who-we-are {
+	margin: 0 0 30px 0;
+}
+
+/* Mēs redzam, ka mūsu BEM bloks: who-we-are main-page__who-we-are ir ieguvis atstarpi apakšā 30px. */
+
+/* Arī ar otru piemēru, kur mums ir miks no BEM bloka un BEM elementa: who-we-are contacts__who-we-are, mēs arī varam izmantot tādus CSS parametrus, kas ietekmē ārpusi. */
+
+.contacts__who-we-are {
+	margin: 0 0 50px 0;
+}
+
+/* Šie visi piemēri ir ar BEM neatkarīgiem blokiem. Bet kādā no situācijām tie var būt BEM elementi kādam no vecāka - augstāka bloka un tad mēs uz tiem varam izmantot CSS parametrus, kas ietekmē ārējos objektus tikai vēršoties pie tiem kā BEM bloku BEM elementiem. Kā tas izskatās realitātē? Atgriežamies HTML dokumentā. */
+
+/* Kā mūsu piemērā, kur mums ir BEM bloks: contacts, un mums iekš tā vajag iekopēt BEM bloku: who-we-are, tad mēs to darām šādi: aiz who-we-are rakstām contacts__who-we-are, lai varētu ar to darboties ar visiem CSS parametriem, arī ar margin. */
+
+/* Bet tas darbojas tikai tādā gadījumā, ja mūsu BEM bloks ir tīrs un tas nekādi neietekmē apkārtni, lapas ārējos objektus. Mēs varam to nokopēt, ielikt attiecīgā mums vajadzīgā vietā un pārvērst izmantojot miks BEM elementu. Tas kļūst par kaut kā, kā mūsu piemērā: contacts BEM elementu. */
+
+/* Varētu padomāt, ka vieglāk būtu izmantot katram BEM elementam modifikatoru, bet tā nav laba prakse, iksevišķi, ja izmaiņas ir vairākas. tādēļ pareizāk ir BEM bloku izmantot kā BEM elementu, un tad mēs varam veikt kādas izmaiņas vien vēlamies. */
