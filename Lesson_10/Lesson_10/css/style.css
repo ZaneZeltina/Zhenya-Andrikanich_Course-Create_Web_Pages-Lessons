@@ -288,7 +288,7 @@ p {
 
 /* Izskatīsim jauno apgūstamo tēmu BEM modifikators ar praktisku piemēru. Atgriežamies HTML dokumentā pie BEM bloka: who-we-are. */
 
-/* Izmantojam mūsu piemēru ar BEM bloku: who-we-are rakstot tam otru klases nosaukumu: who-we-are_purple. Šādi tas atbilst visiem BEM nosaukuma likumiem un tas atbild uz jautājumu: kāds? Kā šinī piemērā pareizi ir uzrakstīts, un šeit iekš CSS dokumenta mēs mainām tā krāsu. Izskatām to ar piemēru: */
+/* Izmantojam mūsu piemēru ar BEM bloku: who-we-are rakstot tam otru klases nosaukumu: who-we-are_purple. Šādi tas atbilst visiem BEM nosaukuma likumiem un tas atbild uz jautājumu: kāds? Ko tieši mēs modificējam? Kā šinī piemērā pareizi ir uzrakstīts, un šeit iekš CSS dokumenta mēs mainām tā krāsu. Izskatām to ar piemēru: */
 
 /* Modificēts BEM bloks */
 
@@ -319,11 +319,11 @@ p {
 
 /* Mēs esam nonākuši pie sarežģītākās BEM metodoloģijas tēmas: miks. Šādus nosaukumus mēs lietojam tad, kad gribam kaut ko izmantot vairākas reizes. Mēs varam pielietot miks, miksējot BEM elementus ar BEM blokiem, lai kaut ko, kas maketā atkārtojas vairākas reizes, mēs varētu vienkārši kopēt, un tikai atsevišķos gadījumos, kad kāds kopīgs parametrs atšķiras, mēs ar miks palīdzību to atrisinām. Paskatīsimies uz šo situāciju ar praktisku piemēru HTML dokumentā. */
 
-/* Īsi sakot miks ir: BEM bloku un BEM elementu sajaukums kopā priekš viena objekta. Pie tam BEM elements var būt BEM modifikators. */
+/* Īsi sakot miks ir: BEM bloku un BEM elementu sajaukums kopā priekš viena objekta. Pie tam BEM elements var būt kā BEM modifikators. */
 
 /* Praktizējamies atkal HTML dokumentā ar mums jau zināmo BEM bloku: who-we-are. */
 
-/* Mēs no mūsu piemēra, kur mums ir main-page bloks, kur iekšā ir BEM bloks: who-we-are, no BEM bloka: who-we-are izveidojam miks, un tagad mūsu piemērs vienlaicīgi ir gan BEM bloks, gan BEM elements. Tas izskatās šādi: who-we-are main-page__who-we-are. */
+/* Mēs no mūsu piemēra, kur mums ir main-page bloks, kur iekšā ir BEM bloks: who-we-are, no BEM bloka: who-we-are izveidojam miks, un tagad mūsu piemērs vienlaicīgi ir gan BEM bloks, gan BEM elements. Tas izskatās šādi: who-we-are main-page__who-we-are. Un tas ir kļuvis par miks. */
 
 /* Šādi rīkojoties mēs panākam to, ka no BEM bloka mēs izveidojam BEM bloku un BEM elementu, kas ļauj mums iekš CSS faila izmantot tādus CSS parametrus, kas ietekmē apkārtni, ārējos elementus, piemēram: izmantot CSS parametru: margin. Mums ir jāraksta šādi iekš CSS faila kā zemāk piemērā: */
 
@@ -339,6 +339,8 @@ p {
 	margin: 0 0 50px 0;
 }
 
+/* Par cik mūsu BEM bloks kļūst par BEM elementu mēs varam tam pielietot visus CSS parametrus. */
+
 /* Šie visi piemēri ir ar BEM neatkarīgiem blokiem. Bet kādā no situācijām tie var būt BEM elementi kādam no vecāka - augstāka bloka un tad mēs uz tiem varam izmantot CSS parametrus, kas ietekmē ārējos objektus tikai vēršoties pie tiem kā BEM bloku BEM elementiem. Kā tas izskatās realitātē? Atgriežamies HTML dokumentā. */
 
 /* Kā mūsu piemērā, kur mums ir BEM bloks: contacts, un mums iekš tā vajag iekopēt BEM bloku: who-we-are, tad mēs to darām šādi: aiz who-we-are rakstām contacts__who-we-are, lai varētu ar to darboties ar visiem CSS parametriem, arī ar margin. */
@@ -346,3 +348,92 @@ p {
 /* Bet tas darbojas tikai tādā gadījumā, ja mūsu BEM bloks ir tīrs un tas nekādi neietekmē apkārtni, lapas ārējos objektus. Mēs varam to nokopēt, ielikt attiecīgā mums vajadzīgā vietā un pārvērst izmantojot miks BEM elementu. Tas kļūst par kaut kā, kā mūsu piemērā: contacts BEM elementu. */
 
 /* Varētu padomāt, ka vieglāk būtu izmantot katram BEM elementam modifikatoru, bet tā nav laba prakse, iksevišķi, ja izmaiņas ir vairākas. tādēļ pareizāk ir BEM bloku izmantot kā BEM elementu, un tad mēs varam veikt kādas izmaiņas vien vēlamies. */
+
+/* Paskatīsimies ar piemēru, kā mēs pareizi varam izstrādāt BEM bloku, BEM elementu, BEM modifikatoru un pielietot BEM miks, lai izstrādātu vienādus elementus, kas ir maketā car-repair. Atgriežamies HTML dokumentā. */
+
+/* Izmantojam CSS parametrus dažiem CSS selektoriem. Atceramies, ka: who-we-are__header nav vairs BEM bloks, ka tas ir BEM elements un mēs droši varam lietot CSS parametrus, kas ietekmē apkārtni. */
+
+.who-we-are {
+
+}
+
+.who-we-are__header {
+	margin: 0 0 36px 0;
+}
+
+.header-item__sub-title {
+
+}
+
+.header-item__title {
+
+}
+
+/* Izmantojot šādu pieeju mēs varam brīvi rīkoties ar BEM blokiem un BEM elementiem pārvēršot BEM bloku par BEM elementu. Paskatīsimies kā mums jādara, ja lapā šāds BEM bloks atkārtojas. Atgriežamies HTML dokumentā. */
+
+.promise {
+
+}
+
+.promise__header {
+	margin: 0px 0px 68px 0px;
+}
+
+.header-item__sub-title {
+
+}
+
+.header-item__title {
+
+}
+
+/* Mums var gadīties situācija, kad miks ir kā palīglīdzeklis brīžos, kad mēs kādam elementam nezinam vairs ko rakstīt, kad mums kaut kas nesanāk. Vienā vārdā sakot - kad mums vairs nav ko uzrakstīt, ja kāds no nosaukumiem ir jau aizņemts. Ko darīt tādā situācijā? Atgriežamies HTML dokumentā, lai to labāk saprastu ar piemēru. */
+
+/* BEM metodoloģijas miks izmantošanas nosacījums: nekādas hierarhijas: mēs rakstot papildus BEM nosaukumus neievērojam nekādu hierarhiju. Arī šinī piemērā ar: promise. Mēs nerakstam promise-item, bet apgriežam to otrādi: item-promise. Tādā veidā tiek ievēroti BEM metodoloģijas nosacījumi. */
+
+/* Nosaukuma apgriešana otrādi ir pats pareizākais veids, jo tādejādi mēs iegūstam jaunu nosaukumu, kam, ja pirmais ir jau aizņemts, tad mēs varam izmantot otro nosaukumu, lai caur to darbotos CSS failā. */
+
+/* Šāda pieeja, kad mēs apgriežam nosaukumu otrādi mums atbrīvojas jauni nosaukumi, kurus varam izmantot. Jo var gadīties, kad kādā iepriekšējā blokā jua ir kāds elements, bloks ar tādu nosaukumu. Tādā gadījumā pareizākā pieeja ir apgriezt to otrādi un izmantot to talāk kodā. Mēs atbrīvojam jaunus nosaukumus.  */
+
+.item-promise {
+
+}
+
+.item-promise__icon {
+
+}
+
+.item-promise__body {
+
+}
+
+.item-promise__title {
+
+}
+
+.item-promise__text {
+
+}
+
+/* Mums atliek tikai caur VSCode paplašinājumu nokopēt klases un ērti strādāt CSS failā, izmantot dažādus CSS parametrus, lai panāktu vēlamo rezultātu. */
+
+/* Praktizējamies klausoties lekciju, kur hTML dokumentā tiek veidoti piemēri ar BEM blokiem, BEM elementiem, BEM modifikatoriem un BEM nosaukumu miks. Spēlējam spēli, pareizi, nepareizi. Vēlāk varēsim šo failu apskatīt, lai labāk saprastu katru no piemēriem, kad ir pareizi uzrakstīts BEM metodoloģijas nosaukums un, kad nav pareizi uzrakstīts. */
+
+/* Mēs nevaram lietot BEM modifikatoru BEM blokam, kas ir norādīts kā pirmais, mēs nevaram to lietot, ja nav BEM elementa. Jo tas neatbild uz jautājumu, kas tieši tiek mainīts. To mēs redzam skaidri mūsu piemērā: some-block_link. Tā nedrīkst darīt, jo mēs neievērojam BEM metodoloģiju. BEM modifikators nevar pastāvēt pats par sevi. Tam ir vajadzīga papildus klase, papildus BEM bloks vai BEM elements. Un tikai tad mēs varam to izmantot. Kā arī šeit nav norādīts modificējamais objekts, kas atbildētu uz jautājumu: ko mēs modificējam? Jo šeit ir norādīts: some-block_link. */
+
+/* Mēs veidojot kādus BEM blokus un BEM elementus daudzas reizes saskarsimies ar to, ka mums ir nepieciešams ierobežot saturu. Tādos gadījumos mēs parasti izmantojam: container. Un tad tam dodam CSS parametrus: max-width un margin. Bet ja lietojam pierakstu piemēram: about container, kur itkā mums ir divi BEM bloki, mums vairs nav īsti saprotams, kuram no viņiem tālāk veidot BEM elementus. Tādēļ itkā šī pieeja būtu ērta, no CSS faila puses, kad izmantojam: .container {} iekš iekavām norādot dotos CSS parametrus, bet no BEM metodoloģijas puses šāda pieeja nav pareiza. Kā mums rīkoties šādos gadījumos? */
+
+/* Šādiem gadījumiem, mums ir ieteicams lietot tehniskos klašu nosaukumus, kas šinī gadījumā būtu: _container. izmantojot šādu pierakstu mēs uzreiz saprotam, ka tā nav vairs BEM metodoloģijas klase, un, ka tā nekādi uz to neattiecas. Jo tas kļūst par palīglīdzekli, lai kontrolētu, ierobežotu kādus elementus, lietotu tiem tādus CSS parametrus, kas skar lapas ārējos objektus. */
+
+/* Izskatām to ar piemēru HTML dokumentā izveidojot BEM bloku ar tehnisko klasi: _container un izmantojam CSS parametrus. */
+/*
+._container {
+	max-width: 1100px;
+	margin: 0 auto;
+} */
+
+/* Pierakstot šādi tehnisku klašu nosaukumus, ar domu tās izmantot vairākās vietās, mēs un arī cits, kas skatās mūsu kodu uzreiz saprot kur tieši ir BEM metodoloģija un kur ir tehniskā klase. Iespējams, ka ar laiku nāks kāds labāks risinājums kā pareizāk - labāk pierakstīt tehniskās klases, bet pagaidām mēs strādāsim šādi. Un katrs mūsu darbs pēc šīs lekcijas ir jāizgatavo - jāizstrādā ievērojot BEM metodoloģiju. */
+
+/* Bet šāda pieeja at tehnisko klašu izmantošanu, kad mēs priekšā liekam zīmi: _, nav obligāta, jo tas nav nekur apstiprināts, ka tieši šādi ir jādara. Mēs varam vienkārši kā līdz šim izmantot kastīti: container un būt mierīgi, jo lai arī no vienas puses mēs varam izmantot šīs tehniskās klases, no 100% BEM metodoloģijas viedokļa tas nav īsti pareizi. Kaut gan BEM metodoloģijas mājas lapā ir rakstīts, ka katrs, kurš strādā pēc BEM metodoloģijas var nedaudz to mainīt. Bet kamēr mēs tikai pierodam pie tās, mēs to nedarām. */
+
+/* No HTML dokumenta mums ir izņemtas tehniskās klases, jo tas nav vispār pieņemts likums, tādēļ arī iekš CSS faila izslēdzam aktīvo: _container kodu. */
