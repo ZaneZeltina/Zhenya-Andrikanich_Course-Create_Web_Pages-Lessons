@@ -1,0 +1,92 @@
+
+/* Šinī lekcijā mēs izskatīsim jaunu tēmu: pseido elementi un pseido klases. */
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+/* Atceramies no iepriekšējās lekcijas par BEM metodoloģiju, ka mēs nedrīkstam klases nosaukumos veidot hiarhiju. Lai novērstu šādas situācijas, mēs varam vienkārši apgriezt bloka klases nosaukumu otrādi, un turpināt strādāt tālāk pirmajā klases nosaukuma daļā lietojot bloka nosaukumu. */
+
+/* Lai labāk saprastu kā tieši tas izskatās un kā mums ir jārīkojas, izveidojam HTML dokumentā pareizu piemēra pierakstu. */
+
+/* Mēs izmantojam pa visam vienkāršu risinājumu apgriežot bloka klases nosaukumu otrādi. */
+
+/* BEM metodoloģija paredz, ka mēs katram HTML dokumenta tegam dodam klases nosaukumu. Kā arī iekš CSS stiliem mēs neizmantojam kas kaskādes stilus, bet vēršamies tieši pie klašu selektoru nosaukumiem un tiem rakstam stilus. */
+
+/* Atceramies, kas ir kaskādes stili, pierakstām piemēru: */
+
+.block a {
+
+}
+
+/* Šādu pieeju BEM metodoloģijā nerekomendē izmantot. Mums jācenšas no šādām situācijām izvairīties dodot katram tegam klases nosaukumu. */
+
+/* Pareizais risinājums, kas jāievēro strādājot pēc BEM metodoloģijas: */
+
+.list {
+}
+
+.list__item {
+}
+
+.list__link {
+}
+
+/* Mums jau tagad sākumā ir jāpierod katram elementam rakstīt nosaukumus pēc BEM metodoloģijas. */
+
+/* Pēc BEM metodoloģijas nav ieteicams izmantot atsevišķus CSS failus ar stilu atiestatīšanu, tādus kā normalize un null. Tieši kādēļ tā nav zināms. Bet mēs varam izmantot savu, šinī kursā ar rokām rakstīto CSS style reset. Tas nav nepareizi. */
+
+/* Atceramies: Ārējās atstarpes mēs nevaram izmantot blokam, bet varam izmantot bloka elementam. Atceramies kapēc? Jo bloks ir neatkarīgs, un mums jādara vis, lai tas paliktu neatkarīgs, tādēļ mēs tam nedrīkstam izmantot ārējo atstarpi: margin: 0 0 30px 0. */
+
+/* Atceramies, ka izveidojot kādu bloku HTML dokumentā, strādājot ar to tālāk mums jāievēro, lai nosaukuma pirmā daļa tiktu mantota no bloka nosaukuma. Piemērām: Bloks: about; about__title; about__text. Atceramies, ka mēs varam izmantot arī Mix nosaukumus, BEM elementiem pievienojot blokus vai tehniskās klases. Atceramies, ka tehniskās klases nosaukuma priekšā ir jāliek zīme: _; Piemēram: _container. */
+
+/* Mums var gadīties tāda situācija, kad mums nav ieteicams rakstīt klases nosaukumu. Piemēram, ja mums ir kastīte - bloks ar klasi "text", iekš tā mums ir 2-3 paragrāfi, kuriem esam iedevuši klasi: "text__item". Nākošais, kas aiz mums strādās caur lapas admin, php, kādā wordpress būs neapmierināts, jo viņš mainīs lapas saturu, un šinī gadījumā viņam būs jāveido paragrāfi rakstot klašu nosaukumus. Un to neviens negribēs darīt. Tādēļ, ja mums ir jau izveidota kastīte, kur būs teksts - paragrāfi, tad mēs nerakstam tiem klases. */
+
+/* Šeit mums rodas viedokļu - likumu nesakarība, jo kā zinām no BEM metodoloģijas mums ir visiem elementiem jādod klašu nosaukumi, bet no praktiskā viedokļa ir situācijas, kad to nav vēlams darīt. */
+
+/* Šādai situācijai ir ļoti vienkāršs risinājums. Mēs kastītei rakstām klasi, bet paragrāfiem nerakstām. Izmantojam CSS kaskādes stilus. Kas itkā no BEM metodoloģijas puses nav ieteicams, bet šādās situācijās mēs to varam darīt. */
+
+/* Ar laiku, kad mums būs jau pieredze, mums būs jāprot atdalīt kontentu, kas noteikti tiks mainīts, nedot tam klašu nosaukumus. Bet pārējam lapas saturam, kas paliks nemainīgs rakstam klašu nosaukumus. Tagad šo saprast mums ir grūti, bet ar laiku strādājot praktiski, uzreiz būs skaidrs, kam rakstīt klašu nosaukumus, un kam labāk ne. */
+
+/* Bet šī saprašana ir sarežģīta un tas jau ir eksperta līmenis. Tagad mēs varam tikai minēt, kurā vietā lapā saturs tiks mainīts un, kur netiks mainīts. Ja mēs strādājam komandā, kur ir arī backend speciālists, tad ir daudz vieglāk, jo mēs no klienta - pasūtītāja varam visu smalki uzzināt, apspriest ar backend speciālistu un realizēt savā darbā. */
+
+/* Lai mēs šobrīd pārāk nesaspringtu, mēs rīkojamies tā kā mums māca BEM metodoloģija, dodam katram elementam klases nosaukumu. Kad notiks lapas integrācija realitātē, tad mēs varēsim saprast kur un ko nedaudz pamainīt, lai backend speciālistam būtu vieglāk. */
+
+/* Ja mums gadīsies izveidot kādu klasi, kas netiks izmantota, tas nekas, jo vēlāk mēs rakstīsim stilus SCSS formātā, strādāsim ar Gulp un tie nodrošinās, ka nekas lieks mūsu lapā nepaliek. */
+
+/* Mums var rasties situācija, kad mums jāizmanto BEM klašu nosaukumi - Mix. lai uzskatāmāk saprastu, kāda ir situācija, pierakstam piemēru iekš HTML dokumenta. izmantojam BEM metodoloģijas Mix: main__container container; Šeit vēršamies tieši pie container, piemērs: */
+
+.container {
+	max-width: 1000px;
+}
+
+/* Turpinām piemēru iekš HTML dokumenta ievērojot BEM metodoloģiju, pareizi rakstot klašu nosaukumus. Izveidojam vienkārši jaunu bloku. Par cik mēs atvērām jaunu bloku iekš HTML dokumenta, nākošajiem tanī esošajiem bloka elementiem ir jāmanto bloka nosaukums. Skatamies HTML dokumentā. */
+
+/* Bet ir viena būtiska lieta. Mēs itkā atrisinājām situāciju, bet atceramies, ka bloks ir neatkarīgs un mēs tam nevaram izmantot, piemēram: margin; bet ja piemēram mums vajag pielietot citus CSS parametrus, piemēram: color jeb font-size, tad šādi mēs varam rīkoties. */
+
