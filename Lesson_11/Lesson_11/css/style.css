@@ -41,22 +41,22 @@ body {
 
 /* Atceramies, kas ir kaskādes stili, pierakstām piemēru: */
 
-.block a {
+/* .block a {
 
-}
+} */
 
 /* Šādu pieeju BEM metodoloģijā nerekomendē izmantot. Mums jācenšas no šādām situācijām izvairīties dodot katram tegam klases nosaukumu. */
 
 /* Pareizais risinājums, kas jāievēro strādājot pēc BEM metodoloģijas: */
 
-.list {
+/* .list {
 }
 
 .list__item {
 }
 
 .list__link {
-}
+} */
 
 /* Mums jau tagad sākumā ir jāpierod katram elementam rakstīt nosaukumus pēc BEM metodoloģijas. */
 
@@ -82,11 +82,95 @@ body {
 
 /* Mums var rasties situācija, kad mums jāizmanto BEM klašu nosaukumi - Mix. lai uzskatāmāk saprastu, kāda ir situācija, pierakstam piemēru iekš HTML dokumenta. izmantojam BEM metodoloģijas Mix: main__container container; Šeit vēršamies tieši pie container, piemērs: */
 
-.container {
-	max-width: 1000px;
-}
+/* .container {
+	max-width: 1170px;
+} */
 
 /* Turpinām piemēru iekš HTML dokumenta ievērojot BEM metodoloģiju, pareizi rakstot klašu nosaukumus. Izveidojam vienkārši jaunu bloku. Par cik mēs atvērām jaunu bloku iekš HTML dokumenta, nākošajiem tanī esošajiem bloka elementiem ir jāmanto bloka nosaukums. Skatamies HTML dokumentā. */
 
 /* Bet ir viena būtiska lieta. Mēs itkā atrisinājām situāciju, bet atceramies, ka bloks ir neatkarīgs un mēs tam nevaram izmantot, piemēram: margin; bet ja piemēram mums vajag pielietot citus CSS parametrus, piemēram: color jeb font-size, tad šādi mēs varam rīkoties. */
 
+/* Lai mēs varētu atrisināt problēmu, kad gribam izmantot ārējo atstarpi, mums ir jāizveido bloka modifikators. Lai labāk saprastu, skatamies HTML dokumentu. Mēs pievienojam blokam modifikatoru ierakstot: container-margin. Tagad mēs no CSS faila varam pie tā vērsties un dot tam CSS parametrus kādus mums vajag. Tā kā piemērā: */
+
+/* .container_margin {
+	margin: 0 auto;
+} */
+
+/* Redzam pēc šiem piemēriem, ka problēmu mēs esam atrisinājuši, bet trūkums ir tāds, ka mums katru reizi, kad gribēsim kur izmantot šīs klases, blokus mums tās katru reizi jāpievieno un tas nav ļoti ērti. Bet kamēr mēs esam iesācēji, mēs daram tieši šādi. */
+
+/* Tieši tādēļ, ka šādi nav ērti strādāt tiek izmantotas tehniskās klases, piemēram: _container. Izskatām piemēru, kur ir sakārtotas visas BEM metodoloģijas klases tā, lai mums būtu ērti, un arī, lai citiem būtu saprotams mūsu kods. */
+
+/* Atstājam arī iepriekšējo BEM metodoloģijas klašu nosaukumu veidošanas piemēru, lai, ja mums radīsies šāda situācija, mēs zinātu kā varam to atrisināt. */
+
+/* Šo konstrukciju mēs varam izmantot visur, kur mums lapā nepieciešams. Izveidojam HTML dokumentā bloku about un iekš tā vienkārši iekopējam iepriekšējā piemēra rindu. */
+
+/* Sākam jauno lekcijas tēmu: pozicionēšanu. Izslēdzam visu aktīvo kodu HTML dokumentā, lai mēs uzskatāmāk saprastu tēmu. Izslēdzam aktīvo kodu arī iekš CSS. */
+
+/* Izveidojam iekš HTML dokumenta bloku un bloku ar elementu, un trīs elementus ar modifikatoriem. Mācamies jau tagad pareizi rakstīt klašu nosaukumus, pēc BEM metodoloģijas. */
+
+.block {
+	/* Noklusējuma vērtība */
+	position: static;
+	/* nevaram izmantot:
+	top
+	right
+	bottom
+	left
+	z-index */
+}
+
+.block__item {
+	padding: 15px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	margin: -20px 0 0 0;
+	position: relative;
+}
+
+.block__item_color-brown {
+	background-color: #794f45;
+	z-index: 1;
+}
+
+.block__item-color-purple {
+	background-color: #77608d;
+}
+
+.block__item-color-green {
+	background-color: #7a956b;
+}
+
+/* Kas tad ir pozicionēšana? Pozicionēšana ievērojami paplašina mūsu iespējas strādājot ar lapas elementiem. Mēs iegūstam jaunu rīku, kā mēs varam darboties ar lapas elementiem, bet tas nenozīmē, ka tagad mums tas jāizmanto visur, jo atceramies par pamatlikumu, kas jāievēro kad izstrādājam lapas, lapai jābūt noturīgai - uzticamai. Atceramies - lapas saturs var mainīties. */
+
+/* Pozicionēšana ir ļoti jaudīgs instruments ar plašām izmantošanas iespējām, bet tam ir liels trūkums: Tas padara mūsu lapu nenoturīgu - neuzticamu veicot izmaiņas, tādēļ to lietojot jābūt ļoti piesardzīgam. */
+
+/* Mēs iegūstam jaunu CSS parametru: position, kas maina pozicionēšanas tipu. Rakstam to iekš mūsu piemēra. Šis parametrs ir kaut kur līdzīgs parametram: display, kur mēs strādājam ar elementu tipiem. */
+
+/* CSS parametrs: position arī ir sava veida pārslēdzējs, tā pat kā: display, tikai tas pārslēdz elementa pozīciju. Elementam jeb tā vecākam, iekš kā konkrēti ir šis elements. */
+
+/* Atšķirībā no CSS parametra: display, parametrs: position darbojas ar visa tipa elementiem, gan rindas tipa, gan bloka-rindas tipa, gan bloka elementiem. */
+
+/* Izskatīsim kādas vērtības ir CSS parametram: position. Pirmā ir static, kas ir noklusējuma vērtība. Šis parametrs ir katram lapas objektam, mēs vienkārši to nerakstam, neredzam, jo tas jau iet pēc noklusējuma. Mēs nevaram pie šādas vērtības neko darīt ar objektu. Mēs nevaram izmantot: right, left, top, bottom un z-index. */
+
+/* CSS parametram: position static ir sešas vērtības, kas uzskaitītas augstāk piemērā. Z-index arī ir pozicionēšanas CSS parametrs. */
+
+/* Kur mums var noderēts CSS parametrs: position: static. Tas mums var noderēt, ja mums kādam objektam sākotnēji ir cita position vērtība un kādā brīdī, piemēram: pie lapas adaptīva mēs gribam mainīt CSS parametru no cita uz position: static. */
+
+/* Izskatām nākošo CSS parametra: position vērtību, rakstām to mūsu piemērā. Position: relative maina elementa atrašanās vietu no tā sākotnējā stāvokļa kodā. Sākotnējās atrašanās vietas. Šeit mēs varam izmantot CSS parametrus: left, right, top, bottom, z-index. Mūsu objekts tiek nobīdīts uz vienu vai otru pusi, tā kā mēs esam norādījuši. Atceramies, ka tas nobīdās atkarībā no sava sākotnējā atrašanās vietas stāvokļa. */
+
+/* Izmantojot CSS parametru: position: relative mēs mainām pozicionēšanas tipu. Mēs varam jau brīvi rīkoties ar objektu norādot citus pozicionēšanas parametrus. */
+
+/* Pozicionēšanas parametrs: z-index pēc noklusējuma ir ar vērtību: auto. Bet mēs to varam mainīt, atkarībā, kuru elementu gribam paslēpt, kuru parādīt. Iekš pozicionēšanas parametra: z-index vērtībām mēs varam likt skaitļus no 1 un cik vien mums vajag tālāk, ja mums ir daudzi objekti, kam jāizmanto šis pozicionēšanas parametrs. */
+
+/* Lai mēs uzskatāmāk saprastu kā darbojās CSS parametrs: position: relative, veicam nelielas izmaiņas mūsu kodā, pievienojot negatīvu ārējo atstarpi. Bez šī parametra mēs redzam, ka mūsu augšējie bloki nedaudz uzbīdās viens otram virsū, bet izmantojot CSS parametru: position: relative mūsu bloks, kam mēs to izmantojam kļūst svarīgāks, redzamāks. */
+
+/* Kādēļ bez CSS parametra: position: relative mūsu bloki tieši uzbrauc tādā secībā viens uz otra. Tādēļ, ka tieši tā tie mums ir pierakstīti kodā, gan HTML dokumentā. Mēs redzam, ka katrs nākošais bloks ir nedaudz virsū iepriekšējam blokam, un tas ir tikai tāpēc, ka tieši tā mēs tos esam pierakstījuši HTML dokumentā. */
+
+/* kad mēs mūsu blokam izmantojam CSS parametru: position: relative, mēs redzam, ka tas kļūst svarīgāks, tas parādās pārējiem blokiem kā nedaudz pa virsu. */
+
+/* Ja mēs visiem blokiem uzliksim CSS parametru: position: relative mēs redzēsim, ka bloki uzbīdās viens otram virsū, bet teksts paliek savā vietā, jo position: relative tagad skar arī tekstu. Bet, kad nelietojām CSS parametru: position: relative, tad teksts mums parādījās tā kā pa virsu, bet tagad tas ir tā kā apakšā, jo darbojās: position: relative. Bloki nedaudz aizsedz tekstu, jo tam pēc noklusējuma redzamības indekss: z-index ir: auto, bet mēs to varam mainīt. */
+
+/* CSS pozicionēšanas parametrs: z-index ļauj mums vadīt lapas elementus, liekot tiem atrasties augstāk jeb zemāk. Mainīt to redzamību pa z asi. CSS pozicionēšanas parametrs: z-index darbojas tikai tad, ja objektam nav izmantot CSS pozicionēšanas parametrs: position: static. Ar visām pārējām CSS pozicionēšanas parametra: position vērtībām tas darbojās. */
+
+/* CSS pozicionēšanas parametrs: z-indeks: 1 ļauj mums pacelt kādu objektu augstāk vai zemāk pa asi: z. paskatāmies kā tas izskatās piemērā. Redzam, ka brūnais bloks tagad mums ir augstāk, ka tas ir pa virsu violetam blokam. Jo mazāka z-indeks vērtība, jo zemāk ir bloks, jo augstāka, jo augstāk ir bloks. CSS pozicionēšanas parametram: z-index mēs varam izmantot arī negatīvas vērtības, tādejādi liekot kādam objektam atrasties pa visam zemu pa z asi, bet CSS pozicionēšanas parametrs z-index ar negatīvu vērtību slikti darbojās dažos interneta pārlūkos, tādēļ cenšamies tās neizmantot. */
