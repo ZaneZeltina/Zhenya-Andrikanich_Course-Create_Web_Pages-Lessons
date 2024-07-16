@@ -277,20 +277,21 @@ body {
 
 /* Paskatīsimies kāda ir atšķirība starp pozicionēšanas parametru un ārējās atstarpes ar negatīvu vērtību izmantošanu. Lai to redzētu izslēdzam iepriekšējo aktīvo kodu. Izskatām situāciju izmantojot violeto bloku. */
 
+/*
 .block__item_color-brown {
 	background-color: #794f45;
 }
 
 .block__item_color-purple {
 	background-color: #77608d;
-	/* margin: -30px 0 0 0; */
+	margin: -30px 0 0 0;
 	position: relative;
 	top: -30px;
 }
 
 .block__item_color-green {
 	background-color: #7a956b;
-}
+} */
 
 /* Šādā situācijā mēs redzam, ka mums ir notikušas trīs lietas. Violetais bloks ir uzbraucis virsū brūnajam blokam, brūnā bloka teksts peld pa virsu un zaļais bloks pavelkas augšup kopā ar violeto bloku. */
 
@@ -315,4 +316,28 @@ body {
 /* CSS pozicionēšanas parametrs: position: relative kopā ar pseido elementiem atver mums milzīgas iespējas, bet to mēs izskatīsim vēlāk. */
 
 /* Nākošais CSS pozicionēšanas parametrs, kuru mēs apgūsim ir: position: absolute, kas it kā izgriež elementu no koda un tas paliek karājoties gaisā. tas vairs neietekmē blakus esošos elementus - objektus. Izmantojot CSS pozicionēšanas parametrus: top, bottom, left un right: elementam mainās tā pozīcija un tas tiek nobīdīts uz vienu vai otru pusi atkarībā no tā vecāka, kam ir norādīts CSS pozicionēšanas parametrs: position: relative. */
+
+/* Ar šo CSS parametru: position: absolute mēs itkā izraujam elementu no HTML dokumenta un tas paliek karājoties gaisā. Bet, lai šis CSS parametrs darbotos tā vecākam ir jābūt norādītam CSS parametram: position: relative. Izskatām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu. */
+
+
+.block__item_color-brown {
+	background-color: #794f45;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+	position: absolute;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+}
+
+/* Atceramies, ka CSS pozicionēšanas parametrs: position: absolute pozicionējās attiecībā no sava pirmā vecāka, kuram ir jau CSS pozicionēšanas parametrs: position: relative. Otra būtiska lieta, kas notiek ar elementu - objektu, kam mēs pierakstam: position: absolute ir tas, ka tas kļūst par rindas tipa elementu. */
+
+/* Kādēļ izmantojot CSS pozicionēšanas parametru: position: absolute elements - objekts kļūst par rindas tipa elementu - objektu, pat, ja tas sākotnēji ir bloka tipa elements. tādēļ, ka tas zaudē savu platumu pie position: absolute izmantošanas. Tas kļūst tik liels, cik tajā ir saturs. Tieši tā, kā ar rindas tipa elementiem. */
+
+/* Kādēļ mēs sakām, ka pie CSS parametra: position: absolute elements paliek gaisā karājoties. tādēļ, ka tas zaudē savu atrašanās vietu. Tā vietu aizņem citi objekti - elementi. */
+
+/* Atceramies: pie CSS parametra: position: absolute notiek trīs lietas. 1) objekts - elements zaudē savu ķermeni, un paliek itkā karājoties gaisā. 2) citi elementi - objekti aizņem tā vietu. 3) objekts - elements pozicionējās - novietojas atkarībā no sava pirmā vecāka, kuram ir norādīts CSS parametrs: position: relative. */
 
