@@ -119,27 +119,27 @@ body {
 	z-index */
 }
 
-.block__item {
+/* .block__item {
 	padding: 15px;
 	color: #fff;
 	font-size: 20px;
 	text-align: center;
 	margin: -20px 0 0 0;
-	position: relative;
 }
 
 .block__item_color-brown {
 	background-color: #794f45;
-	z-index: 1;
+	position: relative;
+	z-index: 2;
 }
 
-.block__item-color-purple {
+.block__item_color-purple {
 	background-color: #77608d;
 }
 
-.block__item-color-green {
+.block__item_color-green {
 	background-color: #7a956b;
-}
+} */
 
 /* Kas tad ir pozicionēšana? Pozicionēšana ievērojami paplašina mūsu iespējas strādājot ar lapas elementiem. Mēs iegūstam jaunu rīku, kā mēs varam darboties ar lapas elementiem, bet tas nenozīmē, ka tagad mums tas jāizmanto visur, jo atceramies par pamatlikumu, kas jāievēro kad izstrādājam lapas, lapai jābūt noturīgai - uzticamai. Atceramies - lapas saturs var mainīties. */
 
@@ -150,6 +150,8 @@ body {
 /* CSS parametrs: position arī ir sava veida pārslēdzējs, tā pat kā: display, tikai tas pārslēdz elementa pozīciju. Elementam jeb tā vecākam, iekš kā konkrēti ir šis elements. */
 
 /* Atšķirībā no CSS parametra: display, parametrs: position darbojas ar visa tipa elementiem, gan rindas tipa, gan bloka-rindas tipa, gan bloka elementiem. */
+
+/* CSS pozicionēšanas parametrs: position: relative nav mantojams, tas nepārmantojas uz citiem lapas elementiem - objektiem. */
 
 /* Izskatīsim kādas vērtības ir CSS parametram: position. Pirmā ir static, kas ir noklusējuma vērtība. Šis parametrs ir katram lapas objektam, mēs vienkārši to nerakstam, neredzam, jo tas jau iet pēc noklusējuma. Mēs nevaram pie šādas vērtības neko darīt ar objektu. Mēs nevaram izmantot: right, left, top, bottom un z-index. */
 
@@ -174,3 +176,143 @@ body {
 /* CSS pozicionēšanas parametrs: z-index ļauj mums vadīt lapas elementus, liekot tiem atrasties augstāk jeb zemāk. Mainīt to redzamību pa z asi. CSS pozicionēšanas parametrs: z-index darbojas tikai tad, ja objektam nav izmantot CSS pozicionēšanas parametrs: position: static. Ar visām pārējām CSS pozicionēšanas parametra: position vērtībām tas darbojās. */
 
 /* CSS pozicionēšanas parametrs: z-indeks: 1 ļauj mums pacelt kādu objektu augstāk vai zemāk pa asi: z. paskatāmies kā tas izskatās piemērā. Redzam, ka brūnais bloks tagad mums ir augstāk, ka tas ir pa virsu violetam blokam. Jo mazāka z-indeks vērtība, jo zemāk ir bloks, jo augstāka, jo augstāk ir bloks. CSS pozicionēšanas parametram: z-index mēs varam izmantot arī negatīvas vērtības, tādejādi liekot kādam objektam atrasties pa visam zemu pa z asi, bet CSS pozicionēšanas parametrs z-index ar negatīvu vērtību slikti darbojās dažos interneta pārlūkos, tādēļ cenšamies tās neizmantot. */
+
+/* Izskatām citu situāciju. Izveidojam HTML dokumentā <span></span> ieliekam tanī tekstu un šeit piemērā mēģinām piemērot CSS pozicionēšanas parametrus: */
+
+/* .block__item_color-purple span {
+	position: relative;
+	display: inline-block;
+	background-color: #ffff00;
+	color: #000;
+	padding: 10px;
+	z-index: 3;
+} */
+
+/* Atceramies, ka tegs span ir rindas tipa elements. */
+
+/* Redzam, ka pat tad, ja izmantojam CSS pozicionēšanas parametrs mūsu violetais bloks, rindas tipa span elements ir apakšā. Mēs redzam, ka šādi brūnais bloks un zaļais bloks ir visaugstāk. Tie ir vienā līmenī, bet violetais bloks ir viszemāk, jo tam pēc noklusējuma ir CSS parametrs: position: static. Bet, kad vēršamies pie teg: <span> mēs paaugstinām teksta redzamību izmantojot CSS pozicionēšanas parametru: z-index: 3. Mūsu teksts, kas ir iekš teg span ir līmeni augstāk, tā redzamība ir augstāka, jo iekš CSS parametra: z-index: kā vērtība ir: 3. */
+
+/* Tādēļ šādās situācijās mums ir ļoti jāseko līdzi, kuram objektam ko mēs rakstām, un kurš objekts atrodas iekš cita objekta vecāka. Jo CSS pozicionēšanas parametrs: position ir mantojams, to var izmantot kopīgam blokam - objektam. Kā mūsu piemērā: .block__item {}; */
+
+/* Ja mēs nevēlamies kopīgam vecākam dot CSS pozicionēšanas parametru: position, tad mums katram objektam - elementam ir jāmaina position parametrs, jo atceramies, ka pēc noklusējuma tas ir: position: static, un mēs tādā gadījumā neko nevaram izmantot. Mēs nevaram izmantot CSS pozicionēšanas parametrus. */
+
+/* Situācijā, kad kāds objekts ir zemāk, bet objektam kas ir iekš tā iekšā redzamība ir augstāka, tā kā mūsu gadījumā tegam span, mēs redzam, ka tikai teksts ir augstāks. Teksts iet itkā pa virsu, bet pats bloks ir pēc noklusējuma zemāk. */
+
+/* Ja mums ir situācija, kad diviem objektiem - HTML elementiem ir vienādi CSS parametri: position: relative un z-index: 2, tad darbojās HTML dokumenta hiarhija. Mēs redzam, ka teg: span ir visaugstāk. Pierakstām to ar piemēru, lai labāk saprastu kā tas izskatās realitātē. Piemērs augstāk: */
+
+/* Pievienojot vairākus CSS parametrus iekš CSS selektora: .block__item_color-purple span mēs labi redzam, ka visaugstāk blokā: purple atrodas tegs: <span>, jo tā darbojas HTML hiarhija. */
+
+/* Atceramies kā darbojas HTML dokumenta hiarhija. Jo zemāk pēc koda ir elements - objekts, jo tas būs svarīgāks. Tas ir labi redzams, kad mēs izmantojam vienādus CSS pozicionēšanas parametrus: position: relative un z-index: 2; */
+
+/* Lai labāk saprastu tālākās tēmas izslēdzam nevajadzīgos CSS parametrus augstākajiem piemēriem. Atgriežam visu sākotnējā stāvoklī. Pierakstam vajadzīgās CSS selektorus un parametrus: */
+
+.block__item {
+	padding: 15px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+/*
+.block__item_color-brown {
+	background-color: #794f45;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+}
+
+.block__item_color-purple span {
+	position: relative;
+	left: 100px;
+	background-color: #ffff00;
+	color: #000;
+	padding: 10px;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+	position: relative;
+	top: -20px;
+} */
+
+/* Paskatīsimies kā darbojas CSS pozicionēšanas parametri: top, left, right, bottom. Atceramies, ka, lai tie darbotos mums ir jāizmanto CSS pozicionēšanas parametrs: position: relative. Izskatām šo situāciju augstāk piemērā: */
+
+/* Mēs redzam, ka mūsu tag <span> ir nobīdījies no sākotnējās atrašanās vietas pa 100px no kreisās puses. */
+
+/* Iekš CSS pozicionēšanas parametriem: left, right, top, bottom, mēs varam izmantot arī negatīvas vērtības. Tad objekts bīdīsies uz pretējo pusi no tā sākotnējā stāvokļa. */
+
+/* Mēs iekš CSS pozicionēšanas parametriem: top, left, right, bottom varam arī norādīt vērtības procentos: %, bet tad mums jāņem vērā, ka tas tiks ņemts - aprēķināts no vecāka objekta, no tā iekš kura ir dotais objekts - elements. */
+
+/* Būtiski: CSS pozicionēšanas parametru vērtības % procentos nestrādās pa lapas vertikāli. Ja izmantosim CSS pozicionēšanas parametru: position: relative. Tālāk pie citiem CSS pozicionēšanas parametriem strādās % procentu vērtības arī pa lapas vertikāli. */
+
+/* Atceramies, ka mēs nevaram vienlaicīgi izmantot CSS pozicionēšanas parametrus: left un right vai top un bottom, jo tas nestrādās, jo tas ir neloģiski. */
+
+/* Atceramies, ka CSS  pozicionēšanas parametrs: position: relative pārvieto objektu - elementu no tā esošā stāvokļa - no tā pašreizējās atrašanās vietas. ja mēs izmantojot citus CSS parametrus esam elementu - objektu kur pārvietojuši, vēlāk izmantojam CSS parametru: position: relative, tad elements - objekts tiks pārvietots no tās vietas, kur tas tika novietots iepriekš. */
+
+/* Mēs varam panākt, lai CSS pozicionēšanas parametros: top, left, bottom, right mēs varētu izmantot vērtības %, arī pa vertikāli. Vienkārši norādot CSS parametru: height. Un tad mēs varam izmantot procentu vērtības arī pa vertikāli, bet ar nosacījumu, ka vecāka objekts ir augstāks nekā pozicionējamais elements. */
+
+/* Izskatām piemēru ar CSS pozicionēšanas parametru: position: relative abiem mūsu blokiem, tā, lai brunais bloks un zaļais bloks uzbrauktu virsū violetajam blokam. Lai to redzētu izslēdzam iepriekšējo aktīvo kodu, izņemot .block__item. */
+
+/*
+.block__item_color-brown {
+	background-color: #794f45;
+	position: relative;
+	top: 20px;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+	position: relative;
+	top: -20px;
+	left: 50px;
+} */
+
+/* Mēs redzam, ka abi bloki, kuriem tiek izmantots CSS pozicionēšanas parametrs: position: relative ir gandrīz aizklājis violeto bloku, jo tam pēc noklusējuma ir: position: static. CSS parametrs: z-index visiem trīs blokiem ir pēc noklusējuma: auto. */
+
+/* Ja mēs pievienosim CSS parametru: position: relative arī violetajam blokam, tad tie visi izskatīsies vienādi, katrs nākošais zem iepriekšējā, jo darbosies HTML dokumenta hiarhija. */
+
+/* Paskatīsimies kāda ir atšķirība starp pozicionēšanas parametru un ārējās atstarpes ar negatīvu vērtību izmantošanu. Lai to redzētu izslēdzam iepriekšējo aktīvo kodu. Izskatām situāciju izmantojot violeto bloku. */
+
+.block__item_color-brown {
+	background-color: #794f45;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+	/* margin: -30px 0 0 0; */
+	position: relative;
+	top: -30px;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+}
+
+/* Šādā situācijā mēs redzam, ka mums ir notikušas trīs lietas. Violetais bloks ir uzbraucis virsū brūnajam blokam, brūnā bloka teksts peld pa virsu un zaļais bloks pavelkas augšup kopā ar violeto bloku. */
+
+/* Paskatīsimies uz šo pašu situāciju, bet jau izmantojot CSS pozicionēšanas parametrus. Izslēdzam CSS parametru: margin violetajam blokam un pierakstām CSS pozicionēšanas parametrus. */
+
+/* Un mēs atkal redzam, ka mums ir notikušas trīs lietas: Violetais bloks ir uzbraucis uz brūnā bloka, brūnā bloka teksts praktiski nav redzams, tas ir gandrīz aizsegts un zaļais bloks nav nekur pakustējies, tas ir palicis savā vietā, mēs redzam atstarpi. */
+
+/* Izmantojot pieeju ar CSS pozicionēšanas parametru izmantošanu mēs redzam, ka, ja to pielietojam kādam elementam, mēs nekādi neiespaidojam apkārtni, tas neietekmē citus objektus - elementus lapā. Šī ir galvenā atšķirība starp CSS parametra: margin un position izmantošanu. Atceramies: CSS pozicionēšanas parametrs: position: relative neietekmē objekta - elementa apkārti, bet margin ietekmē, gan pašu objektu, gan arī tā apkārtni. */
+
+/* Šādi, kad mums ir uzdevums, un mums ir jau divi zināmi rīki, viena uzdevuma veikšanai, zinot to atšķirības mēs varam izvēlēties kuru, kurā situācijā tieši lietot. */
+
+/* Kāda ir atšķirība starp CSS pozicionēšanas parametru: z-index: 0 un z-index: auto? ja vērtība ir auto, tad tiks ievērota HTML dokumenta secība - hiarhija, bet, ja vērtība būs: 0, tad mēs stingri nosakām, ka kādam elementam - objektam z-index ir: 0. */
+
+/* ja mēs izmantosim kādam elementam negatīvu apakšējo ārējo atstarpi, tad visi pārējie elementi - objekti arī pavilksies uz augšu */
+
+/* Ja mēs gribam izmantot ārējo atstarpi ar negatīvu vērtību, un mēs gribam, lai teksts iepriekšējā objekta teksts nebūtu redzams, tad mēs pievienojam konkrētajam elementam - objektam CSS parametru: position: relative. Līdz ar to tas kļūst spēcīgāks un iepriekšējā elementa teksts vairs nelien virsū konkrētajam elementam. Vēl lielākam spēkam mēs varam pielietot CSS parametru: z-index: 3. Norādot lielāku vērtību. */
+
+/* Ja mēs izmantojam CSS pozicionēšanas parametrus: position: relative un left, right, top, bottom, mēs ievērojam BEM metodoloģiju, jo, pat tad, ja izmantojam tos BEM blokam, tie nekādi neietekmē objektu - elementu apkārtni. Atceramies, ka BEM blokiem mēs nedrīkstam izmantot CSS parametru: margin, jo tad tiek ietekmēti visi lapas elementi - objekti, un netiek ievērota BEM metodoloģija. */
+
+/* Ja izmantojam CSS pozicionēšanas parametrus ar negatīvām vērtībām, tad faktiski elementi tiek nobīdīti uz pretējo pusi. Piemēram left: -20px būs tas pats, kas right: 20px. Tas pats arī notiek ar top un bottom. */
+
+/* CSS pozicionēšanas parametrs: position: relative kopā ar pseido elementiem atver mums milzīgas iespējas, bet to mēs izskatīsim vēlāk. */
+
+/* Nākošais CSS pozicionēšanas parametrs, kuru mēs apgūsim ir: position: absolute, kas it kā izgriež elementu no koda un tas paliek karājoties gaisā. tas vairs neietekmē blakus esošos elementus - objektus. Izmantojot CSS pozicionēšanas parametrus: top, bottom, left un right: elementam mainās tā pozīcija un tas tiek nobīdīts uz vienu vai otru pusi atkarībā no tā vecāka, kam ir norādīts CSS pozicionēšanas parametrs: position: relative. */
+
