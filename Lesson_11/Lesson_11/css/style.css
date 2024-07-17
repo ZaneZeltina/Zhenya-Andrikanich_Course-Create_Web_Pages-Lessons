@@ -110,7 +110,7 @@ body {
 
 .block {
 	/* Noklusējuma vērtība */
-	position: static;
+	/* position: static; */
 	/* nevaram izmantot:
 	top
 	right
@@ -319,7 +319,7 @@ body {
 
 /* Ar šo CSS parametru: position: absolute mēs itkā izraujam elementu no HTML dokumenta un tas paliek karājoties gaisā. Bet, lai šis CSS parametrs darbotos tā vecākam ir jābūt norādītam CSS parametram: position: relative. Izskatām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu. */
 
-
+/*
 .block__item_color-brown {
 	background-color: #794f45;
 }
@@ -331,7 +331,7 @@ body {
 
 .block__item_color-green {
 	background-color: #7a956b;
-}
+} */
 
 /* Atceramies, ka CSS pozicionēšanas parametrs: position: absolute pozicionējās attiecībā no sava pirmā vecāka, kuram ir jau CSS pozicionēšanas parametrs: position: relative. Otra būtiska lieta, kas notiek ar elementu - objektu, kam mēs pierakstam: position: absolute ir tas, ka tas kļūst par rindas tipa elementu. */
 
@@ -339,5 +339,131 @@ body {
 
 /* Kādēļ mēs sakām, ka pie CSS parametra: position: absolute elements paliek gaisā karājoties. tādēļ, ka tas zaudē savu atrašanās vietu. Tā vietu aizņem citi objekti - elementi. */
 
-/* Atceramies: pie CSS parametra: position: absolute notiek trīs lietas. 1) objekts - elements zaudē savu ķermeni, un paliek itkā karājoties gaisā. 2) citi elementi - objekti aizņem tā vietu. 3) objekts - elements pozicionējās - novietojas atkarībā no sava pirmā vecāka, kuram ir norādīts CSS parametrs: position: relative. */
+/* Atceramies: pie CSS parametra: position: absolute jāievēro piecas lietas. 1) objekts - elements zaudē savu ķermeni, un paliek itkā karājoties gaisā. 2) citi elementi - objekti aizņem tā vietu. 3) objekts - elements kļūst par rindas tipa elementu, jo tā izmērs ir atkarīgs no tā, cik tajā ir satura. 4) objekts - elements pozicionējās - novietojas atkarībā no sava pirmā vecāka, kuram ir norādīts CSS parametrs: position: relative. 4) CSS pozicionēšanas parametrs: position: absolute ir jāizmanto kopā ar CSS pozicionēšanas parametriem: left, top, right, bottom. */
+
+/* Mēs redzam, ka mūsu piemērā violetais bloks, kuram ir izmantots CSS pozicionēšanas parametrs: position: absolute ir savā vietā, bet šādi tas nav noturīgs, ja mainīsies tā saturs. Otrkārt katrs interneta pārlūks var attēlot elementu savādāk, un mūsu lapa zaudē noturību. */
+
+/* Tādēļ, tad, kad izmantojam CSS pozicionēšanas parametru: position: absolute, mums ir obligāti jānorāda vēl divi CSS pozicionēšanas parametri: objekta - elementa atrašanās vietu pa lapas vertikāli un horizontāli. */
+
+/* Izmēģinām to šos piecus nosacījumus mūsu piemērā. Izmantojam violeto bloku. Izslēdzam aktīvo kodu un pierakstām: */
+
+/*
+.block {
+	position: relative;
+}
+
+.block__item_color-brown {
+	background-color: #794f45;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+} */
+
+/* Ko mēs redzam? Mēs redzam, ka mūsu violetais bloks HTML dokumentā iziet cauri visiem augstāk esošajiem blokiem - objektiem un tiem nevienam nav CSS pozicionēšanas parametra: position: relative. Tādēļ, tas atdurās pie paša augstāk esošā tega: <body> un tiek pozicionēts atkarībā no tā. Atceramies, ka elementi - objekti novietojas lapas kreisajā augšējā stūrī. Bet mēs varam to mainīt. Mūsu piemērā mēs ierakstām pozicionēšanas parametrus: top un left ar vērtībām: 0, kas nozīmē, ka mūsu violetais bloks novietojas lapas augšējā kreisajā stūrī. */
+
+/* Ja mēs izmantojam CSS pozicionēšanas parametru: position: absolute, mēs varam vērtībās izmantot % procentus. Tad objekts - elements tiks pozicionēts atkarībā no lapas augstuma un platuma. */
+
+/* Objekta novietošanās tiks aprēķināta no tega: <body>, jo tas neatrod nevienu citu augstāk stāvošu objektu, kam būtu CSS pozicionēšanas parametrs: position: relative. */
+
+/* Izskatām situāciju, kad mūsu trīs blokiem, tā vecākam: .block {} ir norādīts CSS pozicionēšanas parametrs: position: relative. Mēs redzam, ka mūsu violetais bloks atrod vecāku ar klasi: .block, kam ir norādīts: position: relative, tas apstājās un pozicionējās atkarībā no vecāka bloka. */
+
+/* Mēs tagad varam pozicionēt violeto bloku, kā vien mums vajag, izmantojot dažādas vērtību sistēmas, jo tagad tā vecākam ir CSS parametrs: position: relative. */
+
+/* Ja mēs norādīsim CSS pozicionēšanas parametrus: top: 0, vai bottom: 0, tad mūsu violetais bloks tiks piestiprināts pie lapas augšas vai apakšas. Ja mēs norādīsim negatīvas vērtības, tad mūsu elements - violetais bloks pāries pāri malām. uz augšu vai uz leju, atkarībā kādu vērtību mēs būsim norādījuši. */
+
+/* Ja mums HTML dokumentā ir daudz bloku - elementu, liels saturs, tad mums parādās ritināšana - scroll. Mēs redzam, ka tādā gadījumā violetais bloks paliek augšā, tas aizritinās, arī pārējie bloki aizritinās. */
+
+/* CSS pozicionēšanas parametram: position: absolute ir viens liels trūkums: mēs nekādi nevaram ietekmēt tā satura maiņu, jo, ja mainīsies saturs, nekas tālāk nenotiks, piemēram: saturs mainās, kļūst vairāk, bet tas nekādi neietekmē lapas apkārtni, citus lapas elementus - objektus. */
+
+/* No šī izriet, ka mums nevajag izmantot CSS pozicionēšanas parametru: position: absolute tiem lapas elementiem - objektiem, kas ietekmē lapas saturu, citus lapas elementus - objektus. Ar šī rīka izmantošanu mums jābūt ļoti uzmanīgiem. Mums ir jāzin, kad mēs varam tos izmantot, un, kad labāk to neizmantot, bet tas nāks ar laiku, jo pagaidām mums nav tādas pieredzes, lai uzreiz noteiktu, vai varam to izmantot, vai nevaram. */
+
+/* Izmantojot CSS pozicionēšanas parametru: position: absolute mēs izraujam elementu no lapas, to novietojam kur mums vajag, un paredzam, ka tā saturs nemainīsies. */
+
+/* Izmantojot citus CSS pozicionēšanas parametrus mēs nosakām objekta - elementu atrašanas vietu, un tas ietekmē lapas apkārtni - saturu, jo bloki pārvietojas, paplašinās, saraujas, viens ar otru mijiedarbojas, bet pie: position: absolute mēs paredzam, ka lapas saturs netiks ietekmēts, un tur šāda loģika nedarbojas. */
+
+/* Izskatīsim nākošo CSS pozicionēšanas parametru: position: fixed. Elements tiek itkā izrauts no koda, tas karājās gaisā. Tas fiksējās - pozicionējās, tas neritinās kopā ar pārējo lapas saturu, tas pārtrauc ietekmēt citus lapas elementus - objektus. Pievienojot CSS pozicionēšanas parametrus: left, right, top un bottom, tas maina savu pozīciju, atrašanās vietu. Tam arī var izmantot CSS pozicionēšanas parametru: z-index. */
+
+/* Šis CSS parametrs: position: fixed ir ļoti līdzīgs parametram: position: absolute, bet tomēr ir divas būtiskas atšķirības: 1) objekts - elements pozicionējās atkarībā no pārlūka ekrāna platuma un augstuma. Tas nozīmē, ka elements nebūs ritināms kopā ar pārējo lapas saturu, tam nebūs scroll. Tas tiek fiksēts. Scroll ir visiem pārējiem lapas objektiem - elementiem, tie tiek ritināti, bet tie kam ir: position: fixed nav ritināmi. 2) Tas vienmēr fiksēsies atkarībā no pārlūka ekrāna, neskatoties uz to, ka tā vecākam ir CSS pozicionēšanas parametrs: position: relative. */
+
+/* Vēl viens CSS pozicionēšanas parametrs, kas mums ir jāapgūst ir: position: sticky. Tas ir hibrīds diviem CSS pozicionēšanas parametriem: position: fixed un position: static. Sākotnēji elements darbojās itkā tam būtu: position: static, bet tikko ritināšana - scroll aiziet līdz šim elementam, tas kļūst tāds itkā tam būtu noteikts CSS pozicionēšanas parametrs: position: fixed, tas ieņem pozīciju, ko norādām izmantojot CSS pozicionēšanas parametrus: top un bottom. */
+
+/* CSS pozicionēšanas parametrs: position: sticky sākumā izskatās tieši tā kā parametrs: position: static, bet tiklīdz mēs līdz tam nonākam, tas itkā pielīp norādītajā vietā. Bet ir ļoti būtiski, lai CSS failā nebūtu CSS parametrs: overflow: hidden, kas noņem ritināšanas iespēju lapai, jo šādā gadījumā CSS parametrs: position: sticky nedarbosies. */
+
+/* Izslēdzot CSS parametru: overflow: hidden mēs redzam, ka elements, kuram ir CSS parametrs: position: sticky pielīp pie lapas augšas, kad mēs līdz tam nonākam, bet, kad ritinām tālāk, tas aizritinās un nav vairs redzams. */
+
+/* Izskatīsim šo visu ar praktiskiem piemēriem. izslēdzam augstāk esošo aktīvo kodu. */
+
+/*
+.block__item_color-brown {
+	background-color: #794f45;
+}
+
+.block__item_color-purple {
+	background-color: #77608d;
+	position: sticky;
+	top: 0;
+}
+
+.block__item_color-green {
+	background-color: #7a956b;
+} */
+
+/* Izslēdzam iekš CSS reset faila CSS parametru: overflow: hidden. Pievienojam HTML dokumentā daudzus teg: <br>, lai redzētu, kā tieši strādā CSS pozicionēšanas parametrs: position: sticky. */
+
+/* Mēs redzam, ka mums vis darbojās, ka violetais bloks uz brīdi pielīp lapas augšā, bet, kad ritinām tālāk, tas aizritinās. */
+
+/* Šinī situācijā, kad mums ir jāizslēdz CSS reset failā CSS parametrs: overflow: hidden nav īsti laba, jo faktiski tā skaitās kļūda, jo mums iekš: wrapper nepieciešams CSS parametrs: overflow: hidden, bet tad mums nedarbojas CSS pozicionēšanas parametrs: position: sticky. Šo nepilnību mēs vēlāk centīsimies novērst. */
+
+/* Reālajā darbā vajadzība izmantot CSS pozicionēšanas parametru: position: sticky gadās reti, bet tomēr reizēm tas ir ļoti ērti un pat nepieciešams. Lai vēl labāk, uzskatāmāk redzētu tā darbību, iekš HTML dokumenta sakopējam vairākus blokus. Mēs redzam, kā katrs violetais bloks uz brīdi pielīp lapas augšai. Šī arī ir tā situācija, kad mums var noderēt CSS pozicionēšanas parametrs: position: sticky. */
+
+/* Mums var būt situācija, kad izmantojam kādam lapas elementam - objektam CSS pozicionēšanas parametru: position: sticky, kad mums iekš tā ir daudz satura, tad mums īsti nav iespēja tikt līdz tā beigām. Šādā situācijā mums īsti neder šis CSS parametrs. Piemēram mums būs situācija, kad lapā vajadzēs izveidot kādu izpeldošo sarakstu. Mums nederēs CSS parametrs: position: sticky, bet mēs šo situāciju atrisināsim izmantojot JavaScript. Tur vis mums darbosies, tieši tā, kā mums vajag. */
+
+/* Mēs varam CSS pozicionēšanas parametru: position: sticky izmantot kopā ar JavaScript, tad, kad mums vajag izpeldošos elementus. */
+
+/* Šobrīd mēs īsti nezinām, kā mums izmantot CSS pozicionēšanas parametru: position: sticky kopā ar CSS parametru: overflow: hidden. Mēs ieliekam CSS parametru: overflow-x: hidden iekš CSS reset faila, iekš tega: <body>. Šādi mēs uz brīdi atvieglojam šī brīža darbu. Vēlāk tiksim skaidrībā, kā mēs šo nebūšanu varam normāli atrisināt, neliekot šādus kruķus, jo tas nav īsti pareizi. */
+
+/* Tagad ķersimies klāt praktiskajai lekcijas daļai, izskatīsim dažādus piemērus. Izslēdzam HTML dokumentā daudzos, sakopētos blokus,  un izslēdzam CSS failā iepriekšējos aktīvos kodus. */
+
+.list {
+
+}
+
+.list__item {
+	position: relative;
+	padding-left: 25px;
+}
+
+.list__item::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #ff0000;
+}
+
+.list__item:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+/* Atceramies: CSS parametrs: padding neietekmē lapas objektus, jo tas skar tikai esošo objektu, tas tiek iekļauts iekš tā atrašanās vietas. Atceramies, ka CSS parametrs: padding ir iekšējā atstarpe, kas nekādi neietekmē citus lapas elementus. */
+
+/* Izmantot CSS parametru: margin mēs nevaram, jo tā ir ārējā atstarpe un tā ietekmē citus lapā esošos objektus. */
+
+/* Mēs varam panākt vajadzīgo rezultātu mainot CSS pozicionēšanas parametrus: top un left, dodot tiem negatīvas vērtības. Bet tas mums šinī gadījumā nav vajadzīgs, jo mēs norādām, ka visiem saraksta elementiem ir iekšējā atstarpe pa kreisi. */
+
+
+
+
+
 
