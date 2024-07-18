@@ -31,6 +31,11 @@ body {
 	font-weight: 400;
 }
 
+/*
+.main {
+	padding: 30px 0px 0px 0px;
+} */
+
 /* Atceramies no iepriekšējās lekcijas par BEM metodoloģiju, ka mēs nedrīkstam klases nosaukumos veidot hiarhiju. Lai novērstu šādas situācijas, mēs varam vienkārši apgriezt bloka klases nosaukumu otrādi, un turpināt strādāt tālāk pirmajā klases nosaukuma daļā lietojot bloka nosaukumu. */
 
 /* Lai labāk saprastu kā tieši tas izskatās un kā mums ir jārīkojas, izveidojam HTML dokumentā pareizu piemēra pierakstu. */
@@ -206,12 +211,14 @@ body {
 
 /* Lai labāk saprastu tālākās tēmas izslēdzam nevajadzīgos CSS parametrus augstākajiem piemēriem. Atgriežam visu sākotnējā stāvoklī. Pierakstam vajadzīgās CSS selektorus un parametrus: */
 
+/*
 .block__item {
 	padding: 15px;
 	color: #fff;
 	font-size: 20px;
 	text-align: center;
-}
+} */
+
 /*
 .block__item_color-brown {
 	background-color: #794f45;
@@ -432,8 +439,8 @@ body {
 
 /* Tagad ķersimies klāt praktiskajai lekcijas daļai, izskatīsim dažādus piemērus. Izslēdzam HTML dokumentā daudzos, sakopētos blokus,  un izslēdzam CSS failā iepriekšējos aktīvos kodus. */
 
+/*
 .list {
-
 }
 
 .list__item {
@@ -444,23 +451,136 @@ body {
 .list__item::before {
 	content: "";
 	position: absolute;
-	top: 0;
+	top: -6px;
 	left: 0;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	background-color: #ff0000;
+	width: 25px;
+	height: 25px;
+	background: url("../img/repair_page/icons/icon.png") 0 0 no-repeat;
+	transition: all 0.3s ease 0s;
+}
+
+.list__item:hover::before {
+	transform: rotate(360deg);
+}
+
+.list__item:hover::before {
+	transform: scale(1.5);
 }
 
 .list__item:not(:last-child) {
 	margin-bottom: 10px;
-}
+} */
 
 /* Atceramies: CSS parametrs: padding neietekmē lapas objektus, jo tas skar tikai esošo objektu, tas tiek iekļauts iekš tā atrašanās vietas. Atceramies, ka CSS parametrs: padding ir iekšējā atstarpe, kas nekādi neietekmē citus lapas elementus. */
 
 /* Izmantot CSS parametru: margin mēs nevaram, jo tā ir ārējā atstarpe un tā ietekmē citus lapā esošos objektus. */
 
 /* Mēs varam panākt vajadzīgo rezultātu mainot CSS pozicionēšanas parametrus: top un left, dodot tiem negatīvas vērtības. Bet tas mums šinī gadījumā nav vajadzīgs, jo mēs norādām, ka visiem saraksta elementiem ir iekšējā atstarpe pa kreisi. */
+
+/* CSS pozicionēšanas parametri: position: absolute un position: fixed ietekmē citus lapas elementus, apkārtni, tādēļ pēc BEM metodoloģijas mēs nevaram šos CSS pozicionēšanas parametrus izmantot BEM blokiem. Mēs tos varam izmantot BEM elementiem un modifikatoriem. */
+
+/* Pēc BEM metodoloģijas BEM blokiem mēs varam izmantot CSS pozicionēšanas parametru: position: relative, jo tas neietekmē citus lapas elementus - objektus. */
+
+/* Paskatīsimies vēl uz praktiskiem piemēriem. Atgriežamies HTML dokumentā iekš tega <header>. */
+
+/*
+.header {
+	background-color: #7a956b;
+	padding: 15px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+} */
+
+/* Mēs pievienojām lapai galveni, un daudzus teg: <br>, mēs redzam, ka lapas galvene tagad ir fiksēta. Kad mēs ritinām lapu uz leju, lapas galvene nekur nepazūd, tā vienmēr iet augšā līdzi. */
+
+/* Lapas galvenei mēs izmantojam CSS pozicionēšanas parametru: z-index: 100; Tādēļ, lai vienmēr lapas galvene būtu pa virsu visam pārējam lapas saturam. */
+
+/* Mēs redzam, ka mūsu situācijā, kad izmantojam CSS parametru: position: fixed mūsu elements zaudē ķermeni, pārējais lapas saturs ir aizgājis galvenei apakšā. Šādā situācijā mums kopējam tegam <main> lapas vecākam ir jāpievieno iekšējā augšējā atstarpe, lai pārējie lapas elementi būtu redzami. */
+
+/* Izskatīsim vēl pozicionēšanas piemērus. Atgriežamies HTML dokumentā. */
+
+/*
+.image {
+	position: relative;
+	display: inline-block;
+}
+
+.image::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 2;
+}
+
+.image:hover::before {
+	opacity: 0;
+}
+
+.image__item {
+	width: 200px;
+} */
+
+/* Šinī piemērā mēs redzam kā mēs varam izmantojot CSS pozicionēšanas parametrus attēlam pievienot caurspīdīgumu. Redzam, ka kopējam, elementa vecākam mēs izmantojam CSS parametru: position: relative. Tad izmantojot pseido elementu::before un CSS parametru: position: absolute mēs uz attēla varam pievienot ko vien vēlamies. Šinī piemērā melno krāsu ar caurspīdīguma efektu. */
+
+/* Mēs mūsu piemērā varam izmantot hover efektu. Kad uzvedam ar peli uz attēla tā caurspīdīgā melnā krāsa pazūd. Pievienojot saitei, kas mums ir attēls pseido klases mēs panākam mums vēlamo rezultātu. Šī pieeja tiek daudz pielietota lapu izstrādē, kad mums vajag lai pie uzvešanas ar peli elements mainās. */
+
+/* Mēs izmantojot pozicionēšanu kopā pseido elementiem varam panākt interesantus efektus. Mums tagad ir jau daudz stipru rīku, ko varam pielietot attiecīgajos gadījumos. */
+
+/* Lapas galvenē parasti nav daudz satura, jo tas būtu neloģiski. Mēs varam izmantot šos divus spēcīgos CSS rīkus: pozicionēšanu ar pseido klasēm, ja ir paredzēts, ka konkrētais lapas saturs netiks mainīts. Mums vienmēr jāpatur prātā, kuros gadījumos lapas saturs tiks mainīts, jo mūsu galvenais uzdevums ir nodrošināt, lai mūsu lapa būtu noturīga pret satura maiņu. */
+
+/* Šie divi CSS rīki ievērojami paplašina mūsu iespējas. Situācijās, kad mums vajag kādu elementu pārvietot, griezt utt, mēs to nevaram panākt piemēram izmantojot: background. Bet tagad, kad mums ir šie divi jaudīgie rīki mēs varam jau daudz vairāk. Tālāk kursā mēs apgūsim vēl citus CSS rīkus un varēsim izdarīt visu ko vien var iedomāties. */
+
+/* CSS pozicionēšanas parametri ir jāizmanto piesardzīgi. Nevajag tos grūst visiem elementiem, jo atceramies, vairāk vai mazāk lapas saturs mainīsies. Ja mums ir citas metodes, kā mēs varam izvietot objektus -elementus, tad izmantojam tās, bet, ja mums to nav, tad izmantojam CSS pozicionēšanas parametrus. */
+
+/* Tagad mēs izmantojot CSS pozicionēšanas parametrus varam viegli priekš saraksta vai teksta pievienot ikonas. Izskatām to mūsu: list piemērā. Sarkanā punkta vietā pievienojot ikonu. */
+
+/* Šī pieeja, kad mums vajag tikai ikonu, nev īsti pareiza, jo mēs to pašu varam panākt izmantojot CSS parametru: background. Būtu jāraksta daudz īsāks kods. Bet mums var būt situācija, kad mums vajag, lai pie uzvešanas ar peli uz ikonas tā grieztos vai paliktu lielāka, un to mēs varam panākt tikai ar šādu pieeju pozicionēšanas izmantošanu. Paskatamies kā tas darbojas mūsu piemērā. */
+
+/* Lai panāktu šādus efektus mēs pielietojam CSS parametrus, kurus vēl neesam apguvuši. Tie ir: transform un transition. Mēs tos vienkārši pierakstam, lai paskatītos kā ar CSS pozicionēšanas un pseido elementu izmantošanu mēs varam paveikt interesantas lietas. */
+
+/* izmantojot CSS parametru: background mēs nevaram panākt tieši šādus efektus, mēs varam to panākt tikai daļēji, bet, ja izmantojam pseido klases kopā ar pozicionēšanu un dažiem mums vēl nezināmiem CSS parametriem, mēs redzam, ka pirmajā gadījumā ikona pirms saraksta rindas griežas ap savu asi, bet otrajā gadījumā palielinās. */
+
+/* Kas attiecās par attēlu formātiem mums tagad nevajag īpaši uztraukties, jo tālāk mēs apgūsim rīku, kas automātiski visus attēlus saspiedīs un konvertēs mums vajadzīgajos formātos. */
+
+/* Paskatīsimies uz vēl vienu piemēru. izslēdzam visus aktīvos kodus HTML dokumentā un šeit CSS failā. Izskatīsim piemēru no maketa, kad mums vajag pievienot lapā dekora līniju. Atgriežamies hTML dokumentā un izveidojam tur kastīti. */
+
+.test {
+	background: #f5f5f5;
+	padding: 110px 30px;
+	position: relative;
+}
+
+.test::before {
+	content: "";
+	position: absolute;
+	background: url('../img/dog_page/promices/blob.png') 0 0 no-repeat;
+	top: -489px;
+	right: 0;
+	width: 623px;
+	height: 1437px;
+}
+
+.test__content {
+	position: relative;
+}
+
+/* Izpildot šo piemēru izmantojot pozicionēšanu un pseido elementus mēs panākam mums vēlamo rezultātu, dekors ir aiz teksta, apakšā. Teksts ir pa virsu. Šo pašu uzdevumu mēs varējam realizēt vienkārši izmantojot CSS parametru: background: url() un mainot pozīcijas - atrašanās vietas vērtības. Bet mēs izpildījām šo uzdevumu tieši šādi, lai labāk redzētu kā darbojas pozicionēšana. */
+
+/* Šādi mēs varējām realizēt šo piemēru izmantojot CSS parametru: background: */
+
+.test {
+	background: #f5f5f5 url('../img/dog_page/promices/blob.png') no-repeat right 
+	-489px;
+	padding: 110px 30px;
+	position: relative;
+}
 
 
 
