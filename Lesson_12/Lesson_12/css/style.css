@@ -1,0 +1,164 @@
+
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #333;
+}
+
+/* Izskatīsim situāciju, kas bija 10tajā lekcijā par BEM metodoloģiju, kad nevarējām saprast, ko mums darīt ar tehniskajiem klašu nosaukumiem. Atgriežamies HTML dokumentā un pierakstām piemēru. Izveidojam vienu BEM bloku un BEM elementu kopā ar tehnisko klasi: _container. Šādi bloki, kur mums vajadzēs izmantot to pašu ierobežojošo kastīti - konteineri mūsu lapā var būt ļoti daudz. Strādājot uz priekšu mēs ar to saskarsimies. */
+
+/* Mēs redzam, ka mums ir divi BEM bloki ar dieviem BEM elementiem katrā. Šādi BEM bloki mums var būt ļoti daudz. */
+
+/* Mēs izmantojam tehnisko klases nosaukumu, lai nerakstītu katru reizi vienādus CSS parametrus katram BEM elementam. Mēs izmantojam vienu (ar vienādu nosaukumu) tehniskās klases nosaukumu daudziem blokiem. */
+
+/* Bet mums ir vēl viens labs risinājums kā mēs varam izmantot ierobežojošās kastītes katram blokam. Nerakstot tehniskās klases, un neizmantojot papildus BEM elementus un modifikatorus. Atgriežamies HTML dokumentā un vienkāršojam bloku pierakstus. */
+
+
+/* Kā mēs varam pareizi to pierakstīt. Mums jāievēro pieraksta sintakse. Izskatām vienkāršu piemēru zemāk. */
+
+/* Kas tad ir vēršanās izmantojot CSS selektoru atribūtus? Tas ir tad, kad mēs vēršamies rakstot gan: class, gan: block. Vai: href un: https://google.com ; Šādi izskatās vēršanās izmantojot CSS selektoru atribūtus. */
+
+[class="body"] {
+	color: #ff0000;
+}
+
+/* Tieši tā pat mēs varam vērsties pie visām saitēm, kas ved uz Google. */
+
+/* Mēs liekam datoram meklēt konkrētas saites, kas atbilst HTML dokumentā tieši šādam pierakstam. */
+
+[href="https://google.com"] {
+	color: #008000;
+}
+
+/* Izpildot šādu pierakstu mēs redzam, ka vis darbojās. Sākumā šādu vēršanos pie elementiem izmantojot CSS selektoru atribūtus varētu šķist ļoti sarežģīta. Bet tagad mums ir divi spēcīgi instrumenti. Mēs varam izvēlēties kā mums strādāt. Ievērojot BEM metodoloģiju ar tehniskajām klasēm jeb izmantojot vēršanos ar CSS selektoru atribūtu izmantošanu. */
+
+/* Vēršanās pie elementiem izmantojot CSS selektoru atribūtus nav tik vienkārša. Tā ir daudz plašāka. Tiem piemīt vēl tādas kā regulāras izteiksmes. Kā izskatās regulāru izteiksmju pieraksts. Kā mēs to varam izmantot. Pieraksts izskatās šādi: [href$=".com"] { iekš šīm iekavām rakstot: color: red; } - mēs liekam datoram HTML dokumentā atrast tieši tās saites, kam ir šādas beigas: .com un izmantot tām sarkanu krāsu. */
+
+/* Mēs liekam datoram meklēt HTML dokumentā visas saites, kas atbilst šādam pierakstam. Atceramies: Tādas mums var būt vairākas, daudz. */
+
+[href$=".com"] {
+	color: red;
+}
+
+/* Izpildot šādu pierakstu mēs iegūstam ļoti spēcīgu instrumentu. Ja skatamies uz šo visu loģiski, tad saprotam, ka mēs tagad varam vērsties pie visiem blokiem, kuriem nosaukuma beigās - elementa nosaukuma beigās ir: __container. Mēs varam tam izmantot CSS stilus. Mums vairs nav nepieciešams izmantot tehniskās klases. */
+
+/* Šādi mēs paplašinām savas iespējas, jo tagad visas saites, kam ir šādi nosaukuma beigas tiks iekrāsotas sarkanā krāsā. */
+
+/* Mēs varam veikt arī meklēšanu pēc nosaukuma sākuma. Paskatīsimies ar piemēru: */
+
+[href^="https://"] {
+	color: #0000ff;
+}
+
+/* Ievērojam, ka mums mainās pieraksts. Mēs vairs neliekam zīmi: $, bet gan liekam zīmi: ^, kas nozīmē, ka dators meklēs HTML dokumentā elementus tieši ar šādu sākuma nosaukumu, piemēros tiem norādītos CSS parametrus. */
+
+/* Meklēšana pēc vārda izmantojot atstarpi. Šis strādās tikai tad, ja izmantosim BEM metodoloģijas nosaukumu miks. */
+
+[class~="body-about"] {
+	color: #0000ff;
+}
+
+/* Redzam, ka mēs varam sameklēt CSS selektora atribūtu pēc konkrēta vārda. Mums atkal mainās pieraksta sintakse. Aiz href mēs liekam zīmi: ~ tilde. Aiz tā rakstām visu kā iepriekš, tikai nosaukumu rakstām to, kas ir aiz atstarpes. Tā kā mūsu HTML dokumentā ir pierakstīts: body-about. */
+
+/* Ja mums ir vajadzība meklēt tieši pēc nosaukuma, kas pierakstīts izmantojot zīmi: -, tad mums ir jāievēro cita sintakse. Bet šis darbosies tikai, ja mums ir viens klases nosaukums BEM metodoloģijā (Mums nav miks). */
+
+/* Atgriežamies HTML dokumentā un izmainām piemēra pierakstu, lai tam ir viens klases nosaukums. */
+
+[class|="body-about"] {
+	color:#8a2be2;
+}
+
+/* Pēdējie divi varianti tike izmantoti ļoti reti. Šos visus CSS selektora atribūtus nav iespējams katru reizi atcerēties un izmantot. ja mēs strādājam stingri pēc BEM metodoloģijas, tad nav ieteicams šos izmantot. Bet mums var gadīties situācijas, kad mums visizdevīgāk ir tomēr izmantot CSS selektoru atribūtus. */
+
+/* Tagad kad mums ir jau divi instrumenti mēs varam izvērtēt kuru, kurā gadījumā labāk izmantot. */
+
+
+/* Ja pirmie divi varianti kā mēs vēršamies pie CSS selektoru atribūti ir plašāk pielietojami, tie darbojās diezgan plaši, tad pēdējie divi darbojas tikai pie noteiktiem nosacījumiem un tiek izmantoti reti. */
+
+/* Atgriežamies HTML dokumentā un pierakstām iekš bloka: about elementus ar vairākiem klašu nosaukumiem, izmantojot BEM miks. */
+
+/* Bet ir vēl veids kā vērsties pie CSS atribūtu selektora. Kad mums nepieciešams vērsties pie visiem, HTML dokumentā esošiem klases vai elementu nosaukumiem, mēs varam to pierakstīt šādi: */
+
+[class*="body-about"] {
+	color: #ff0000;
+}
+
+/* Redzam, ka atkal mainās sintakse. Mēs pierakstām: [class*="body-about"] { iekš iekavām rakstot CSS parametrus }. */
+
+/* Izpildot katru piemēra pareizu pierakstu mēs redzam, ka mums vis darbojas, mainās iekš live server. */
+
+/* Atgriežamies pie mūsu situācijas, kad mums ir divi konteineri - kastītes, kam tiek izmantoti vienādi CSS parametri. Mums tagad ir zināšanas kā mēs varam pie tām vērsties izmantojot CSS selektoru atribūtus. */
+
+/* Mums ir divi varianti kā atrisināt mūsu situāciju izmantojot CSS atribūtu selektorus. Pirmais ir meklēt pēc nosaukuma beigām. Bet tas mums neder, jo, ja mēs pievienojam vēl kādu klases nosaukumu, izmantojam BEM miks, tad mums vis izjūk, nedarbojas. Pareizākais ir izmantot CSS atribūtu selektoru ar *, jo tad mēs vēršamies pie jeb kura nosaukuma, kas satur "" ierakstīto, pat tad, ja tam ir vairākas BEM klases, pat tad, ja tie ir BEM miks nosaukumi. */
+
+/* Pareizākais šīs situācijas risinājums ir šāds: */
+
+[class*="__container"] {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+/* Izpildot šādu pierakstu mēs redzam, ka mums vis darbojas. Esam visu izdarījuši pareizi. Pievienojam vēl kādu klases nosaukumu, lai pārliecinātos, ka pat tad vis darbojas. */
+
+/* Šāda pieeja ir ļoti pareiza un mēs to varam izmantot, bet mums ir jāatceras viens būtisks mīnus šādai pieejai. Kad izmantojam CSS atribūtu selektoru ar vēršanos pie konkrēta vārda, izmantojam: *, mēs itkā to vārdu, nosaukumu rezervējam. Ja pēc mums ar lapu strādās kāds cits, kas nezin par šādu pieeju, tad var gadīties situācija, ka izstrādātājs kaut ko papildinās lapā, izmantos to pašu nosaukumu un tam tiks piemēroti attiecīgie CSS parametri. Var iegūt nevēlamu rezultātu. Piemēram iekš footer ielikt footer__container. Zinam, ka vārds: __container mums jau ir izmantots, un tas tiek rezervēts. Šādi var iegūt nevēlamu efektu. */
+
+/* Bet protams, ja izstrādātājs pārlūkā atvērs dev tools, tad viņam uzreiz būs skaidrs kādēļ šādi noticis, un kas ir jādara - jāizlabo, lai nebūtu šāda situācija. Šis arī ir vienīgais šādas pieejas mīnuss. */
+
+/* Šīs visas papildus zināšanas lapu izstrādē salīdzinoši ar pamatu zināšanām un principiem, kas mums jāievēro, ir sīkums. Mums jāatceras galvenie lapas izstrādes pamatprincipi: noturība, pieejamība, ērtums, ātrums. Tādēļ šīs papildus zināšanas nav tik svarīgas. */
+
+/* Šo papildus zināšanu zināšana nenozīmē, ka mums tagad šie CSS atribūtu selektori ir visur jāizmanto. Tā tas nav. Mums tie ir jāizmanto tikai retos īpatnējos gadījumos, kā piemēram ar: __container un _icon, ja mums vajag kādam noteiktam nosaukumam pievienot kādu CSS parametru, tam pašam konkrētam elementam ar nosaukumu: _icon, mums vajag piemēram pievienot ikonu šriftu. */
+
+/* Turpmāk iksevišķi tad, kad strādāsim ar lapas adaptīvu un starta šablonu, šī pieeja būs iekļauta. Tieši gadījums, kad mums vajag strādāt ar ierobežojošo kastīti: __container. */
+
+/* Lapas pasūtītājam būs vienalga vai mēs esam izmantojuši šādu pieeju vai ne. Bet, ja mūsu lapa nonāk pie cita izstrādātāja, tad viņam ir jābūt minimālām zināšanām, kā piemēram: pārlūka dev tools, lai paskatītos kodu. Viņam uzreiz būs skaidrs no kurienes ir radušies konkrēts HTML elements - objekts, un kā, kādi CSS parametri tam ir piemēroti. */
+
+/* Izmantojot šādu pieeju mēs ievērojam visus BEM metodoloģijas principus, ievērojam CSS selektoru principus. Mums nav nekādas nepareizības. Dotajā momentā šī pieeja ir pareiza un mums vajadzīga. Mums nav vairs nepieciešamības izdomāt kādas tehniskās klases vai ko tamlīdzīgu. */
+
+/* Šodienas un nākošās dažas lekcijas būs vairāk saistītas ar radošumu. Mēs turpinām apgūt zināšanas par pozīcijām un apgūstam jaunu CSS parametru: transform. Paskatīsimies kā un kur tieši mēs to varam izmantot. */
+
+/* Izveidojam priekš visa CSS selektora: body tumšāku fonu un iekš CSS selektora: wrapper nosakām iekšējo atstarpi. */
+
+/* Izveidojam HTML dokumentā bloku. */
+
+.block {
+	background-color: rgba(73, 73, 72, 0.5);
+	width: 200px;
+	height: 200px;
+}
+
+.block__item {
+	background-color: #7a957a;
+	width: 200px;
+	height: 200px;
+}
+
+/* Mēs izveidojam divus vienādus kvadrātus un redzam, ka pelēkais aizsedz zaļo kvadrātu. Redzam, ka zaļais kvadrāts aizsedz pelēko kvadrātu. */
+
+
+
