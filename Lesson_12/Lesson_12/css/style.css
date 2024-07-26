@@ -158,7 +158,143 @@ body {
 	height: 200px;
 }
 
-/* Mēs izveidojam divus vienādus kvadrātus un redzam, ka pelēkais aizsedz zaļo kvadrātu. Redzam, ka zaļais kvadrāts aizsedz pelēko kvadrātu. */
+/* Mēs izveidojam divus vienādus kvadrātus un redzam, ka zaļais kvadrāts aizsedz pelēko ( caurspīdīgo ) kvadrātu. Šādi mēs darām, lai labāk saprastu, kur bija konkrētais kvadrāts un kur tas nonāk, kad izmantojam tam CSS parametru: transform. */
+
+/* CSS parametrs: transform ļauj mums vienlaicīgi pozicionēt elementus un transformēt. */
+
+/* CSS parametrs: transform ļauj mums veikt 2D un 3D transformāciju ( pārvietot elementus ), griezt elementus, mainīt to izmērus un daudz ko citu. */
+
+/* CSS parametra: transform vērtības mums būs neierastas. Pirmā vērtība ir: transform: translate(), kas ļauj mainīt elementa atrašanās vietu, no tā sākotnējās atrašanās vietas attiecīgi pa labi un uz leju, izmantojot koordinātas X un Y. Pa asi: X un asi: Y. Tā pieraksts ir: transform(x), transform(y). */
+
+/* Ko mums atgādina CSS parametrs: transform. Tas mums atgādina CSS parametrus: position: relative kopā ar top un left vai right un bottom. */
+
+/* Atceramies, ka CSS parametrs: position: absolute pozicionē objektu atkarībā no tā vecāka atrašanās vietas, bet CSS parametrs: position; relative pozicionē elementu - objektu atkarībā no tā atrašanās vietas. */
+
+/* CSS parametrs: transform dara gandrīz to pašu ko CSS parametrs: position: relative, bet tas ir daudz plašāks, ar šo parametru mēs varam izdarīt daudz vairāk. */
+
+/* Mēs pierakstot CSS parametra: transform: translate() iekavās rakstot x vai y liekam pārvietot elementu pa lapas horizontāli vai vertikāli. Kāda ir sintakse? Izskatām to ar piemēru. */
+
+/* .block__item {
+	transform: translate(50px, 0);
+} */
+
+/* Mēs redzam, ka zaļais kvadrāts nobīdās 50 pikseļus pa labi. Redzam, ka apakšā mums ir pelēkais ( caurspīdīgais ) kvadrāts. */
+
+/* .block__item {
+	transform: translate(50px, 50px);
+} */
+
+/* Mēs redzam vēl vienu līdzību ar CSS parametru: position, ka CSS parametrs: transform: translate neietekmē lapas apkārtni. Neietekmē citus lapas elementus. Par to mēs varam pārliecināties pierakstot to pašu izmantojot pozicionēšanu. Lai skaidri redzētu kā tas darbojas mums jāizslēdz iepriekšējie aktīvie kodi.*/
+
+/* .block__item {
+	position: relative;
+	top: 50px;
+	left: 50px;
+} */
+
+/* Mēs redzam, ka rezultāts ir viens un tas pats. Izslēdzam šo kodu un atgriežam atpakaļ iepriekšējos kodus. */
+
+/* Iekš šī CSS parametra: transform: translate () iekavām mēs varam izmantot arī negatīvas vērtības, tādejādi panākot, ka elements nobīdīsies uz pretējo pusi. */
+
+/* Kāda tad ir galvenā būtiskākā atšķirība starp CSS parametriem: position: relative un transform: translate? Pats svarīgākais tās ir % procentu vērtības. Paskatīsimies kā tās darbojās. */
+
+/* Ja izmantojam CSS parametrus: position: relative ar procentu vērtībām mēs redzam, ka elements nobīdās ņemot vērā vecāka platumu un augstumu. Mūsu gadījumā tie ir 5% no vecāka platuma, no 200 px un vecāka augstuma, 5% no 200 px. */
+
+/* Bet, ja mēs izmantojam % procentu vērtības iekš CSS parametra: transform: translate(), tad tie tiek ņemti no esošā objekta, nevis no tā vecāka. */
+
+/* Šī ir būtiska atšķirība, kad % procenti tiek aprēķināti no paša elementa, nevis no vecāka. Nav neviena cita CSS parametra, kam arī būtu šāda iespēja. Tādēļ CSS parametrs: transform: translate ir tik unikāls. */
+
+/* Tas mums sniedz kolosālas iespējas. Piemēram: mēs varam elementu, attiecīgi no tā augstuma nobīdīt uz leju pa 50%. Tas pats attiecās arī uz tā platumu, mēs varam nobīdīt to pa horizontāli pa 50%. */
+
+/* Šī ir būtiska iespēja, jo, ja skatamies tālāk, kad mēs strādāsim ar lapas adaptīvu, mums visticamāk nebūs fiksētas augstuma un platuma vērtības, mums būs % vērtības. Šeit mums tieši ļoti labi der, ka iekš CSS parametra: transform: translate() mēs izmantojam % procentu vērtības, jo tās vienmēr tiks aprēķinātos no tekošā elementa platuma un augstuma. */
+
+/* Paskatīsimies uz piemēriem kā mēs izmantojot divus CSS parametrus varam novietot zaļo kvadrātu centrā. Lai labāk redzētu rezultātu uz brīdi izslēdzam iepriekšējos aktīvos kodus. Izslēdzam pelēkajam kvadrātam platumu. */
+
+/* .block {
+	width: 100%;
+	position: relative;
+	height: 200px;
+	background-color: rgba(73, 73, 72, 0.5);
+} */
+
+/* .block__item {
+	background-color: #7a957a;
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: 0 0 0 -100px;
+	transform: translate(-50%, 0);
+} */
+
+/* Mēs redzam, ka zaļais kvadrāts pozicionējas nevis pa visas lapas platumu, bet gan no sava platuma mēģinot nostāties lapas centrā, bet tas īsti nedarbojas. Mēs to varam atrisināt izmantojot negatīvu vērtību ārējās atstarpes. Piemērojam tās uz mūsu piemēra. Mēs panākam, ka zaļais kvadrāts ir lapas centrā. */
+
+/* Šādā gadījumā zaļais kvadrāts ir apsolūts un vienmēr centrā, bet mums jāsaprot, ka šeit mēs izmantojam konkrētus stingri noteiktus platumus. Ko līdz mums tie mainīsies, tā zaļā kvadrāta atrašanās vieta arī mainīsies un tas nebūs vairs pa vidu. Tādēļ šis nav labākais risinājums. */
+
+/* Kā mēs varam vislabāk un pareizāk panākt mums vajadzīgo, lai zaļais kvadrāts vienmēr būtu lapas vidū. Mēs varam izmantot CSS parametru: transform: translate(). Pievienojam mūsu zaļajam kvadrātam CSS parametru: transform: translate(-50%, 0). Mēs iegūstam, ka mūsu zaļais kvadrāts vienmēr ir lapas centrā, pat tad, ja mainās tā platums. */
+
+/* Ko un krā situācijā izmantot? Ja mums vajag elementu pozicionēt no vecāka platuma. To izvietot ņemot vērā tā vecāka platumu un augstumu, tad mēs izmantojam CSS pozicionēšanas parametrus. Ja mums vajag elementu pozicionēt attiecīgi paša elementa platumam un augstumam, tad vislabāk ir izmantot CSS parametru: transform; translate(). */
+
+/* Ja mums vajag noteikt tikai vienu vērtību CSS parametram: transform: transition, tad mēs pierakstām šādi: transform: transitionX(50%) vai transform: transitionY(50%). Bet atceramies, ka tas ir tā pat kā ar atstarpēm. Mēs varam noteikt vienu konkrētu atstarpi vai divas, izmantojot divas kodu rindas jeb to pierakstīt vienā kodu rindā izmantojot universālo pierakstu. Tas atkarīgs kā mums ir ērtāk, saprotamāk. */
+
+/* Atceramies, ka vislabāk vērtības noteikt izmantojot universālo pierakstu, jo tādejādi mēs ietaupām koda vietu. Ietaupam faila lielumu, atmiņu ko tas aizņem. */
+
+/* Nākošā CSS parametra: transform vērtība ir: scale(1, 1), kas nosaka elementa - objekta lielumu. Pēc noklusējuma tam ir šādas vērtības: (1, 1). */
+
+/* Šeit atkal tiek noteiktas vērtības pa lapas horizontāli un vertikāli. Bet, ja izmantosim tikai vienu vērtību, tad tā tiks piemērota gan pa lapas horizontāli, gan pa lapas vertikāli. Pa asi X un asi Y. */
+
+/* Mainot CSS parametra: transform; scale() vērtības mēs redzam, ka tas neietekmē citus lapas elementus. Neietekmē lapas apkārtni. */
+
+/* Vēlāk mēs mācīsimies kā ar CSS parametru: transform: scale() mēs varam izveidot animācijas. Bet tagad mums jāsaprot tā darbības pamati. */
+
+/* Mēs vēl nemācamies par animācijām, bet paskatīsimies ar piemēru kā tas darbojās. Lai labāk saprastu kā tieši tas darbojās, izslēdzam iepriekšējos aktīvos kodus. Atgriežam sākotnējos CSS parametrus, kodu abiem kvadrātiem. */
+
+/* Piemērs: */
+
+/* .block__item {
+	transform: scale(0);
+	transition: all 0.3s ease 0s;
+} */
+
+/* .block:hover .block__item {
+	transform: scale(1);
+} */
+
+/* Izpildot šo piemēru mēs redzam, kā mēs uzvedam ar peli uz pelēkā kvadrāta un mums parādās kā animācija zaļais kvadrāts. Mēs redzam cik plašas iespējas ir CSS parametram: transform. */
+
+/* Ja iepriekšējais CSS parametrs: transform: translate attiecās vairāk uz elementa atrašanās vietu - pozicionēšanu, tad šis CSS parametrs: transform: scale reti, kad tiek izmantots, lai mainītu elementa atrašanās vietu, jo tas tiek tieši izmantots lai radītu kādu efektu, animāciju. */
+
+/* Vēl viena interesanta CSS parametra: transform vērtība ir: rotate, kas ļauj mums pagriezt elementus - objektus. Tā noklusējuma vērtība ir: transform: rotate(0deg). Mēs redzam, ka mums parādās jauna vērtība: deg, degree, kas nozīmē grādus, par cik grādiem elements pagriezīsies uz vienu vai otru pusi. */
+
+/* Izskatām kā tas izskatās realitātē. Pievienojam šo CSS parametru mūsu piemēram. Lai redzētu kā tas darbojās izslēdzam iepriekšējo aktīvo kodu. */
+
+/* .block__item {
+	transform: rotate(45deg);
+} */
+
+/* Mēs redzam, kādas kolosālas lietas mēs varam paveikt izmantojot šo CSS parametru. Mēs liekam zaļajam kvadrātam pagriezties par 45 grādiem. Šo mēs varam panākt tikai izmantojot CSS parametru: transform: rotate(). Mēs šo pieeju varam izmantot, lai iegūtu kādu dizaina efektu, kas ir maketā, kā arī šo mēs varam izmantot, lai iegūtu animāciju, bet to mēs mācīsimies vēlāk. */
+
+/* Šī CSS parametra: transform: rotate() vērtība ir grādi, kas pagriež elementu pulksteņa rādītāja virzienā, attiecīgi, ja vērtība ir negatīva, tad pretēji pulksteņa rādītāja virzienam. */
+
+/* Ar šī CSS parametra: transform: rotate mēs varam elementu griezt arī tikai pa vienu asi - pa lapas horizontāli vai vertikāli. Bet tad mums ir jāraksta šādi: transform: rotateX(45deg) vai transform: rotateY(45deg). Elements tiks pagriezts tikai pa vienu pusi. Bet kā tas tieši darbojās mums varētu būt vēl grūti saprast. */
+
+/* Lai mēs labāk saprastu kā tieši darbojās CSS parametrs: transform: rotate pa konkrētu pusi, izskatām to ar nelielu animācijas piemēru. Izslēdzam iepriekšējo aktīvo kodu. */
+
+.block__item {
+	transform: rotateY(100deg);
+	transition: all 0.8s ease 0s;
+}
+
+.block:hover .block__item {
+	transform: rotateY(0deg);
+}
+
+/* Rezultātā mēs iegūstam animāciju, kad uzvedam ar peli uz pelēkā kvadrāta, mūsu zaļais kvadrāts kļūst lielāks un mazāks, precīzāk: tas saraujas un izstiepjas pa tā vertikāli. Atceramies, ka tas tiek noteikts ņemot vērā paša elementa - objekta augstumu, nevis vecāka. Šis CSS parametrs: transform: rotate() arī nekādi neietekmē citus lapas elementus, lapas apkārtni. */
+
+
+
+
 
 
 
