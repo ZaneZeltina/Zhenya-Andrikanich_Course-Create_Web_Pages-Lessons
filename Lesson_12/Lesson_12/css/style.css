@@ -150,6 +150,10 @@ body {
 	background-color: rgba(73, 73, 72, 0.5);
 	width: 200px;
 	height: 200px;
+	line-height: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
 }
 
 .block__item {
@@ -263,6 +267,9 @@ body {
 
 /* Izpildot šo piemēru mēs redzam, kā mēs uzvedam ar peli uz pelēkā kvadrāta un mums parādās kā animācija zaļais kvadrāts. Mēs redzam cik plašas iespējas ir CSS parametram: transform. */
 
+/* CSS parametrs: transform: scale() parasti tiek izmantots lai iegūtu kādu efektu, nevis lai pozicionētu kādu elementu. Priekš tam mums ir CSS pozicionēšanas parametri. */
+
+/* Augstāk piemērā mēs redzam kā mēs varam izmantot CSS parametru: transform: scale(). */
 /* Ja iepriekšējais CSS parametrs: transform: translate attiecās vairāk uz elementa atrašanās vietu - pozicionēšanu, tad šis CSS parametrs: transform: scale reti, kad tiek izmantots, lai mainītu elementa atrašanās vietu, jo tas tiek tieši izmantots lai radītu kādu efektu, animāciju. */
 
 /* Vēl viena interesanta CSS parametra: transform vērtība ir: rotate, kas ļauj mums pagriezt elementus - objektus. Tā noklusējuma vērtība ir: transform: rotate(0deg). Mēs redzam, ka mums parādās jauna vērtība: deg, degree, kas nozīmē grādus, par cik grādiem elements pagriezīsies uz vienu vai otru pusi. */
@@ -281,16 +288,60 @@ body {
 
 /* Lai mēs labāk saprastu kā tieši darbojās CSS parametrs: transform: rotate pa konkrētu pusi, izskatām to ar nelielu animācijas piemēru. Izslēdzam iepriekšējo aktīvo kodu. */
 
-.block__item {
-	transform: rotateY(100deg);
+/* .block__item {
+	transform: rotateY(0deg);
 	transition: all 0.8s ease 0s;
 }
 
 .block:hover .block__item {
 	transform: rotateY(0deg);
-}
+} */
 
 /* Rezultātā mēs iegūstam animāciju, kad uzvedam ar peli uz pelēkā kvadrāta, mūsu zaļais kvadrāts kļūst lielāks un mazāks, precīzāk: tas saraujas un izstiepjas pa tā vertikāli. Atceramies, ka tas tiek noteikts ņemot vērā paša elementa - objekta augstumu, nevis vecāka. Šis CSS parametrs: transform: rotate() arī nekādi neietekmē citus lapas elementus, lapas apkārtni. */
+
+/* Vizuāli mums šķiet, ka zaļais kvadrāts saraujas, bet faktiski tas griežas. Lai labāk saprastu kā darbojas CSS parametrs: transform: rotate() atgriežamies augstāk piemērā. Izslēdzam aktīvo kodu. Izmēģinām kā darbojās šīs CSS parametrs, kad nosakām, ka zaļais kvadrāts griežas pa 360 grādiem. */
+
+/* .block__item {
+	transform: rotate(0deg);
+	transition: all 0.8s ease 0s;
+}
+
+.block:hover .block__item {
+	transform: rotate(360deg);
+} */
+
+/* Izpildot šo piemēru, mēs redzam, ka mūsu zaļais kvadrāts griežas pulksteņa rādītāja virzienā pa 360 grādiem. Tas veic pilnu apli. Šāda pieeja realitātē tiek plaši izmantota lapu izstrādē, piemēram: lai pievienotu animāciju ikonām. */
+
+/* Reizēm mums ir nepieciešams CSS parametru: transform: rotate() izmantot elementa pozicionēšanai. Gadījumos, kad mums pēc maketa ir nedaudz jāpagriež kāds elements. Mēs nevaram citādi to panākt izmantojot CSS pozicionēšanas parametrus. Šādos gadījumos mums ļoti noder šis CSS parametrs. */
+
+/* Mums ir iespēja izmantot vairākas CSS parametra: transform: vērtības vienlaicīgi. Izskatīsim ar piemēru kā tas darbojas. Izslēdzam iepriekšējo aktīvo kodu. */
+
+/* .block {
+	overflow: hidden;
+}
+
+.block__item {
+	transform: rotate(45deg) translate(-50%, 50%);
+	transition: all 0.8s ease 0s;
+} */
+
+/* Mēs redzam, ka iegūstam interesantu vizuālo efektu, mums no kreisās puses no diviem kvadrātiem sanāk itkā aploksnīte. Šāda pieeja mums var noderēt, kad maketā ir kādi dizaina efekti un izmantojot CSS pozicionēšanas parametrus mēs nevaram panākt vēlamo rezultātu. Un šeit mēs redzam kā mēs varam izmantot CSS parametra: transform: vairākas vērtības vienlaicīgi. */
+
+/* Svarīgi atcerēties, ka mums šinī gadījumā vecāka blokam ir jāpievieno CSS parametrs: overflow: hidden. Atceramies, ka tas nosaka vai elementa - objekta saturs izies ārpus tā vecāka robežām vai ne. Tam ir šādas vērtības: scroll, hidden, auto. */
+
+/* Izskatīsim vēl vienu variantu, kad mēs varam izmantot CSS parametru: transform. Piemēram mums iekš zaļā kvadrāta ir teksts. Pievienojam mūsu piemēram sākumā CSS parametrus: line-height un text-align, text-transform un color.  Izslēdzam iepriekšējos aktīvos kodus. */
+
+/* Mēs redzam, ka ar tekstu CSS parametrs: transform: rotate nedarbojas lai izveidotu animāciju, jo tas ir iekš kvadrāta un mums griežas vis zaļais kvadrāts. Vēlāk mēs vēl atgriezīsimies pie teksta un veidosim tam animāciju. */
+
+/* Vēlviena unikāla CSS parametra transform: vērtība ir skew, kas ieliec, deformē elementu - objektu. Šai vērtībai mēs arī izmantojam divas vērtības() iekavās rakstot grādus. par cik grādiem mums jāieliec elements pa X asi vai Y asi, pa lapas horizontāli vai vertikāli. Mēs varam abas vērtības izmantot vienlaicīgi, kā arī varam tās rakstīt atsevišķi, pirms() liekot X vai Y. Kā arī mēs varam norādīt vienu vērtību, kas tiks pielietota gan pa X, gan Y asi, gan pa lapas horizontāli, gan pa lapas vertikāli. */
+
+/* Visbiežāk tiek izmantota viena puse: X vai Y, lai panāktu kādu vizuālu efektu vai lai izveidotu animāciju. izskatām to ar piemēru. Noņemam: .block {} CSS parametru: overflow: hidden; Pievienojam jaunos parametrus šeit piemērā. */
+
+.block__item {
+	transform: skew(20deg);
+}
+
+/* Visbiežāk šis CSS parametrs: transform: skew() tiek izmantots norādot vienu vērtību. Tiek izmantota viena vērtība, lai ieliektu elementu gan pa asi X, gan pa asi Y. Izmantojot šādu pieeju mēs varam panākt vēlamo vizuālo efektu. */
 
 
 
