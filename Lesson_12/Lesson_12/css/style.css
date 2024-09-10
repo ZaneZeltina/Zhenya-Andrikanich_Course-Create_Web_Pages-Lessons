@@ -150,7 +150,7 @@ body {
 	background-color: rgba(73, 73, 72, 0.5);
 	width: 200px;
 	height: 200px;
-	line-height: 20px;
+	line-height: 200px;
 	text-align: center;
 	text-transform: uppercase;
 	color: #fff;
@@ -337,11 +337,66 @@ body {
 
 /* Visbiežāk tiek izmantota viena puse: X vai Y, lai panāktu kādu vizuālu efektu vai lai izveidotu animāciju. izskatām to ar piemēru. Noņemam: .block {} CSS parametru: overflow: hidden; Pievienojam jaunos parametrus šeit piemērā. */
 
-.block__item {
+/* .block__item {
 	transform: skew(20deg);
-}
+} */
 
 /* Visbiežāk šis CSS parametrs: transform: skew() tiek izmantots norādot vienu vērtību. Tiek izmantota viena vērtība, lai ieliektu elementu gan pa asi X, gan pa asi Y. Izmantojot šādu pieeju mēs varam panākt vēlamo vizuālo efektu. */
+
+/* Izskatām piemēru, kad mums ir noteikts CSS parametrs: transform: skew pa abām lapas pusēm, pa lapas horizontāli un vertikāli. Izslēdzam iepriekšējo aktīvo kodu. */
+
+/* .block__item {
+	transform: skew(-20deg, 40deg);
+} */
+
+/* Rezultātā mēs iegūstam interesantu efektu. Šāda pieeja mums var noderēt, kad maketā ir kāds savdabīgs vizuāls efekts. Šādi mēs varam iegūt 3D rezultātu. Kā arī, mēs varam izveidot animāciju. */
+
+/* Ir iespēja pierakstīt vienā rindā vairākas CSS parametra: transform: vērtības, kas ļauj mums pievienot vairākas 2D funkcijas transformējot tās vienā pierakstā. Izskatām to ar piemēru, izslēdzot iepriekšējo kodu. */
+
+/* .block__item {
+	transform: rotate(45deg) translate(10%, 10%) skew(-20deg, 40deg) scale(0.5);
+} */
+
+/* Šādi izskatās universāls CSS parametra: transform pieraksts. Mums nav vairs jāraksta katra vērtība atsevišķi. Mēs izmantojam visas CSS parametra: transform iespējas vienlaicīgi. */
+
+/* Ir vēl viena iespēja kā mēs varam izmantot CSS parametru: transform: origin, kas ļauj mums nobīdīt transformācijas centru, no kura attiecīgi tiek mainīta elementa - objekta atrašanās vieta. */
+
+/* Lai saprastu kā tas darbojās izskatām to ar piemēru, izslēdzot iepriekšējo kodu. */
+
+/* .block__item {
+	transform: origin(50% 50%);
+} */
+
+/* Noklusētā CSS parametra: transform: origin() vērtība ir: center (50%, 50%). Mēs itkā zaļā kvadrātā vidū ieliekam nagliņu, piestiprinām to. Šo parametru bieži izmanto kopā ar CSS parametru: transform: rotate(). Lai iegūtu vēlamo rezultātu, kādu dizaina elementu. */
+
+/* Izskatām vēl vienu piemēru ar CSS parametra: transform: origin() izmantošanu kopā ar: transform: rotate(). */
+
+/* .block__item {
+	transform: rotate(45deg);
+	transform-origin: 0 0;
+} */
+
+/* CSS parametra: transform: origin() vērtības: 0 0 ir līdzvērtīgas, ja mēs rakstītu: top left, bet atceramies, ka mums ir jāpierod strādāt ar skaitļiem, nevis vārdiem. */
+
+/* Izskatīsim piemēru, kad mēs izmantojam CSS parametru: transform: origin(), lai iegūtu animāciju. Izslēdzam iepriekšējo kodu. */
+
+/* .block__item {
+	transform: rotate(0deg);
+	transform-origin: 0 0;
+	transition: all 0.8s ease 0s;
+}
+
+.block:hover .block__item {
+	transform: rotate(360deg);
+} */
+
+/* Rezultātā mūsu zaļais kvadrāts ir piekarināts lapas augšējā kreisajā stūrī, bet kad uzvedam uz to peli, tas apgriežas pilnā aplī pulksteņa rādītāja virzienā. Šādi mēs varam panākt unikālus efektus. Par animācijām mēs vēl mācīsimies, jo šis ir tikai neliels piemērs kā mēs varam izmantot CSS parametru: transform. */
+
+/* CSS parametram: transform: origin() vērtības mēs norādām tieši pēc tāda paša principa kā tad kad izmantojām CSS parametru: background-position. Kā vērtības mēs varam norādīt jeb kuru CSS vērtību sistēmu: % px utt. */
+
+/* Pamatā CSS parametrs: transform: origin() tiek izmantots, lai iegūtu animāciju, retāk, lai iegūtu kādu īpatnēju figūru. */
+
+/*  */
 
 
 
