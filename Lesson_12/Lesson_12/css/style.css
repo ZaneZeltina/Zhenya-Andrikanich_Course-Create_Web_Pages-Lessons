@@ -396,7 +396,137 @@ body {
 
 /* Pamatā CSS parametrs: transform: origin() tiek izmantots, lai iegūtu animāciju, retāk, lai iegūtu kādu īpatnēju figūru. */
 
-/*  */
+/* Nākošais CSS parametrs: perspective tiek izmantots lai uzstādītu dziļumu un mainītu elementa sākuma atrašanās vietu. Lai mainītu elementa koordinātas. Tas ir jāuzstāda - jāizmanto elementa vecākam. Izskatām to ar piemēru. Atgriežamies pie CSS selektora: .block un tam pierakstām jauno CSS parametru: perspective. Rakstām zemāk piemērā: */
+
+/* 
+.block__item {
+	transform: rotateX(0deg);
+	transition: all 0.5s ease 0s;
+}
+
+.block {
+	perspective: 400px;
+}
+
+.block:hover .block__item {
+	transform: rotateX(45deg);
+} */
+
+/* Rezultātā mēs izmantojot divus CSS parametrus: transform: rotateX pa asi X un CSS parametru: perspective: elementa vecākam, iegūstam to, ka mūsu zaļais kvadrāts itkā ieiet dziļumā pa 400px. */
+
+/* Jo mazāka vērtība CSS parametram: perspective, jo lielāks dziļums, jo lielāka, jo mazāks dziļums. */
+
+/* Šo CSS parametru bieži izmanto, lai veidotu animācijas. Izskatām to ar piemēru augstāk: */
+
+/* Mēs iegūstam, ka zaļais kvadrāts, kad uzvedam uz tā ar peli, nedaudz pa 45 grādiem iekrīt itkā uz iekšu - dziļumā. */
+
+/* Šie animāciju piemēri mums pagaidām ir tikai uzskatāmi kā iespējas, lai mēs labāk saprastu kā darbojās CSS parametru saime: transform. Vēlāk mēs mācīsimies pa animācijām. */
+
+/* Mēs varam izmantot CSS parametru: perspective-origin, lai šo animāciju nobīdītu mums vajadzīgā virzienā. Svarīgi: šis CSS parametrs ie jāpievieno elementa vecākam, šinī gadījumā: .block. Izskatām to ar piemēru: */
+
+/*
+.block {
+	perspective-origin: 0 0;
+} */
+
+/* Atceramies, ka šie CSS parametri: perspective un perspective-origin ir jānorāda elementa vecākam. Mūsu gadījumā: .block. */
+
+/* Realitātē šie abi CSS parametri lapu izstrādē ir reti izmantojami, bet tomēr mums par tiem ir jāzin, jo retās situācijās mums tie ir jāizmanto. Vēlāk, kad mācīsimies par 2D un 3D elementiem, tad mēs vēl atgriezīsimies pie šiem parametriem un uzzināsim vēl kā tie tiek izmantoti. */
+
+/* Kādēļ realitātē šie abi CSS parametri tiek tik reti izmantoti, jo bieži vien pasūtītājs un dizaineris nezin, ka CSS ir tādas iespējas. Ka ir tādi CSS parametri ar kuriem var panākt šādus rezultātus. */
+
+/* Šīs zināšanas: CSS parametri: perspective ir papildus zināšanas, bet CSS parametru saime: transform ir pamatu zināšanas, kas mums ir obligāti jāzin un jāsaprot. */
+
+/* Svarīgi ir zināt CSS parametru; transform: translate(), pārējie: scale() rotate() tie ir mazāk svarīgi, bet arī tie mums ir jāzin atsevišķās situācijās. Atceramies, ka mums papildus zināšanas nav jāzin no galvas, bet pamatu zināšanas mums ir labi jāsaprot un jāzin. Bet tas vis nāks ar laiku, ar pieredzi. */
+
+/* Kādēļ tā? Tādēļ, ka CSS parametrs: transform: translate bieži tiek izmantots, lai mainītu attēla atrašanās vietu, bez animācijām, bet pārējie CSS parametru saime: transform tiek izmantota tieši lai iegūtu kādu animāciju. Tādēļ tas tiek pieskaitīts pie papildus zināšanām. */
+
+/* Vis ko mēs izskatījām līdz šim darbojās pa divām asīm: X un Y. Tagad paskatīsimies uz 3D. */
+
+/* Kā tas darbojās? Mēs izmantojam to pašu CSS parametru: transform: tā vērtībā rakstām: transform: translate3d(0%, 0%, 0%). Mēs pievienojam asi Z. */
+
+/* Tas pats attiecās uz visiem pārējiem CSS parametru saimes: transform vērtībām: scale, skew utt. Mēs vienkārši iekš vērtības pievienojam: 3d un iekavās rakstām trešo vērtību. */
+
+/* Šādi mēs iegūstam 3D elementus, 3D efektus. */
+
+/* Svarīgi: CSS parametru saime: transform: ar vērtību 3d darbosies tikai tad, ja vecākam būs pievienots CSS parametrs: perspective. Bez tā mums 3D parametri nedarbosies. Izskatām to ar piemēru: */
+
+/* Lai redzētu kā tas darbojās - izslēdzam iepriekšējo aktīvo kodu. */
+
+/*
+.block {
+	perspective: 400px;
+}
+
+.block__item {
+	transform: translate3d(0px, 0px, -50px);
+} */
+
+/* Rezultātā mēs iegūstam kaut ko līdzīgu kā tad, kad izmantojām CSS parametru: transform: skew, palielinām, samazinām zaļo kvadrātu. */
+
+/* Svarīgi, ka pa asi Z mēs varam norādīt tikai konkrētas vērtības: pozitīvus vai negatīvus px. Mēs nevaram norādīt vērtības: % procentos. Tās vienkārši nedarbojas. */
+
+/* Citiem ir priekšstats, ka kad strādājam ar animācijām, tad izmantojot CSS parametru: transform: translate3d() mēs iegūstam plūstošu pāreju nekā tad, ja izmantojam atsevišķi CSS parametrus: translate: transform() scale(). Bet vis ir atkarīgs no tā, kā mums ir vienkāršāk uztvert, kā mēs pēc tam vieglāk varam saprast savu kodu. Citiem vienkāršāk ir saprast otro pieraksta variantu. */
+
+/* Kad mācīsimies par animācijām, tad mēs labāk sapratīsim kā kurš CSS parametrs: transform darbojās. */
+
+/* Kad izmantojam vienu vai otru CSS parametru: transform: translate() scale() vai transform: translate3d pierakstu mēs iegūstam vienādu rezultātu. */
+
+/* Lai izmantotu 3d iekš CSS parametra: transform: scale() mums ir jānorāda visas trīs vērtības vienādas iekš () iekavām, lai tas darbotos. Kur tas var tikt izmantots realitātē? Lai veidotu animācijas. */
+
+/* Interesants CSS parametrs: transform: rotate3d(), kur iekš () iekavām mēs varam norādīt četras vērtības. Iekš () iekavām kā pēdējo vērtību norādot leņķi. Kā tas darbojās? Izskatīsim to ar piemēru: */
+
+/* Izslēdzam iepriekšējo aktīvo kodu. */
+
+/*
+.block__item {
+	transform: rotate3d(1, 1, 1, 45deg);
+} 
+
+.block {
+	perspective: 400px;
+} */
+
+/* Šis CSS parametrs ar 3d darbojās bez CSS parametra: perspective. Mēs iegūstam 3D figūru. Šeit trešā vērtība ir ass Z, kas veido 3D figūru, veido dziļumu, bet ar pēdējo - leņķa vērtību mēs norādām cik lielā leņķī figūra tiks pagriezta. */
+
+/* Atceramies, ka šo CSS parametru ietekmē CSS parametrs: perspective. Jo lielāku vērtību ieliekam iekš tā, jo mazāks dziļums, jo mazāka vērtība, jo lielāks ir dziļums. */
+
+/* Šīs CSS parametra 3d vērtības var izmantot vienlaicīgi rakstot transform: un atdalot ar atstarpi rakstīt translate3d() scale3d() utt. Bet realitātē, praksē šie 3D CSS parametri tiek reti kad izmantoti. Tādēļ šīs arī ir papildus zināšanas. */
+
+/* Vēl viens svarīgs CSS parametrs ir transform-style, kas nosaka kā ieliktais elements tiks attēlots 3D vidē. Svarīgi, ka tas tiek izmantots iekš elementa vecāka. Tāpat kā CSS parametrs: perspective. Izskatām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu: */
+
+/*
+.block {
+	transform-style: flat;
+	perspective: 400px;
+}
+
+.block__item {
+	transform: rotateY(30deg);
+} */
+
+/* Transform style: preserve-3d mums dod interesantu 3D efektu. Izskatām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu: */
+
+.block {
+	transform-style: preserve-3d;
+	perspective: 400px;
+}
+
+.block__item {
+	transform: rotateY(30deg);
+}
+
+/* Mēs rezultātā redzam, ka mūsu elements - zaļais kvadrāts ir itkā ieniris iekš sava vecāka un ir redzams caur tā krāsu, jo tā ir caurspīdīga, jo izmantojam rgba ar alpha krāsas caurspīdīgumu. */
+
+
+
+
+
+
+
+
+
+
 
 
 
