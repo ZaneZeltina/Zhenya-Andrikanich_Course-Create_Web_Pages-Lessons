@@ -39,7 +39,6 @@ body {
 
 /* Bet mums ir vēl viens labs risinājums kā mēs varam izmantot ierobežojošās kastītes katram blokam. Nerakstot tehniskās klases, un neizmantojot papildus BEM elementus un modifikatorus. Atgriežamies HTML dokumentā un vienkāršojam bloku pierakstus. */
 
-
 /* Kā mēs varam pareizi to pierakstīt. Mums jāievēro pieraksta sintakse. Izskatām vienkāršu piemēru zemāk. */
 
 /* Kas tad ir vēršanās izmantojot CSS selektoru atribūtus? Tas ir tad, kad mēs vēršamies rakstot gan: class, gan: block. Vai: href un: https://google.com ; Šādi izskatās vēršanās izmantojot CSS selektoru atribūtus. */
@@ -507,16 +506,126 @@ body {
 
 /* Transform style: preserve-3d mums dod interesantu 3D efektu. Izskatām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu: */
 
+/*
 .block {
 	transform-style: preserve-3d;
 	perspective: 400px;
 }
 
 .block__item {
-	transform: rotateY(30deg);
-}
+	transform: rotateY(150deg);
+	backface-visibility: visible;
+} */
 
 /* Mēs rezultātā redzam, ka mūsu elements - zaļais kvadrāts ir itkā ieniris iekš sava vecāka un ir redzams caur tā krāsu, jo tā ir caurspīdīga, jo izmantojam rgba ar alpha krāsas caurspīdīgumu. */
+
+/* Realitātē šāda pieeja ir reti sastopama, bet tā tiek izmantota, piemēram: lapās, lai pagrieztu preces, attēlu kartītes. Tiek veidotas animācijas. Elements tiek apgriezts un mēs redzam kartītes otro pusi. */
+
+/* Vēl viens CSS parametrs, kas tiek izmantots, lai parādītu vai slēptu elementa pusi ir: backspace-visibility: visible. Mēs varam to mainīt ierakstot tā vērtībā: hidden. */
+
+/* Izmantojam to mūsu piemērā augstāk: */
+
+
+/* Izmantojot šādu pieeju mēs rezultātā iegūstam, ka mēs pagriežot zaļo kvadrātu itkā redzam to no otras puses. Redzam tā otru pusi. Ja mēs iekš CSS parametra: backface-visibility: vērtības ierakstām: hidden, tad mēs redzam kartiņas otro pusi, bet neredzam priekšējo pusi. */
+
+/* Ļoti svarīgi ir zināt kur mēs visas šos mums jaunos CSS parametrus varam izmantot. Pats svarīgākais ir zināt par CSS parametru: transform: translate(), ka tā darbība - elementa novirzīšana - ir atkarīga no paša elementa izmēriem, kas mūsu gadījumā ir: height: 200px un width: 200px. */
+
+/* Kāda ir atšķirība starp CSS parametru saimes transform un position izmantošanu. CSS parametrs: transform tiek izmantots animācijām, tās ir plūstošākas nekā tad, ja izmantojam position. Paskatīsimies uz situāciju, kad tās izmantojam reālā piemērā kopā. */
+
+/* Izskatīsim to ar piemēru. Izveidojam iekš HTML dokumenta sarakstu,izmantojot tegs: <ul> un <li>. Izslēdzam iepriekšējo aktīvo kodu gan iekš HTML dokumenta, gan iekš CSS kaskādes stiliem: */
+
+/* 
+.menu {
+
+}
+
+.menu__body {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: -100%;
+	left: 0;
+	background-color: #7b957b;
+	padding: 80px 50px 50px;
+	overflow: auto;
+	/* transform: translate(0, -100%);
+	transition: all 0.3s ease 0s;
+}
+
+.menu__body:before {
+	content: "";
+	position: fixed;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #77608d;
+
+}
+
+.menu__item:not(:last-child) {
+	margin-bottom: 20px;
+
+}
+.menu__link {
+	color: #fff;
+}
+
+.wrapper:hover .menu__body {
+	/* transform: translate(0, 0);
+	top: 0;
+}
+
+.wrapper:hover .menu__body:before {
+	top: 0;
+} */
+
+/* Mēs redzam rezultātā, izmantojot CSS parametru: position: fixed diviem elementiem, vienam pievienojot to uz pseido elementa: before, kā arī izmantojam CSS parametru: overflow: auto, mums parādās lapai vertikālais scroll, ritināšanas iespēja, jo saturs neietilpst ekrānā. */
+
+/* No mūsu zināšanām mēs zinām, ka fiksēts elements nevar būt ar ritināšanas iespēju, tas nevar būt scroll. Bet mūsu piemērā violetais elements ir ar ritināšanas iespēju, tam ir scroll. */
+
+/* Bet mums ir nevēlams efekts. Mūsu violetais elements ritinās prom no ekrāna, tas aizritinās ciet. Bet mēs vēlamies, lai tas būtu fiksēts un tam nebūtu ritināšanas iespēja, lai tas vienmēr būtu fiksēts. Lai to panāktu mums ir jāizslēdz, jānoņem CSS parametrs: transform: translate. */
+
+/* Noņemot CSS parametru: transform: translate, pievienojam vairāk saturu iekš HTML dokumenta mēs iegūstam vēlamo rezultātu. Lapas augšai nav scroll efekta, bet pārējam saturam ir. Mēs esam panākuši vēlamo rezultātu. Mēs redzam, ka mūsu lapas cepure: teg: <header> ar teg <ul> un <li> aizritinās apakšā violetajam elementam. */
+
+/* Vēlāk, kad mācīsimies izstrādāt lapas cepuri, lapas menu ar burger pogu, mums būs vajadzīga šāda pieeja, lai lapas cepure ir fiksēta un pārējais lapas saturs aizpeld aiz tās, kad ritinām lapu uz priekšu. */
+
+/* Ja izmantojam CSS parametru: transform: translate, lai iegūtu efektu, kad uzvedam ar peli uz objekta, tiek parādīta lapas galvene un saturs. Bet mums nenotiek tas, ko mēs vēlamies: lapas galvene nav fiksēta un tā, kad ritinām lapu ritinās līdzi. Kaut esam noteikuši tai CSS parametru: position: fixed. */
+
+/* Ar šo piemēru mēs redzam, ka labākais šī piemēra atrisinājums ir izmantot CSS parametru: position, nevis CSS parametru: transform: translate. Šādi eksperimentējot mēs redzam, kurā gadījumā izmantot CSS parametrus: transform un position. */
+
+/* Šis bija uzskatāms piemērs, kur mēs saprotam, ka jāizmanto CSS parametrs: position: fixed, nevis CSS parametrs: transform: translate. */
+
+/* Bet tomēr paliek neatbildēts jautājums. Kā mēs varam parādīt sarakstu, kad uzvedam uz tā ar peli, un kā mēs varam panākt, ka lapas galvene ritinās līdzi lapai. */
+
+/* Lai atrisinātu šo problēmu mēs pievienojam CSS pozicionēšanas parametram: top: -100%; Mums arī violetajai lapas galvenei ir jāpievieno CSS parametrs: top: -100%; Atgriežamies pie mūsu piemēriem un pievienojam šo CSS pozicionēšanas parametrus. */
+
+/* Mēs noņemam abiem elementiem CSS parametru: transform: translate, pievienojam abiem elementiem CSS pozicionēšanas parametrus: top: -100% un pie uzvešanas ar peli, uz abiem elementiem izmantojam pseidoklasi: hover: atgriežam CSS pozicionēšanas parametru: top: 0; */
+
+/* Izpildot visas šīs darbības, mēs iegūstam vēlamo rezultātu. Lapas galvene un saraksts parādās, tad, kad mēs uzvedam uz tiem peli, kā arī lapas galvene ir fiksēta. Tā ritinās lapai līdzi. */
+
+/* Šī ir uzskatāma situācija, kad šādu uzdevumu risināt ir vislabāk izmantojot CSS pozicionēšanas parametrus. */
+
+/* ------------- */
+
+/* Atgriežamies nedaudz pie 10 lekcijas, kur mēs izskatījām situāciju ar tehniskajām klasēm, piemēram: _container. Mēs tam varējām izmantot CSS parametrus: margin, width utt. Bet ir vēl viens variants kā mēs varam aizstāt tehniskās klases. */
+
+/* Mēs varam atkal izmantot CSS atribūtus un iekš HTML dokumenta izmantot atribūtu: data-container. Pēc tam vēršamies pie tā šeit: CSS kaskādes stilos izmantojot [] iekavās rakstot: data--container un {} iekavas rakstot CSS parametrus: margin, width utt. */
+
+/* Šāda pieeja mums ir vajadzīga, lai neizmantotu parastu: container pierakstu, jo tad mēs neievērojam BEM metodoloģiju un mūsu faili neizies validāciju. Tādēļ izskatām piemērus izmantojot atribūtus. Izskatīsim to iekš mūsu piemēra. Izslēdzam iepriekšējos aktīvos kodus HTML un CSS failos. Izveidojam iekš HTML dokumenta bloku: about un pievienojam tam atribūtu: data--container. Vēršamies ar to šeit iekš CSS faila. */
+
+[data--container] {
+	margin: 0 auto;
+	max-width: 500px;
+	color: red;
+}
+
+/* Rezultātā mēs redzam, ka šāda pieeja darbojās. Redzam, ka mūsu bloka: about saturs ir lapas vidū. Vēlāk, kad mēs mācīsimies JavaScript programmēšanas valodu, mēs daudz strādāsim ar atribūtiem. Arī iekš HTML dokumenta. */
+
+/* Bet atkal šis nav labākais risinājums, jo programmētāju pasaulē ir pieņemts izmantot klases iekš HTML dokumenta, dot tām CSS parametrus vēršoties pie tām, bet HTML atribūtus izmantot priekš JavaScript programmēšanas valodas. */
+
+
+
 
 
 
