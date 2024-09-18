@@ -624,6 +624,9 @@ body {
 
 /* Bet atkal šis nav labākais risinājums, jo programmētāju pasaulē ir pieņemts izmantot klases iekš HTML dokumenta, dot tām CSS parametrus vēršoties pie tām, bet HTML atribūtus izmantot priekš JavaScript programmēšanas valodas. */
 
+/* Atceramies, ka, ja mēs veidojam kastīti ar: __container, tad mums priekšā jāraksta konkrētā bloka nosaukums: block__container vai about__container utt. Jo savādāk netiks ievērota BEM metodoloģija. Pierakstām divus pareizos piemērus HTML dokumentā: */
+
+
 
 
 
