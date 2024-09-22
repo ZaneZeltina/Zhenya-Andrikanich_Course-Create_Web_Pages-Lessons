@@ -1,0 +1,213 @@
+
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Gilroy", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #333;
+}
+
+/* Šinī lekcijā mēs mācīsimies par animācijām. Veidosim plūstošas pārējas izmantojot CSS parametru transition un animation. */
+
+
+/* Mēs mūsu 12 mājas darbu ar mašīnu atdzīvināsim, piešķirsim tai animāciju. */
+
+
+/* Mēs strādāsim ar veselu CSS parametru saimi. Līdzīgi kā mēs to darījām ar CSS parametru saimi: background. */
+
+/* Mācīsimies jauno tēmu par animācijām. Sāksim to ar vienkāršu piemēru, HTML dokumentā izveidojot parastu saiti: */
+
+.link {
+	color: #ffff00;
+}
+
+/* Kā pirmo mēs mācīsimies animāciju pāreju CSS parametru: transitions, kas tiek pielietots visiem elementiem, arī pseido elementiem. Tiek izmantots, lai atdzīvinātu mūsu lapu. Kas uzlabo mijiedarbību ar lapas lietotāju, parasti, lai nodrošinātu patīkamu animāciju, darbībām ar noteiktiem lapas elementiem. Piemēram: kad uzvedam uz saites ar peli, tā kustās - notiek animācija. Kā arī CSS parametrs: transition var tik izmantots lai veidotu vienkāršas animācijas. Faktiski CSS pārejas nodrošina citu parametru vērtību maiņu atsevišķām animācijām, iespējām. Visus šos animācijas efektus var panākt izmantojot CSS parametru saimi: transition vei arī izmantot atsevišķus CSS parametrus: transition. */
+
+/* Ar CSS parametru: transition mēs varam mainīt CSS parametrus, vērtības kādā laika intervālā, noteiktā laika intervālā. Mēs to varam izdarīt ņemot vērā vēl dažādas iespējas, patīkamus papildinājumus. */
+
+/* Izskatīsim piemēru ar mūsu saiti. Pielietosim mums jaunos CSS parametrus: */
+
+/*
+.link:hover {
+	color: #ff0000;
+} */
+
+/* Izmantojot CSS parametru: transition mēs varam nodrošināt, ka saites krāsa mainās plūstoši. */
+
+/* Kā pirmo animācijas veidu mēs arī mācīsimies: plūstošu pāreju. Pirmais CSS parametrs, ko mēs mācamies ir: transform-duration, kas nosaka laika intervālu kurā jānotiek pārejai. Mēs norādām cik ilgā laikā ir jānotiek pārējai no vienas vērtības uz otru, piemēram: saitei jāmainās krāsai. Notiek animācija. Šis CSS parametrs netiek mantots. */
+
+/* CSS parametra: transform-duration: noklusētā vērtība ir: 0, tādēļ mēs redzam, ka saite mainās uz sarkanu krāsu zibenīgi, tai nav plūstoša pāreja. Pielietojam šo CSS parametru mūsu piemērā ar saiti. */
+
+/*
+.link {
+	transition-duration: 0.5s;
+} */
+
+/* izpildot šo piemēru mēs iegūstam, ka mūsu saite maina krāsu plūstoši, pus sekundes laikā. Mēs izmantojam jaunu mērvienību: s - sekundes. Mēs varam arī izmantot mērvienību: ms - milisekundes. Bet ērtāk un pareizāk ir izmantot sekundes. Atceramies, ka mērvienības ir jānorāda caur punktu, nevis komatu, jo dators to nesapratīs un mums nekas nedarbosies. */
+
+/* Šāds nebūtisks sīkums ar saites plūstošu pāreju mūsu lapai piešķir vērtību, kā arī lietotājam ir daudz patīkamāk lietot mūsu lapu. Izmantojot šādu pieeju mēs nodrošinām lietotājiem patīkamu mijiedarbību ar mūsu lapu, un tas ir arī galvenais mūsu kā izstrādātāju mērķis. Šeit galvenais ir nepārcensties. Visam jābūt ar mēru. */
+
+/* Mums tiek iedoti jauni instrumenti kā mēs varam uzlabot lapu, uzlabot tās lietošanu, bet mums katru reizi izstrādājot lapu ir jāievēro, lai mēs uzlabotu lapas lietošanu, lai uzlabotos lietojamība. Mums jāsaprot intuitīvi kur un kā mēs varam izmantot jaunos CSS parametrus, lai nesabojātu lapas lietojamību. */
+
+/* Kā piemēram, ja norādīsim mūsu saitei CSS parametru: transition-duration: 2.5s, mūsu saite lapā mainīs krāsu ļoti lēni, un tas sabojās lapas lietojamību.  */
+
+/* Ar CSS parametriem priekš animācijām mums jābūt uzmanīgiem, jāpielieto tie pareizās vietās, ar loģiskām vērtībām. Jo izmantojot šo CSS parametru: transition mēs varam ievērojami uzlabot lapas izstrādi. Bet pielietojot to nepareizi mēs varam sabojāt lapas izstrādi, lapa var kļūt nelietojama. */
+
+/* Ar pieredzi mēs sapratīsim kur un kā tieši izmantot jaunos CSS parametrus, mums nepietiek tikai ar zināšanām, mums ir jāizjūt skaistums, kur un kā tieši pielietojot šos CSS parametrus mēs varam padarīt lapu skaistu, ērtu lietošanā, stabilu - drošu. */
+
+/* Mēs pārsvarā izmantosim mikro animācijas, kas ir: 0.2 vai 0.3 sekundes. Lai labāk saprastu kā tas darbojās, izveidojam HTML dokumentā otru saiti. Un šeit iekš CSS faila pielietojam: CSS parametru: transition-duration. Lai labāk saprastu kā tas darbojās, izslēdzam iepriekšējo aktīvo kodu ar CSS parametra: transition-duration piemēru: */
+
+/*
+.link_animation {
+	transition-duration: 0.3s;
+} */
+
+/* Mēs izmantojam minimālu animāciju, tā saucamo - mikro animāciju. Ko tas mums dod? Lietotājs lietojot mūsu lapu pat nepamanīs, ka šeit esam izmantojuši mikro animāciju. Bet lietotājam būs nezin kādēļ patīkami atrasties mūsu lapā. */
+
+/* Ja mums rodas situācija, kad nezinām cik laika intervālu: sekundes uzlikt kādam lapas elementam, lai nodrošinātu plūstošu pāreju, mums jāuzliek mikro animācija, piemēram: 0.3s, un mēs noteikti nekļūdīsimies. */
+
+/* Vis ir atkarīgs arī no lapas tematikas. ja tā ir kāda biznesa lapa, tad visam ir jānotiek nedaudz ātrāk, bet ja tā ir kāda neitrāla, mierīgas tēmas lapa, piemēram: par tējas dzeršanu, meditēšanu, tad šeit mēs varam likt lēnāku animāciju, lielākas sekundes, piemēram: 0.3s un 0.4s. */
+
+/* Svarīgi, ka mainot vairākus CSS parametrus, tie visi animēsies. Izskatām to ar piemēru, mainot font-size mūsu saitei. Izslēdzam iepriekšējo aktīvo kodu, lai labāk saprastu kā tas darbojās: */
+
+.link:hover {
+	color: #ff0000;
+	font-size: 20px;
+}
+
+/*
+.link_animation {
+	transition-duration: 0.3s;
+} */
+
+/* Rezultātā mēs redzam, ka saitēm mainās ne tikai krāsā bet arī šrifta lielums. Ar šo piemēru mēs redzam, ka tiek animēti visi CSS parametri, kurus norādām iekš pseidoklases: hover. */
+
+/* Mums ir iespēja iekš CSS parametra: transition-duration: norādīt divas vērtības vai vairāk, ja mums ir vairāki CSS parametri, kuriem vēlamies norādīt izpildes laiku sekundēs vai milisekundēs. Izslēdzam iepriekšējo aktīvo kodu. Izskatām to ar piemēru: */
+
+.link_animation {
+	transition-duration: 0.3s, 1.2s;
+}
+
+/* Rezultātā mēs redzam, ka saitei mainās krāsa pēc 0.3 sekundēm, bet šrifta lielums mainās pēc 1.5 sekundēm. */
+
+/* Plūstoša animācija, plūstoša pāreja nedarbojas ar visiem CSS parametriem. Piemēram, ja mēs mainām elementa tipu, izmantojot CSS parametru: display: block uz display: none. Tam nedarbosies hover efekts, nedarbosies plūstoša pāreja, tas vienkārši kļūs neredzams. Tas pats arī attiecās uz CSS parametru: visibility: visible un visibility: hidden. */
+
+/* Kādēļ tas tā notiek? Tādēļ, ka mainot šos parametrus zūd hover efekts. Tādēļ arī nedarbojas plūstošas animācijas, jo mēs mainām elementu tipu un redzamību. Atceramies, ka CSS parametrs: visibility parāda vai noslēpj elementu, un mums zūd iespēja mijiedarboties ar šiem elementiem. Un protams zūd arī pseido elementu izmantošana. */
+
+/* Bet piemēram CSS parametrs: opacity lieliski animēsies. Izskatām to ar piemēru: */
+
+/*
+.link {
+	opacity: 0;
+}
+
+.link:hover {
+	opacity: 1;
+} */
+
+/* Mēs redzam, ka sākumā mūsu saites nav redzamas, bet kad uzvedam uz tām ar peli tās parādās. Viena acu mirklī, otra ar plūstošu pāreju: 0.3s. */
+
+/* Lekcijas beigās mums būs špikeris, kur varēsim visu šinī lekcijā izskatīto redzēt un labāk saprast kā tieši šis vis darbojas. */
+
+/* Šobrīd mums ir svarīgi saprast, ka netiek animēti tādi CSS parametri, kas kardināli maina objektu - elementu. Tiek animēti visi CSS parametri, kur ir pikseļu vērtības, krāsu vērtības utt. */
+
+/* Nākošais CSS parametrs ko mums ir jāzin ir: transition-property: ar noklusējuma vērtību: all, kas satur vairākas vērtības, ar kurām tiek nodrošināta plūstoša pārēja - animācija kādam objektam. Šis CSS parametrs var saturēt vienu vērtību, kā arī vairākas, atdalot tās ar komatu. */
+
+/* Svarīgi zināt, ka visi CSS parametri, kas nodrošina plūstošu pāreju - animāciju netiek mantoti, tie nav mantojami no saviem vecākiem. */
+
+/* Mēs iekš CSS parametra: transition-property: kā vērtību varam ierakstīt piemēram: color. Izslēdzam CSS parametru: opacity. Izskatām to ar piemēru: */
+
+/*
+.link_animation {
+	transition-property: color;
+} */
+
+/* Rezultātā mēs redzam, ka plūstoša pāreja - animācija notiek tikai saites krāsai, bet šrifta lielumam tā paliek ar noklusējuma vērtību: 0s, un tam nav plūstošas pārejas - animācijas. */
+
+/* Izmantojot šādu pieeju mēs varam noteikt, kurš tieši CSS parametrs tiks animēti, vai viens, vai vairāki, vai visi. Mēs izmantojot komatu varam noteikt vairākus CSS parametrus, kuri tiks animēti. Izskatām to ar piemēru zemāk, izslēdzam iepriekšējo aktīvo kodu: */
+
+.link_animation {
+	transition-property: color, font-size;
+}
+
+/* Rezultātā mēs redzam, ka notiek plūstoša pāreja - animācija, gan krāsai, gan šrifta izmēram. */
+
+/* CSS parametra: transition-property: noklusētā vērtība ir: all, kas nozīmē, ka animācija - plūstoša pāreja būs visiem CSS parametriem. */
+
+/*
+.link_animation {
+	transition-property: all;
+} */
+
+/* Izskatām nākošo CSS parametra transition saimes parametru: transition-delay: kas nosaka pēc cik ilga laika notiks animācija - plūstoša pāreja. Tas nozīmē, ka animācija nesāksies uzreiz, bet gan pēc noteikta laika, pēc tā laika, ko būsim norādījuši sekundēs vai milisekundēs. */
+
+/* Šī CSS parametra: transition-delay: noklusētā vērtība ir: 0. Izskatām to ar piemēru: */
+
+.link_animation {
+	transition-delay: 1s;
+}
+
+/* Rezultātā mēs redzam, ka mūsu saite maina krāsu un šrifta lielumu pēc 1 sekundes. */
+
+/* CSS parametra: transition-delay: var norādīt vairākas vērtības, ja mums ir vairāki CSS parametri, kuriem vēlamies norādīt animācijas laiku. Izskatām to ar piemēru: */
+
+.link_animation {
+	transition-delay: 0.3s, 1.5s;
+}
+
+/* Mēs redzam, cik konkrēti varam norādīt dažādus CSS transition saimes parametrus, lai iegūtu mums vēlamo rezultātu. Vis kļūst aizvien interesantāk. */
+
+/* Kā nākošo CSS parametru saimes: transition parametru mēs izskatām: transition-timing-function: kas nosaka mūsu animācijas - plūstošās pārejas stilu. Pēc noklusējuma tā vērtība ir: ease. */
+
+/* Kas tad ir CSS parametrs: transition-timing-function? Tā ir funkcija jeb greiza līnija pa kuru notiek plūstoša pāreja - animācija. Izskatām to ar piemēru: */
+
+.link_animation {
+	transition-timing-function: ease;
+}
+
+/* Elementi netiks animēti - nenotiks plūstoša pāreja taisni pa līniju, netiks lineāri animēti, bet tie tiks animēti pa īpašu loku. Lai iegūtu lineāru pāreju - animāciju mums iekš CSS parametra: transition-timing-function vērtības jānorāda: linear. Tad mūsu elementi tiks animēti lineāri pa līniju. */
+
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
