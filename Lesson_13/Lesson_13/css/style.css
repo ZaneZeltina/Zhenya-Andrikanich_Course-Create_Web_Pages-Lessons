@@ -28,7 +28,7 @@ body {
 	font-family: "Gilroy", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	background-color: #333;
+	background-color: #5c5c5c;
 }
 
 /* Šinī lekcijā mēs mācīsimies par animācijām. Veidosim plūstošas pārējas izmantojot CSS parametru transition un animation. */
@@ -108,9 +108,10 @@ body {
 
 /* Mums ir iespēja iekš CSS parametra: transition-duration: norādīt divas vērtības vai vairāk, ja mums ir vairāki CSS parametri, kuriem vēlamies norādīt izpildes laiku sekundēs vai milisekundēs. Izslēdzam iepriekšējo aktīvo kodu. Izskatām to ar piemēru: */
 
+/*
 .link_animation {
 	transition-duration: 0.3s, 1.2s;
-}
+} */
 
 /* Rezultātā mēs redzam, ka saitei mainās krāsa pēc 0.3 sekundēm, bet šrifta lielums mainās pēc 1.5 sekundēm. */
 
@@ -150,9 +151,10 @@ body {
 
 /* Izmantojot šādu pieeju mēs varam noteikt, kurš tieši CSS parametrs tiks animēti, vai viens, vai vairāki, vai visi. Mēs izmantojot komatu varam noteikt vairākus CSS parametrus, kuri tiks animēti. Izskatām to ar piemēru zemāk, izslēdzam iepriekšējo aktīvo kodu: */
 
+/*
 .link_animation {
 	transition-property: color, font-size;
-}
+} */
 
 /* Rezultātā mēs redzam, ka notiek plūstoša pāreja - animācija, gan krāsai, gan šrifta izmēram. */
 
@@ -167,17 +169,19 @@ body {
 
 /* Šī CSS parametra: transition-delay: noklusētā vērtība ir: 0. Izskatām to ar piemēru: */
 
+/*
 .link_animation {
 	transition-delay: 1s;
-}
+} */
 
 /* Rezultātā mēs redzam, ka mūsu saite maina krāsu un šrifta lielumu pēc 1 sekundes. */
 
 /* CSS parametra: transition-delay: var norādīt vairākas vērtības, ja mums ir vairāki CSS parametri, kuriem vēlamies norādīt animācijas laiku. Izskatām to ar piemēru: */
 
+/*
 .link_animation {
-	transition-delay: 0.3s, 1.5s;
-}
+	transition-delay: 0.4s;
+} */
 
 /* Mēs redzam, cik konkrēti varam norādīt dažādus CSS transition saimes parametrus, lai iegūtu mums vēlamo rezultātu. Vis kļūst aizvien interesantāk. */
 
@@ -185,13 +189,191 @@ body {
 
 /* Kas tad ir CSS parametrs: transition-timing-function? Tā ir funkcija jeb greiza līnija pa kuru notiek plūstoša pāreja - animācija. Izskatām to ar piemēru: */
 
+/*
 .link_animation {
 	transition-timing-function: ease;
+} */
+
+/* Elementi netiks animēti - nenotiks plūstoša pāreja taisni pa līniju, netiks lineāri animēti, bet tie tiks animēti pa īpašu loku. Lai iegūtu lineāru pāreju - animāciju mums iekš CSS parametra: transition-timing-function vērtības jānorāda: linear. Tad mūsu elementi tiks animēti lineāri pa līniju. Mēs to iegūstam pierakstot šādi: */
+
+/*
+.link_animation {
+	transition-timing-function: linear;
+} */
+
+/* Vizuāli šim piemēram mēs neredzam atšķirību, bet tā ir. Mūsu saite tiek animēta lineāri, pa līniju. */
+
+/* CSS parametra: transition-timing-function: ease animē elementu itkā ar loku, kas sākas no lejas lēni, un tad itkā strauji ar loku, un beidzās arī nedaudz lēnāk. Dotajā piemērā augstāk, mēs īsti neredzam atšķirību starp ease un linear, bet tā tomēr ir. */
+
+/* Mēs zinam, ka CSS parametra: transition-timing-function: noklusējuma vērtība ir: ease. Tam ir vēl citas vērtības. Bet pārsvarā visur tiek izmantota tieši: ease vērtība. Mums izstrādājot lapas ir svarīgi atcerēties tieši par ease vērtību, jo pārsvarā tiek izmantota tieši tā. Par pārējām mums nav tik svarīgi zināt. */
+
+/* CSS parametrs: transition-timing-function: ease ir fundamentālas zināšanas, pārējās vērtības ir papildus zināšanas. Lekcijas beigās mums būs arī špikeris, ar visu, ko šodien apgūsim. */
+
+/* Lai izstrādātu plūstošu pāreju - animāciju mums ar šīm zināšanām ir pietiekami, bet paskatīsimies uz sarežģītāku piemēru, kur efekts ir interesantāks, izslēdzam iepriekšējo aktīvo kodu, lai mēs labāk saprastu kā tas darbojās: */
+
+/*
+.link_animation {
+	transition-timing-function: steps(2, start);
+} */
+
+/* Rezultātā mēs iegūstam interesantu efektu. Mūsu pāreja - animācija notiek pa soļiem, pirmais solis, otrais solis. Pirmā vērtība iekš steps(2) norāda to, ka animācija sadalās divos soļos ar tādu laika intervālu, kādu mēs esam norādījuši iekš CSS parametra: transition-duration: laiks tiek sadalīts uz pusēm. Ja piemēram: esam norādījuši: 0.4s vai 0.2s tad tas tiek sadalīts divās daļās. */
+
+/* Otra vērtība: start nozīmē to, ka animācija sāksies no sākuma. Mēs nekavējoties sākam šos animācijas - plūstošās pārejas soļus. Bet, ja norādīsim vērtību: end, tad mūsu animācija - plūstošā pāreja notiks ar aizturi. */
+
+/* Kur CSS parametrs: transition-timing-function: steps(2, start) izmantošana mums var būt noderīga? Tā var noderēt, lai izveidotu pulksteni vai kādu apļa grafiku, kas arī darbojās kā pulkstenis. Bet vai tas būs vajadzīgs lapu izstrādē, varbūt ļoti īpašos gadījumos. */
+
+/* Kad mums vajag īpaši smalki uzstādīt CSS parametra: transition-timing-function: vērtības, kā zemāk piemērā, izslēdzam iepriekšējos aktīvos kodus, lai labāk redzētu kā tas darbojās: */
+
+/*
+.link_animation {
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} */
+
+/* Mēs iegūstam ļoti konkrēti uzstādītu plūstošu pāreju - animāciju. Mēs redzam, ka mēs varam ļoti smalki, principā ieprogrammēt mūsu animāciju. */
+
+/* Atceramies, ka visi šie instrumenti ir kā dažādi risinājumi kādam uzdevumam. Un mums nav tagad visur jāizmanto: cubic-bezier(), jo mums jāiemācās izmantot parastos CSS transition parametrus, kas pieder pie fundamentālām zināšanām. Mums vēl nav tik daudz pieredzes, lai adekvāti izmantotu CSS parametru: transition-timing-function: cubic-bezier(). */
+
+/* Mums nav nepieciešams reizēs, kad mums tomēr vajag izmantot CSS parametru: transition-timing-function: cubic-bezier:() izdomāt vērtības, jo internetā ir daudz resursu, kur mēs varam izvēlēties gatavu rezultātu, tādu kādu mums vajag, un iegūt kodu, iekopēt iekš () iekavām un iegūt rezultātu. */
+
+/* Kā redzam, mums nav nepieciešams visu šo iegaumēt, iksevišķi sarežģītos CSS parametrus: transition-timing-function: jo māksla nav tos izmantot, bet māksla ir pareizi tos izmantot. */
+
+/* Šos visus CSS parametrus, ko mēs apguvām, mēs varam pierakstīt vienā universālā rindā izmantojot CSS parametru: transition: un uzskaitot visas vērtības. Izslēdzam iepriekšējos aktīvos kodus un izskatām to ar piemēru: */
+
+/*
+.link_animation {
+	transition: font-size 1s ease 0.5s, color 5s ease-out 0s;
+} */
+
+/* Izmantojot saīsināto universālo CSS parametru: transition, mēs iegūstam, ka mūsu saite ātri maina šrifta lielumu, bet krāsa mainās lēni. Šādi mēs vienā rindā varam sarakstīt visu CSS parametra: transform izmantošanas saimi, lai iegūtu plūstošas pārejas - animācijas. */
+
+/* Īsāks, konkrētam elementam izmantojams CSS parametra saimes: transition pieraksts ir šāds: */
+
+/*
+.link_animation {
+	transition: all 0.3s ease 0s;
+} */
+
+/* Izmantojot vienkāršu, saīsinātu CSS parametru saimes: transition pierakstu mēs iegūstam vēlamo efektu. Mēs vienlaicīgi nosakām, ka vis tiks animēts, 0.3s laikā, ease stilā un ar 0s aizturi. */
+
+/* Pats īsākais veids, ne'mot vērā CSS parametra saimes: transition noklusētās vērtības, mēs varam vēl saīsināti pierakstīt to un iegūt tieši to pašu rezultātu kā augstāk piemērā. Izslēdzam iepriekšējo aktīvo kodu un pierakstām: */
+
+.link_animation {
+	transition: 0.3s;
 }
 
-/* Elementi netiks animēti - nenotiks plūstoša pāreja taisni pa līniju, netiks lineāri animēti, bet tie tiks animēti pa īpašu loku. Lai iegūtu lineāru pāreju - animāciju mums iekš CSS parametra: transition-timing-function vērtības jānorāda: linear. Tad mūsu elementi tiks animēti lineāri pa līniju. */
+/* Rezultātā mēs redzam, ka rezultāts ir tieši tāds pats, kā ja izmantojam garāko pierakstu. Mēs varam ņemot vērā mērķi - uzdevumu pierakstīt garāko piemēru, ja zinām, ka mums būs kādas vērtības jāmaina. Bet, ja zinam, ka nē, tad vram izmantot saīsināto pierakstu. */
 
-/*  */
+/* Mēs izmantojot saīsināto piemēru iegūstam to, ka visi CSS parametri,kas padodas animācijai tiek animēti - iegūst plūstošu pāreju, kā mūsu gadījumā: 0.3 sekunžu laikā. */
+
+/* Mums pēc noklusējuma CSS parametrs: transition-timing-function ir ease, kas arī skaitās pati patīkamākā plūstošā pāreja - animācija. Ne velti tā pēc noklusējuma ir: ease. Un mums nav nepieciešams katru reizi to rakstīt. */
+
+/* Izskatīsim apgūtos jaunos CSS parametru saimes: transition izmantošanu ar praktiskiem piemēriem: Izslēdzam iepriekšējos aktīvos kodus. Mēs izskatīsim transition izmantošanas piemērus, lai labāk saprastu kā un kur tos adekvāti pielietot. Atgriežamies HTML dokumentā un izmantojot saiti, izveidojam pogu. Izslēdzam iepriekšējo aktīvo kodu ar saitēm. */
+
+/*
+.button {
+	display: inline-block;
+	color: #fff;
+	background-color: #008000;
+	border-radius: 10px;
+	padding: 10px 15px;
+	box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
+	transition: 0.3s;
+}
+
+.button:hover {
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
+	transform:translate(0, 3px);
+} */
+
+/* Šinī piemērā mēs izveidojam pogu, pievienojam tai apakšējo ēnu, izmantojam pseido klasi: hover, nobīdām pa asi X pogu uz leju. Iegūstam efektu, ko vēlējāmies. Pievienojam pogai plūstošu pāreju - animāciju, kas mūsu gadījumā ir mikro animācija. Iegūstam, ka poga plūstoši kustas, kad uzvedam uz tās ar peli. */
+
+/* Redzam, ka mēs šeit lietojam CSS parametru: transform: translate mūsu pogai pie hover efekta,  bet mēs to lietojam pareizi, jo, ja mēs noteiksim: transform: translate(0, 10px), tad mēs iegūsim nevēlamu efektu, pārspīlētu efektu, mūsu poga nobīdīsies par daudz uz leju. */
+
+/* Tas pats attiecās uz CSS parametru: transition: ja noteiksim piemēram: 5s, tad arī iegūsim nevēlamu, neadekvātu efektu. Tādēļ, mēs uzreiz ar piemēriem redzam, kur un kā, ko tieši izmantot, lai tas būtu adekvāti. */
+
+/* Mēs redzam, ka mūsu poga ir kļuvusi daudz patīkamāka, lietotājam ir daudz patīkamāk uz tās uzvest. */
+
+/* Arī, ja mēs noteiksim pogai ar hover efektu CSS parametru: transform: translate(10px, 0), mēs iegūsim neadekvātu, lietotājam nepatīkamu efektu, poga slīdēs prom no lapas kreisās puses uz labo. */
+
+/* Šādi paeksperimentējot ar CSS parametriem: transform un transition mēs varam secināt, kādas ir adekvātas vērtības un kādas ir neadekvātas vērtības, lietotājam nepatīkami efekti. */
+
+/* Mums ir jānodrošina patīkama lapas lietojamība lietotājam. Ar šiem CSS parametriem, kad veidojam menu vai pogas, mums ir jānodrošina, ka lietotājam ir ērti un patīkami atrasties un pārvietoties pa mūsu lapu. */
+
+/* Šo pašu efektu mēs varam panākt izmantojot CSS parametru saimi: position, bet tad būtu vairāk koda, un šinī gadījumā vispareizāk ir izmantot tieši CSS parametru: transform: translate(). */
+
+/* Izskatīsim piemēru, izveidojot HTML dokumentā sarakstu: menu. Izslēdzam iepriekšējo aktīvo kodu HTML dokumentā ar pogu. Šeit arī izslēdzam aktīvo kodu ar pogas parametriem. */
+
+.menu {
+	overflow: hidden;
+}
+
+.menu:hover .menu__list {
+	transform: translate(0);
+	transition: 0.6s;
+}
+
+.menu:hover .menu__item {
+	transform: translateX(0);
+}
+
+.menu:hover .menu__item:nth-child(1) {
+	transition-delay: 0s;
+}
+
+.menu:hover .menu__item:nth-child(2) {
+	transition-delay: 0.2s;
+}
+
+.menu:hover .menu__item:nth-child(3) {
+	transition-delay: 0.4s;
+}
+
+.menu:hover .menu__item:nth-child(4) {
+	transition-delay: 0.6s;
+}
+
+.menu__list {
+	background-color: #008000;
+	padding: 15px;
+	transform: translateX(-100%);
+	transition: all 0.3s ease 0s;
+}
+
+.menu__item {
+	transform: translateX(-100%);
+	transition-duration: 0.5s;
+}
+
+.menu__item:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+
+.menu__link {	
+	color: #fff;
+}
+
+/* Mēs izstrādājot šādu menu mūsu lapā, pielietojot CSS parametrus: transform un transition, iegūstam, ka mūsu menu sākotnēji nav redzams, jo mēs to nobīdām pa asi X:(-100%), to nobīdām pa kreisi, izmantojam vecākam elementam: menu CSS parametru: overflow:hidden, lai neredzētu menu malas. */
+
+/* Izmantojam pseido klasi: hover mūsu menu, vēršamies pie menu__list un izmantojot CSS parametru: transform: translate(0) iegūstam, ka tad, kad uzvedam uz menu ar peli, tas no lapas kreisās puses izmantojot animāciju, tas mums atkal parādās. */
+
+/* Bet mēs varam iegūt vēl interesantāku efektu. Sarežģīsim nedaudz mūsu piemēru. */
+
+/* Mēs vēršamies pie menu, pie hover efekta, katram saraksta elementam izmantojot nth-child, pievienojot CSS parametru: transition-delay: dodot tam katram elementam lielāku laika intervālu iegūstam to, ka mums katrs saraksta punkts parādās viens aiz otra. Iegūstam plūstošu pāreju - animāciju, katram mūsu punktam. */
+
+/* Tagad mūsu saraksts ir kļuvis interaktīvs. Un to visu mēs panākam tikai ar HTML un CSS parametriem. Ar tām zināšanām, kas mums ir dotajā brīdī, mēs jau varam paveikt brīnumus. */
+
+/* Tagad paskatīsimies kur tieši mums ir nepieciešams izmantot CSS parametru saimi: transition. Mums ir uzstādīts CSS parametrs: transition uz menu__list un menu__item. Kādēļ tā? Mēs neliekam to mirklī, kad uzvedam uz tā ar peli, izmantojot hover efektu, bet mēs liekam to pēc noklusējuma uz elementiem. */
+
+/* Vis pareizākais ir norādīt CSS parametru uz parastiem elementiem, to parastajā stāvoklī, jo, ja mēs norādīsim CSS parametru: transition uz hover efekta, tad mums tas darbosies tikai, tad, kad uzvedīsim uz tā ar peli, bet, tam nebūs atpakaļ ceļa, tas neaizies atpakaļ, nepazudīs. Tādēļ mēs to izmantojam pēc noklusējuma tiem elementiem, kurus vēlamies animēt - izmantot plūstošu pāreju. */
+
+/* Iesācēji bieži pieļauj šo kļūdu norādot CSS parametru: transition pie hover efekta, tādejādi nedodot iespēju tiem aiziet atpakaļ. Tagad to saprast mums ir grūti, bet, jo vairāk praktizēsimies, jo labāk sapratīsim, kur un kā pareizi izmantot šo CSS parametru. */
+
+/* Pareizi visu norādot mēs iegūstam iespēju CSS parametru: transition noteikt, gan, kad tiks parādīts elements, cik ilgā laikā tas parādīsies - animēsies, gan arī, cik ilgā laikā tas pazudīs. Mēs uzlabojam mūsu piemēru ar menu vēl vairāk */
+
+
+
+
+
 
 
 
