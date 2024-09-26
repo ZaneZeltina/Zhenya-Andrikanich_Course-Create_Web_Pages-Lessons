@@ -303,45 +303,47 @@ body {
 
 /* Izskatīsim piemēru, izveidojot HTML dokumentā sarakstu: menu. Izslēdzam iepriekšējo aktīvo kodu HTML dokumentā ar pogu. Šeit arī izslēdzam aktīvo kodu ar pogas parametriem. */
 
+/*
 .menu {
 	overflow: hidden;
 }
 
 .menu:hover .menu__list {
 	transform: translate(0);
-	transition: 0.6s;
+	transition-delay: 0s;
 }
 
 .menu:hover .menu__item {
 	transform: translateX(0);
 }
 
-.menu:hover .menu__item:nth-child(1) {
-	transition-delay: 0s;
-}
-
-.menu:hover .menu__item:nth-child(2) {
-	transition-delay: 0.2s;
-}
-
-.menu:hover .menu__item:nth-child(3) {
-	transition-delay: 0.4s;
-}
-
-.menu:hover .menu__item:nth-child(4) {
-	transition-delay: 0.6s;
-}
-
 .menu__list {
 	background-color: #008000;
 	padding: 15px;
 	transform: translateX(-100%);
-	transition: all 0.3s ease 0s;
+	transition: 0.5s;
+	transition-delay: 0.8s;
 }
 
 .menu__item {
 	transform: translateX(-100%);
 	transition-duration: 0.5s;
+}
+
+.menu__item:nth-child(1) {
+	transition-delay: 0s;
+}
+
+.menu__item:nth-child(2) {
+	transition-delay: 0.2s;
+}
+
+.menu__item:nth-child(3) {
+	transition-delay: 0.4s;
+}
+
+.menu__item:nth-child(4) {
+	transition-delay: 0.6s;
 }
 
 .menu__item:not(:last-child) {
@@ -350,7 +352,7 @@ body {
 
 .menu__link {	
 	color: #fff;
-}
+} */
 
 /* Mēs izstrādājot šādu menu mūsu lapā, pielietojot CSS parametrus: transform un transition, iegūstam, ka mūsu menu sākotnēji nav redzams, jo mēs to nobīdām pa asi X:(-100%), to nobīdām pa kreisi, izmantojam vecākam elementam: menu CSS parametru: overflow:hidden, lai neredzētu menu malas. */
 
@@ -370,26 +372,70 @@ body {
 
 /* Pareizi visu norādot mēs iegūstam iespēju CSS parametru: transition noteikt, gan, kad tiks parādīts elements, cik ilgā laikā tas parādīsies - animēsies, gan arī, cik ilgā laikā tas pazudīs. Mēs uzlabojam mūsu piemēru ar menu vēl vairāk */
 
+/* Mēs pievienojam CSS parametru: transition menu hover efektam vēršoties pie menu__list, kas nozīmē cik ilgā laikā mums sāksies, notiks animācija un pēc tam vēršamies pie noklusējuma menu__list nosakot cik ilgā laikā plūstošā pāreja - animācija beigsies. Šādi mēs varam sīki un smalki izstrādāt animācijas. */
 
+/* Mēs varam noteikt animācijas - plūstošās pārejas aizturi, izmantojot CSS parametru: transition-delay. Mēs iekš menu__list ierakstām CSS parametru: transition-delay: 1s. Atceramies, ka mēs atstājam iepriekšējo transition: 0.5s. Bet šeit ir svarīgi norādīt pie hover efekta: transition-delay: 0s. */
 
+/* Rezultātā mēs redzam, ka mūsu animācija - plūstošā pāreja notiek ar vienas sekundes aizturi. Tā parādās un pazūd ar vienas sekundes aizturi. */
 
+/* Mums ir iespēja mūsu sarakstu punktiem uzlikt plūstošu pāreju - animāciju uz atpakaļu. Mūsu piemērā pierakstām CSS parametru: transition-delay vēršoties pie vienkāršā menu__item stāvokļa izmantojot: nth-child. Skatīt augstāk piemērā: */
 
+/* Rezultātā mēs iegūstam, ka mūsu saraksta punkti plūstoši pāriet - notiek animācija uz pretējo pusi, tie pazūd. Vēršamies pie menu__list un uzliekam nedaudz mazāki transition-delay: 0.8s. */
 
+/* Rezultātā mēs izmantojot HTML un CSS esam ieguvuši sarežģītu, bet patīkamu  efektu. Mēs redzam, ka izmantojot vienkāršus CSS parametrus, kurus mēs jau tagad zinam, mēs varam izstrādāt interesantas lietas. */
 
+/* Tas arī ir galvenais programmētāju uzdevums, izdomāt ko vēl var izdarīt ar jau esošajām zināšanām. Jo pats galvenais izstrādātāju mērķis ir ne vis iegūtās zināšanas, bet prasme tās izmantot, lai radītu kaut ko jaunu. */
 
+/* Mums ir vajadzīgas zināšanas un arī mākslinieka pieeja, lai tās pareizi un īstajā vietā prastu pielietot. Labi mākslinieki iziet no standarta rāmjiem un rada ko jaunu - unikālu. */
 
+/* Pats galvenais mūsu mācību mērķis ir prasme domāt. Nav tik svarīgi cik CSS parametrus mēs zinām, jo svarīgāka ir prasme domāt, kas būs, ja es izdarīšu šādi vai citādi, kā es vienu uzdevumu varu paveikt vis labāk, kādu pieeju man izmantot. */
 
+/* Šim piemēram menu, kam mēs realizējām animāciju - plūstošu pāreju, sākumā un beigās ir viens būtisks mīnus: ja mums iekš HTML parādīsies vēl viens saraksta punkts, tad tas nedarbosies kopā jau ar esošajiem punktiem. Mums vajadzēs to atkal šeit iekš CSS parametriem ierakstīt, izmantojot: nth-child(5) un noteikt tam lielāku transition-delay: 0.8s un to pievienot arī pie atpakaļ pazušanas animācijas. */
 
+/* Mēs varam mūsu sarakstam noņemt hover efektu no menu__item:nth-child(), atstāt tikai to uz parastā menu__item: nth-child() stāvokļa. Mēs redzam, ka mums nekas nemainās, vis darbojas, jo hover efekts mums bija vajadzīgs tikai sākumā, lai labāk saprastu kā pareizi darbojās animācijas. */
 
+/* Bet, ko darīt, ja mums HTML dokumentā parādās jauns punkts iekš mūsu menu. Kad strādāsim ar JavaScript, tad mēs uzzināsim kā pareizi šo situāciju atrisināt. Pagaidām, kamēr mēs nezinam JavaScript mums būtu katram jaunam punktam vēršoties caur jaunu :nth-child() jāpievieno CSS parametrs: transition-delay: katru reizi kā vērtību norādot lielāku laiku. */
 
+/* Virzamies tālāk izskatot jaunus piemērus. Izslēdzam aktīvo kodu šeit CSS un HTML dokumentā. */
 
+/* Mēs esam tikuši skaidrībā ar CSS parametru: transition. Esam sapratuši kā tas darbojās un kā mēs to varam izmantot. Pats galvenais ir saprast, ka CSS parametrs: transition pie konkrētas darbības kaut ko maina, iekustina. Kā mūsu gadījumā pie uzvešanas ar peli uz saraksta. */
 
+/* -------------------------- */
 
+/* Apgūstam jaunu CSS parametru: animation, kas ir vēl labāks par transition. Izveidojam HTML dokumentā bloku. Atdalīsim iepriekšējo kodu, jo sākam jaunu tēmu. */
 
+/* Būtiskākā CSS parametra: animation īpašība ir tā, ka tam ir @keyframes. Animation priekšrocība ir tā, ka ja to izmantojam, mūsu lapu izstrāde kļūst dinamiskāka un atsaucīgāka, nekā pie transition izmantošanas. Tā dod mums iespēju atdzīvināt mūsu lapu, labākai mijiedarbībai ar lietotāju un pārsteidzošiem efektiem. */
 
+/* Atšķirībā no plūstošas pārejas - animācijas, CSS parametram: animation ir @keyframes, kas ir uz noteiktu kadru bāzes, kas ļauj automātiski izveidot un atkārtot efektus tam noteiktajā laikā, ko esam norādījuši, kā arī noteiktā laikā - gadījumos apstādināt mūsu animāciju. */
 
+/* Īsāk sakot izmantojot CSS parametru: animation un @keyframes mums dod iespēju izstrādāt daudz sarežģītākas animācijas. Tiešā nozīmē: @keyframes ir kadri. Iespējamie scenāriji. Izmantojot animāciju mēs nosakām laiku, kad tā tiks attēlota un izmantojot @keyframes mēs nosakām kuros brīžos notiks konkrētas lietas. */
 
+/* @keyframes ir attīstītāka animāciju versija nekā transition. Var teikt tas ir transition maksimālisms. Izmantojot: @keyframes mēs noteiktos laikos, gadījumos varam mainīt CSS parametrus. */
 
+/* CSS parametrs: animation nav tikai viens, tā ir vesela saime. Kā pirmo izskatīsim: animation-name, kas nosaka elementam animāciju sarakstu ( ieslēgtos kadrus ). Tos var norādīt vairākus, atdalot ar komatu. Vislielākā prioritāte būs pēdējam rakstītajam. */
 
+/* Mums ir jāizveido saikne connect animation-name un @keyframes. Kā mēs to varam izdarīt. Mēs rakstām iekš animation-name: someName un rakstām @keyframes someName. Šādi mēs viņus abus sasaistām. Izskatām to mūsu block piemērā: */
 
+.block {
+	width: 200px;
+	height: 200px;
+	background-color: #7a956b;
+	animation-name: someName;
+	animation-duration: 2s;
+}
+
+@keyframes someName {
+		0% {
+			transform: translate(0px, 0px);
+}
+		100% {
+			transform: translate(200px, 0px);
+}
+	}
+
+/* Mēs sasaistām šos abus CSS parametrus, un iekš @keyframes varam izmantot mums jau zināmus CSS parametrus: transform: translate(). Mēs liekam līniju, izmantojot procentus, sākot no 0% un beidzot ar 100%. Mums ir animācijas sākums un animācijas beigas. */
+
+/* Iepriekš mums bija CSS parametrs: transition-duration, tagad mums ir līdzīgs CSS parametrs: animation-duration. To mēs nosakām mūsu blokam. Iekš @keyframes izmantojam CSS parametru: transform: translate(). */
+
+/* Ievērojam stingru sintaksi, šeit ļoti svarīgi ir pareizi uzrakstīt, lai notiktu animācija. Mūsu piemērā mēs nosakām, ka mūsu zaļais kvadrāts animēsies 200px pa labi, no tā sākuma punkta. */
 
