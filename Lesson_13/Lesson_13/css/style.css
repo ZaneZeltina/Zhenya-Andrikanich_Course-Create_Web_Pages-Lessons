@@ -416,12 +416,18 @@ body {
 
 /* Mums ir jāizveido saikne connect animation-name un @keyframes. Kā mēs to varam izdarīt. Mēs rakstām iekš animation-name: someName un rakstām @keyframes someName. Šādi mēs viņus abus sasaistām. Izskatām to mūsu block piemērā: */
 
+/*
 .block {
 	width: 200px;
 	height: 200px;
 	background-color: #7a956b;
 	animation-name: someName;
 	animation-duration: 2s;
+	animation-timing-function: ease;
+	animation-delay: 1s;
+	/* animation-iteration-count: 2; */
+	/* animation-iteration-count: infinite;
+
 }
 
 @keyframes someName {
@@ -431,7 +437,7 @@ body {
 		100% {
 			transform: translate(200px, 0px);
 }
-	}
+	} */
 
 /* Mēs sasaistām šos abus CSS parametrus, un iekš @keyframes varam izmantot mums jau zināmus CSS parametrus: transform: translate(). Mēs liekam līniju, izmantojot procentus, sākot no 0% un beidzot ar 100%. Mums ir animācijas sākums un animācijas beigas. */
 
@@ -439,3 +445,102 @@ body {
 
 /* Ievērojam stingru sintaksi, šeit ļoti svarīgi ir pareizi uzrakstīt, lai notiktu animācija. Mūsu piemērā mēs nosakām, ka mūsu zaļais kvadrāts animēsies 200px pa labi, no tā sākuma punkta. */
 
+/* Nākošais parametrs no CSS animation saimes ir: animation-timing-function, kam pēc noklusējuma vērtība ir: ease. Tas nosaka animācijas scenāriju, kā notiks animācija noteiktajos kadros - @keyframes. Tā pat kā ar CSS parametru: transition-timing-function arī šeit mēs varam mainīt mo noklusējuma vērtības ease uz linear vērtību. Bet kā jau zinam, ease ir labāks risinājums. Bet reizēm var noderēt linear. */
+
+/* Kā redzam, ka iepriekš apgūtais CSS parametrs: transition un jaunais animation ir ļoti līdzīgi. */
+
+/* Nākošais CSS parametra animation saimes parametrs ir: animation-delay, kas nosaka ar cik lielu laika aizturi notiks mūsu animācija. Pierakstām to mūsu piemērā augstāk. */
+
+/* Bet ir viens atšķirīgs CSS animation saimes parametrs, kas nav CSS parametru saimei transition. Un tas ir: animation-iteration-count: ar noklusējuma vērtību: 1. Tas nosaka cik reizes animācija atkārtosies, cik reizes tiks atkārtoti tās kadri. Pierakstām šo parametru augstāk mūsu piemērā: */
+
+/* Rezultātā mēs redzam, ka mūsu zaļais kvadrāts tiek animēts divas reizes. Šī arī ir būtiskākā at šķirība starp transition un animation parametriem. */
+
+/* CSS parametram: animation-iteration-count kā vērtības mēs varam norādīt arī neveselus skaitļus, piemēram: animation-iteration-count: 2.5. Rezultātā mēs redzam, ka pie trešās reizes mūsu zaļais kvadrāts tiek animēts tikai līdz pusei. */
+
+/* Bet pats foršākais CSS parametra: animation-iteration-count: ir vērtība: infinity, kas nozīmē, ka animācija notiks visu laiku, bezgalīgas reizes. Pierakstām to mūsu piemērā, un mēs redzam, ka animācija notiek visu laiku, ka tā ir bezgalīga. */
+
+/* Izskatām vēl vienu animācijas piemēru, iekš @key-frames izmantojam CSS parametru: transform: rotate(): */
+
+/*
+@keyframes someName {
+		0% {
+			transform: rotate(0deg);
+}
+		100% {
+			transform: rotate(360deg);
+}
+	} */
+
+/* Mēs redzam, ka zaļais kvadrāts bezgalīgi griežas pa apli pulksteņa rādītāja virzienā, tas apgriežas pa 360 grādiem. Animācija ir bezgalīga. */
+
+/* Izskatām vienu interesantu iespēju, animāciju mūsu zaļajam kvadrātam> Pierakstām to ar piemēru, izslēdzam iepriekšējo aktīvo kodu. */
+
+/*
+.block {
+	width: 200px;
+	height: 200px;
+	background-color: #7a956b;
+	position: relative;
+	animation-name: someName;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-delay: 1s;
+	animation-iteration-count: infinite;
+}
+
+.block::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #ffff00;
+	transform: rotate(45deg);
+}
+
+@keyframes someName {
+		0% {
+			transform: rotate(0deg);
+}
+		100% {
+			transform: rotate(360deg);
+}
+	} */
+
+/* Rezultātā mēs iegūstam interesantu figūru, kas sastāv no diviem zaļajiem kvadrātiem. Otro kvadrātu mēs pagriežam par 45 grādiem, un abiem kvadrātiem izmantojam animāciju ar kadriem @keyframes un iegūstam īpatnēju figūru, kas griežas pulksteņa rādītāja virzienā. */
+
+/* Lai uzskatāmāk redzētu, kurš kvadrāts uz kura ir virsū, izmantojam otrajam kvadrātam, ko esam izveidojuši ar pseido elementu::before, pieliekam tam citu krāsu. */
+
+/* Izslēdzam pēdējo aktīvo kodu un pierakstām šeit iepriekšējo kodu, lai apgūtu vēl dažas CSS parametru saimes: animation izmantošanas iespējas. */
+
+.block {
+	width: 200px;
+	height: 200px;
+	background-color: #7a956b;
+	animation-name: someName;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-delay: 1s;
+	/* animation-iteration-count: 2; */
+	animation-iteration-count: infinite;
+	/* animation-direction: normal; */
+	/* animation-direction: reverse; */
+	animation-direction: alternate;
+
+}
+
+@keyframes someName {
+		0% {
+			transform: translate(0px, 0px);
+}
+		100% {
+			transform: translate(200px, 0px);
+}
+	} 
+
+/* CSS parametrs: animation-direction: nosaka animācijas virzienu un tipu tās kadriem. Pēc noklusējuma vērtība ir: normal, kas nozīmē, ka animācija notiks no sākuma līdz beigām. */
+
+/* Izskatām šī CSS parametra: animation-direction iekš mūsu piemēra augstāk. Mēs varam kā vērtību norādīt: reverse, kas nozīmē, ka animācija notiks pretējā virzienā. izskatām to mūsu piemērā augstāk. Izmantojot vērtību: reverse mūsu animācija pagriežas uz pretējo pusi, arī kadri pagriežas uz kreiso pusi. */
+
+/* Vēl viena interesanta CSS parametra: animation-direction vērtība ir: alternate, kas nosaka, ka animācijas kadri notiks no vienas puses uz otru. Izskatām to ar piemēru augstāk. */
