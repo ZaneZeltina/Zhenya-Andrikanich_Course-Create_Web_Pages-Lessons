@@ -400,6 +400,9 @@ body {
 
 /* Mēs esam tikuši skaidrībā ar CSS parametru: transition. Esam sapratuši kā tas darbojās un kā mēs to varam izmantot. Pats galvenais ir saprast, ka CSS parametrs: transition pie konkrētas darbības kaut ko maina, iekustina. Kā mūsu gadījumā pie uzvešanas ar peli uz saraksta. */
 
+/* Saīsināts CSS parametra saimes transition pieraksts ir šāds:
+transition: all 0.5s ease 0s; Tādā kārtībā mēs pierakstām vienā rindā visu CSS parametra saimi: transition, kas nozīmē: property, duration, timing-function, delay. */
+
 /* -------------------------- */
 
 /* Apgūstam jaunu CSS parametru: animation, kas ir vēl labāks par transition. Izveidojam HTML dokumentā bloku. Atdalīsim iepriekšējo kodu, jo sākam jaunu tēmu. */
@@ -518,24 +521,31 @@ body {
 	width: 200px;
 	height: 200px;
 	background-color: #7a956b;
+	transform: translate(100px, 0px);
 	animation-name: someName;
 	animation-duration: 2s;
 	animation-timing-function: linear;
 	animation-delay: 1s;
-	/* animation-iteration-count: 2; */
-	animation-iteration-count: infinite;
-	/* animation-direction: normal; */
-	/* animation-direction: reverse; */
-	animation-direction: alternate;
-
+	/*animation-iteration-count: 2;
+	*/animation-iteration-count: 1;
+	/*animation-direction: normal;
+	*//*animation-direction: reverse;
+	*/animation-direction: alternate;
+	animation-fill-mode: none;
 }
 
 @keyframes someName {
-		0% {
-			transform: translate(0px, 0px);
+	0% {
+		transform: translate(0px, 0px);
 }
-		100% {
-			transform: translate(200px, 0px);
+  50% {
+		background-color: #77608d;
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+}
+	100% {
+		transform: translate(200px, 0px);
 }
 	} 
 
@@ -544,3 +554,195 @@ body {
 /* Izskatām šī CSS parametra: animation-direction iekš mūsu piemēra augstāk. Mēs varam kā vērtību norādīt: reverse, kas nozīmē, ka animācija notiks pretējā virzienā. izskatām to mūsu piemērā augstāk. Izmantojot vērtību: reverse mūsu animācija pagriežas uz pretējo pusi, arī kadri pagriežas uz kreiso pusi. */
 
 /* Vēl viena interesanta CSS parametra: animation-direction vērtība ir: alternate, kas nosaka, ka animācijas kadri notiks no vienas puses uz otru. Izskatām to ar piemēru augstāk. */
+
+/* CSS parametra:animation-direction: alternate priekšrocība ir tā, ka tas lieliski strādā kopā ar CSS parametru: animation-iteration-count: infinity, jo tas darbosies uz katra kadra nepāra skaitlis darbosies pretējā virzienā. Tā rezultātā mēs redzam nepārtrauktu - bezgalīgu animāciju. */
+
+/* Mēs izmantojot vērtību: alternate iegūstam rezultātu, kur uz katru nepāra skaitli notiek animācija uz priekšu un atpakaļ, un tā mēs iegūstam bezgalīgu animāciju. Vinreiz notiek - atgriežas, otro reizi aiziet - atgriežas. Katrs nepāra vesels kadrs iet reversi. Mēs iegūstam bezšuves animācijas darbību. */
+
+/* Vēl vina CSS parametra: animation-direction: alternate-reverse; darbojās tieši tā pat kā vērtība alternate, bet tikai darbība notiks no beigām. Kā mūsu piemērā no 200px uz 0px un pēc tam no 0px uz 200px. */
+
+/* Bet arī šis vēl nav vis par animācijām. Lai izskatītu nākošo CSS parametru saimes: animation iespējas, mums nedaudz jāpamaina aktīvais kods, kas ir augtāk: */
+
+/* CSS parametrs: animation-fill-mode: none nozīmē to, ka tas nosaka kādi animējamie CSS parametri tiks pielietoti objektam - elementam pēc animācijas beigām. Šī parametra noklusētā vērtība ir: none. Lai mēs labāk saprastu kā darbojas šis CSS parametrs, mēs nosakām CSS parametru: transform: translate(100px, 0px). Izskatām to ar piemēru, kas ir augstāk: */
+
+/* Mēs redzam, ka zaļas kvadrāts animējas, bet no tā sākuma atrašanās vietas, nevis no tās, kuru mēs pielietojām, izmantojot CSS parametru: transform: translate(100px, 0px). Īsāk sakot zaļais kvadrāts animējas no lapas sākuma. */ 
+
+/* Atceramies, ka visi elementi sākotnēji atrodas, to pozīcija ir: 0 0. Lapas kreisais augšējais stūris. */
+
+/* Rezultātā mēs redzam, ka mūsu zaļais kvadrāts, kas ir jau sākotnēji nobīdīts, tas animējas, notiek animācija pa labi 200px, Animācija notiek no elementa noklusētās pozīcijas: 0 0. Notiek animācija un tad tas atgriežas savā sākuma stāvoklī ar nobīdi pa 100px pa labi. Tas tādēļ, ka tagad mums stāv pierakstīts CSS parametrsL animation-fill-mode: none. */
+
+/* Bet mēs to varam mainīt, ierakstot tā vērtībā: forwards, mēs iegūsim, ka mūsu zaļais kvadrāts nobīdās - animējas no sākuma atrašanās vietas. No 0 0 pozīcijas, pa labi pa 200px un tur arī paliek, tas neatiet atpakaļ sākotnējā pozīcijā - nobīdē. Izskatām to mūsu piemērā, kas ir  augtāk. */
+
+/* Vēl viena CSS parametra: animation-fill-mode vērtība ir: backwards, kas liek elementam - objektam kustēties - notiek animācija un tas atgriežas tā sākuma stāvoklī, tur pat kur mēs to novietojām: 100px pa labi. Bet animācija sākas no pozīcijas 0 0. Izskatām to ar piemēru augstāk. */
+
+/* Par animācijām tas vēl nav vis. Mēs zinam kā izveidot animāciju, bet nezinām kā mēs to varam apstādināt. Atgriežam CSS parametriem: animation iepriekšējās vērtības. */
+
+/* Kā iespēju kā mēs varam apstādināt animāciju, uz hover efekta pierakstīt CSS parametru: animation-name: none; Un mēs panākam, ka tad, kad uzvedam ar peli uz mūsu zaļā kvadrāta, tas pārstāj kustēties - animācija nenotiek. Pierakstām to ar piemēru: */
+
+.block:hover {
+	/* animation-name: none; */
+	animation-play-state: running;
+}
+
+/* Bet šādai pieejai ir viens mīnuss. Animācija apstāsies, atslēgsies un mūsu objekts - zaļais kvadrāts iegūs tā sākuma pozīciju, nobīdi pa 100px pa labi. Un tas nav īsti tas, ko gribējām panākt */
+
+/* Lai iegūtu vēlamo efektu mums ir jauns CSS animation saimes parametrs: animation-play-state: running, kas ļauj mums noteikt animācijas beigas vai sākumu atsevišķos notikumos. */
+
+/* Pierakstam to iekš mūsu piemēra, te pat augstāk. Mēs redzam, ka mūsu zaļais kvadrāts, kad uzvedam uz tā ar peli, turpina animāciju. Tā noklusējuma vērtība ir: running. */
+
+/* CSS parametra: animation-play-state: vērtība: paused liek animācijai apstāties, tajā brīdī, kad esam uzveduši uz zaļā kvadrāta ar peli, un kad noņemam peli, tā turpinās no tās vietas, kur tā tika apstādināta. */
+
+/* Parunāsim vēl par @keyframes izmantošanu. Piemēram, mēs gribam, lai animācijas vidū mūsu zaļais kvadrāts maina krāsu no zaļas uz violetu. Pierakstam to iekš @keyframes parametra. */
+
+/* Mēs redzam, ka tagad, kad animācija ir aizgājusi apmēram līdz pusei mūsu zaļais kvadrāts paliek violets, un pēc tam atkal zaļš. Krāsa mainās animācijas vidū. */
+
+/* Mēs varam noteikt vairākus efektus. Piemēram iekš @keyframes 50% ierakstīt CSS parametru; border-radius: 50%. Pierakstām to iekš mūsu piemēra, iekš @keyframes 50%. */
+
+/* Rezultātā mēs redzam, ka mūsu zaļais kvadrāts animējas, un kad tas ir apmēram pusē, tas maina krāsu uz violetu un iegūst apaļu formu. Vis notiek plūstoši, un šie CSS parametri piemērojas animācijas vidū. Animācijas sākumā un beigās mēs redzam vienkārši zaļu kvadrātu. */
+
+/* Pieliekot iekš @keyframes CSS parametrus: width un height mēs iegūstam vēl interesantāku animācijas realizāciju. Redzam, ka animācijas pusē mūsu kvadrāts kļūst pa apli un violets, beigās tas atkal ir zaļš kvadrāts. */
+
+/* Vai animācija ietekmē lapas apkārtni? Nē tā neietekmē, jo mēs strādājam ar CSS parametru: transform: translate() un tas kā zinām neietekmē lapas apkārtni, citus lapas elementus. */
+
+/* Kur mēs šādu animāciju varam izmantot? Atgriežam CSS animācijas parametru: animation-iteration-count: 1. Izskatīsim ar piemēriem kur un kā mēs varam pielietot jaunās zināšanas par CSS parametru saimes: transition un animation izmantošanu. */
+
+/* Izskatīsim piemēru kā mēs varam izmantot jauniegūtās zināšanas lai izveidotu mēnesi ar animāciju. */
+
+.crescent {
+	margin: 0px 0px 50px 0px;
+	border-bottom: 3px solid rgb(43, 43, 43);
+}
+
+.crescent__body {
+	overflow: hidden;
+	width: 500px;
+	height: 500px;
+	transform-origin: 53.333% 68.666%;
+	animation: crescent-anim 5s 1 ease-out 1s forwards;
+}
+
+.crescent__item {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	animation: crescent-init 1s 1 linear forwards;
+}
+
+.crescent__item::before {
+	background-color: #5c5c5c;
+	border-radius: 50%;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	animation: crescent-shadow 1s 1 linear forwards;
+}
+
+@keyframes crescent-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(20deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(20deg);
+	}
+	100% {
+		transform: rotate(15deg);
+	}
+}
+
+@keyframes crescent-init {
+	0% {
+		transform: translate(-30%, 0px);
+	}
+	100% {
+		transform: rotate(45deg) translate(0px, 0px);
+	}
+}
+
+@keyframes crescent-shadow {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(-16.666%, 16.666%);
+	}
+}
+
+/* Izpildot šādu piemēru, mēs rezultātā iegūstam pusmēnesi, kas šūpojas turp un atpakaļ. Skatoties uz šo piemēru mēs arī redzam kā mēs saīsināti varam pierakstīt CSS parametru saimi: animation vienā rindā, saīsinātā pierakstā. */
+
+/* Izskatīsim vēl vienu piemēru kā mēs varam izmantot animāciju. Izstrādāsim pulksteni. */
+
+.clock {
+	height: 500px;
+}
+
+.clock__item {
+	position: relative;
+	width: 1px;
+}
+
+.clock__item::before {
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 300px;
+	top: 0;
+	background-color: rgb(43, 43, 43);
+	transform-origin: 0 0;
+}
+
+.clock__item::after {
+	content: "";
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background-color: #fff;
+	position: absolute;
+	top: 300px;
+	left: 0%;
+	transform: translate(-50%, 0px);
+}
+
+.clock__item:nth-child(1) {
+	left: 40%;
+	animation: item-1 1s infinite ease-in-out alternate 0s;
+}
+
+.clock__item:nth-child(2) {
+	left: 50%;
+}
+
+.clock__item:nth-child(3) {
+	left: 60%;
+	animation: item-2 1s infinite ease-in-out alternate 0s;;
+}
+
+@keyframes item-1 {
+	0% {
+		transform: rotate(45deg);
+}
+  30% {
+		transform: rotate(0deg);
+}
+}
+
+@keyframes item-2 {
+	30% {
+		transform: rotate(0deg);
+}
+  100% {
+		transform: rotate(-45deg);
+}
+}
+
+
