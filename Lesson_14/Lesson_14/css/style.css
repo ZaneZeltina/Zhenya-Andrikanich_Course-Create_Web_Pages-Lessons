@@ -28,6 +28,68 @@ body {
 	font-family: "Gilroy", sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	background-color: #5c5c5c;
 }
+
+/* Šodien, šinī lekcijā mēs mācīsimies jaunu moduli: flex. Flex modulis ir domāts, lai veidotu konstrukcijas. */
+
+/* Līdz šim mēs veidojām konstrukcijas ar tām zināšanas, kas mums jau ir. Bet tagad sākot ar šodienu, mēs tās atstājam aiz muguras, pagātnē, jo turpmāk mēs strādāsim ar jaunu instrumentu: flex moduli. Strādāsim ar iepriekšējiem maketiem uzdevumiem, izmantojot: flex. */
+
+/* Vēlāk, kursa beigās mēs apgūsim moduli: grid, bet tagad mums ir labi jāsaprot modulis: flex, lai beigās labāk saprastu: grid. */
+
+/* Pierakstām HTML dokumentā dažus elementus, lai mēs uzskatāmāk saprastu jauno tēmu. Izveidojam bloku ar trīs elementiem, pievienojam tiem CSS parametrus. */
+
+.block {
+	border: 10px solid #794f45;
+}
+
+.block__element {
+	border: 10px solid #4f7945;
+	padding: 20px;
+	font-size: 30px;
+	color: #fff;
+}
+
+/* Izmantojot dažus CSS parametrus, mēs padarām mūsu bloku un tā trīs elementus redzamus. Mēs to darām, lai labāk saprastu lekcijas tēmu. */
+
+/* Mums HTML dokumentā: .block ir flex kastīte, konteineris, bet katrs: block__item ir flex elements. Iekš katra flex elementa ir flex saturs. */
+
+/* Mēs redzam, ka iekš mūsu kastītes flex ir pirmā līmeņa ielikti trīs flex elementi, kam katram ir savs saturs. */
+
+/* Kas tad īsti ir modulis: flex? Flexbox ir vesels modulis, kas sevī satur parametrus, kuru vērtības, kas tiek piemērotas vecākam: flex blokam: block, flex kastītei, kā arī flex elementiem. Galvenā flex priekšrocība ir: tā, ka tam ir  īpaša pielāgojamība lapas izstrādē, kad mēs varam pielāgot augstumu, platumu, apkārtējo laukumu un tā elementu: block__element atrašanās kārtību, lai izmantojot labāko pieeju aizpildītu pieejamo flex kastītes: block laukumu. Mēs varam mainīt flex elementu: block__element atrašanās kārtību, secību, nemainot neko iekš HTML dokumenta. */
+
+/* Sākumā flex modulis mums liekas sarežģīts, bet ar laiku, ar pieredzi, mēs sapratīsim kā tieši tas darbojas un kādēļ mums tas ir jāizmanto. Jo mūsdienās, lapu izstrāde nav iedomājama bez moduļa flex. */
+
+/* Mums ir vienmēr jāatceras, kad mēs ieslēdzam flex moduli, jo pagaidām mums ir vienkāršas <div></div> kastītes iekš HTML dokumenta. Jo pagaidām mums ir vienkārši bloks ar trīs elementiem, kas arī ir bloka tipa elementi, kuru īpašības mēs jau zinam. */
+
+/* Ja mēs gribam ieslēgt flex moduli, mums ir jāvēršas pie tā bloka, kuram mēs gribam to ieslēgt. Mēs vēršamies pie vecāka, kas mūsu gadījumā ir: block. Mēs vēršamies pie galvenā objekta, kuru iekšienē mēs gribam ko mainīt. Izskatām to ar piemēru: */
+
+/* Flex block. */
+
+.block {
+	/* Flex moduļa ieslēgšana: */
+	display: flex;
+}
+
+/* Flex elementi. */
+
+.block__element {
+
+}
+
+/* Mēs vēršamies pie galvenā bloka, kura struktūru mēs vēlamies mainīt. Kad mēs gribam veidot kādu konstrukciju. Mēs no flex elementiem: block__element vēlamies uzbūvēt kādu konstrukciju. */
+
+/* Atzīmējam piemērā, kurš ir flex bloks un, kur ir flex elementi. */
+
+/* Vispirms mums būsu flex blokam ir jāieslēdz flex konstrukcija. Tā kā piemērā augstāk: */
+
+/* Mums jau ir zināms CSS parametrs: display, kura vērtības ir: block, inline, inline-block un none. Tas nozīmē, ka mēs varam globāli mainīt elementu struktūru. Tagad mums nāk klāt jauna CSS parametra: display: vērtība: flex; */
+
+/* Mēs redzam, ka tad, kad izmantojam CSS parametru: display: flex, mums visi flex elementi: block__element ir sastājušies vienā rindā. Sākotnēji tie bija viens zem otra, bet tagad tie ir iekš vecāka: block sastājušies vienā rindā. */
+
+/* Kas tad tieši notika, brīdī, kad ieslēdzām flex moduli mūsu blokam. Notika divas lietas: 1) flex elementi sarindojās vienā rindā pa asi X. Mūsu elementi kļūst itkā par bloka-rindas tipa elementiem. 2) Flex moduļa elementi: block__element katrs aizņem tik platības - laukumu, cik ir tā saturs. */
+
+/* Mēs redzam, ka atšķirībā no inline - rindas tipa elementiem, uz flex elementiem darbojās CSS parametri, kas nedarbojās uz rindas tipa elementiem, piemēram: padding. */
+
+
+
 
