@@ -39,11 +39,11 @@ body {
 /* Pierakstām HTML dokumentā dažus elementus, lai mēs uzskatāmāk saprastu jauno tēmu. Izveidojam bloku ar trīs elementiem, pievienojam tiem CSS parametrus. */
 
 .block {
-	border: 10px solid #794f45;
+	border: 10px solid #8b0000;
 }
 
 .block__element {
-	border: 10px solid #4f7945;
+	border: 10px solid #008000;
 	padding: 20px;
 	font-size: 30px;
 	color: #fff;
@@ -88,8 +88,39 @@ body {
 
 /* Kas tad tieši notika, brīdī, kad ieslēdzām flex moduli mūsu blokam. Notika divas lietas: 1) flex elementi sarindojās vienā rindā pa asi X. Mūsu elementi kļūst itkā par bloka-rindas tipa elementiem. 2) Flex moduļa elementi: block__element katrs aizņem tik platības - laukumu, cik ir tā saturs. */
 
+/* Mēs redzam, ka mūsu flex elementi ir kļuvuši par itkā bloka rindas tipa elementiem, jo to platums ir atkarīgs no to satura un uz tiem darbojās daudzi CSS parametri, bet tā tas nav. */
+
 /* Mēs redzam, ka atšķirībā no inline - rindas tipa elementiem, uz flex elementiem darbojās CSS parametri, kas nedarbojās uz rindas tipa elementiem, piemēram: padding. */
 
+/* Jo ir viena būtiska atšķirība - tie no bloka rindas tipa elementiem atšķiras ar to darbību - uzvedību. Pirmā būtiska darbības atšķirība ir tā, ka mūsu flex elementi, samazinoties ekrāna platumam nepāriet jaunā rindā. Otrkārt pie flex izmantošanas tiek citādi izlīdzināti elementi. */
 
+/* Agrāk, lai izlīdzinātu elementus mēs izmantojām CSS parametru: vertical-align, lai kaut kā izlīdzinātu bloka rindas tipa elementus. Bet šeit arī tas strādā citādāk. Šeit arī vis itkā notiek tā pat, kā ar bloka rindas tipa elementiem, bet, kad izmantojam flex moduli, tad elementi tiek izlīdzināti no lapas kreisās puses uz labo, pa asi X. */
 
+/* Ievērojam sīkumu, ka kad izmantojam moduli flex, mums zūd arī elementu fantomu atstarpes. Atceramies sākuma lekcijas, kad mācījāmies par attēliem, mums bija veids kā noņemt šuvju atstarpes. Tagad, kad izmantojam flex moduli, mums tās vairs neveidojas. */
+
+/* Būtiski, kas mums ir jāatceras ir tas, ka: nav svarīgi kāda tipa elementi ir iekš flex moduļa, tie var būt jeb kāda tipa elementi, arī rindas tipa elementi, Flex modulis strādā pilnīgi vienādi. Par to pārliecināties mēs varam iekš HTML dokumenta izveidojot no konteinera kastītes tegu: <span></span>. Un mēs redzam, ka, ja izslēdzam flex moduli, tam nedarbojas daudzi CSS parametri, bet, kad ieslēdzam moduli: flex, mēs redzam, ka tas strādā tieši tā pat, kad mums ir konteinera kastīte - atvilkne. */
+
+/* Jo brīdī, kad mēs vecākam ieslēdzam: flex moduli, visi tā elementi, kas ir iekš tā kļūst it kā bloka rindas tipa elementi un uz visiem tiem darbojās daudzie CSS parametri, kuri mums līdz šim mums ar rindas tipa elementiem nedarbojas. */
+
+/* Ievērojam, ka modulis flex, kas ir ieslēgts vecākām un tas darbojās uz pirmās pakāpes ieliktajiem elementiem, tas nedarbosies uz otrās vai trešās pakāpes ieliktajiem elementiem. */
+
+/* Ja mēs gribam izmantot flex moduli, flex elementiem, tiem ir jābūt vienam kopīgam vecākam. Mūsu gadījumā: block. */
+
+/* Neatkarīgi no tā, kāda tipa elements ir mūsu bloks, kuram mēs piemērojam moduli: flex, tas automātiski kļūst par bloka tipa elementu. Par to pārliecināmies arī, ja mēs mūsu bloku, kas ir kastīte pārveidojam par tegu: <span></span>. Tiklīdz mēs ieslēdzam moduli flex, attiecīgais elements kļūst par bloka tipa elementu. Bet elementi, kas ir iekš šī bloka, tie itkā kļūst par bloka rindas tipa elementiem. Atceramies: ka modulim: flex un bloka rindas tipa elementiem tomēr irr būtiskas atšķirības, kuras mēs jau izskatījām augstāk pierakstos. */
+
+/* Elements, kuram būs ieslēgts modulis: flex kļūs par bloka tipa elementu un aizņems visu lapas platību, tā kā mūsu piemērā: block. Vēlāk mēs izskatīsim ar piemēriem, kā mēs flex modulim varam noteikt, ierobežot tā platību. Tas aizņems visu sava vecāka platību, atkarībā kur tas atrodas. */
+
+/* Flex modulim ir vēl viena vērtība, kas bloku, kad tam nosakām: display: inline-flex pārveido par rindas tipa elementu, kas aizņem tik platības, cik ir tā saturā: flex elementi. */
+
+/* Būtiski: ja izmantojam: display: inline-flex, tas itkā kļūst par rindas tipa elementu, ar visām tām īpašībām, kas ir rindas tipa elementiem. Bet par cik tas tomēr ir modulis: flex, uz tā elementiem turpina darboties daudzie CSS parametri, kas nedarbojās uz rindas tipa elementiem. */
+
+/* Atceramies no teorijas, ka flex modulis ir domāts, lai labāk aizpildītu tā laukumu. Mūsu gadījumā flex modulis ir ieslēgts blokam, un, lai labāk aizpildītu esošo bloka laukumu, pielāgotu flex elementus, mēs apgūstam jaunus flex moduļa parametrus */
+
+/* Būtiski, ka pielāgot flex bloka aizpildīšanās laukumu ar flex elementiem, mēs varam tikai tad, kad izmantojam CSS parametru: display: flex;. Mēs nevaram to izdarīt, ja izmantojam display: inline-flex. */
+
+/* Un tas ir pašsaprotami, ka, ja mēs izmantojam inline-flex, mēs nevaram strādāt ar tā laukumu, jo laukums tiek aizpildīts, tik cik ir elementu saturs, tam nav nekāda papildus laukuma. */
+
+/* Apgūstam jaunu moduļa flex CSS parametru: flex-wrap: nowrap;, kas atbild par to, vai flex elementi tiks pārnesti jaunā rindā, kad tie vairs neietilps iekš flex konteinera - bloka. Pēc noklusējuma tā vērtība ir: nowrap, kas nozīmē, ka mainoties flex konteinera - elementu vecāka platumam, flex elementi netiks pārnesti jaunā rindā. Tie ir cieši viens pie otra, bez jebkādām fantoma atstarpēm, tā itkā tie būtu sacementēti. */
+
+/* Bet mēs šo flex moduļa parametru varam mainīt: no flex-wrap: nowrap uz: flex-wrap: wrap, kas nozīmē, ka tagad, ja mainīsies vecāka platums, tad flex elementi tiks pārnesti jaunā rindā. */
 
