@@ -110,7 +110,12 @@ body {
 
 /* Elements, kuram būs ieslēgts modulis: flex kļūs par bloka tipa elementu un aizņems visu lapas platību, tā kā mūsu piemērā: block. Vēlāk mēs izskatīsim ar piemēriem, kā mēs flex modulim varam noteikt, ierobežot tā platību. Tas aizņems visu sava vecāka platību, atkarībā kur tas atrodas. */
 
-/* Flex modulim ir vēl viena vērtība, kas bloku, kad tam nosakām: display: inline-flex pārveido par rindas tipa elementu, kas aizņem tik platības, cik ir tā saturā: flex elementi. */
+/* Flex modulim ir vēl viena vērtība, kas bloku, kad tam nosakām: display: inline-flex pārveido par rindas tipa elementu, kas aizņem tik platības, cik ir tā saturā: flex elementi. Izskatām to ar mūsu bloka piemēru: */
+
+/*
+.block {
+display: inline-flex;
+} */
 
 /* Būtiski: ja izmantojam: display: inline-flex, tas itkā kļūst par rindas tipa elementu, ar visām tām īpašībām, kas ir rindas tipa elementiem. Bet par cik tas tomēr ir modulis: flex, uz tā elementiem turpina darboties daudzie CSS parametri, kas nedarbojās uz rindas tipa elementiem. */
 
@@ -122,5 +127,155 @@ body {
 
 /* Apgūstam jaunu moduļa flex CSS parametru: flex-wrap: nowrap;, kas atbild par to, vai flex elementi tiks pārnesti jaunā rindā, kad tie vairs neietilps iekš flex konteinera - bloka. Pēc noklusējuma tā vērtība ir: nowrap, kas nozīmē, ka mainoties flex konteinera - elementu vecāka platumam, flex elementi netiks pārnesti jaunā rindā. Tie ir cieši viens pie otra, bez jebkādām fantoma atstarpēm, tā itkā tie būtu sacementēti. */
 
-/* Bet mēs šo flex moduļa parametru varam mainīt: no flex-wrap: nowrap uz: flex-wrap: wrap, kas nozīmē, ka tagad, ja mainīsies vecāka platums, tad flex elementi tiks pārnesti jaunā rindā. */
+/* Bet mēs šo flex moduļa parametru varam mainīt: no flex-wrap: nowrap uz: flex-wrap: wrap, kas nozīmē, ka tagad, ja mainīsies vecāka platums, tad flex elementi tiks pārnesti jaunā rindā. Izslēdzam iepriekšējo aktīvo kodu. Izskatām to ar piemēru: */
 
+/* 
+.block {
+	display: flex;
+	flex-wrap: wrap;
+} */
+
+/* Mēs redzam, ka tagad mūsu flex elementi, mainoties vecāka platumam, mainoties flex konteinera platumam tiek pārnesti jaunā rindā. */
+
+
+/* Nākošais flex moduļa parametrs ir: justify-content: kura vērtības nosaka kādā virzienā tiks izlīdzināti flex elementi pa galveno asi: X. Tā noklusējuma vērtība ir: flex-start, kas nozīmē, ka flex elementi tiks novietoti flex konteinera sākumā. Izskatām vairākas justify-content vērtības: */
+
+/*
+.block {
+	display: flex;
+	justify-content: flex-start;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izlīdzināti pa galveno asi: X, no kreisās puses uz labo pusi. */
+
+/* Ši parametra: justify-content: vērtības ir līdzīgas kā CSS parametram: text-align, kuru mēs jau labi zinam. Attiecīgi, ja ir justify-content: flex-start, tad ir arī justify-content: flex-end, kuru izmantojot, mēs redzam, ka flex elementi tiek piespiesti pie flex konteinera labās puses. Izslēdzam iepriekšējo aktīvo kodu un izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	justify-content: flex-end;
+} */
+
+/* Šī parametra darbība ir atkarīga no flex moduļa parametra: flex-direction, kas pēc noklusējuma ir pa asi X. */
+
+/* Ja mēs izmantojam: justify-content: center, tad mūsu flex elementi tiks izlīdzināti pa galveno asi: X, tā, lai tie būtu centrā. Izslēdzam iepriekšējo aktīvo kodu un izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	justify-content: center;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izlīdzināti pa galveno asi: X, tā, lai tie būtu centrā. */
+
+/* Ja mēs izmantojam: justify-content: space-between, tad mūsu flex elementi tiks izlīdzināti pa galveno asi: X, tā, lai starp tiem būtu vienādas atstarpes. Izslēdzam iepriekšējo aktīvo kodu un izskatām to ar piemēru: */
+
+/* 
+.block {
+	display: flex;
+	justify-content: space-between;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izlīdzināti pa galveno asi: X, tā, lai starp tiem būtu vienādas atstarpes. Tie ir izlīdzināti tā, lai aizņemtu visu flex konteinera platumu. */
+
+/* Ja mēs izmantojam: justify-content: space-around, tad mūsu flex elementi tiks izlīdzināti pa galveno asi: X, tā, lai starp tiem būtu vienādas atstarpes, bet arī no abām pusēm. Izslēdzam iepriekšējo aktīvo kodu un izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	justify-content: space-around;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izlīdzināti pa galveno asi: X, tā, lai starp tiem būtu vienādas atstarpes, arī no flex elementu abām pusēm. */
+
+/* Atceramies: Šis flex parametrs darbojās tikai tad, ja flex konteineram ir brīva vieta. Ja mums ir ieslēgts flex modulis: display: flex. Jo, ja mums nav vietas flex konteinerā, tad šis parametrs nedarbojās. Piemēram, ja mums ir ieslēgts flex modulis: display: inline-flex. */
+
+/* Šis attiecas arī uz situāciju, kad mums ir ieslēgts: display: flex, un mums tur nav brīvas vietas. Tad nedarbosies CSS parametrs: justify-content, jo mums vienkārši iekš flex konteinera nav brivas vietas. */
+
+/* Vēl viena flex moduļa parametra: justify-content: vērtība ir: justify-content: space-evenly, kas nosaka, ka flex elementi tiks izvietoti ar vienādu atstarpi. Ar tik lielu atstarpi cik ir flex konteinerī vietas. Izslēdzam iepriekšējo aktīvo kodu un izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	justify-content: space-evenly;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izlīdzināti pa galveno asi: X, tā, lai starp tiem būtu vienādas atstarpes, tik cik ir brīvas vietas flex konteinerī. */
+
+/* Šī justify-content vērtība: space-evenly ir līdzīga vērtībai: space-between, bet šinī tiek piemērota flex vienāda atstarpe flex konteinera sākumā un beigās. */
+
+/* Lai izskatītu nākošo piemēru, izslēdzam iepriekšējos aktīvos kodus un pierakstām flex moduļa noklusējuma vērtības: display: flex un justify-content: flex-start. */
+/*
+.block {
+	display: flex;
+	justify-content: flex-start;
+} */
+
+/* Izveidojam situāciju, kad otrajā flex elementā mums ir vairāk satura. Lai to izdarītu izmantojam HTML. */
+
+/* Un šeit mēs redzam visas flex moduļa izmantošanas priekšrocības. Mums ir vairāk satura iekš otrā flex elementa, tas kļūst augstāks. Visi pārējie flex elementi tiek arī automātiski kļuvuši augstāki. Tie piemērojas otrajam flex elementam. */
+
+/* Līdz šim šādu efektu mēs nevarējām panākt. Ar tām zināšanām, kas mums bija līdz šai lekcijai. Bet tagad mēs to varam, izmantojot moduli: flex. */
+
+/* Būtisks moduļa: flex parametrs ir: align-items: stretch, kas nosaka, ka visi flex elementi tiks izstiepti pa asi Y, kas ir lapas augstums, no augšas uz leju. */
+
+/* Šis parametrs darbojas kopā ar flex parametru: flex-direction. */
+
+/* Flex moduļa parametra: align-items: stretch nozīmē, ka flex konteineris ir kā gumija, tas pielāgojas lapas augstumam. Atceramies, ka mūsu lapā elementi tiek izvietoti no augšas uz leju un no kreisās uz labo pusi. */
+
+/* Vis flex modulis, darbojas pēc principa: ja kāds no tā elementiem kļūst augstāks, tad attiecīgi visi pārējie elementi arī kļūst tāda paša augstuma, kāds ir augstākais elements. */
+
+/* Flex moduļa parametra: align-items vērtības ir ļoti līdzīgas parametram: justify-content. Atceramies, ka justify-content nosaka flex elementu izvietošanos pa asi X, bet align-items pa asi Y. */
+
+/* Ja izmantosim align-items: flex-start;, tad mūsu flex elementi tiks piespiesti pie flex konteinera augšas. Bet align-items: flex-end piespiedīs flex elementus pie flex konteinera apakšas. */
+
+/* Ja izmantosim align-items: center;, tad mūsu flex elementi tiks izvietoti tā, lai tie būtu centrā pa asi Y. */
+
+/* Ir vēl viena flex moduļa parametra: align-items vērtība: baseline, kas izlīdzina flex elementus tā, lai teksts būtu vidū. Flex elementi tiek izvietoti atkarībā no šrifta līnijas. Tas ir atkarīgs, cik liels šrifts tiek izmantots flex elementiem. Ja viens flex elements ir augstāks par pērējiem, tad pārējo elementus šrifts līdzinās augstākajam šriftam. */
+
+/* Kā nākošo flex moduļa parametru mēs apgūstam: flex-direction, kam noklusētā vērtība ir: row. Moduļa flex parametrs: flex-direction nosaka pamatasi, tādā veidā nosakot flex elementu virzienu, kas atrodas flex konteinerā. */
+
+/* Pēc noklusējuma: flex-direction: vērtība: row, nozīmē no Angļu valodas: rinda. Tas nozīmē, ka pēc noklusējuma flex elementi tiek attēloti pa asi X rindā, viens aiz otra. */
+
+/* Ja mēs šī flex parametra vērtību mainīsim uz: row-reverse, tad iegūsim to, ka mūsu flex elementi tiek apgriezti otrādi un piespiesti pie flex konteinera beigām, mūsu gadījumā: pie labās puses. Bet tie ir otrādā secībā. izskatām ar piemēru kā tas darbojas: */
+
+/*
+.block {
+	display: flex;
+	flex-direction: row-reverse;
+}	*/
+
+/* Mēs redzam, ka mūsu flex elementi ir piespiesti pie flex konteinera beigām, un to secība, ja skatāmies no lapas kreisās puses uz labo, ir pretēja. Kā pirmo mēs redzam pēdējo flex elementu, un kā pēdējo: mēs redzam pirmo flex elementu. */
+
+/* Mēs redzam, ka visa elementu rinda tiek apgriezta uz pretējo pusi. Nejaucam ar flex moduļa parametru: justify-content: flex-end, jo tas noliek flex elementus flex konteinera beigās, bet parametrs: flex-direction: row-reverse; ne tikai novieto elementus flex konteinera beigās, bet tas apgriež to kārtību. Ja pie iepriekšējā parametra flex elementi izvietojās secībā no kreisās puses uz labo, tad šeit tie izvietojas pretēji: no labās puses uz kreiso pusi. */
+
+/* Kad izmantojam flex parametru: flex-direction: row-reverse mūsu līnija, ass X mainās uz pretējo pusi, tā iet no lapas labās puses uz kreiso pusi. */
+
+/* Ja mēs izmantojam flex moduļa parametru: flex-direction: row-reverse kopā ar flex parametru: justify-content: flex-start, vai kādu citu vērtību, tad tas darbojas tieši tā pat kā iepriekš, tikai flex elementu kārtība ir apgriezta otrādi. */
+
+/* Mēs redzam, ka piepildās flex moduļa nosacījums, ka: Mēs varam mainīt flex elementu kārtību izmantojot tikai CSS flex moduļa parametrus. Mums nav nepieciešams ko mainīt HTML failā. */
+
+/* Līdz šim, līdz flex moduļa iepazīšanai mēs mainīt elementu kārtību no CSS faila varējām tikai ja izmantojām pozicionēšanas parametrus ar position: absolute utt, bet tas būtu risinājums tikai tad, ja mēs zinātu, ka elementi nemainīsies, netiks mainīts to daudzums un saturs. Bet mēs jau zinam, ka lapu izstrāde paredz to, ka lapas saturs tiks mainīts, un mums ir jānodrošina stabila - uzticama lapas izstrāde, kas nesalūzt pie mazākām izmaiņām. */
+
+/* Tagad, kad zinam flex moduli, mēs varam ar pāris kodu rindām mainīt elementu kārtību. */
+
+/* Flex parametram: flex-direction ir vēl vērtība: column. Izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	flex-direction: column;
+} */
+
+/* Kas tad notiek? Mēs redzam, ka mūsu flex elementi ir sākotnējā stāvoklī, kad mums nebija ieslēgts modulis: flex. Notika ass maiņas. Mums galvenā ass bija X un pēc tam ass Y, bet tagad ir pretēji, tagad mūsu galvenā ass ir Y un pēc tam X. Un tieši tādēļ mēs iegūstam šādu rezultātu. Mūsu galvenā ass ir no lapas augšas uz leju. Un tieši šī iemesla dēļ mēs redzam šādu rezultātu. */
+
+/* Lai mēs redzētu kā tagad darbojās moduļa flex parametri: flex-direction: column un justify-content: ar jau ierastajām vērtībām, mums jāpalielina flex konteinera augstums. Izskatām to ar piemēru: */
+
+.block {
+	display: flex;
+	flex-direction: column;
+	height: 600px;
+	justify-content: flex-end;
+}
+
+/* Rezultātā mēs redzam, ka mūsu flex elementi ir novietojušies pa asi Y, no augšas uz leju, flex konteinera beigās. Mēs izmantojot parametru: height palielinājām flex konteinera augstumu, lai varētu izmantot flex moduļa parametru: justify-content, jo atceramies: ka tas darbojas tikai tad, ja flex konteinerā ir brīva vieta. */
