@@ -271,11 +271,145 @@ display: inline-flex;
 
 /* Lai mēs redzētu kā tagad darbojās moduļa flex parametri: flex-direction: column un justify-content: ar jau ierastajām vērtībām, mums jāpalielina flex konteinera augstums. Izskatām to ar piemēru: */
 
+/*
 .block {
 	display: flex;
 	flex-direction: column;
 	height: 600px;
-	justify-content: flex-end;
-}
+	justify-content: flex-start;
+} */
 
 /* Rezultātā mēs redzam, ka mūsu flex elementi ir novietojušies pa asi Y, no augšas uz leju, flex konteinera beigās. Mēs izmantojot parametru: height palielinājām flex konteinera augstumu, lai varētu izmantot flex moduļa parametru: justify-content, jo atceramies: ka tas darbojas tikai tad, ja flex konteinerā ir brīva vieta. */
+
+/* Mainot flex moduļa parametra: justify-content vērtības, mēs redzam kā tas darbojas pa mūsu tagad galveno asi Y. Visas vērtības darbojas tieši tā pat, kā, kad bija galvenā ass X, tikai tagad vis notiek no lapas augšas uz leju. */
+
+/* Kas notiek, ja mēs pievienojam flex moduļa parametru: align-items: flex-start;. Mēs redzam, ka mūsu flex elementi piespiežas pie augšas un iet rindā uz leju, jo mēs tiem esam noteikuši flex parametru: flex-direction: column. */
+
+/* Izskatām to ar piemēru: */
+
+/*
+.block {
+	align-items: flex-start;
+} */
+
+/* Mēs redzam, ka mūsu flex elementi ir izvietojušies pa galveno asi Y, no augšas uz leju, un par cik tiem ir noteikts flex parametrs: align-items: flex-start, mēs redzam, ka flex elementi ir pielipuši - novietojušies cieši kopā pie flex konteinera sākuma. Atceramies, ka sākums tagad mums ir pa asi Y. */
+
+/* Mainot flex moduļa parametru: align-items: vērtības mēs redzam kā mūsu flex elementi izvietojas tieši tā kā pa asi X, bet tagad tie tieši tā pat izvietojas pa asi Y. */
+
+/* Ieteikums: Kā mēs varam panākt, ka visi mūsu flex elementi ir flex konteinera centrā: mums jāpieraksta sekojoši: */
+
+/*
+.block {
+	justify-content: center;
+	align-items: center;
+} */
+
+/* Mēs iegūstam, ka visi mūsu flex elementi ir flex konteinera centrā. Neatkarīgi vai flex moduļa parametrs ir ar vērtībām: flex-direction: row vai flex-direction: column. Mainās tikai galvenā ass, bet mūsu flex elementi ir centrā. */
+
+/* Mainās tikai tas, vai mūsu elementi ir rindā - row vai kolonā uz leju pa asi Y. Atceramies, ka pie vērtības: row mūsu galvenā ass ir X, bet pie vērtības: column galvenā ass ir Y. */
+
+/* Ja mums ir flex parametrs: flex-direction: row-reverse, tad mums ir arī: flex-direction: column-reverse, kas atkal apgriež flex elementus, bet jau pa asi Y, bet tagad mūsu ass Y maina virzienu uz pretējo pusi: no lapas apakšas uz lapas augšu. */
+
+/* Lai labāk saprastu kā tas darbojās, izslēdzam iepriekšējos aktīvos kodus un pierakstām sekojošu piemēru: */
+
+/*
+.block {
+	display: flex;
+	height: 600px;
+	flex-direction: column-reverse;
+} */
+
+/* Rezultātā mēs iegūstam, ka mūsu flex elementi ir apgriezti otrādi pa asi Y, pretējā secībā, pirmais flex elements ir pašā flex konteinera apakšā. */
+
+/* Un mums atkal ir iespēja, tikai šoreiz pa asi Y, apgriezt elementus pretējā secībā, neko nemainot HTML dokumentā. Mēs redzam flex moduļa lielās iespējas. */
+
+/* Vēl viens flex moduļa flex konteinera parametrs ir: align-content, kas izlīdzina flex elementus pa galveno asi, kas ir atkarīga no flex moduļa parametra: flex-direction, un pie nosacījumiem, ka: flex konteinerī ir brīva vieta un flex elementi ir vismaz divās rindās. Bet ir viena atšķirība: Flex elementi, ja notiek pārnese otrā rindā, tad tie pēc augstuma vairs nelīdzinās augstākajam elementam, bet gan vienkārši piespiežas viens pie otra. */
+
+/* Pēc noklusējuma flex moduļa parametram: align-content: vērtība ir: stretch, kas nozīmē to, ka mūsu flex elementi */
+
+/* Kad izmantojam flex moduļa parametru: align-items: flex-start;, flex konteinerī, ja mainās ekrāna platums un mēs izmantojam konteinerim fiksētu augstumu, tad flex elementi nostājās tā, ka tie veido starp vienu rindu un otru rindu, un arī aiz otrās rindas brīvu vietu flex konteinerī. Tie veido tukšus laukumus flex konteinerī. */
+
+/* Mēs varam kontrolēt - iespaidot šos tukšos laukumus flex konteinerī ar flex moduļa parametru: align-content: flex-start;, mēs varam piespiest flex elementus pie flex konteinera sākuma. Ja mums mainās lapas platums, tad flex elementi pārlec jaunā rindā un mums neveidojas tukši laukumi. Un mums priekš tā vairs nevajag parametru: align-items: flex start;. */
+
+/* Mūsu flex elementi pārlecot jaunā rindā centīsies pastiepties viens otram līdzi, tie līdzinās visaugstākajam elementam, pielāgojas. Atceramies galveno flex moduļa priekšrocību: flex konteineris ir kā gumija, kuru mēs varam pielāgot, pastiept, sašaurināt utt. */
+
+/* Kad mums ir noklusējuma vērtība flex moduļa parametram: flex-direction un, kad mums flex konteineris ir augstāks nekā augstums, ko aizņem flex elementi, tad mums veidojas tukšas vietas. Šīs tukšās vietas mēs varam kontrolēt ar flex moduļa parametru: align-content: vērtībām: space-between un space-around. */
+
+/* Bet šī parametra darbību mēs redzam tikai tad, kad mums ir flex elementi vairākās rindās. Ja tie mums ir vienā rindā, tad mēs neko neredzam, bet tiklīdz mēs sašaurinām ekrānu, mēs redzam kā darbojas šis flex moduļa parametrs. */
+
+/* Būtiski: lai šīs flex moduļa parametrs strādātu, mums ir jābūt ieslēgtam parametram: flex-wrap: wrap;, jo savādāk mums nedarbosies flex elementu pārnese jaunā rindā. Izskatām flex moduļa parametru: align-content darbību ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	height: 600px;
+	flex-wrap: wrap;
+	align-content: space-between;
+} */
+
+/* Atceramies: šo flex moduļa parametru: align-content mēs varam izmantot tikai tad, kad mums flex elementi ir vairāk nekā vienā rindā un mums ir brīva vieta flex konteinerī. */
+
+/* Kā mēs varam noteikt atstarpes priekš flex elementiem. Mēs tās nosakām iekš flex konteinera izmantojot flex moduļa parametru: gap: kas nosaka cik liela atstarpe būs starp flex elementiem. Pēc noklusējuma parametrs: gap ir 0;. Izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	gap: 20px;
+} */
+
+/* Izpildot šo piemēru mēs redzam, ka starp mūsu flex elementiem ir 20px atstarpe. */
+
+/* Šim atstarpju parametram ir vēl divi papildus - smalkāki parametri: row-gap un column-gap, kas tieši uzstāda atstarpes pa asi X - row-gap un pa asi Y - column-gap. Izskatām tos atkal ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 20px;
+	column-gap: 10px;
+} */
+
+/* Mēs redzam, ka tad, kad mums lapai mainās platums, samazinās flex konteinera izmērs, flex elementi sastājās vairākās rindās un starp tiem ir atstarpes, gan pa asi X, gan pa asi Y. */
+
+/* Šos abus flex-elementu atstarpju parametrus mēs varam pierakstīt arī ar vienu: gap: parametru, tā pirmo vērtību rakstot: row - pa asi X, un otro vērtību rakstot: column - pa asi Y. Izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px 10px;
+} */
+
+/* Mēs redzam, ka atstarpes starp flex elementiem ir tieši tādas pašas kā tad, kad izmantojām iepriekšējos ( katru atsevišķi ) atstarpju parametrus: gap. */
+
+/* Ar ko parametrs: gap ir unikāls? Ar to, ka tas nenosaka atstarpes visam elementam, bet gan tikai starp elementiem. Tas ir tāds kā atstarpju drošības parametrs. */
+
+/* Vēlāk mēs mācīsimies citādākus atstarpju parametrus, kas nodrošinās, ka mūsu lapa ir stabilāka pret pārmaiņām, un, kas strādā visur, ne tikai uz flex elementiem, bet jau tagad mēs varam sākt izmantot gap. */
+
+/*  */
+
+/* Šie bija flex moduļa parametri, lai strādātu tieši ar flex konteineru, un elementiem, kas ir iekš tā, bet tagad paskatīsimies kā mēs varam strādāt tieši ar flex elementiem. */
+
+/* izslēdzam iepriekšējos aktīvos kodus, atstājam tikai flex moduļa ieslēgšanu: display: flex; */
+
+/* Iekš HTML dokumenta pierakstām pirmajam flex elementam papildus klasi ar modifikatoru: _align. Atceramies BEM metodoloģiju. Vēršamies no CSS pie pirmā  flex elementa: */
+
+/* 
+.block__element_align {
+	align-self: auto;
+} */
+
+/* Moduļa flex, flex elementa parametrs: align-self, kas nosaka konkrētam flex elementam izlīdzināšanu pa galveno asi, atkarībā no flex moduļa parametra: flex-direction. Atceramies, ka izmantojot: flex-direction mēs varam mainīt galveno asi. Pēc noklusējuma šī flex elementa parametra: align-self vērtība ir: auto, bet mēs to varam mainīt, piemēram uz: flex-start. Izskatām to ar piemēru: */
+
+/* 
+.block__element_align {
+	align-self: flex-start;
+} */
+
+/* Mēs redzam, ka mūsu pirmā flex elementa izlīdzināšana ir mainīta uz: flex-start. Tas vairs nav vienāds ar visiem pārējiem flex elementiem un netiek līdzināts pēc augstākā flex elementa, tas kļūst pats par sevi. */
+
+/* Šis flex elementa parametrs tiek izmantots diez gan bieži, kad mums ir nepieciešams, lai kāds no flex elementiem nebūtu vienāda augstuma. Tas vairs nav gumijas veida elements, kā sākumā, kad ieslēdzam flex moduli, visi flex elementi kļūst kā gumija. */
+
+/* Tagad mēs redzam, ka pārējie flex elementi vairs nav pielīdzināmi pirmajam flex elementam, un, lai mēs dabūtu visus flex elementus vienādā laukumā, mums jau ir jāpielieto kādi citi parametri, lai tos izlīdzinātu. */
+
+/*  */
