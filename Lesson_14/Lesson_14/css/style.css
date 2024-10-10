@@ -349,7 +349,7 @@ display: inline-flex;
 
 /* Atceramies: šo flex moduļa parametru: align-content mēs varam izmantot tikai tad, kad mums flex elementi ir vairāk nekā vienā rindā un mums ir brīva vieta flex konteinerī. */
 
-/* Kā mēs varam noteikt atstarpes priekš flex elementiem. Mēs tās nosakām iekš flex konteinera izmantojot flex moduļa parametru: gap: kas nosaka cik liela atstarpe būs starp flex elementiem. Pēc noklusējuma parametrs: gap ir 0;. Izskatām to ar piemēru: */
+/* Kā mēs varam noteikt atstarpes priekš flex elementiem. Mēs tās nosakām iekš flex konteinera izmantojot flex moduļa parametru: gap: kas nosaka cik liels attālums būs starp flex elementiem. Pēc noklusējuma parametrs: gap ir 0;. Izskatām to ar piemēru: */
 
 /*
 .block {
@@ -357,9 +357,9 @@ display: inline-flex;
 	gap: 20px;
 } */
 
-/* Izpildot šo piemēru mēs redzam, ka starp mūsu flex elementiem ir 20px atstarpe. */
+/* Izpildot šo piemēru mēs redzam, ka starp mūsu flex elementiem ir 20px attālums. */
 
-/* Šim atstarpju parametram ir vēl divi papildus - smalkāki parametri: row-gap un column-gap, kas tieši uzstāda atstarpes pa asi X - row-gap un pa asi Y - column-gap. Izskatām tos atkal ar piemēru: */
+/* Šim flex elementu attāluma parametram ir vēl divi papildus - smalkāki parametri: row-gap un column-gap, kas tieši uzstāda elementu attālumu pa asi Y - row-gap - kas nosaka, cik liela atstarpe būs starp rindām, un pa asi X - column-gap, kas nosaka cik liela atstarpe būs starp flex elementiem. Izskatām tos atkal ar piemēru: */
 
 /*
 .block {
@@ -369,9 +369,9 @@ display: inline-flex;
 	column-gap: 10px;
 } */
 
-/* Mēs redzam, ka tad, kad mums lapai mainās platums, samazinās flex konteinera izmērs, flex elementi sastājās vairākās rindās un starp tiem ir atstarpes, gan pa asi X, gan pa asi Y. */
+/* Mēs redzam, ka tad, kad mums lapai mainās platums, samazinās flex konteinera izmērs, flex elementi sastājās vairākās rindās un starp tiem ir attālums, gan pa asi Y, gan pa asi X. Pa asi Y mums ir: 20px, bet pa asi X mums ir: 10px. */
 
-/* Šos abus flex-elementu atstarpju parametrus mēs varam pierakstīt arī ar vienu: gap: parametru, tā pirmo vērtību rakstot: row - pa asi X, un otro vērtību rakstot: column - pa asi Y. Izskatām to ar piemēru: */
+/* Šos abus flex-elementu attāluma parametrus mēs varam pierakstīt arī ar vienu: gap: parametru, tā pirmo vērtību rakstot: row - pa asi Y, un otro vērtību rakstot: column - pa asi X. Izskatām to ar piemēru: */
 
 /*
 .block {
@@ -380,13 +380,15 @@ display: inline-flex;
 	gap: 20px 10px;
 } */
 
-/* Mēs redzam, ka atstarpes starp flex elementiem ir tieši tādas pašas kā tad, kad izmantojām iepriekšējos ( katru atsevišķi ) atstarpju parametrus: gap. */
+/* Mēs redzam, ka attālums starp flex elementiem ir tieši tādas pašas kā tad, kad izmantojām iepriekšējos ( katru atsevišķi ) atstarpju parametrus: gap. */
 
-/* Ar ko parametrs: gap ir unikāls? Ar to, ka tas nenosaka atstarpes visam elementam, bet gan tikai starp elementiem. Tas ir tāds kā atstarpju drošības parametrs. */
+/* Ar ko parametrs: gap ir unikāls? Ar to, ka tas nenosaka atstarpes visam elementam, bet gan tikai attālumu starp elementiem. Tas ir tāds kā atstarpju drošības parametrs. */
 
-/* Vēlāk mēs mācīsimies citādākus atstarpju parametrus, kas nodrošinās, ka mūsu lapa ir stabilāka pret pārmaiņām, un, kas strādā visur, ne tikai uz flex elementiem, bet jau tagad mēs varam sākt izmantot gap. */
+/* Vēlāk mēs mācīsimies citādākus flex elementu attāluma parametrus, kas nodrošinās, ka mūsu lapa ir stabilāka pret pārmaiņām, un, kas strādā visur, ne tikai uz flex elementiem, bet jau tagad mēs varam sākt izmantot gap. */
 
-/*  */
+/* Atceramies: Nejaucam flex un grid moduļa elementu attāluma parametru: gap ar tām atstarpēm, ko mēs jau zinam. Vēlāk, kad mēs mācīsimies grid moduli, tur arī būs savs: gap. */
+
+/* Kādēļ mēs flex elementiem nevaram noteikt mums jau zināmo atstarpju parametru: margin? To mēs izskatīsim nedaudz vēlāk. */
 
 /* Šie bija flex moduļa parametri, lai strādātu tieši ar flex konteineru, un elementiem, kas ir iekš tā, bet tagad paskatīsimies kā mēs varam strādāt tieši ar flex elementiem. */
 
@@ -412,4 +414,113 @@ display: inline-flex;
 
 /* Tagad mēs redzam, ka pārējie flex elementi vairs nav pielīdzināmi pirmajam flex elementam, un, lai mēs dabūtu visus flex elementus vienādā laukumā, mums jau ir jāpielieto kādi citi parametri, lai tos izlīdzinātu. */
 
-/*  */
+/* Izskatīsim kā mēs varam kontrolēt tieši flex elementu lielumu. Kā pirmais flex elementu kontrolēšanas parametrs ir: flex-basis, kas nosaka flex elementa izmēru pēc noklusējuma, līdz atlikušās platības sadalīšanai. Tā vērtības mēs varam noteikt pikseļos: px, procentos: %, utt. */
+
+/*
+.block__element_first {
+  flex-wrap: wrap;
+	flex-basis: 200px;
+} */
+
+/* Pēc noklusējuma šī flex elementa parametra: flex-basis vērtība ir: auto, kas nozīmē, ka flex elementa izmērs tiek noteikts pēc tā satura, kas ir iekš tā. */
+
+/* Nejaucam šo parametru: flex-basis ar parametru: width, jo flex-basis nosaka flex elementa vēlamo izmēru, ja flex konteinerī ir vietas. Svarīgi: flex-basis nosaka flex elementa vēlamo platumu, ja flex konteinerī ir brīvas vietas. */
+
+/* Izpildot šo piemēru ar pirmo flex elementu, mēs redzam, ka tā platums palielinās līdz 100px, jo mums ir brīva vieta flex konteinerī. */
+
+/* Ja mēs izslēdzam flex moduļa parametru: flex-wrap, tad mēs redzam, ka mūsu pirmais flex elements mainoties ekrāna platumam, kad tam vairs nav vietas, tad tas saraujas. */
+
+/* Tagad mēs saprotam, ka parametrs: flex-basis nav viens un tas pats ar parametru: width. Ja mēs mūsu pirmajam elementam noteiksim parametru: width mēs redzam, ka ar flex elementiem tas nestrādā tā kā mums gribētos. */
+
+/* Parametrus: width un height mēs varam izmantot, lai kontrolētu flex elementus, nevis pa pamatasi, kas ir atkarīga no parametra: flex-direction, bet gan pa otru asi. Bet lai kontrolētu pamatasi mums jāizmanto parametrs: flex-basis. */
+
+/* Nākošais parametrs ar kuru mēs varam kontrolēt flex elementus ir: flex-grow, kas nosaka flex elementa iespēju palielināties, pēc nepieciešamības aizpildot visu flex konteineri. Tam ir tikai divas vērtības: 0 - kas nozīmē, ka mēs aizliedzam tam palielināties un: 1 - ka mēs atļaujam tam palielināties. Izskatām to ar piemēru, izslēdzam iepriekš aktīvo kodu: */
+
+/*
+.block__element_first {
+	flex-grow: 0;
+} */
+
+/* Rezultātā mēs redzam, ka mūsu pirmais flex elements ir palielinājies tā, lai tiktu aizpildīts vis flex konteineris, pārējie flex elementi ir palikuši nemainīgi. */
+
+/* Vēl viens flex elementu parametrs: flex-shrink, kas nosaka vai flex elementa izmērs var samazināties, pēc nepieciešamības aizpildot visu flex konteineru. Tam arī ir tikai divas vērtības: 0 - kas nozīmē, ka tam ir aizliegts samazināties un: 1 - ka tam ir atļauts samazināties. Izskatām to ar piemēru: */
+
+/*
+.block__element_first {
+	flex-shrink: 1;
+	flex-basis: 200px;
+} */
+
+/* Šie abi flex elementu parametri strādā kopā ar flex elementu parametru: flex-basis. Lai labāk saprastu rezultātu, pievienojam šo parametru mūsu piemērā. */
+
+/* Mēs redzam, ka samazinoties lapas platumam, kad flex pirmais elements vairs neietilpst flex konteinerī, tas samazinās. Par to atbild: flex-shrink parametrs. */
+
+/* Pēc noklusējuma šiem abiem flex elementu parametriem ir šādas vērtības: flex-grow: 0;, kas aizliedz flex elementam palielināties un flex-shrink: 1, kas atļauj flex elementam samazināties. */
+
+/* Flex elementa parametra: flex-basis: noklusējuma vērtība ir: auto. Kas nozīmē, ka tā izmērs ir automātiski attiecīgs tik cik ir tā saturs. */
+
+/* Parametru: flex-grow: 1; mēs varam noteikt visiem flex elementiem. Rezultātā mēs redzēsim, ka otrais flex elements pēc lieluma paliek nemainīgs, bet visi pārējie flex elementi paliek lielāki, tā, lai aizpildītu visu flex konteineru. Otrs flex elements paliek nemainīgs, jo tam ir vairāk satura un visi četri flex elementi cenšas izvietoties pa flex konteineri proporcionāli. */
+
+/* Bet ja izmantosim šo flex elementu parametru: flex-grow tikai vienam elementam, tad mēs redzam, ka visi pārējie flex elementi pēc to lieluma paliek nemainīgi, bet pirmais elements aizpilda visu flex konteinera platību, tā, lai flex konteinerī ietilptu visi četri flex elementi. */
+
+/* Pat tad, ja izmantojam flex elementu parametru: flex-basis: 200px kopā ar parametru: flex-grow: 1;, tad mēs redzam, ka mūsu pirmais flex elements izstiepjas pa visu pieejamo brīvo vietu. */
+
+/* Šī situācija mums atgādina par parametra: min-width izmantošanu, kad mēs nosakām kādam elementam minimālo lielumu, un tas var palielināties, bet nevar būt mazāks par noteikto: min-width. */
+
+/* Bet šeit situācija tomēr ir citādāka, jo mēs varam noteikt, ka mūsu pirmais flex elements var gan palielināties, gan samazināties. Tas var automātiski kļūt mazāks par 200px, jo pēc noklusējuma mums ir flex parametrs: flex-shrink: 1;, kas atļauj pēc nepieciešamības flex elementam samazināties. */
+
+/* Lai panāktu šo trīs flex elementu lieluma - platuma darbību tieši tā, kā, ja tiktu izmantots CSS parametrs: min-width: 200px, mums šie trīs parametri ir jānosaka sekojoši: */
+
+/*
+.block__element_first {
+	flex-basis: 200px;
+	flex-grow: 1;
+	flex-shrink: 0;
+} */
+
+/* Mēs nosakām, ka elementa lielums ir 200px, ka pēc nepieciešamības tas var palielināties, ja ir brīva vieta, bet tas nedrīkst samazināties. Mēs iegūstam tieši to pašu kā tad, ja mēs izmantotu parametru: min-width: 200px. */
+
+/* Ja mēs nosakām abus šos flex elementu lieluma parametrus uz: 0;, tad mēs iegūstam to pašu, ko tad, ja izmantotu stingri noteiktu lielumu: width: 200px. */
+
+/* Svarīgi: Lietojot flex moduli, flex elementiem pa to galveno asi, kura konkrētā situācijā tiek izmantota nav ieteicams izmantot CSS parametrus: width un height, jo tie nedarbosies tā kā mēs domājam. Tādēļ mums tiek doti attiecīgi flex elementu lieluma parametri: flex-basis, flex-grow un flex-shrink. */
+
+/* Bet mēs varam izmantot CSS parametrus: width un height flex elementiem pa otro asi, kas konkrētā gadījumā nav galvenā ass. */
+
+/* Par cik šie trīs flex elementu lieluma noteikšanas parametri darbojas kopā, tie visi tiek izmantoti vienlaicīgi, mēs tos varam pierakstīt vienā flex elementa parametrā: flex: kā pirmo vērtību norādot: flex-grow, kā otro norādot: flex-shrink un kā trešo norādot: flex-basis. Šī parametra universālais īsais pieraksts ar noklusējuma vērtībām ir šāds: flex: 0 1 auto;. Izskatām to ar piemēru: */
+
+/*
+.block__element_first {
+	flex: 0 1 200px;
+} */
+
+/* Mēs rezultātā redzam, ka mūsu pirmais flex elements nepalielinās, var samazināties, un ir fiksēta lieluma: 200px. */
+
+/* Lai mūsu kods izskatītos labāk, un lai mums būtu mazāk koda rindas, ir ieteicams izmantot tieši šo saīsināto flex pierakstu. */
+
+/* Lai labāk visu saprastu, kā šis darbojās: iekš HTML dokumenta noņemam ceturto flex elementu, izslēdzam šeit aktīvos kodus un pierakstām reālo piemēru: */
+
+.block {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block__element {
+	flex: 1 1 33.333%;
+}
+
+/* Mēs redzam, ka ar maksimāli īsu koda pierakstu mēs esam panākuši vēlamo rezultātu. */
+
+/* Itkā sīkums, bet mūsu profesionalitāti nosaka tieši tas, ka protam izmantot universālus CSS parametrus un, ka mūsu kods ir pēc iespējas īsāks, jo tā mēs taupām atmiņu, kā arī mums un citiem ir vieglāk orientēties pierakstītajā kodā.  */
+
+/* Būtiski: Ja iekš universālā flex parametra iekš flex-basis norādīsim vērtību procentos, tad mūsu elementa lielums tiks aprēķināts no kopējā flex konteinera lieluma. Piemēram, ja norādīsim: 33.333%, tad tas vienmēr aizņems vienu trešdaļu no flex konteinera. */
+
+/* Protams mēs šo universālo flex parametru varam piemērot visiem flex elementiem. Situācijā, kad mums vajag iegūt trīs vienādas kolonnas, mēs visiem mūsu flex elementiem norādām sekojošo: flex: 0 0 33.333%. Rezultātā mēs iegūstam, ka visi mūsu flex elementi ir vienāda lieluma un aizpilda visu flex konteineru. */
+
+/* Šādi mēs ar divām koda rindām varam panākt sev vēlamo rezultātu. Konteinerim flex norādot parametru: display: flex; un flex elementiem norādot universālo parametru: flex: 0 0 33.333%. Tā mēs ar maksimāli īsu kodu, parādot savu profesionalitāti panākam vēlamo rezultātu. */
+
+/* Par cik mēs flex parametra: flex-basis vērtībā norādījām procentus atceramies, ka mēs varam izslēgt flex-grow un flex-shrink vērtības, rakstot: 0, jo mūsu flex elementu platums ir atkarīgs no flex konteinera platuma, kas ir atkarīgs no lapas platuma. */
+
+/* Domājot par lapas adaptīvu, kad mainīsies lapas platums, mēs varam norādīt flex konteinerim parametru: flex-wrap: wrap un iekš flex elementiem norādīt parametru: flex: 1 1 33.333%. Mēs nosakām, ka mūsu flex elementi var gan palielināties, gan samazināties, tādejādi iegūstot labu efektu, ja samazinās flex konteinera platums. Mēs redzam, ka pirmie divi flex elementi ir pirmā rindā un trešais flex elements ir izstiepies pa visu tam pieejamo flex konteinera platumu. To mēs panākam pateicoties tam, ka esam norādījuši iekš: flex-grow: 1.  */
+
+/* Šāda pieeja reizēm var būt ļoti noderīga, tādēļ mums tā labi jāsaprot, kurš parametrs, kura vērtība par ko atbild. Un kāds būs gala rezultāts. Bet atceramies pašu galveno: Mūsu lapai vienmēr pie jebkādām pārmaiņām ir jābūt stabilai, lai nekur nekas nejūk un nebrūk. */
+
