@@ -39,12 +39,12 @@ body {
 /* Pierakstām HTML dokumentā dažus elementus, lai mēs uzskatāmāk saprastu jauno tēmu. Izveidojam bloku ar trīs elementiem, pievienojam tiem CSS parametrus. */
 
 .block {
-	border: 10px solid #8b0000;
+	/* border: 10px solid #794f45; */
 }
 
 .block__element {
-	border: 10px solid #008000;
-	padding: 20px;
+	/* border: 10px solid #7a956b; */
+	/* padding: 20px; */
 	font-size: 30px;
 	color: #fff;
 }
@@ -499,6 +499,7 @@ display: inline-flex;
 
 /* Lai labāk visu saprastu, kā šis darbojās: iekš HTML dokumenta noņemam ceturto flex elementu, izslēdzam šeit aktīvos kodus un pierakstām reālo piemēru: */
 
+/* 
 .block {
 	display: flex;
 	flex-wrap: wrap;
@@ -506,7 +507,7 @@ display: inline-flex;
 
 .block__element {
 	flex: 1 1 33.333%;
-}
+} */
 
 /* Mēs redzam, ka ar maksimāli īsu koda pierakstu mēs esam panākuši vēlamo rezultātu. */
 
@@ -524,3 +525,120 @@ display: inline-flex;
 
 /* Šāda pieeja reizēm var būt ļoti noderīga, tādēļ mums tā labi jāsaprot, kurš parametrs, kura vērtība par ko atbild. Un kāds būs gala rezultāts. Bet atceramies pašu galveno: Mūsu lapai vienmēr pie jebkādām pārmaiņām ir jābūt stabilai, lai nekur nekas nejūk un nebrūk. */
 
+/* Ja mums ir nepieciešams, lai pirmie divi flex elementi būtu vienā rindā, pa visu pieejamo flex konteinera platumu, un, lai trešais flex elements tiktu pārnest jaunā rindā, mums ir jāpieraksta sekojošs piemērs: Izslēdzam iepriekš aktīvo kodu un pierakstām: */
+
+/*
+.block {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block__element {
+	flex: 1 0 50%;
+} */
+
+/* Rezultātā mēs redzam, ka divi pirmie flex elementi ir pa visu flex konteinera platumu, un trešais flex elements ir otrā rindā, izstiepies pa visu flex konteinera platumu. */
+
+/* Ja mēs vēlamies, lai mūsu flex elementi būtu vienāda platuma divās rindās un, lai trešais flex elements arī būtu tikai līdz pus flex konteinera platumam, tad mēs izslēdzam iespēju flex elementiem palielināties, pierakstot sekojoši: flex: 0 0 50%. Rezultātā mēs iegūstam, ka mūsu flex elementi ir itkā divās kolonnās. */
+
+/* Atceramies, ka šī pieeja strādā tikai tad, kad mums darbojas flex parametrs: flex-wrap: wrap. Jo, ja mums nebūs noteikts šis parametrs, mēs redzēsim briesmīgu rezultātu. Redzēsim, ka trešais flex elements neietilpst flex konteinerā un izlien no visām robežām. */
+
+/* Šādai pieejai ir gan savi plusi, gan savi mīnusi. Mīnuss ir: elementu pārlikšana jaunā rindā: tad, kad tie vairs neietilps flex konteinera platumā notiek neprognozējami. Izstrādājot lapu šāda pieeja ne vienmēr mums der, jo mums ir jānodrošina, ka tad, kad mainīsies lapas saturs, mums nekas nesalūzīs un nesabruks. Bet šinī pieejā vis ir diezgan neprognozējami. */
+
+/* Izskatīsim jaunu flex elementu parametru, kas iznes flex moduli jaunā līmenī. Mēs sapratīsim cik jaudīgs ir flex modulis. Lai labāk saprastu piemērus, izslēdzam iepriekš aktīvo kodu un iekš HTML dokumenta pievienojam katram flex elementam papildus klasi ar modifikatoru, atceramies BEM metodoloģiju. */
+
+/* Mēs iepazīstam jaunu flex elementu parametru: order, kas nosaka kādā kārtībā tiks attēlots katrs flex elements. Tas ļauj mainīt flex elementu kārtību šeit iekš kaskādes stiliem, iekš HTML dokumenta izveidojam ceturto flex elementu. Pierakstām elementu papildus klases ar modifikatoriem. */
+
+/* Mēs jau zinam, ka izmantojot: flex-reverse, mēs varam apgriezt flex elementus pretēji, arī, kad izmantojam column-reverse. Izskatīsim kā darbojas flex elementu parametrs: order. Tā vērtībā rakstam skaitli, kādā kārtībā mēs vēlamies, lai tiktu attēloti flex elementi. */
+
+/*
+.block {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block__element_first {
+	order: 4;
+}
+
+.block__element_second {
+	order: 3;
+}
+
+.block__element_third {
+	order: 2;
+}
+
+.block__element_fourth {
+	order: 1;
+} */
+
+/* Rezultātā mēs redzam, ka mūsu flex elementi ir izvadīti pretējā secībā, līdzīgi kā td, kad izmantojām reverse. Bet šeit pēc nepieciešamības mēs varam attēlot flex elementus jebkurā secībā, jauktā, pēc kārtas, pretējā secībā. */
+
+/* Būtiski: ja izmantojam flex elementu parametru: order, mums ir svarīgi to norādīt katram flex elementam, jo citādi mums var sanākt negaidīts - nevēlams rezultāts. */
+
+/* Izslēdzam visus iepriekš aktīvos kodus, jo tagad mums jānostiprina jauniegūtās zināšanas praktiski, ar piemēriem. */
+
+/* Svarīgi: Mēs nevaram flex elementiem likt vienam otru iespaidot. Piemēram mēs nevaram mainot pirmo flex elementu domāt, ka arī trešais un ceturtais flex elements mainīsies. Tas tā nenotiks, tādēļ mēs nevaram piemēram: izmantot flex moduli, lai izstrādātu tabulu. */
+
+/* Atšķirībā no grid moduļa flex elementi nav viens ar otru saistīti. Vēlāk mēs mācīsimies par moduli: grid. */
+
+/* Flex elements var būt kā flex konteineris. Mš ar to varam strādāt tieši tā pat. Izskatām to ar piemēru: */
+
+/*
+.block {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block__element {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} */
+
+/* Rezultātā mēs redzam, ka mūsu flex elementu saturs ir centrā. Mēs redzam, ka jebkurš flex elements var būt flex konteineris. */
+
+/* Mēs gribam mūsu trīs flex elementiem pēc lieluma izmantot procentus, bet pēc atstarpēm: gap: 20px. Mēs redzam, ka mums tas nesanāk. Noņemam HTML dokumentā ceturto flex elementu. Izskatām to ar piemēru: */
+
+/*
+.block__element {
+	flex: 0 0 33.333%;
+	gap: 20px;
+} */
+
+/* Bet ir viens veids kā mēs nedaudz mainot mūsu kodu varam panākt vēlamo rezultātu. Atgriežamies iekš HTML dokumenta, izveidojam iekš katra flex elementa papildus kastīti ar content un atgriežamies šeit, pierakstot: Izslēdzam iepriekšējo aktīvo kodu. */
+
+.block {
+	margin: 0 -10px;
+	row-gap: 20px;
+	flex-wrap: wrap;
+}
+
+.block__element {
+	flex: 0 0 33.333%;
+	padding: 0 10px;
+}
+
+.block__content {
+	background-color: #77608d;
+	padding: 20px;
+	height: 100%;
+}
+
+/* Izskatīsim situācijas atrisinājumu, kur mēs gribam, lai starp mūsu flex elementiem būtu 20px atstarpe. Mēs nosakām mūsu flex elementiem: iekšējās atstarpes, tādejādi atdalot tos vienu no otra pa 10px, un mūsu blokam: flex konteineram pierakstām ārējās atstarpes, tādejādi sadalot mūsu flex konteineri trīs daļās. Noņemam visas apmales. Rezultātā mēs redzam, ka lai kāds būtu flex konteinera izmērs, platums, starp mūsu flex elementiem ir 20px atstarpe. */
+
+/* Tagad, kad mēs esam atrisinājuši pirmo uzdevumu, mums ir jāatrisina otrs uzdevums. Kā panākt, lai visi mūsu flex elementi būtu vienāda augstuma? Mēs vienkārši iekš flex konteinera, flex elementu apvalkam: flex__content pievienojam CSS parametru: height: 100%. Un mēs esam atrisinājuši arī otru uzdevumu, visi mūsu flex elementi ir vienāda augstuma. */
+
+/* Situācijā, kad mūsu flex elementi neietilpst flex konteinerā, tie pārlec jaunā rindā un starp tiem nav atstarpes. Šādā situācijā mums tieši noder flex moduļa atstarpju parametrs: row-gap, ko nosakām mūsu flex konteinerim. Neaizmirstam, ka mums ir jābūt ieslēgtam parametram: flex-wrap: wrap. Jo citādi mums nekas nestrādās. */
+
+/* Izpildot pareizi visus pierakstus mēs redzam, ka mums vis darbojas pareizi, un mēs esam atrisinājuši visus uzdevumus. */
+
+
+/* Šiem visiem uzdevumiem ir vēl otrs risinājums, kad mums paliek vis sākotnēji, bez papildus kastītes katram flex elementam iekš HTML dokumenta, šeit iekš CSS izmantot iekš block__element: calc() funkciju, kur mēs no 33.333% - 20px, un iegūstam, ka flex elementiem ir 20px atstarpes. */
+
+/* Otrajai pieejai, kad mēs nosakām atstarpes no CSS faila, izmantojot dažādus parametrus lai to panāktu ir būtisks pluss: ja mums zūd kāds no flex elementiem, tad automātiski atlikušie flex elementi aizpilda flex konteineru. Bet, ja mēs izmantojam pieeju no HTML dokumenta ar kastīti apkārt katram flex elementam, tad, ja mums zūd kāds flex elements, tad tā vieta paliek, un tas ne vienmēr mums ir vajadzīgs. */
+
+/* Ja tagad mums kaut kas nav līdz galam skaidrs, nesatraucamies, jo to visu mēs atstrādāsim - noslīpēsim kursa praktiskajā daļā. */
+
+/* Pie tam, visa nākošā lekcija būs par flex moduli ar praktiskiem piemēriem. Mēs uzzināsim visus sīkumus, un apskatīsim katram uzdevumam labāko risinājumu. */
