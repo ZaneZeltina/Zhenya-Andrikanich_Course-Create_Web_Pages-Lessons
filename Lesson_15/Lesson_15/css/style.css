@@ -1,0 +1,138 @@
+
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
+
+/* @font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+} */
+
+body {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+/* Šinī lekcijā mēs turpināsim iepriekšējās lekcijas tēmu. Strādāsim ar moduli flex. Iepriekšējā lekcijā mēs saņēmām visu teoriju, kas mums ir jāzin, bet šinī lekcijā izskatīsi, flex moduli praktiski, ar praktiskiem piemēriem, lai labāk saprastu kā tas darbojas. */
+
+/* Šī lekcija nebūs gluži meistarklase, kas būs vēlāk kursā, bet šeit mēs izskatīsim no reāliem piemēriem, no mūsu maketiem kā mēs varam tos izstrādāt, izmantojot flex moduli. */
+
+/* Mēs mācāmies jau tagad pareizi strādāt ar klasēm, rakstīt tās pēc BEM metodoloģijas. Izmantot ierobežojošās kastītes: __container. Vēršoties pie tām izmantojot sarežģītos klašu selektoru atribūtus. */
+
+[class*="__container"] {
+	max-width: 1020px;
+	margin: 0 auto;
+}
+
+/* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
+
+/* Izslēdzam tumšo fonu iekš CSS, lai mēs labāk redzētu rezultātu. */
+
+/* Izskatīsim kā mēs varam lapas apakšu - pagrabu piespiest pie apakšas. Tas ir pagaidām mums nesaprotama lieta, ko daudzi iesācēji nezin. Ierakstām iekš tegiem header un footer atbilstošu tekstu, iekš HTML dokumenta. Mēs vēršamies pie mūsu nulles stilu faila, pie tega: wrapper un ieslēdzam tam flex moduli un pagriežam to tā, lai tas būtu kolonnā uz leju. Un mēs vēršamies pie tega main un pierakstām: flex: 1 1 auto, kas lapas augšu piespiedīs pie augšas, bet lapas apakšu piespiež pie lapas apakšas. Izskatīsim to ar piemēru: */
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
+	/* flex-grow: 1; */
+}
+
+/* izmantojot šādu pierakstu mēs iegūstam vēlamo rezultātu. Šāda pieeja mums var noderēt, tad, kad mums lapā saturs ir maz, un mēs uzreiz nosakām, ka lapas pagrabs būs piespiests pie lapas apakšas, lai tas mums nekarājās gaisā. */
+
+/* Tik pat labi mēs varam pierakstīt iekš main flex elementu parametru: flex-grow: 1, jo pārējie parametri jau pēc noklusējuma ir ar tādām vērtībām kā mēs norādījām. Bet, lai mēs labāk saprastu kā kura vērtība darbojas mēs varam lietot universālo: flex pierakstu. */
+
+/* Šādu pieeju, kad mēs kādu elementu pielipinam pie apakšas, mēs varam izmantot mūsu lapas izstrādē, kad mums ir kādas kartiņas un mums vajag kādu kartiņas elementu piespiest pie apakšas. Tad arī mēs varam izmantot šādu nelielu viltību. Šīs sīkās nianses, ko mēs izmantojam lapu izstrādē nosaka cik profesionāli mēs esam. Šo sīko nianšu zināšana padara mūs par profesionāļiem. */
+
+/* Izveidojam HTML dokumentā virsrakstu struktūru, atgriežamies šeit un stilizējam mūsu virsrakstus. */
+
+/* Pieslēdzam mūsu CSS failā roboto šriftu. */
+
+
+.promise__header {
+	margin: 0px 0px 68px 0px;
+}
+
+.title *:not(:last-child) {
+	margin: 0px 0px 33px 0px;
+}
+
+.title__label {
+	background: url("../img/dog_page/icons/icon_promises.svg") 0 -2px no-repeat;
+	color: #5d62b5;
+	padding: 0px 0px 0px 35px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 2.5px;
+	line-height: 2;
+	text-transform: uppercase;
+}
+
+.title__item {
+	font-size: 36px;
+	font-weight: 900;
+	color: #000;
+	line-height: 1.16;
+}
+
+/* CSS parametru: line-height mēs norādām procentos, jo, kad strādāsim ar lapas adaptīvu, ja mainīsies CSS parametrs: font-size, tad automātiski mainīsies CSS parametrs: line-height, tādēļ jau tagad mums ir jāpierod to norādīt procentos. */
+
+/* Turpinām mūsu piemēru iekš HTML dokumenta izstrādājot vienas kartiņas struktūru. Izlemjam, ka katrai kartītei mēs netaisīsim atsevišķu čaulīti, jo tas nav nepieciešams, jo mums nav katrai kartītei jāizstrādā CSS parametrs: background, jo fons šeit visam objektam, kas satur trīs kartītes ir vienāds. Turpinām strādāt ar mūsu piemēru piemērojot tam kaskādes stilus. */
+
+.promise__items {
+	display: flex;
+}
+
+.promise__item {
+	flex: 0 1 33.333%;
+}
+
+.item-promise {
+	display: flex;
+	align-items: flex-start;
+}
+
+.item-promise__img {
+	flex: 0 0 63px;
+}
+
+.item-promise__body {
+	padding: 0px 0px 0px 23px;
+}
+
+.item-promise__title {
+	font-weight: 900;
+	font-size: 19px;
+	color: #f2726f;
+	line-height: 1.37;
+}
+
+.item-promise__title:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+
+.item-promise__text {
+	line-height: 1.5;
+}
+
+/* Pievienojam HTML dokumentā atlikušās divas kartītes. */
+
