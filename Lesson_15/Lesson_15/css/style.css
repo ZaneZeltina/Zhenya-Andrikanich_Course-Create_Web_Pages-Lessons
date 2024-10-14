@@ -35,13 +35,19 @@ body {
 /* Mēs mācāmies jau tagad pareizi strādāt ar klasēm, rakstīt tās pēc BEM metodoloģijas. Izmantot ierobežojošās kastītes: __container. Vēršoties pie tām izmantojot sarežģītos klašu selektoru atribūtus. */
 
 [class*="__container"] {
-	max-width: 1020px;
+	max-width: 1050px;
 	margin: 0 auto;
+	padding: 0 15px;
+	/* box-sizing: content-box; */
 }
 
 /* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
 
 /* Izslēdzam tumšo fonu iekš CSS, lai mēs labāk redzētu rezultātu. */
+
+/* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
+
+/* Ar content-box izmantošanu ir viena priekšrocība: ums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
 
 /* Izskatīsim kā mēs varam lapas apakšu - pagrabu piespiest pie apakšas. Tas ir pagaidām mums nesaprotama lieta, ko daudzi iesācēji nezin. Ierakstām iekš tegiem header un footer atbilstošu tekstu, iekš HTML dokumenta. Mēs vēršamies pie mūsu nulles stilu faila, pie tega: wrapper un ieslēdzam tam flex moduli un pagriežam to tā, lai tas būtu kolonnā uz leju. Un mēs vēršamies pie tega main un pierakstām: flex: 1 1 auto, kas lapas augšu piespiedīs pie augšas, bet lapas apakšu piespiež pie lapas apakšas. Izskatīsim to ar piemēru: */
 
@@ -67,6 +73,15 @@ body {
 
 /* Pieslēdzam mūsu CSS failā roboto šriftu. */
 
+.header,
+.footer {
+	background-color: #794f45;
+	padding: 15px;
+}
+
+.promise {
+	padding: 50px 0px;
+}
 
 .promise__header {
 	margin: 0px 0px 68px 0px;
@@ -100,15 +115,24 @@ body {
 
 .promise__items {
 	display: flex;
+	margin: 0px -12px;
+	flex-wrap: wrap;
+	row-gap: 24px;
+	/* justify-content: space-between; */
 }
 
 .promise__item {
 	flex: 0 1 33.333%;
+	padding: 0px 12px;
+	min-width: 260px;
+	/* max-width: 324px; */
+	/* flex: 0 1 324px; */
 }
 
 .item-promise {
 	display: flex;
 	align-items: flex-start;
+	column-gap: 23px;
 }
 
 .item-promise__img {
@@ -116,7 +140,7 @@ body {
 }
 
 .item-promise__body {
-	padding: 0px 0px 0px 23px;
+
 }
 
 .item-promise__title {
@@ -134,5 +158,61 @@ body {
 	line-height: 1.5;
 }
 
-/* Pievienojam HTML dokumentā atlikušās divas kartītes. */
+/* Pievienojam HTML dokumentā atlikušās divas kartītes.Mēs redzam, ka esam ieguvuši vēlamo rezultātu, bet ir viens sīkums: mums starp flex elementiem nav atstarpes, pievienojam tās. Izmantojam CSS parametrus: margin un padding. Nosakām margin: 0 -12px mūsu flex konteineram: promise__items un nosakām padding priekš: promise__item. */
+
+/* Mēs izmantojam: padding, lai kompensētu negatīvās atstarpes: margin, ko izmantojām flex konteineram. Vis ir itkā labi, bet situācijā, kad tiek noņemta bilde - attēls, mums flex elements vairs neizskatās tik labi. Tādēļ nodrošināmies pret satura izmaiņām noņemot CSS parametru: padding no item-promise__body: un pievienojot CSS parametru: column-gap mūsu flex konteinerim. */
+
+/* Šī ir pieeja, kad mēs nodrošinām maksimāli noturīgu lapas izstrādi pret pārmaiņām, un neizmantojām papildus kastītes mūsu flex elementiem. Mēs atrisinājām uzdevuma ar minimāla apjoma kodu. */
+
+/* Otrs variants, ko itkā varētu izmantot, lai nebūtu jāizmanto margin un padding, lai noteiktu flex elementiem atstarpes ir: mēs izmantojam flex moduļa parametru: justify-content: space-between un max-width; 324px; Bet tas mums īsti neder, jo, kad mainās flex konteinera platums flex elementi saplūst kopā un starp tiem vairs nav atstarpes. Tādēļ šāda pieeja mums neder. Ja skatamies uz priekšu, ka lapai būs adaptīvs. */
+
+/* Vēl viens variants, kas arī itkā derētu, bet atkal domājot par lapas adaptīvu, samazinoties flex konteinerim: mums tas tomēr neder, jo iegūstam nevēlamu efektu. Mēs izmantojam flex konteinera parametru: gap un flex: 0 1 324px un flex-wrap: wrap. Šis arī nav labākais variants kā atrisināt uzdevumu. Pirmais variants ar padding un negatīvu margin izmantošanu ir vislabākais un visdrošākais mūsu lapai. */
+
+/* Pagaidām mums ir trīs kartītes, bet, ja kartītes paliks vairāk, tad mums ir jāpievieno tikai padding: 24px un negatīva margin, un mēs iegūstam, ka mēs varam ātri izveidot jaunas kartīšu rindas. */
+
+/* Ja mums šķiet sarežģīti strādāt ar atstarpēm, mēs varam vienkārši flex konteineram izmantot: row-gap: 24px; Mēs iegūsim tieši tādu pašu rezultātu. */
+
+/* Ja mēs vēlamies, lai mums notiktu automātiska flex elementu pārnese jaunā rindā, kad mums mainās flex konteinera platums, mēs mūsu flex elementiem varam izmantot CSS parametru: min-width: 260px. */
+
+/* Mums ir jāsaprot, ka flex modulim ir ļoti plašas iespējas, mēs varam mainīt katru parametru un katru reizi panākt interesantus efektus. Vis ir atkarīgs no konkrētas situācijas, konkrēta uzdevuma. Mums ir jāsaprot, ka katrai situācijai pieejai jābūt savādākai. Šai situācijai pieeja ir šāda, bet citā situācijā mums būtu jādara vis savādāk. */
+
+/* Domājot par lapas adaptīvo, ko mēs vēl nezinam, neprotam, mēs jau tagad iekš flex elementiem jau tagad varam norādīt parametru: flex: 1 1 33.333%;, tādā veidā jau tagad mūsu lapa ir adaptīva. */
+
+/* Turpinām strādāt tālāk, izskatām nākošo maketa bloku: services. Izstrādājam HTML dokumentā bloka services struktūru. Šeit jau mēs izmantojam citu pieeju, mēs mūsu kartītes saturu un ikonu liekam katru atsevišķā kastītē - <div></div> atvilknē. Jo ikonas var būt dažāda augstuma, tādēļ mums jānodrošinās, ka varam piekļūt klāt ikonai un strādāt ar to. Kā arī: mums jānodrošinās ar papildus kastīti katras kartiņas saturam, jo mums katrai kartītei ir fons, un, ja mēs gribam izmantot % lielumus kartītēm un atstarpes starp tām, tad mums ir jādara tieši šādi. */
+
+/* Mums zem mūsu kartītēm ir poga. Šinī piemērā mēs izskatīsim variantu kā mēs varam izstrādāt pogu izmantojot moduli: flex. */
+
+/* Kad esam izstrādājuši HTML dokumentā struktūru, atgriežamies šeit un pievienojam kaskādes stilus mūsu elementiem. */
+
+
+.services {
+	padding: 100px 0px 112px;
+}
+
+.services__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.services__items {
+	display: flex;
+}
+
+.services__item {
+	flex: 1 1 33.333%;
+}
+
+.services__button {
+	align-self: center;
+	background-color: #f2726f;
+	border-radius: 8px;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 2;
+	padding: 12px 25px;
+}
+
 
