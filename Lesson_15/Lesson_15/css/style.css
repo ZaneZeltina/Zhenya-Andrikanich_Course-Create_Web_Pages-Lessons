@@ -26,6 +26,7 @@
 body {
 	font-size: 16px;
 	font-weight: 400;
+	background-color: #f5f5f5;
 }
 
 /* Šinī lekcijā mēs turpināsim iepriekšējās lekcijas tēmu. Strādāsim ar moduli flex. Iepriekšējā lekcijā mēs saņēmām visu teoriju, kas mums ir jāzin, bet šinī lekcijā izskatīsi, flex moduli praktiski, ar praktiskiem piemēriem, lai labāk saprastu kā tas darbojas. */
@@ -143,7 +144,7 @@ body {
 
 }
 
-.item-promise__title {
+.item-title {
 	font-weight: 900;
 	font-size: 19px;
 	color: #f2726f;
@@ -154,7 +155,7 @@ body {
 	margin: 0px 0px 20px 0px;
 }
 
-.item-promise__text {
+.item-text {
 	line-height: 1.5;
 }
 
@@ -194,12 +195,25 @@ body {
 	flex-direction: column;
 }
 
+.services__header {
+	margin: 0px 0px 74px 0px;
+}
+
 .services__items {
 	display: flex;
+	flex-wrap: wrap;
+	row-gap: 24px;
+	margin: 0px 12px;
+}
+
+.services__items:not(:last-child) {
+	margin: 0px 0px 66px 0px;
 }
 
 .services__item {
 	flex: 1 1 33.333%;
+	padding: 0px 12px;
+	min-width: 300px;
 }
 
 .services__button {
@@ -213,6 +227,120 @@ body {
 	font-weight: 700;
 	line-height: 2;
 	padding: 12px 25px;
+	/* margin: 66px 0px 0px 0px; */
+}
+
+.item-services {
+	background-color: #fff;
+	border-radius: 20px;
+	padding: 50px 44px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	height: 100%;
+}
+
+.item-services__icon {
+	width: 63px;
+	flex: 0 0 63px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.item-services__img {
+	max-width: 100%;
+	max-height: 63px;
+}
+
+.item-services__icon:not(:last-child) {
+	margin: 0px 0px 33px 0px;
+}
+
+.item-services__title:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+
+.item-services__text:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+
+.item-services__text {
+	flex: 1 1 auto;
+}
+
+.item-services__link {
+	color:#f2726f;
+	font-weight: 700;
+}
+
+/* Mēs blokam: services varam noteikt ārējo apakšējo atstarpi divos veidos: nosakot augšējo ārējo atstarpi pogai, vai izmantojam pseido klasi :not(:last-child) priekš kartītēm un nosakām apakšējo ārējo atstarpi. Mēs esam jau pieraduši ārējās atstarpes noteikt uz leju, tādēļ par primāro variantu uzskatām noteikt ārējo apakšējo atstarpi kartīšu klasei izmantojot pseido klasi. */
+
+/* Lai mums būtu ērtāk strādāt ar kartīšu virsrakstiem un tekstu, atgriežamies HTML dokumentā, katram kartīšu virsrakstam un tekstam pievienojam jaunu BEM metodoloģijas klasi. Šeit kaskādes stilos, pierakstām stilus šīm abām papildus klasēm. */
+
+/* Mūsu sešas kartītes ir gatavas. Bet tagad izskatīsim situāciju, kad katras kartītes apakšā mums ir saite. Atgriežamies HTML dokumentā, un zem katras kartītes izveidojam saiti. Stilizējam mūsu saiti. */
+
+/* Turpinām strādāt ar piemēriem, izstrādājot nākošo bloku: impact. Atgriežamies HTML dokumentā un izstrādājam struktūru. Atgriežamies šeit un pievienojam kaskādes stilus. HTML dokumenta struktūrā izstrādājam papildus klases baltajiem elementiem, šeit tos stilizējam. */
+
+.title__label_white {
+	color: #fff;
+	background: url('../img/dog_page/icons/icon_impact.svg') 0 -2px no-repeat;
+}
+
+.title__item_white {
+	color: #fff;
+}
+
+.impact {
+	background-color: #29c3be;
+	padding: 20px 0px 212px;
+	position: relative;
+}
+
+.impact::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	transform: translate(93%, 0%);
+	height: 100%;
+	width: 100%;
+	background: url("../img/dog_page/impact/blob_2.png") 0 0 no-repeat;
+}
+
+.impact__container {
+	position: relative; 
+}
+
+.impact__body {
+	display: flex;
+	margin: 0px -15px;
+	align-items: flex-end;
+}
+
+.impact__body:not(:last-child) {
+	margin-bottom: 80px;
+}
+
+.impact__content {
+	padding: 0px 15px;
+	flex: 0 0 50%;
+}
+
+.impact__header {
+	max-width: 420px;
+}
+
+.impact__image {
+	padding: 0px 15px;
+	flex: 0 0 50%;
+	margin: -100px 0px 0px 0px;
+}
+
+.impact__img {
+	max-width: 100%;
+	border-radius: 40px;
 }
 
 
