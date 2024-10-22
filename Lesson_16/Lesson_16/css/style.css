@@ -1,0 +1,118 @@
+
+/* Sākumā atceramies kā pieslēgt šriftus: */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
+
+/* @font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+		url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	src:
+		url("../fonts/Gilroy-Bold.woff2") format("woff2"),
+		url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+} */
+
+[class*="__container"] {
+	max-width: 1050px;
+	margin: 0 auto;
+	padding: 0 15px;
+	/* box-sizing: content-box; */
+}
+
+/* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
+
+/* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
+
+/* Ar content-box izmantošanu ir viena priekšrocība: ums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
+
+/* Šinī lekcijā mēs mācīsimies par HTML, par formu izveidi. Strādāsim pārsvarā HTML failā. */
+
+/* Līdz šim lietotājs ar mūsu lapu varēja mijiedarboties, tikai nospiežot uz kādas pogas, apskatot kādu animāciju. Bet tagad mēs iepazīsim jaunus HTML tegs, lai mēs varētu no lapas lietotāja iegūt kādus datus, lai mēs tos saņemtu un varētu lietotājam atbildēt. Lietotājs izmantojot mūsu lapu mijiedarbojas ar mums, ar mūsu izstrādāto lapu. Protams, gala rezultātā mēs mūsu izstrādāto lapu atdodam klientam - pasūtītājam. */
+
+/* Lai mēs varētu no lapas lietotāja iegūt datus mums ir vajadzīgas formas. Tie ir vesela HTML tegu kopa, kurus mēs šodien apgūsim. */
+
+/* Mēs izmantojam teg: <form></form>, kam ir atribūts: action, kas ir obligāts jebkurai formai. Šis teg ir obligāts, tas ir galvenais, un vis, kas ir iekš tā ir tieši tas, kam pateicoties mēs varam mijiedarboties ar lietotāju. Iekš atribūta: action šobrīd liekam restīti: #, lai forma iet cauri validatoram. */
+
+/* Kas tad ir atribūts: action, un ko mēs rakstām iekš tā vērtības, iekš: "" pēdiņām. Tas ir domāts, lai mēs noteiktu adresi uz kuru aizies šīs formas dati. Pagaidām mēs tur vienkārši ieliekam: #. */
+
+/* Mēs nevaram iekš atribūta: action vērtībā norādīt kādu HTTP adresi, jo tas nestrādās. Mēs varam izmantot serverus, kur būs jau PHP programmēšanas valoda. To visu dara BackEnd speciālists. */
+
+/* Mēs esam atbildīgi par vizuālo daļu, par formas izstrādāšanu iekš HTML un stilizēšanu izmantojot kaskādes tabulas stilus, CSS, bet par pārējo mēs neatbildam, jo tālāk strādā BackEnd speciālists. */
+
+/* Otrs ļoti svarīgs teg: form atribūts ir: method: "", kas nosaka datu nodošanas metodi. */
+
+/* Atribūts: action atbild par formas datu adresi, saņēmēju, bet atribūts: method atbild par datu nodošanas veidu. */
+
+/* Noklusētā atribūta: method vērtība ir: "get". Parasti šo atribūtu mēs neaiztiekam, tādēļ arī iekš tega form nenorādām. */
+
+/* Kad izmantojam atribūtu method: "get" dati tiek nodoti tieši HTTP adresē. Vēlāk mēs izskatīsim ar piemēriem kā tas darbojas. */
+
+/* Atribūtam: method ir vēl viena vērtība: "post", kas nozīmē, ka dati tiek nodoti slēpti. Kā tieši, to mēs izskatīsim vēlāk, bet īsumā tas nozīmē, ka mēs neredzam kā tiek nodoti dati. */
+
+/* Iekš tega: form ir vēl atribūts: encrypt, kura vērtības nosaka kāda tipa datus mēs nododam, vai tas būs teksts, vai faili. Īsāk sakot, mēs nosakām, kas tieši tiks nodots. Īsāk sakot atribūts: encrypt nozīmē: kāds datu tips tiek nodots. */
+
+/* Pie form izstrādāšanas mums ir iespēja noteikt, ka lietotājs var pievienot failus. To vēlāk mēs arī izskatīsim ar piemēru. */
+
+/* Bet 99% gadījumu, visas formas ko mēs izstrādāsim kā lapu izstrādātāji, no BackEnd puses tiks pārtaisītas, bet, ja mēs zinam, ka būs vajadzība, lai formā varētu pievienot failus, tad kā laba izstrādātāja pienākums ir: iekš tega: form norādīt atribūtu: encrypt. */
+
+/* Iekš mūsu formas ir teg: input, kas dod iespēju mums ievadīt datus. Tas ir redzams HTML dokumenta elements un, tas tā pat kā saite skaitās interaktīvs elements, kas darbojas ar tabulāciju, ar taustiņu: TAB. Tas iegūst fokusu, kad mēs uz tā apstājamies. Tam pēc noklusējuma jau ir CSS parametrs: outline. */
+
+/* Form elementam input pēc noklusējuma tiek izmantota CSS pseido klase: focus, kam pēc noklusējuma tiek piemērots CSS parametrs: outline. */
+
+/* Elements: input ir ļoti jaudīgs, jo tam ir atribūts: type, kas nosaka kāda veida dati tiek ievadīti, teksts, lietotājvārds, parole, utt. Mēs vēl izskatīsim kādas vērtības iekš atribūta: type mēs varam izmantot. */
+
+/* Tega input atribūts: type nosaka kāda veida dati tiks ievadīti dotajā lauciņā. */
+
+/* Tegam input vēl ir atribūts: value, kas kopā ar atribūtu: type nosaka datu noklusēto vērtību, piemēram: name, age utt. */
+
+/* Katram tegam: input ir obligāts atribūts: name, kas nosaka kas tiks nosūtīts uz serveri vai kaut kur citur. Tieši ko mēs redzēsim. Ja mēs iekš atribūta: name= kā vērtību norādīsim: "username", tad tieši tas arī aizies uz serveri. */
+
+/* Šie tega: input visi atribūti mums jānorāda kopā, jo tie darbojas tikai kopā. Ja mēs izmantojam gan atribūtu: name, gan atribūtu: value, tad rezultātā mēs redzam: username=user. Piemēram: username=zany1919. Tas ir tas, ko redzēs BackEnd speciālists, kas varēs uzreiz noteikt kāda tipa dati ir ienākuši. */
+
+/* Nākošais tega: input atribūts ir: required, kas nozīmē, ka šis lauks ir obligāti jāaizpilda, jo pretējā gadījumā formu nevarēs aizpildīt, nevarēs nosūtīt, ja konkrētais ievades lauks netiks aizpildīts. */
+
+/* Izmantojot atribūtu required iekš tega: input notiek tāda kā iekšēja pārlūka formas validācija. Tas pārbauda vai konkrētais lauks ir aizpildīts. */
+
+/* Labākais veids kā apstrādāt validāciju ir: izmantot JavaScript, pārbaudīt vai formas lauki: input ir aizpildīti, vai izvadīt kādu kļūdu. Pārbaudīt kā tieši ir aizpildīti formas laukumi utt. */
+
+/* Retāk izmantojams atribūts iekš tega: input ir: maxlength="10", kura vērtība: 10 nosaka, ka var tikt ievadīti tikai 10 simboli. Šādi mēs varam ierobežot lietotāja ievades datus. Bet tas tiek izmantots retāk. */
+
+/* Ļoti svarīgs tega: input atribūts ir: placeholder="", kas būtiski uzlabo lapas lietojamību. Tā vērtībā mēs nosakām, kas lietotājam konkrētajā lauciņā: input ir jāievada, kāda veida dati. Mēs itkā nedaudz pasakām lietotājam priekšā, kas viņam dotajā laukumā ir jāievada. Tas ir ļoti svarīgi, jo tas būtiski uzlabo lapas lietojamību. */
+
+/* Kāda ir atšķirība starp atribūtiem: value un placeholder? Value ir vērtība, bet placeholder ir tā kā paraksts, tas ir pēc noklusējuma pa pusei caurspīdīgs, un tam nav vērtības, tas vienkārši pasaka mums priekšā, kas ir jāievada. Bet value izmanto noteiktu vērtību. */
+
+/* Atribūts: placeholder tiek izmantots, kad mums nav atribūts: value. Placeholder ir kā paraksts, kas pazūd, kad mēs uz tā uzklikšķinām un sākam ievadīt datus. Šis atribūts: placeholder netiek sūtīts uz serveri. Kamēr atribūts: value tiek sūtīts uz serveri. */
+
+/* Tegam: input ir vēl viens atribūts, kas mums retos gadījumos, bet var noderēt: autocomplete="off". Tā izmantošana nozīmē, ka pārlūks mums nedos ieteikumus, ko ievadīt dotajā laukumā, dotajā ievades lodziņā - input. Retās reizēs, bet tas var mums noderēt. */
+
+/* Tegam input ir vēl daudz retāk izmantojami atribūti, bet šie ir visbiežāk izmantojamie. */
+
+/* Ja mēs mainām atribūta: type="" vērtību no text uz number, tad mēs varam ievadīt tikai skaitļus. Mēs vairs nevaram ievadīt burtus. Atceramies: lapas lietojamībai iekš atribūta: placeholder="" mums jānorāda: number, kas liek lietotājam saprast, ka tur ir jāievada skaitļi. */
+
+/* Pie atribūta; type="number" mēs redzam, ka ievades lauciņā mums parādās labajā malā tādas kā bultiņas, kas palielina vai samazina skaitli. */
+
+/* Katram no input, ar attiecīgajiem atribūtiem un to vērtībām tiek piemēroti noklusējuma stili. Tos mēs varam kontrolēt, mainīt izmantojot JavaScript, bet par to mācīsimies vēlāk. */
+
+/* Nākošā atribūta: type="" vērtība ir: tel, kas nozīmē, ka šeit tiek ievadīts telefona numurs. Bet šeit ir būtiska lieta: uz datora mēs varam ievadīt burtus, bet uz telefona uzreiz tiek atvērta ciparnīca, kas uzreiz paredz, ka tiek ievadīti skaitļi. */
+
+/* Strādājot ar tegu input atceramies: norādīt katram input atribūtu: placeholder="" ar attiecīgo vērtību, to, ko mēs vēlamies lai redz lietotājs. */
+
+/* Ja mums ir telefona numurs, tātad mums mūsu formā ir arī e-pasts. Mums tikai jāieraksta iekš atribūta: type="email". Neaizmirstam par atribūtu: placeholder, kur mēs norādām lietotājam norādi kas ir jāievada. Šajā gadījumā: "e-mail". */
+
+/* Šeit, ja izmantosim atribūtu: required tiks pārbaudīts, vai tiešām te ir ievadīts e-pasts. Vai ir izmantota zīme: @. Šis ir tas gadījums, kad required darbojas kā validators, vai mēs esam ievadījuši derīgus datus. */
+
+/* Svarīgi: iekš katra tega: input mainīt arī atribūta: name="" vērtības. */
+
+
+

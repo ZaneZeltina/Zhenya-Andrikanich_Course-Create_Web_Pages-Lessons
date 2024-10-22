@@ -50,7 +50,7 @@ body {
 
 /* Ar content-box izmantošanu ir viena priekšrocība: ums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
 
-/* Izskatīsim kā mēs varam lapas apakšu - pagrabu piespiest pie apakšas. Tas ir pagaidām mums nesaprotama lieta, ko daudzi iesācēji nezin. Ierakstām iekš tegiem header un footer atbilstošu tekstu, iekš HTML dokumenta. Mēs vēršamies pie mūsu nulles stilu faila, pie tega: wrapper un ieslēdzam tam flex moduli un pagriežam to tā, lai tas būtu kolonnā uz leju. Un mēs vēršamies pie tega main un pierakstām: flex: 1 1 auto, kas lapas augšu piespiedīs pie augšas, bet lapas apakšu piespiež pie lapas apakšas. Izskatīsim to ar piemēru: */
+/* Izskatīsim kā mēs varam lapas apakšu - pagrabu piespiest pie apakšas. Tas ir pagaidām mums nesaprotama lieta, ko daudzi iesācēji nezin. Ierakstām iekš tegs header un footer atbilstošu tekstu, iekš HTML dokumenta. Mēs vēršamies pie mūsu nulles stilu faila, pie tega: wrapper un ieslēdzam tam flex moduli un pagriežam to tā, lai tas būtu kolonnā uz leju. Un mēs vēršamies pie tega main un pierakstām: flex: 1 1 auto, kas lapas augšu piespiedīs pie augšas, bet lapas apakšu piespiež pie lapas apakšas. Izskatīsim to ar piemēru: */
 
 .wrapper {
 	min-height: 100%;
