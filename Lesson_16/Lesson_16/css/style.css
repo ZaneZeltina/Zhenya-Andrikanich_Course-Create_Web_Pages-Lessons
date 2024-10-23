@@ -114,5 +114,113 @@
 
 /* Svarīgi: iekš katra tega: input mainīt arī atribūta: name="" vērtības. */
 
+/* Nākošā atribūta: type="" vērtība ir: date, kas lietotājam dod iespēju ievadīt datumu. Kā papildinājums šai vērtībai ir vērtība: datetime-local, kas ļauj lietotājam ievadīt gan datumu, gan laiku. */
+
+/* Būtiski: Iekš tega input atribūta: type="" vērtībām date un datetime-local mēs neredzam atribūta placeholder vērtību. */
+
+/* Nākošā atribūta: type vērtība ir: type="checkbox", kas nozīmē izvēle ar loģisko operatoru: UN. Iespēja ievilkt ķeksīti. Pārbaudes lodziņš ( checkbox ). Lietotājs var izvēlēties vairākus variantus. */ 
+
+/* Iekš atribūta: name="" mēs rakstām to ko gribam pārbaudīt, bet atribūta: value="" noklusētā vērtība ir: on. */
+
+/* Visi input ir bloka rindas tipa elementi, un uz tiem darbojas daudzie CSS parametri. Tegiem input ir noteikts lielums un pēc noklusējuma tie ir diezgan mazi un sastājas vienā rindā ( ja ir vieta ). Bet mēs mācīsimies tos stilizēt, lai mūsu forma iegūtu skaistu izskatu, jo pagaidām tai ir piemēroti noklusējuma stili. */
+
+/* Ir arī cita veida checkbox. kur mums ir tikai viena izvēle, ar operatoru: VAI. Tā saucamā radio poga. Kur mēs izvēlamies, vai nu vienu variantu, vai otru variantu. */
+
+/* Lai pārnestu kādu tegu: input jaunā rindā, mums tas vienkārši jāieliek iekš kastītes. Izdarām to iekš HTML dokumentiem ar mūsu checkbox. Mēs iekš atribūta: type="" vērtības rakstam: radio. Mums izveidojas izvēle VAI. */
+
+/* Izveidojam iekš HTML dokumenta divas radio tipa izvēlnes, vīrietis vai sieviete. */
+
+/* Lai izveidotu radio izvēlnes grupu: jābūt vienādām atribūta: name="" vērtībām, jo šis atribūts savieno radio izvēlni. */
+
+/* Radio izvēlnei nāk klāt jauns obligāts atribūts: checked, ko izmantojam attiecīgajam variantam, kuru vēlamies pēc noklusējuma atzīmēt, izvēlēties. Lietotājs protams var mainīt šo izvēli, izvēloties vienu vai otru variantu. Šeit arī ir radio izvēlnes būtība: VAI? */
+
+/* Atribūts checked strādā arī ar checkbox. Mēs pēc noklusējuma varam to noteikt, bet lietotājs var to mainīt. */
+
+/* Atceramies: ja mēs vēlamies izveidot radio izvēlnes grupas, tad mums jāievēro, lai katrai grupai, tās elementiem būtu vienāda atribūta: name="" vērtības. */
+
+/* Vēl viens atribūts, kas mums ir jāzin, ir atribūts: disabled, kas var tikt piemērots jeb kuram tegam: input. Tas nozīmē, ja mēs kādam no tegiem: input izmantojam atribūtu: disabled, tas nozīmē, ka mēs konkrēto ievades lodziņu atslēdzam. Tas kļūst neaktīvs. Tas ir redzams, bet nav lietojams. */
+
+/* Vēl viens input tega atribūta: type="" vērtība ir: password. Būtiskākā atšķirība starp visiem citiem input ir tā,ka pie type="password" izmantošanas mēs neredzam to, ko mēs ievadām, mēs redzam punktiņus. */
+
+/* Mums ir vēl pēdējais input variants, ar atribūta: type="" vērtību: file. Mēs redzam, ka mums parādās lodziņš: izvēlieties failu. Mēs iegūstam lauciņu, kur nospiežot mēs varam izvēlēties failu. */
+
+/* Šeit iekš atribūta: type="password" izmantošanas mums ir vēl viens mums jauns atribūts: multiple, kas ļauj mums pievienot vairākus failus. */
+
+/* Vēl viens atribūts, kuru mēs varam izmantot iekš atribūta: type="file" izmantošanas ir: accept="", kura vērtībās mēs varam norādīt konkrētus faila paplašinājumus, kurus varam pievienot, piemēram: accept=".jpg, .png". Rezultātā mēs varēsim pievienot tikai tos failus, kam ir attiecīgie paplašinājumi. Nospiežot uz izvēlēties failu, tiks parādīti tikai tie faili, kam ir dotie paplašinājumi. Protams lietotājs to var mainīt nospiežot uz visi failu formāti. Ja gadījumā izstrādātājs nav uzlicis kādu spēcīgu aizsardzību. */
+
+/* Būtiski: atļautos - pievienojamos failu paplašinājums svarīgi ir atdalīt ar komatu, pirms katra liekot punktu, jo citādi mums nekas nedarbosies. */
+
+/* Ir vēl citas atribūta: type="" vērtības kā piemēram: "range", kas dod regulējamu līniju, kas pēc izskata atgādina skaļuma regulatoru. */
+
+/* Rezultātā izveidojot: range mēs redzam, ka tam ir noklusējuma stili. */
+
+/* Dažus input mēs varēsim stilizēt, ievades laukumus, bet range un checkbox, file, date un radio pogas mēs nevaram stilizēt. */
+
+/* Lai mēs varētu stilizēt visus šos input, mums ir vajadzīgas atsevišķas JavaScript bibliotēkas, bet tās visas mums vēlāk būs: starta šablonā. */
+
+/* Iekš forms ir vēl viens iespējamais teg: textarea, kas arī nozīmē datu ievadi, bet jau daudzās rindās, nevis tā kā mums bija līdz šim vienā rindā. SĒit obligāti atribūti ir: name un placeholder. */
+
+/* Ievērojam: iekš katram input un iekš katra formas tega mums ir obligāts atribūts: placeholder. Ja mēs to nenosakām, tad mums ir kļūda. Tas ir obligāts. */
+
+/* Mēs varam pamanīt, ka iekš tega: textarea ir vēl atribūti: rows un cols, kas nozīmē faktiski textarea augstumu, cik rindu liela būs ievades vieta, bet realitātē šie atribūti vairs netiek izmantoti, jo textarea lielumu mēs nosakām izmantojot CSS - kaskādes tabulas stilus. */
+
+/* Mēs ievērojam, ka salīdzinājumā ar tegu input, kam ir tikai atverošais teg, textarea ir aizvēršanās teg. Tas nozīmē, ka iekš tā mēs varam ielikt jebkādu tekstu. Vēl viena īpašība, kas ir textarea, ka mēs varam lapā pavilkt aiz stūrīša, tādā veidā palielinot, samazinot textarea laukumu, kā arī, ja mums ir daudz teksta mums parādās scroll - ritināšanas iespēja. */
+
+/* Teg textarea parasti tiek izmantots formās lai mēs varētu atstāt kādu komentāru, tekstu. */
+
+/* Visi pārējie atribūti ir tieši tādi paši kā iekš tega: input. Iekš tega: textarea mēs varam visus tos izmantot, pēc vajadzības. Teg textarea atšķiras ar to, ka tam ir cita veida mijiedarbība ar lietotāju, ne ar ko vairāk. */
+
+/* Ejam tālāk: izkrītošais saraksts iekš formām. Mēs izveidojam struktūru no jauniem tegiem: select un option, kuri abi ir ar aizslēdzošiem tegiem. Tegam select obligāts atribūts ir: title="". Mēs varam izvēlēties kuram punktam pievienot atribūtu selected, kas nozīmē, ka dotais punkts pēc noklusējuma ir izvēlēts, lietotājs to var mainīt. Tegam select arī ir atribūts: name="". */
+
+/* Arī šeit mēs varam stilizēt pašu select ievades laukumu, bet ne pašus punktus, bet tas tikai pagaidām. Ar starta šablonu mēs visu to varēsim. */
+
+/* Iekš tega: option ir obligāts atribūts: value="", kas katram punktam attiecīgi ir citāds. */
+
+/* Tegam: select ir atribūts: multiple, kas ļauj ar nospiestu ctr taustiņu izvēlēties vairākus punktus. Ja izmantojam atribūtu: multiple, tad mēs iekš tegiem: option varam pievienot atribūtu: selected vairākiem punktiem. */
+
+/* Obligāti iekš jebkuras formas mums ir vajadzīga poga. Teg: button, kam ir arī aizslēdzošais teg. Mums obligāti ir jāizmanto button, lai uzlabotu lapas pieejamību. Lai lietotājs varētu mijiedarboties ar mūsu lapu. */
+
+/* Tegam: button ir obligāts atribūts: type="", kas nosaka ko poga darīs. Ja tur ir vērtība: "button", tad tā ir vienkārša poga, kas nedara neko. Bet mēs šo vērtību varam mainīt uz reset, kas nozīmē to, ka mēs aizpildot formu, nospiežot uz šīs konkrētās pogas attīrām visu formu. Visas vērtības tiek notīrītas, tiek atiestatītas uz noklusējuma vērtībām. */
+
+/* Pati galvenā pogas atribūta: type="" vērtība ir: submit, kas kad esam aizpildījuši visu formu, nosūta datus, akceptē mūsu aizpildīto formu un datus nosūta uz BackEnd. */
+
+/* Svarīgi ir zināt par vēl vienu form tegu: teg: label, kas ir kaut kas līdzīgs atribūtam: placeholder, jo tas arī ir kā paraksts, tikai tas ir mav iekš ievades lauka, bet attiecīgai virs tā, vai zem tā, viss atkarīgs no tā, kāds ir uzdevums, pēc maketa, mūsu projekta attiecīgās vietas. */
+
+/* Izskatām to iekš mūsu formas. Izveidojot to virs pirmā input. Svarīgi: teg: label ir rindas tipa elements. Pēc noklusējuma. Mēs redzam, ka tam ir obligāts atribūts: for="", kas nozīmē to, ka šo paraksta rindiņu mēs varam savienot ar kādu no teg input, vienkārši iekš attiecīgā input pievienojot: id="". */
+
+/* Atceramies, ka formas ir interaktīvs elements, ar kuru lietotājs var mijiedarboties. Tas nozīmē, ka pa formas ievades laukumiem var pārvietoties izmantojot tabulāciju, izmantojot taustiņu: TAB. Mēs iekš tegiem: input varam norādīt atribūtu: tabindex="1", kas ļauj mums noteikt kārtību kādā mēs pārvietosimies pa ievades laikiem izmantojot taustiņu: TAB. */
+
+/* Ja mēs iekš atribūta: tabindex="-1" norādīsim šādu vērtību, tad dotais ievades lauks, izmantojot tabulāciju tiks izlaists. */
+
+/* Tagad pastrādāsim ar mūsu vienkāršu izveidotu formu, paskatīsimies kā mēs to varam stilizēt un kā mēs varam nosūtīt datus. Izveidojam vēl vienu formu, jau ar klasēm. */
+
+/* Izstrādājam vienkāršu formas struktūru iekš HTML dokumenta un atgriežamies šeit lai pievienotu stilus. */
+
+.main__form {
+	margin: 20px 15px;
+}
+
+.form__label {
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+
+.form__line:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+
+.form__input {
+	height: 20px;
+	padding: 0px 10px;
+	width: 100%;
+	height: 30px;
+}
+
+.form__button {
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+/* Aizpildot formu mēs redzam, ka adreses rindā pārlūkā parādās mūsu formas dati: username=zany1919. Atceramies: iekš HTML mēs varam izmantot tikai atribūtu: method="get". Mēs nevaram izmantot: method="post", jo tie ir neredzamie dati, tos apstrādā BackEnd speciālists. neredzamā puse, servera puse, php programmēšanas valoda. */
 
 

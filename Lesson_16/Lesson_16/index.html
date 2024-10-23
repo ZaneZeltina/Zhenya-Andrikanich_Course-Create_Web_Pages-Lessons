@@ -16,12 +16,75 @@
 			<main class="main">
 				
 			</main>
-			<form action="#">
-				<input name="username" value="" type="text" placeholder="username">
-				<input name="userage" value="" type="number" placeholder="userage">
-				<input name="telephone" value="" type="tel" placeholder="number">
-			</form>
+			<!-- <form action="#">
+				<label for="input_01">Es esmu ievadlauks</label>
+				<input id="input_01" tabindex="1" autocomplete="off" required 
+				name="username" value="" type="text" placeholder="username">
+				<input autocomplete="off" required name="userage" value="" type="number" 
+				placeholder="userage">
+				<input tabindex="3" autocomplete="off" required name="telephone" 
+				value="" type="tel" placeholder="number">
+				<input autocomplete="off" required name="email" value="" type="email" 
+				placeholder="email">
+				<input autocomplete="off" required name="date" value="" type="date" 
+				placeholder="date">
+				<input autocomplete="off" required name="date-time" value="" 
+				type="datetime-local" placeholder="date-time">
+				<input autocomplete="off" multiple accept=".jpg, .png" required 
+				name="file" value="" type="file" placeholder="file">
+				<input autocomplete="off" required name="password" value="" 
+				type="password" placeholder="password">
+				<input autocomplete="off" required name="range" value="" 
+				type="range" placeholder="range">
+				<div>
+					<input autocomplete="off" required name="car" value="on"
+					type="checkbox" placeholder="check"> have car
+				</div>
+				<div>
+					<input checked autocomplete="off" required name="gender" value="male"
+					type="radio" placeholder="check"> male
+				</div>
+				<div>
+					<input autocomplete="off" required name="gender" value="female"
+					type="radio" placeholder="check"> female
+				</div>
+				<div>
+					<input checked autocomplete="off" required name="color" value="red"
+					type="radio" placeholder="check"> red
+				</div>
+				<div>
+					<input autocomplete="off" required name="color" value="blue"
+					type="radio" placeholder="check"> blue
+				</div>
+				<textarea name="text" placeholder="text"></textarea>
+				<select title="select" name="select">
+					<option value="1" selected>Punkts Nr. 1</option>
+					<option value="2">Punkts Nr. 2</option>
+					<option value="3">Punkts Nr. 3</option>
+					<option value="4">Punkts Nr. 4</option>
+				</select>
+				<div>
+					<button type="reset">reset</button>
+				</div>
+				<div>
+					<button type="submit">submit</button>
+				</div>
+			</form> -->
 
+			<form class="main__form form" action="#">
+				<div class="form__line">
+					<label class="form__label" for="username">Ievadiet vārdu</label>
+					<input class="form__input" id="username" name="username" type="text"
+					placeholder="username">
+				</div>
+				<div class="form__line">
+					<div class="checkbox">
+						<label class="checkbox__label" for="car">Jums ir mašīna?</label>
+						<input class="checkbox__input" id="car" type="checkbox">
+					</div>
+				</div>
+				<button class="form__button" type="submit">Nosūtīt</button>
+			</form>
 			<footer class="footer">
 			</footer>
 		</div>
