@@ -202,7 +202,7 @@
 
 .form__label {
 	display: block;
-	margin: 0px 0px 15px 0px;
+	margin: 0px 0px 20px 0px;
 }
 
 .form__line:not(:last-child) {
@@ -210,10 +210,19 @@
 }
 
 .form__input {
-	height: 20px;
-	padding: 0px 10px;
+	height: 50px;
+	padding: 20px 10px 0px;
 	width: 100%;
-	height: 30px;
+	color: #fff;
+	background-color: #4b4b4b;
+	border-bottom: 1px solid #9acd32;
+}
+
+.form__input:focus::placeholder {
+	transform: translate(0px, -20px);
+}
+.form__input::placeholder {
+	color: #fff;
 }
 
 .form__button {
@@ -223,4 +232,206 @@
 
 /* Aizpildot formu mēs redzam, ka adreses rindā pārlūkā parādās mūsu formas dati: username=zany1919. Atceramies: iekš HTML mēs varam izmantot tikai atribūtu: method="get". Mēs nevaram izmantot: method="post", jo tie ir neredzamie dati, tos apstrādā BackEnd speciālists. neredzamā puse, servera puse, php programmēšanas valoda. */
 
+/* Paskatīsimies vēl kā mēs varam stilizēt mūsu formu, pievienojot tai dažus stilus, augstāk. */
 
+/* Veidojam tālāk mūsu formu ar checkbox un label. Izstrādājam HTML dokumentā tādu struktūru, lai mēs no kaskādes stiliem varētu ietekmēt checkbox. Ievērojam secību kādā mēs izstrādājam formu. */
+
+.checkbox {
+	position: relative;
+}
+
+.checkbox__input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkbox__input:focus + .checkbox__label {
+	outline: 1px solid #fff;
+}
+
+.checkbox__input:checked + .checkbox__label::before {
+	background-color:#4c4ce4;
+	transform: rotate(-180deg);
+}
+
+.checkbox__label {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.checkbox__label::before {
+	content: "";
+	flex: 0 0 20px;
+	height: 20px;
+	cursor: pointer;
+	align-self: flex-start;
+	background-color: #fff; 
+	border-radius: 5px;
+	transition: all 0.3s ease 0s;
+}
+
+/* Mēs redzam, ka izmantojot tīru CSS mēs esam ieguvuši iespēju stilizēt checkbox kā vien mums ir vajadzīgs. */
+
+/* Tagad izskatīsim veidu kā mēs varam stilizēt radio pogas. Izstrādājam mūsu formā papildus bloku ar radio pogām, iekš HTML dokumenta. */
+
+.radiobutons {
+	margin: 20px 0px;
+}
+
+.radiobutons__item {
+	position: relative;
+}
+
+.radiobutons__item:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+
+.radiobutons__input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.radiobutons__input:focus + .radiobutons__label {
+	outline: 1px solid #fff;
+}
+
+.radiobutons__input:checked + .radiobutons__label::after {
+	transform: scale(1);
+}
+
+.radiobutons__label {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+.radiobutons__label::before {
+	content: "";
+	flex: 0 0 20px;
+	height: 20px;
+	align-self: flex-start;
+	background-color: #fff; 
+	border-radius: 50%;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+}
+
+.radiobutons__label::after {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #333;
+	top: 5px;
+	left: 5px;
+	transition: all 0.3s ease 0s;
+	transform: scale(0);
+}
+
+/* Izmantojot tikai CSS failu mēs esam izveidojuši savas, ar savu stilu radio pogas. */
+
+/* Paskatīsimies kā mēs varam stilizēt faila pievienošanu un izkrītošo sarakstu. Atgriežamies HTML dokumentā un izstrādājam struktūru. Turpinam darbu iekš mūsu formas. Pievienojam mūsu formā teksta lauku - textarea. Atgriežamies šeit un pievienojam stilus. */
+
+.file {
+	position: relative;
+	margin: 20px 0px;
+}
+
+.file__input {
+	position: absolute;
+	font-size: 0;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.file__label {
+	background-color: #ff8c00;
+	padding: 10px 15px;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.form__select {
+	width: 100%;
+	height: 30px;
+	padding: 0px 10px;
+	background-color: #b0b0b0;
+	border-radius: 10px;
+}
+
+.form__textarea {
+	width: 100%;
+	border-radius: 10px;
+	height: 70px;
+	padding: 10px;
+	resize: vertical;
+}
+
+
+/* Mēs redzam, ka pat bez JavaScript mēs izmantojot tikai CSS varam daudz ko stilizēt, protams ne visu. */
+
+/* Paskatīsimies ko vēl mēs varam izdarīt izmantojot checkbox. Atgriežamies HTML dokumentā un izstrādājam vēl vienu checkbox. */
+
+.switcher {
+	position: relative;
+}
+
+.switcher__input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.switcher__input:focus + .switcher__label {
+	outline: 1px solid #fff;
+}
+
+.switcher__input:checked + .switcher__label {
+	background-color: #008000;
+}
+
+.switcher__input:checked + .switcher__label::before {
+	background-color: #008000;
+	left: 25px;
+}
+
+.switcher__label {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: #fff;
+	border-radius: 10px;
+	height: 20px;
+	width: 50px;
+	transition: background-color 0.3s ease 0s;
+}
+
+.switcher__label::before {
+	position: absolute;
+	content: "";
+	flex: 0 0 20px;
+	height: 25px;
+	width: 25px;
+	left: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+	cursor: pointer;
+	background-color: #fff; 
+	border-radius: 50%;
+	box-shadow: 0 0 5px #000;
+	transition: transform, left 0.3s ease 0s;
+}

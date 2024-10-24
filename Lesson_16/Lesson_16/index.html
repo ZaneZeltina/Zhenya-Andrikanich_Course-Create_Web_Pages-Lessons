@@ -79,9 +79,55 @@
 				</div>
 				<div class="form__line">
 					<div class="checkbox">
-						<label class="checkbox__label" for="car">Jums ir mašīna?</label>
-						<input class="checkbox__input" id="car" type="checkbox">
+						<input class="checkbox__input" id="car" 
+						autocomplete="off" name="username" type="checkbox">
+						<label class="checkbox__label" for="car">Vai Jums ir mašīna?</label>
 					</div>
+				</div>
+				<div class="form__line">
+					<div class="switcher">
+						<input class="switcher__input" id="switcher" 
+						autocomplete="off" name="switcher" type="checkbox" 
+						placeholder="switch">
+						<label class="switcher__label" for="switcher">
+						</label>
+					</div>
+				</div>
+				<div class="form__line">
+					<div class="radiobutons">
+						<div class="radiobutons__item">
+							<input class="radiobutons__input" id="color_1" 
+							autocomplete="off" name="color" type="radio">
+							<label class="radiobutons__label" for="color_1">blue
+							</label>
+						</div>
+						<div class="radiobutons__item">
+							<input class="radiobutons__input" id="color_2" 
+							autocomplete="off" name="color" type="radio">
+							<label class="radiobutons__label" for="color_2">green
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form__line">
+					<div class="file">
+						<input class="file__input" id="file_1" type="file" 
+						placeholder="file">
+						<label class="file__label" for="file_1">Pievienot failu</label>
+					</div>
+				</div>
+				<div class="form__line">
+					<select class="form__select" name="select" title="select">
+						<option value="1" selected>Пункт №1</option>
+						<option value="2">Пункт №2</option>
+						<option value="3">Пункт №3</option>
+						<option value="4">Пункт №4</option>
+					</select>
+				</div>
+				<div class="form__line">
+					<textarea class="form__textarea" name="text" autocomplete="off" 
+					placeholder="text">
+				</textarea>
 				</div>
 				<button class="form__button" type="submit">Nosūtīt</button>
 			</form>
