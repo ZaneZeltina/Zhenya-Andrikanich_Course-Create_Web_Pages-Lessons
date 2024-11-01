@@ -36,4 +36,124 @@
 
 /* Ar content-box izmantošanu ir viena priekšrocība: ums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
 
-/*  */
+/* Paskatīsimies vēl uz dažiem forms piemēriem no iepriekšējās lekcijas. Atgriežamies HTML dokumentā un pierakstām struktūru. Atgriežamies šeit iekš CSS kaskādes tabulas stiliem un pievienojam nepieciešamos CSS parametrus. */
+
+/*
+.block {
+	background-color: #7a956b;
+	border-radius: 20px;
+	padding: 30px;
+}
+
+.block__items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.block__item {
+	flex: 1 1 calc(50% - 20px);
+}
+
+.block__input {
+	width: 100%;
+}
+
+.block__textarea {
+	resize: vertical;
+	min-height: 150px;
+} */
+
+/* Pareizākais variants kā izstrādāt formas elementus - inputs ir: katru no tiem ielikt kastītē. Tādejādi mēs varam pēc tam ar tiem ērti rīkoties iekš CSS. */
+
+/* Atsevišķos gadījumos var mēģināt izvairīties no papildus formu elementu: inputs un textarea ielikšanas kastītē. Bet tur ir savi mīnusi un lietas, kas ir jāņem vērā. Atgriežamies pie mūsu piemēra, gan iekš HTML, gan iekš CSS, paskatamies kā tas darbojas, un kādi CSS parametri mums ir jāizmanto, lai izvairītos no papildus kastītes. */
+
+/* redzam, ka mums iekš textarea ir obligāti jāpievieno CSS parametri: resize un min-height. Gadījumā, ja mēs gribam iztikt bez papildus kastītes. */
+
+/* Bet tas nav pareizākais variants. Visbiežāk visur formas elementi tiek ielikti kastītē. Bet pēc principa vai lapa paliek izturīga pret pārmaiņām, mēs varam izmantot šo metodi, jo tā ir gana uzticama - noturīga. */
+
+/* Pierakstām formu ar papildus kastītēm, izskatām dažas svarīgas lietas. */
+
+/* Šinī piemērā mēs izmantojam metodi: calc() ar procentiem un pikseļiem. Sākotnēji var šķist, ka vis ir labi, ka nav nekādu problēmu, bet brīdī, kad mums ir objekti ar dažādu saturu, šī pieeja vairs nedarbojas tā kā mēs būtu gribējuši. */
+
+/* Izstrādājot lapā jebkādus elementus mums ir jāatceras, ka saturs var mainīties un šinī piemērā mēs to ļoti labi redzam, kad pievienojam dažāda lieluma tekstu. Mums vairs nedarbojas metode: calc(). */
+
+/* Mums var gadīties neparedzamas lietas, ja elementiem mainīsies saturs. Šinī gadījumā mēs izskatījām piemēru, kur mums ir kartītes, un redzam, ka brīdī, kad mainās saturs, mūsu konstrukcija sāk sabrukt. */
+
+/* Bet, kas attiecas uz formu, mūsu ievades lauki darbosies korekti. Bet, ja kaut nedaudz mainīsies elementu saturs, to uzvedība kļūst neparedzama, bet mums kā labiem lapas izstrādātājiem ir jāparedz visi varianti, kad lapas saturs, elementi var tikt visādi mainīti. */
+
+/* Tādēļ šādai pieejai nav īpašu plusu. Tādēļ šo pieeju ar calc() izmantošanu flex elementiem mēs neizmantosim, jo tas ir neparedzami. */
+
+/* Izskatīsim pareizāko šīs situācijas risinājumu. Mēs izmantosim katram form input atsevišķu kastīti - apvalku, lai mums nebūtu vajadzības izgudrot ko jaunu, kas konkrētās situācijās nedarbojas. */
+
+/* Uz doto brīdi mums ir jāiemācās pareizi izmantot dotos instrumentus, netērējot laiku lai iedziļinātos jaunas izpildes variantos. */
+
+/* Lai mums iepriekšējie aktīvie kodi netraucētu nākošajā tēmā, mēs tos izslēdzam. */
+
+/* -------------------- */
+
+/* Šīs lekcijas sākumā mēs mazliet atgriezāmies iepriekšējā lekcijā, bet tagad sākam jauno tēmu: lapas adaptīvs. */
+
+.main {
+	padding: 30px;
+}
+
+.block {
+	margin: 0px 0px 30px 0px;
+}
+
+.block__container {
+
+}
+
+.block__items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block__item {
+	background-color: #7a956b;
+	flex: 1 1 33.3333%;
+	border: 1px solid #000;
+	min-width: 150px;
+}
+
+.block_mob .block__items {
+	display: block;
+}
+
+/* Tātad, kas ir lapas adaptīvs? Kā radās nepieciešami pēc adaptīvām lapām. Agrāk nebija mazo un vidējo ekrānu, un nebija nepieciešams pēc lapas adaptīva. Bet mūsdienās vairs nav iedomājama neviena lapa, kurai nebūtu adaptīva. */
+
+/* Sākumā bija tā saucamais: gumijas adaptīvs, kad visas fiksētās vērtības tikai nomainītas uz vērtībām ar procentiem. */
+
+/* Agrāk visas lapas konstrukcijas tika bāzētas uz tabulām. Izskatām tabulas konstrukciju iekš mūsu HTML dokumenta. */
+
+/* Mēs redzam, ka pēc tabulas konstrukcijas bija veselas lapas, kur bija lapas cepure, saturs un pagrabs. Šādi tika būvētas visas lapas, lielas un mazas. */
+
+/* Agrāk, lai izstrādātu lapas pēc tabulu principa tika izmantots modulis: grid, kas lieliski darbojās kopā ar tabulām. Vēlāk mēs mācīsimies kā mūsdienās tiek izmantots modulis: grid. */
+
+/* tabulām sāka izmantot adaptīvus lielumus izmantojot procentus, tādejādi iegūstot gumijas adaptīvu. */
+
+/* Atceramies, kad mēs izmantojam procentu vērtības, tie tiek ņemti no tā vecāka elementa platuma. Vienīgais veids, kad procenti tiek ņemti no paša esošā objekta ir tad, kad izmantojam CSS parametru: transform: translate(). */
+
+/* Sākotnēji, izmantojot gumijas adaptīvu, problēma ar mazākiem ekrāniem tika atrisināta, līdz brīdim, kad parādījās mobilie telefoni un planšetes. Tiem vairs nebija pietiekami ar gumijas tipa adaptīvu. */
+
+/* Tā parādījās lapas mobilais adaptīvs. Mēs izstrādājam kādu objektu, kā mūsu piemērā augstāk, un mums vajag, lai tas ietilptu mazā ekrānā, planšetē vai mobilajā telefonā. */
+
+/* Bija divu veidu lapas adaptīvu. Viens no tiem: mobilais adaptīvs. Izskatām to ar piemēru, izveidojot iekš HTML dokumenta vēl vienu piemēru. Pievienojam augstāk piemērā CSS parametrus. */
+
+/* lapas izstrāde nekļuva adaptīva, bet gan parādījās atsevišķi izstrāde veidi, kur vienā failā ir kods priekš viena ekrāna lieluma, un otrā failā ir kods priekš maza ekrāna lieluma. Par to bija atbildīgi BackEnd speciālisti, kurā attiecīgā brīdī attēlot vienu vai otru variantu, jo nebija vēl lapas adaptīva izstrādes, bija vienkārši divas lapas versijas. */
+
+/* Mūsdienās lapas adaptīvā izstrāde paredz to, ka elementi momentā pārkārtojas no viena stāvokļa uz citu stāvokli. */
+
+/* Izslēdzam iepriekšējos kopētā mob bloka kodus un izskatām adaptīvu izstrādi ar piemēru. */
+
+/* Mēs nosakām dažādus CSS parametrus, liekot mūsu blaka saturam zibenīgi pārkārtoties, kad mainās ekrāna lielums. */
+
+/* Ja skatamies uz lapas adaptīvu, mums ir jādomā kā māksliniekiem, kur kā novietot elementus, lai tas būtu ne tikai pareizi, bet arī skaisti, lai lietotājam būtu patīkami atrasties mūsu lapā. Lapas adaptīva izstrādē mums nepietiek tikai ar teorijas zināšanu, mums ir jābūt kā māksliniekiem. */
+
+/* Iekš google chrome izstrādātāja rīkiem mums ir iespēja mainīt mūsu lapas laukumu, redzamo daļu, kas saucas viewport. Jauns termins, kas mums ir jāzin. Iekš šī rīka mēs varam uzlikt mums vajadzīgo ekrāna laukumu - lapas laukumu, lai ērtāk sekotu rezultātam un saprastu kurā brīdī mums ir jāmaina elementu uzvedība, lai tie būtu pēc iespējas labāk redzami, apskatāmi. */
+
+/* Mēs jau esam dzirdējuši par noteiktiem lapas lielumiem, kuros mums kas ir jāmaina. Par tiem mums ir Jāaizmirst. Jo kā redzam pēc chrome izstrādātāja rīka, tur ir daudz iespējamās ierīces, ar dažāda platuma viewport. Bet, ja mēs ņemsim kādus noteiktus lielumus, tad mēs zaudējam savu iespēju būt māksliniekiem. */
+
+/* Bet tomēr ir daži lielumi, kuri mums ir jāzin, un pie kuriem, mums ir jāmaina lapas elementu attēlojums. Bet mums tie ir jāievēro nosacīti. Vairāk jāzin par tiem, bet ne vienmēr jāizmanto. katrai situācijai mums ir jāpieiet individuāli, kā jau māksliniekiem. */
