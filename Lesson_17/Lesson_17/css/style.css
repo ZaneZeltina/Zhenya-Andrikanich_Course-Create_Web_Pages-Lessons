@@ -108,7 +108,7 @@
 
 .block__items {
 	display: flex;
-	flex-wrap: wrap;
+	margin: 0 auto;
 }
 
 .block__item {
@@ -157,3 +157,121 @@
 /* Mēs jau esam dzirdējuši par noteiktiem lapas lielumiem, kuros mums kas ir jāmaina. Par tiem mums ir Jāaizmirst. Jo kā redzam pēc chrome izstrādātāja rīka, tur ir daudz iespējamās ierīces, ar dažāda platuma viewport. Bet, ja mēs ņemsim kādus noteiktus lielumus, tad mēs zaudējam savu iespēju būt māksliniekiem. */
 
 /* Bet tomēr ir daži lielumi, kuri mums ir jāzin, un pie kuriem, mums ir jāmaina lapas elementu attēlojums. Bet mums tie ir jāievēro nosacīti. Vairāk jāzin par tiem, bet ne vienmēr jāizmanto. katrai situācijai mums ir jāpieiet individuāli, kā jau māksliniekiem. */
+
+/* Tagad, pēc šīs lekcijas, rakstot katru koda rindu, mums ir jādomā, kas notiks, kā izskatīsies mūsu lapa, kad ekrāns kļūs mazāks, mazākā ierīcē. */
+
+/* Lapas gumijas adaptīvs nozīmē, to, ka lielumu, platuma un augstuma vērtības nav fiksētas, bet tās ir norādītas procentos, kas nozīmē to, ka mainoties ekrāna lielumam lapas elementi attiecīgi saraujas, pielāgojas ekrāna - viewport lielumam. */
+
+/* Reizēm var gadīties situācija, kad mums ir nepieciešams aizliegt lietotājam palielināt lapu. Lai to izdarītu, mums iekš tehniskā tega: <meta> jāieraksta īpaši norādījumi, īpaši atribūti un to vērtības. Par tiem mēs varam izlasīt internetā. Tas tiek izmantots ļoti reti, un mums šobrīd tas nav nepieciešams. */
+
+/* Pie specifiskiem projektiem mums var būt situācija, kad jāizmanto fiksētais adaptīvs. Kad lapas satura nav daudz, lai uz jebkura ekrāna parādītos vis lapas saturs tāds kā tas ir pilnā izmērā, tikai mazāks, mums jāmaina iekš tehniskā HTML dokumenta meta tega atribūta content vērtība. Mums jāieraksta: width=1050. Pārējais jānoņem. Un iekš CSS reset faila selektora: body jānorāda tas pats platums, tikai adaptīvs: parametrs: min-width: 1050px. Šāda pieeja var noderēt, piemēram: admin lapas izstrādē. */
+
+/* Šī ir fiksētā lapas izstrāde, kad mainoties ekrāna platumam mēs redzam visu lapas saturu tādu, kāds tas ir bijis sākotnēji. Mēs redzam veselu lapu. Reizēm pēc specifiska tehniskā uzdevuma, tiek izmantota šī pieeja. */
+
+/* Gumijas veida lapas izstrāde, kad mēs izmantojam procentu vērtības. Lapa kļūst atsaucīga. Mainoties ekrāna platumam mainās visi elementu platumi. Lai tas notiktu, visos lielumos jāizmanto adaptīvas vērtības, lai lapa kļūtu atsaucīga. Lai tā stieptos un sarautos kā gumija. */
+
+/* Šie lapu adaptīvu veidi tika izmantoti sākotnēji. Bet mūsdienās tie tiek reti izmantoti, jo ar tiem vairs nepietiek. Tagad tiek izmantota atsaucīgā un adaptīvā lapu izstrāde. SĪe abi veidi praktiski ne ar ko neatšķiras. Vienīgā atšķirība, kas ir: izstrādes veids, dažādas pieejas pie izstrādes. Visbiežāk tiek izmantota tieši adaptīvā pieeja, kad izmantojam: breakpoints: liekam mainīties lapas elementiem pie noteikta ekrāna - lapas viewport lieluma. */
+
+/* Šī pieeja: adaptīvā lapu izstrāde paredz to, ka tad, kad kāds lapas elements neietilps noteiktā ekrāna platumā, vai vienkārši: elements slikti izskatās noteiktā lapas platumā, mēs izmantojam: breakpoints, kas nozīmē ka: mēs nosakām konkrētu platumu pie kura mainīsies noteiktu elementu uzvedība. */
+
+/* Kā tad īsti darbojas breakpoints - laušanas punkti. Izskatām to ar piemēru. Izmantojam tos pašus elementus, kas mums jau ir HTML dokumentā. */
+
+@media (max-width: 1109.98px) {
+	.block__items {
+		flex-wrap: wrap;
+	}
+	.block__item {
+		background-color: #77608d;
+		padding: 10px;
+	}
+}
+
+
+/* Mēs izmantojam jaunu metodi: @media () iekavās rakstām: max-width: 1110px, atveram {} iekavas, kurās rakstam attiecīgos CSS parametrus. */
+
+/* Lai mums būtu vieglāk saprast, kā darbojas metode: @media, izmantojam programmēšanu. Tie ir kā nosacījumi, piemēram: ja lapas platums ir 1110px, tad notiek tas un tas. */
+
+/* Visbiežāk tiek izmantota pieeja, kad lapa tiek izstrādāta sākotnēji datora versijā, un tad pakāpeniski tiek samazināts ekrāns līdz tiek iegūts mobilā telefona ekrāna platums. No pc izstrādes uz mobile izstrādi. Tiek iets no lielākā platuma uz mazāko. */
+
+/* Bet reizēm tehniskais uzdevums paredz to, ka vispirms tiek izstrādāta mobile versija un pēc tam lapas pc versija, no mazākā ekrāna platuma pāriet uz lielāko ekrāna platumu, uz pc. */
+
+/* Izmantojot iekš metodes: @media () iekavām: max-width: 1110px, mēs nosakām: ne lielāks vai vienāds ar: 1110px jeb: mazāks vai vienāds ar: 1110px. */
+
+/* Iekš metodes: @media {} iekavām mēs rakstam selektora nosaukumu, kuram gribam ko noteikt, liekam atkal {} iekavas, kurās rakstam atbilstoši situācijai nepieciešamos CSS parametrus. */
+
+/* Ievērojam tādu pieraksta sintaksi kā augstāk piemērā: */
+
+/* Konkrētajā piemērā, mēs liekam flex elementiem, mainoties ekrāna platumam pāriet jaunā rindā. Mēs to varējām noteikt uzreiz, un tas arī būtu pareizi. Bet mēs izskatījām vienkārši ar piemēru, lai sapratu breakpoints pieraksta sintaksi. */
+
+/* Iekš breakpoints mēs varam izmantot visus CSS parametrus, mainīt krāsu, lielumu, formu utt. */
+
+/* Reizēm mums var noderēt neapaļas vērtības. Kad iekš metodes: @media () iekavām iekš: max-width: mēs norādām neapaļu vērtību, piemēram: max-width: 1109.5px. */
+
+/* Svarīgi atcerēties. Mēs varam izmantot arī neapaļas vērtības. Šī pieeja ir svarīga, ja izstrādājam lapu priekš Apple ierīcēm. Ipad un iPhone. */
+
+/* Strādājot ar lapas adaptīvu ir trīs standarta ekrāna platumi, klēpjdatoram, planšetei un mobilajam telefonam. Bet mums ir jāievēro konkrēts skaitlis aiz veselā skaitļa, lai vis darbotos korekti. Tā ir datoru un Apple tehnikas īpatnība. Kā šinī piemērā: */
+
+@media (max-width: 767.98px) {}
+
+/* Konkrētais lielums ir paredzēts lai izmantotu lapu uz planšetdatora. */
+
+/* Lapu izstrādē ir noteikti ekrānu lielumi. Tie ir lielie ekrāni, lielāki par 1440px. Mazi ekrāni: ne mazāk nekā: 1024px. Planšetes: mazāki nekā: 1024px, bet ne mazāki kā: 768px. Mobilās ierīces: mazāk nekā 768px. */
+
+/* Mūsdienās planšetes, telefoni kļūst ar vien lielāki, ar lielākiem ekrāniem. Jāņem vērā, ka tagad ir planšetes, kur ekrāna lielums ir vairāk nekā 1366px, ja to pagriež horizontāli. */
+
+/* Šis ir vispārpieņemtais ekrānu sadalījums, tā saucamais siets. Šos ekrānu lielumus ir jāzin, bet izstrādājot lapas adaptīvu tie nav vienmēr jāievēro, jo šos lielumus mēs varam noteikt paši attiecīgi situācijai, izmantojot chrome izstrādātāju rīku, kur varam simulēt jebkādu ekrāna - lapas viewport lielumu. */
+
+/* Dizaineri, kad zīmē lapu, ievēro noteiktus lielumus, jo viņi nevar uzzīmēt bezgalīgi platu lapu. Bet mums izstrādātājiem ir jāievēro, tas, ka izstrādājot lapu, lapas fonu mēs neierobežojam, ļaujam tam būt pa visu ekrāna platumu, neatkarībā no ekrāna lieluma. */
+
+/* Mums ir svarīgi ierobežot tikai lapas saturu. izmantojot noteiktu lielumu konteinerus - kastītes. Lai lapas saturs būtu vieglāk uztverams un lasāms. Mums vienmēr ir jāierobežo lapas saturs, tā kā norādīts maketā, bet lapas fonam atļaujam stiepties pa visu ekrānu. */
+
+/* Mums ir stingri jāievēro, ka lapas saturu mēs ierobežojam atbilstoši maketā norādītajam platumam, izmantojot katram blokam ierobežojošo konteineru, bet fonam, krāsai, bildēm, atļaujam būt pa visu viewport platumu. */
+
+/* Kad izmantojam satura ierobežojošo konteineru svarīgi ir norādīt pa sāniem drošības atstarpi, iekšējo atstarpi. Agrāk tā bija: 10px, bet tagad ir pieņemts, ka norādām: 15px. Atceramies, ja norādām iekšējās atstarpes, mums ir attiecīgi jāpalielina konteinera lielums, lai lapa atbilstu maketam. */
+
+/* Izstrādājot lapas adaptīvu mēs pēc nepieciešamības varam samazināt arī lapas satura ierobežojošo konteineru. Rakstot CSS failu mēs uzreiz aiz konteinera parametriem pierakstām metodi: @media () iekavās norādot nepieciešamo konteinera platumu. Tā kā piemērā: */
+
+@media (max-width: 1050px) {
+	[class*="__container"] {
+		max-width: 970px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	[class*="__container"] {
+		max-width: 750px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		max-width: none;
+	}
+}
+
+/* Šie trīs lūzuma punkti ir visvienkāršākais lapas adaptīva siets, kur mēs izstrādājam lapas adaptīvu trīs klasiskos ekrāna lielumos. Šī saucās: visvienkāršākā lapas adaptīva izstrāde. */
+
+/* Tā pamazām pārejam no lielākā ekrāna lieluma uz mazāko. Pierakstām nākošo konteinera lielumu. */
+
+/* Pirmais lūzuma punkts: breakpoint atkarībā no maketa mums būs citādāks, bet pārējie divi mums ir jānosaka vienādi. Bet tas nenozīmē, ka mums nevar būt vēl citi lūzuma punkti. */
+
+/* Šī pieeja, kad izmantojam trīs standarta lūzuma punktus tiek saukta par lēto lapas adaptīvu. */
+
+/* Pirmais lūzuma punkts ir datora ekrāns, ko mēs ņemam no konkrēta maketa, otrs ir nosacīts planšetes lielums un trešais ir nosacīts mobilā telefona lielums. */
+
+/* Šī ir tehniskā lapas adaptīva izstrādes daļa, bet vēl ir arī mākslinieciskā lapas adaptīva izstrādes daļa, kur mēs vairs nepieturamies pie noteiktiem teorijā lūzuma punktiem: breakpoints. */
+
+/* Bet lapas tehniskajai adaptīva daļai ir savas nianses. Atceramies, ka lūzuma punkti ir kā nosacījumi. Ja ekrāns ir, tad... Mēs izskatījām vienkāršākos nosacījumus, bet tagad paskatīsimies uz sarežģītākiem nosacījumiem, piemēram: */
+
+@media (max-width: 767.98px) and (min-width: 479.98px) {
+	.block__item {
+		background-color: #77608d;
+		padding: 20px;
+	}
+}
+
+/* Šeit ir uzrakstīts nosacījums: ja ekrāns ir mazāks par 767.98px, bet lielāks par 479.98px, tad... mainām fona krāsu, pievienojam iekšējās atstarpes. */
+
+/* Parasti tiek izmantoti vienkārši nosacījumi, izmantojot vienu lūzuma punktu, bet retās situācijās mums var noderēt sarežģītie nosacījumi, kur izmantojam divus lūzuma punktus vienlaicīgi. Šī nianse ir papildus zināšanas, bet vienkāršie lūzuma punkti ir fundamentālas lapas adaptīva izstrādes zināšanas. */
+
+/* Tika jau minēts, ka ir mobilā lapas adaptīva izstrāde. Tā saucas: mobile first, kur tiek izstrādāta lapa sākotnēji priekš mobilajām ierīcēm, un tad izmantojot lūzuma punktus pāriet no mazākā uz lielāko ekrānu, līdz nonāk pie datora versijas izstrādes. */
