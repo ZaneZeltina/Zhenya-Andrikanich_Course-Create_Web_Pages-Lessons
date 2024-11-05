@@ -23,12 +23,12 @@
 	font-display: swap;
 } */
 
-[class*="__container"] {
+/* [class*="__container"] {
 	max-width: 1050px;
 	margin: 0 auto;
 	padding: 0 15px;
-	/* box-sizing: content-box; */
-}
+	box-sizing: content-box;
+} */
 
 /* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
 
@@ -94,32 +94,20 @@
 
 /* Šīs lekcijas sākumā mēs mazliet atgriezāmies iepriekšējā lekcijā, bet tagad sākam jauno tēmu: lapas adaptīvs. */
 
-.main {
-	padding: 30px;
-}
-
 .block {
-	margin: 0px 0px 30px 0px;
-}
-
-.block__container {
-
+	padding: 20px 0px;
+	background-color: #794f45;
 }
 
 .block__items {
-	display: flex;
-	margin: 0 auto;
 }
 
 .block__item {
 	background-color: #7a956b;
+	padding: 10px;
 	flex: 1 1 33.3333%;
 	border: 1px solid #000;
 	min-width: 150px;
-}
-
-.block_mob .block__items {
-	display: block;
 }
 
 /* Tātad, kas ir lapas adaptīvs? Kā radās nepieciešami pēc adaptīvām lapām. Agrāk nebija mazo un vidējo ekrānu, un nebija nepieciešams pēc lapas adaptīva. Bet mūsdienās vairs nav iedomājama neviena lapa, kurai nebūtu adaptīva. */
@@ -176,7 +164,7 @@
 
 /* Kā tad īsti darbojas breakpoints - laušanas punkti. Izskatām to ar piemēru. Izmantojam tos pašus elementus, kas mums jau ir HTML dokumentā. */
 
-@media (max-width: 1109.98px) {
+/* @media (max-width: 1109.98px) {
 	.block__items {
 		flex-wrap: wrap;
 	}
@@ -184,7 +172,7 @@
 		background-color: #77608d;
 		padding: 10px;
 	}
-}
+} */
 
 
 /* Mēs izmantojam jaunu metodi: @media () iekavās rakstām: max-width: 1110px, atveram {} iekavas, kurās rakstam attiecīgos CSS parametrus. */
@@ -211,7 +199,9 @@
 
 /* Strādājot ar lapas adaptīvu ir trīs standarta ekrāna platumi, klēpjdatoram, planšetei un mobilajam telefonam. Bet mums ir jāievēro konkrēts skaitlis aiz veselā skaitļa, lai vis darbotos korekti. Tā ir datoru un Apple tehnikas īpatnība. Kā šinī piemērā: */
 
-@media (max-width: 767.98px) {}
+/* @media (max-width: 767.98px) {
+
+} */
 
 /* Konkrētais lielums ir paredzēts lai izmantotu lapu uz planšetdatora. */
 
@@ -231,7 +221,7 @@
 
 /* Izstrādājot lapas adaptīvu mēs pēc nepieciešamības varam samazināt arī lapas satura ierobežojošo konteineru. Rakstot CSS failu mēs uzreiz aiz konteinera parametriem pierakstām metodi: @media () iekavās norādot nepieciešamo konteinera platumu. Tā kā piemērā: */
 
-@media (max-width: 1050px) {
+/* @media (max-width: 1050px) {
 	[class*="__container"] {
 		max-width: 970px;
 	}
@@ -247,7 +237,7 @@
 	[class*="__container"] {
 		max-width: none;
 	}
-}
+} */
 
 /* Šie trīs lūzuma punkti ir visvienkāršākais lapas adaptīva siets, kur mēs izstrādājam lapas adaptīvu trīs klasiskos ekrāna lielumos. Šī saucās: visvienkāršākā lapas adaptīva izstrāde. */
 
@@ -263,15 +253,83 @@
 
 /* Bet lapas tehniskajai adaptīva daļai ir savas nianses. Atceramies, ka lūzuma punkti ir kā nosacījumi. Ja ekrāns ir, tad... Mēs izskatījām vienkāršākos nosacījumus, bet tagad paskatīsimies uz sarežģītākiem nosacījumiem, piemēram: */
 
-@media (max-width: 767.98px) and (min-width: 479.98px) {
+/* @media (max-width: 767.98px) and (min-width: 479.98px) {
 	.block__item {
 		background-color: #77608d;
 		padding: 20px;
 	}
-}
+} */
 
 /* Šeit ir uzrakstīts nosacījums: ja ekrāns ir mazāks par 767.98px, bet lielāks par 479.98px, tad... mainām fona krāsu, pievienojam iekšējās atstarpes. */
 
 /* Parasti tiek izmantoti vienkārši nosacījumi, izmantojot vienu lūzuma punktu, bet retās situācijās mums var noderēt sarežģītie nosacījumi, kur izmantojam divus lūzuma punktus vienlaicīgi. Šī nianse ir papildus zināšanas, bet vienkāršie lūzuma punkti ir fundamentālas lapas adaptīva izstrādes zināšanas. */
 
 /* Tika jau minēts, ka ir mobilā lapas adaptīva izstrāde. Tā saucas: mobile first, kur tiek izstrādāta lapa sākotnēji priekš mobilajām ierīcēm, un tad izmantojot lūzuma punktus pāriet no mazākā uz lielāko ekrānu, līdz nonāk pie datora versijas izstrādes. */
+
+/* Kādēļ tiek izmantota mobile first lapu izstrāde? Tādēļ, ka izstrādājot mobile first versiju tiek pierakstītas mazāk koda rindas, iekš CSS faila un HTML, jo mobilajā versijā ir mazāk elementi, satura, līdz ar ko arī CSS failā tiek rakstīts īsāks kods. */
+
+/* Datora versijas lapas adaptīva izstrādē mēs esam pieraduši iet no lielākā uz mazāko ekrānu. Mēs izmantojam: max-width: parametru. Bet, kad izstrādājam mobile first lapu, tad mēs izmantojam parametru: min-width. */
+
+/* Izskatām vēl piemērus. Mēs pie noteikta lūzuma punkta: 767.98px nosakām, ka mūsu flex konteineris kļūst par bloku, tā kā piemērā: */
+
+/* @media (max-width: 767.98px) {
+	.block__items {
+		display: block;
+	}
+} */
+
+/* Kā mēs darītu, ja vajadzētu izstrādāt vispirms mobile first lapas versiju? Mēs vēlamies, lai uz mobilās ierīces mums būtu flex elementi. Mēs rakstām šādi: */
+
+/* @media (min-width: 767.98px) {
+	.block__items {
+		display: flex;
+	}
+} */
+
+/* Atceramies: Ja mēs izstrādājam sākotnēji lapas mobile first versiju, mums ir mazāk koda rindas. Un tas ir galvenais iemesls kādēļ bieži var sastapt tehniskajā uzdevumā prasību, ka vispirms tiek izstrādāta mobile first lapas versija. Otrs, mazāk būtisks iemesls ir: ja mums ir mazāk koda rindas, tad lapa ielādējās ātrāk. */
+
+/* Jau tagad mums ir pietiekami daudz zināšanu, lai izstrādātu jebkuras lapas adaptīva versiju. Svarīgākais: mums ir jāattīsta mākslinieciskā puse, jāspēj saskatīt lapā, kuri elementi izskatās labi, bet pie kuriem ir jāpiestrādā, lai tie arī izskatītos labi. Lai gala rezultātā visa lapa samazinoties ekrānam visās ierīcēs izskatītos vienādi skaisti. */
+
+/* Sākumā, mums ir ieskaitot konteineru četri lūzuma punkti, un mums jau ir pietiekami, bet šāda lapas adaptīva izstrāde ir lēta, jo tai nav pielikta mākslinieciskā puse. */
+
+/* Ir vēl viens lapas adaptīva izstrādes veids: atsaucīgais lapas adaptīvs. Tas ir tad, kad mēs izmantojam parasto lapas adaptīva izstrādi ar lūzuma punktiem un pieliekam klāt gumijas lapas adaptīva izstrādi. Mēs šos abus veidus krustojam, kā rezultātā sanāk: atsaucīgā lapas adaptīva izstrāde. */
+
+/* Atsaucīgais lapas adaptīvs ir augstākais lapas adaptīva izstrādes līmenis, kas tiek novērtēts visaugstāk. Šāds adaptīvs vairs nav lētais lapas adaptīvs. Protams, tas ir arī pats sarežģītākais lapas adaptīvs. */
+
+/* Atsaucīgā lapas adaptīva izstrāde paredz to, ka mēs neizmantojam priekš ierobežojošā konteinera lūzuma punktus. Mēs neizmantojam uzreiz stingri noteikto sietu ar trīs lūzuma punktiem, bet mēs izmantojam konkrētus lūzuma punktus tikai tad, kad tas ir nepieciešams. */
+
+/* Sarežģītajā, dārgajā lapas adaptīva izstrādē: atsaucīgais lapas adaptīvs, mēs izmantojot izstrādātāja rīku, skatamies kurā brīdī mums rodas problēma ar lapas satura attēlošanu. Mēs ieslēdzam pielāgoto lapas adaptīvu un ik pa pāris pikseļiem vērojam kā izskatās lapas saturs. */
+
+/* Lai labāk saprastu kā tas darbojas mēs iekš HTML dokumenta, iekš flex elementiem pievienojam tekstu. Atveram izstrādātāja rīku un sākam samazināt ekrānu līdz redzam, kurā vietā, kādā ekrāna platumā - ierīces viewport mums sākas problēma: teksts vairs nav īsti salasāms. Sākotnēji mums darbojas lapas gumijas adaptīvs. */
+
+/* Šeit arī parādās dārgais lapas adaptīvs. Kad mēs paši, neizmantojot tehniski zināmo sietu ar konkrētiem lūzuma punktiem, skatamies paši un izlemjam paši kurā brīdī jāizmanto konkrēts lūzuma punkts un jāsāk mainīt lapas elementu uzvedība. Šis arī ir tas brīdis, kad kļūstam mākslinieki. */
+
+/* Mēs neņemam vērā mūsu zināmo tehnisko daļu, sietu ar trīs noteiktiem lūzuma punktiem, mēs ņemam vērā to, ko redzam paši savām acīm. */
+
+/* Dotajā piemērā, mēs samazinām ierīces viewport un redzam, ka mums ir jāveic elementu pārkārtojums pie 540px. Izmantojam mobile first pieeju ar min-width izmantošanu. Pierakstām: */
+
+@media (min-width: 540px) {
+	.block__items {
+		display: flex;
+	}
+}
+
+/* Reizēm ir nepieciešams izstrādāt lapu bez ierobežojošā konteinera izmantošanas. Bet visbiežāk mūsdienās, kad ekrāni kļūst ar vien lielāki, tomēr tiek izmantots ierobežojošais konteineris. Bet mēs izskatīsim piemēru, kad tas tiek izmantots tikai lai noteiktu iekšējās atstarpes. */
+
+[class*="__container"] {
+	padding: 0px 30px;
+}
+
+/* Redzam, ka sākotnējā, lielā ekrānā lapas elementi izskatās labi. Samazinām ekrānu līdz 1000px un redzam, ka tagad iekšējās malu atstarpes ir par lielu, labojam to: */
+
+@media (max-width: 1000px) {
+	[class*="__container"] {
+		padding: 0px 20px;
+	}
+}
+
+/* Šeit arī mēs saprotam kā strādā atsaucīgā lapas adaptīva izstrāde. Mēs skatamies, samazinam viewport un ar savu aci vērtējam kurā brīdī mums ir kas jāmaina. Šī arī ir atsaucīgā lapas adaptīva izstrāde. */
+
+/*  */
+
+
