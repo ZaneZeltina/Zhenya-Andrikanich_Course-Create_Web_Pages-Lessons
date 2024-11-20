@@ -34,7 +34,7 @@
 
 /* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
 
-/* Ar content-box izmantošanu ir viena priekšrocība: ums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
+/* Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
 
 /* Paskatīsimies vēl uz dažiem forms piemēriem no iepriekšējās lekcijas. Atgriežamies HTML dokumentā un pierakstām struktūru. Atgriežamies šeit iekš CSS kaskādes tabulas stiliem un pievienojam nepieciešamos CSS parametrus. */
 
