@@ -1,0 +1,205 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Regular.woff2") format("woff2"), url("../fonts/Gilroy-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Bold.woff2") format("woff2"), url("../fonts/Gilroy-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue-CondensedBlack.woff2") format("woff2"), url("../fonts/HelveticaNeue-CondensedBlack.woff2") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue.woff2") format("woff2"), url("../fonts/HelveticaNeue.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Izmantojam ierobežojošo konteineru mūsu piemērā: */
+[class*=__container] {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Standarta lapas adaptīva siets */
+@media (max-width: 1140px) {
+  [class*=__container] {
+    /* max-width: 970px; */
+  }
+}
+@media (max-width: 991.98px) {
+  [class*=__container] {
+    /* max-width: 750px; */
+  }
+}
+@media (max-width: 767.98px) {
+  [class*=__container] {
+    /* max-width: none; */
+  }
+}
+/* Pierakstām tehnisko klasi: _ibg */
+._ibg {
+  position: relative;
+}
+
+._ibg img {
+  position: absolute;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Strādājam ar kartītēm */
+.block__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 30px;
+  margin: 0px -15px;
+}
+
+.block__item {
+  padding: 0px 15px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33.333%;
+          flex: 1 1 33.333%;
+  min-width: 290px;
+}
+
+.item-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 1140px) {
+  .item-block {
+    max-width: 350px;
+  }
+}
+.item-block__image {
+  /* position: relative; */
+  padding: 0px 0px 74.28% 0px;
+}
+
+/* .item-block__img {
+	position: absolute;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+} */
+.item-block__body {
+  padding: 15px;
+  background: #252525;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.item-block__body *:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.item-block__title {
+  font-size: 30px;
+  line-height: 30px;
+  color: #d9d9d9;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+}
+
+.item-block__text {
+  font-size: 13px;
+  line-height: 18px;
+  color: #84868c;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  letter-spacing: -0.16px;
+}
+
+.item-block__button {
+  padding: 10px 20px;
+  background: #34C759;
+  color: #252525;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 20%;
+  border-radius: 40px;
+}
+
+/* [class*="__container"] {
+	max-width: 1050px;
+	margin: 0 auto;
+	padding: 0 15px;
+} */
+/* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
+/* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
+/* Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
+/* Šinī lekcijā mēs mācīsimies par SCSS procesora izmantošanu. Bet vēl pirms tam atgriežamies iepriekšējās lekcijas tēmā par lapas adaptīva izstrādi. Izskatām piemēru no maketa ar kartītes izveidošanu un tās adaptīva izstrādi. Atgriežamies HTML dokumentā un izveidojam kartītes struktūru. */
+/* Kad esam izstrādājuši HTML dokumentā kartītes struktūru, atgriežamies CSS un pievienojam vajadzīgos CSS parametrus. */
+/* Pievienojam šeit no iepriekšējās lekcijas lapas adaptīva sietu, kas ir jau gatavs, ko varam izmantot kā šablonu. */
+/* Kādēļ mēs attēlu liekam izmantojot HTML dokumenta teg: <img>? Tādēļ, ka domājot uz priekšu, kad mūsu lapa tiks nodota pasūtītājam, tas varēs jebkurā brīdī mainīt attēlu. Ievietot jebkuru attēlu, kas būs konkrētā izmērā, būs adaptīvs. */
+/* Lai attēls būtu adaptīvs, mums ir jānosaka vairāki CSS parametri. Tā, kā mūsu piemērā. Attēla izstrādē ir ieteicams izmantot CSS parametru: object-fit: cover; Tas darbojas tā pat kā gadījumā, kad izmantojām: background: url("") center / cover no-repeat. */
+/* Tikai mūsu piemērā mēs domājam, lai mūsu lapas izstrādē vis būtu adaptīvs, lai pie mazākām izmaiņām mūsu lapas izstrāde būtu droša. Mainoties saturam, nekas nebruktu. */
+/* Ja izmantosim pieeju ar background izmantošanu, tad lapas īpašniekam zūd iespēja mainīt saturu, attēlus. Tādēļ, jāizmanto pieeja, kad izstrādājam bildi iekš HTML dokumenta. */
+/* No semantikas viedokļa puses ir ieteicama pieeja ar bildes izvietošanu iekš HTML dokumenta. */
+/* Mēs nosakām bildei CSS parametru: object-fit: cover; Vēl viens CSS parametrs, kas iet kopā ar CSS parametru: object-fit ir: object-position: center; Tas nosaka, kā bilde tiks attēlota. Mēs varam noteikt vērtības: left, right, center. Pēc noklusējuma šis CSS parametrs or: object-position: center; */
+/* Nosakot mūsu attēlam noteiktus CSS parametrus, mē iegūstam to pašu efektu, kā tad, ja izmantotu CSS parametru: background. Bet mēs iegūstam vēl vienu priekšrocību: lapas īpašnieks izmantojot CSM sistēmu, no admin paneļa var mainīt attēlu uz jebkuru citu attēlu. Lapas attēlojums - noturība nemainīsies. Citam attēlam tiks piemēroti visi tie paši CSS parametri. */
+/* Zinot kā pareizi izstrādāt lapas, attēla adaptīvu, mēs panākam to, ka mūsu izstrāde ir droša pret jebkurām pārmaiņām. */
+/* Nosakot elementam CSS parametrus, mums vienmēr jādomā soli uz priekšu: kas notiks, ja mainīsies elementa saturs, vai lapas izstrāde būs noturīga. Mēs varam eksperimentēt, liekot lielāku, mazāku saturu, mainot attēlus. Tā mēs uzreiz redzam, vai esam izdarījuši pareizi un lapa ir noturīga, vai arī, ja nē, tad kaut kas jūk. */
+/* Šos attēlu CSS parametrus mēs varam noteikt visiem attēliem, kas ir mūsu lapā, atbilstoši maketam. Lai mums nevajadzētu katru reizi katram attēlam šo visu rakstīt, mēs varam izmantot tehnisko klasi: _ibg, kas ir saīsinājums no image background. Mēs atsevišķi savā starta šablonā - CSS dokumentā varam noteikt: _ibg un pievienot attiecīgos CSS parametrus. */
+/* Atgriežamies pie mūsu piemēra, izmantojot tehnisko klasi: _ibg; Mums jāizmanto tieši tāda sintakse kā piemērā. Mēs rakstam CSS parametrus kopējam: _ibg {} un rakstām tieši attēla parametrus, izmantojot: _ibg img {}; */
+/* Pārnesam visus CSS parametrus, izņemot: padding, jo tas katram attēlam var būt citāds. */
+/* Mēs jau runājām par tehnisko klašu izmantošanu. Arī šeit mēs varam vērsties pie sarežģītā selektora izmantošanas, liekot piemērot attiecīgos CSS stilus, visur, kur ir konkrēts selektora nosaukums. Bet daudz ērtāk ir vienkārši izmantot tehnisko klasi. */
+/* Izmantojot šos CSS parametrus attēliem mēs iegūstam to, ka attēli kļūst atsaucīgi. Mainoties viewport izmēram, attēls pielāgojas, kļūst atsaucīgs. Mēs iegūstam atsaucīgo, adaptīvo lapas izstrādi. */
+/* Atgriežamies pie mūsu piemēra, ar kartītes izstrādi un pievienojam CSS parametrus. Pierakstām CSS parametru vērtības, ņemam tās no maketa. */
+/* Svarīgi, kad izstrādājam kartītes, mums jāatceras, ka tās saturs var mainīties, var mainīties virsraksts, teksts. Mums ir jānodrošinās, ka kartītes saite - poga ir piesista pie pašas apakšas. Lai to panāktu, mums ir jāizmanto Flex moduļa parametrs: flex: 1 1 auto; */
+/* Mēs iegūstam, ka mūsu izstrādātās kartītes ir ieguvušas adaptīvo atsaucīgo izstrādi. Lai vēl vairāk nodrošinātos, pievienojam vēl dažus CSS parametrus, pievienojam: min-width: 290px; */
+/* Esam izskatījuši papildus piemēru vēl no iepriekšējās lekcijas par lapas adaptīva izstrādi, un tagad varam pāriet pie šīs lekcijas tēmas: pre-procesora izmantošanu mūsu darbā. Mēs izmantosim SAAS, SCSS sintaksē. */
+/* --------------------------- */
+/* Kas tad ir pre-procesors un kā tas tiek izmantots? Tas ir proces, kas notiek pirms tiek izstrādāti CSS parametri - stili. Kāpēc mums ir jāizmanto pre-procesors? Tas nav obligāts, tā nav labākas kvalitātes garantija, taču tas uzlabo izstrādes ātrumu un palielina ērtību. Tas uzlabo koda uzturēšanu nākotnē. To ir vieglāk saprast, vieglāk uzturēt. */
+/* Kādēļ mēs nesākām uzreiz mācīties rakstīt stilus SCSS sintaksē. Tādēļ, ka sākot mācīties ko jaunu: CSS, mēs iemācāmies pašu būtību, iemācāmies parametrus, selektorus, mācamies domāt kā tos pareizi izmantot. */
+/* Mācoties tālāk, mēs mācāmies jaunas tehnoloģijas, kas padara mūsu lapu izstrādi ātrāku un ērtāku. */
+/* Turpmāk mēs strādāsim tikai ar pre-procesora SCSS izmantošanu. Pārnesam visus stilus uz style.scss. Šeit tos dzēšam. */
+/* Pārnesam arī reset faila stilus uz jauno reset.scss failu. Pārnesam arī visus pierakstus uz jauno style.scss failu, lai varam vecos css failus dzēst. */
+/* Tagad pierakstām visu šinī style.scss failā. */

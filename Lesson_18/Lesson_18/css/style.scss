@@ -1,6 +1,3 @@
-
-/* Sākumā atceramies kā pieslēgt šriftus: */
-
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
 
 @font-face {
@@ -38,24 +35,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* [class*="__container"] {
-	max-width: 1050px;
-	margin: 0 auto;
-	padding: 0 15px;
-} */
-
-/* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
-
-/* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
-
-/* Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
-
-/* Šinī lekcijā mēs mācīsimies par SCSS procesora izmantošanu. Bet vēl pirms tam atgriežamies iepriekšējās lekcijas tēmā par lapas adaptīva izstrādi. Izskatām piemēru no maketa ar kartītes izveidošanu un tās adaptīva izstrādi. Atgriežamies HTML dokumentā un izveidojam kartītes struktūru. */
-
-/* Kad esam izstrādājuši HTML dokumentā kartītes struktūru, atgriežamies CSS un pievienojam vajadzīgos CSS parametrus. */
-
-/* Pievienojam šeit no iepriekšējās lekcijas lapas adaptīva sietu, kas ir jau gatavs, ko varam izmantot kā šablonu. */
 
 /* Izmantojam ierobežojošo konteineru mūsu piemērā: */
 
@@ -118,12 +97,20 @@
 
 .block__item {
 	padding: 0px 15px;
-	flex: 0 1 33.333%;
+	flex: 1 1 33.333%;
+	min-width: 290px;
 }
 
 .item-block {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
+}
+
+@media (min-width: 1140px) {
+	.item-block {
+		max-width: 350px;
+	}
 }
 
 .item-block__image {
@@ -142,6 +129,15 @@
 } */
 
 .item-block__body {
+	padding: 15px;
+	background: #252525;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+.item-block__body *:not(:last-child) {
+	margin-bottom: 15px;
 }
 
 .item-block__title {
@@ -156,11 +152,11 @@
 	font-size: 13px;
 	line-height: 18px;
 	color: #84868c;
+	flex: 1 1 auto;
 	letter-spacing: -0.16px;
 }
 
 .item-block__button {
-	display: block;
 	padding: 10px 20px;
 	background: #34C759;
 	color: #252525;
@@ -172,6 +168,24 @@
 	letter-spacing: 20%;
 	border-radius: 40px;
 }
+
+/* [class*="__container"] {
+	max-width: 1050px;
+	margin: 0 auto;
+	padding: 0 15px;
+} */
+
+/* Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats. */
+
+/* Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies. */
+
+/* Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk. */
+
+/* Šinī lekcijā mēs mācīsimies par SCSS procesora izmantošanu. Bet vēl pirms tam atgriežamies iepriekšējās lekcijas tēmā par lapas adaptīva izstrādi. Izskatām piemēru no maketa ar kartītes izveidošanu un tās adaptīva izstrādi. Atgriežamies HTML dokumentā un izveidojam kartītes struktūru. */
+
+/* Kad esam izstrādājuši HTML dokumentā kartītes struktūru, atgriežamies CSS un pievienojam vajadzīgos CSS parametrus. */
+
+/* Pievienojam šeit no iepriekšējās lekcijas lapas adaptīva sietu, kas ir jau gatavs, ko varam izmantot kā šablonu. */
 
 /* Kādēļ mēs attēlu liekam izmantojot HTML dokumenta teg: <img>? Tādēļ, ka domājot uz priekšu, kad mūsu lapa tiks nodota pasūtītājam, tas varēs jebkurā brīdī mainīt attēlu. Ievietot jebkuru attēlu, kas būs konkrētā izmērā, būs adaptīvs. */
 
@@ -203,8 +217,22 @@
 
 /* Atgriežamies pie mūsu piemēra, ar kartītes izstrādi un pievienojam CSS parametrus. Pierakstām CSS parametru vērtības, ņemam tās no maketa. */
 
+/* Svarīgi, kad izstrādājam kartītes, mums jāatceras, ka tās saturs var mainīties, var mainīties virsraksts, teksts. Mums ir jānodrošinās, ka kartītes saite - poga ir piesista pie pašas apakšas. Lai to panāktu, mums ir jāizmanto Flex moduļa parametrs: flex: 1 1 auto; */
 
+/* Mēs iegūstam, ka mūsu izstrādātās kartītes ir ieguvušas adaptīvo atsaucīgo izstrādi. Lai vēl vairāk nodrošinātos, pievienojam vēl dažus CSS parametrus, pievienojam: min-width: 290px; */
 
+/* Esam izskatījuši papildus piemēru vēl no iepriekšējās lekcijas par lapas adaptīva izstrādi, un tagad varam pāriet pie šīs lekcijas tēmas: pre-procesora izmantošanu mūsu darbā. Mēs izmantosim SAAS, SCSS sintaksē. */
 
+/* --------------------------- */
 
+/* Kas tad ir pre-procesors un kā tas tiek izmantots? Tas ir proces, kas notiek pirms tiek izstrādāti CSS parametri - stili. Kāpēc mums ir jāizmanto pre-procesors? Tas nav obligāts, tā nav labākas kvalitātes garantija, taču tas uzlabo izstrādes ātrumu un palielina ērtību. Tas uzlabo koda uzturēšanu nākotnē. To ir vieglāk saprast, vieglāk uzturēt. */
 
+/* Kādēļ mēs nesākām uzreiz mācīties rakstīt stilus SCSS sintaksē. Tādēļ, ka sākot mācīties ko jaunu: CSS, mēs iemācāmies pašu būtību, iemācāmies parametrus, selektorus, mācamies domāt kā tos pareizi izmantot. */
+
+/* Mācoties tālāk, mēs mācāmies jaunas tehnoloģijas, kas padara mūsu lapu izstrādi ātrāku un ērtāku. */
+
+/* Turpmāk mēs strādāsim tikai ar pre-procesora SCSS izmantošanu. Pārnesam visus stilus uz style.scss. Šeit tos dzēšam. */
+
+/* Pārnesam arī reset faila stilus uz jauno reset.scss failu. Pārnesam arī visus pierakstus uz jauno style.scss failu, lai varam vecos css failus dzēst. */
+
+/* Tagad pierakstām visu šinī style.scss failā. */
