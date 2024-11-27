@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
 
+@import "_reset";
+
 @font-face {
 	font-family: "Gilroy";
 	src: url("../fonts/Gilroy-Regular.woff2") format("woff2"),
@@ -63,117 +65,6 @@
 		/* max-width: none; */
 	}
 } 
-
-// Pierakstām tehnisko klasi: _ibg
-
-// ._ibg {
-	// position: relative;
-// }
-
-// ._ibg img {
-	// position: absolute;
-	// object-position: center;
-	// object-fit: cover;
-	// width: 100%;
-	// height: 100%;
-	// top: 0;
-	// left: 0;
-// }
-
-// Strādājam ar kartītēm 
-
-.block {
-}
-
-.block__container {
-}
-
-.block__items {
-	display: flex;
-	flex-wrap: wrap;
-	row-gap: 30px;
-	margin: 0px -15px;
-}
-
-.block__item {
-	padding: 0px 15px;
-	flex: 1 1 33.333%;
-	min-width: 290px;
-}
-
-.item-block {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-}
-
-@media (min-width: 1140px) {
-	.item-block {
-		max-width: 350px;
-	}
-}
-
-.item-block__image {
-	// position: relative;
-	padding: 0px 0px 74.28% 0px;
-}
-
-// .item-block__img {
-//	position: absolute;
-//	object-fit: cover;
-//	object-position: center;
-//	width: 100%;
-//	height: 100%;
-//	top: 0;
-//	left: 0;
-// } 
-
-.item-block__body {
-	padding: 15px;
-	background: #252525;
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 auto;
-}
-
-.item-block__body *:not(:last-child) {
-	margin-bottom: 15px;
-}
-
-.item-block__title {
-	font-size: 30px;
-	line-height: 30px;
-	color: #d9d9d9;
-	font-family: "Helvetica Neue", sans-serif;
-	font-weight: 400;
-}
-
-.item-block__text {
-	font-size: 13px;
-	line-height: 18px;
-	color: #84868c;
-	flex: 1 1 auto;
-	letter-spacing: -0.16px;
-}
-
-// .item-block__button {
-	// padding: 10px 20px;
-	// background: #34C759;
-	// color: #252525;
-	// text-transform: uppercase;
-	// font-size: 10px;
-	// font-weight: 900;
-	// text-align: center;
-	// line-height: 30px;
-	// letter-spacing: 20%;
-	// border-radius: 40px;
-// }
-
-// [class*="__container"] {
-//	max-width: 1050px;
-//	margin: 0 auto;
-//	padding: 0 15px;
-// } 
 
 // Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats.
 
@@ -271,6 +162,115 @@
 
 // Lai mums netraucētu piemērs, izslēdzam iepriekš aktīvo kodu konkrētajiem selektoriem.
 
+// Mēs pierakstām selektora nosaukumu, nosakām tam vajadzīgos stilus. iekš tā vēršamies pie visiem konkrētiem selektoriem, kas atrodas galvenajā selektorā un pievienojam vajadzīgos CSS stilus. Rezultātā: mums ir mazāk kodu rindas un kods ir saprotamāks, labāk lasāms. Bet gala kompilētajā CSS failā nekas nemainās. Mēs redzam divus selektorus, tā kā mums ir jau pierasts.
+
+// Kā mums rīkoties, ja mēs gribam iekš vecāka selektora - klases nosaukuma vērsties pie citiem selektoriem - klašu selektoriem, kas atrodas iekš konkrētā - vecāka selektora. Lai labāk saprastu kā tas darbojas un kāda ir pieraksta sintakse, izskatām to ar piemēru:
+
+// Atgriežamies HTML dokumentā un pievienojam mūsu kartīšu pogai vēl vienu klasi: button. Izslēdzam iepriekš aktīvo kodu.
+
+// Mēs vēršamies pie konkrētas klases, iekš vecāka klases liekot zīmi: & - un liekam punktu un rakstām tās klases nosaukumu pie kuras vēlamies vērsties, bet, kas atrodas iekš galvenās klases. Pievienojam tos parametrus, kurus vēlamies izmantot šai ieliktajā klasē. Gala rezultātā, kompilētajā CSS failā mēs redzam jau pierastu lietu: mēs vēršamies pie konkrētas klases un pie klases, kas ir iekš tās.
+
+// Ja mēs vēlamies vērsties pie klases, kas ir iekš vecāka klases, mēs liekam punktu un rakstām klases nosaukumu. Mēs varam vērsties pie jebkuras klases, kas atrodas iekš vecāka klases. Kompilētajā CSS failā mēs redzam, ka mēs vēršamies pie konkrētas klases, kas ir iekš vecāka klases.
+
+// Lai labāk saprastu kā darbojas vēršanās pie iekšējiem selektoriem, izskatām to ar piemēru. Izslēdzam iepriekšējo aktīvo kodu. Atgriežamies HTML dokumentā, kur pievienojam iekšējo klasi: button.
+
+// Izveidojām iekš mūsu saites teg: <span>, pievienojām tam klases nosaukumu. Teg: <span> atrodas iekš teg: <a>. Mēs vēršamies pie iekšējās klases, liekot punktu. Iekš CSS faila redzam pierasto lietu: mēs vēršamies pie konkrētas klases, kas atrodas iekš vecāka klases. Starp klašu nosaukumiem ir atstarpe.
+
+// Svarīgi: Ja mēs vēršamies vienlaicīgi pie vairākām klasēm mēs liekam zīmi: & - un, bet, ja pie klases, kas ir iekš vecāka klases, mēs liekam punktu.
+
+// Atgriežam kartītes pogu: button HTML dokumentā ierastajā stāvoklī.
+
+// Mums ir paplašinājums priekš VSCode: ecsstractor ar kura palīdzību mēs varam pārnest klases, gan uz CSS failu, gan SCSS pre-procesora failu. Katrā failā tiek izmantota attiecīgā faila sintakse.
+
+// Atveram VSCode shortcuts un nosakām mūsu paplašinājumam: ecsstractor saīsinājuma taustiņus ātrai klašu pārnešanai uz CSS failu un uz SCSS failu. paskatamies kā tas darbojas. Nokopējam no HTML dokumenta visu bloku un pārnesam uz SCSS failu.
+
+// Lai klases tiktu pārnestas uz SCSS failu mums vēlamajā SCSS pre-procesora sintaksē, atceramies, ka mums jāizmanto īsinājumu taustiņu kombinācija: alt + b b - iekš HTML faila. Bet iekš SCSS faila mēs izmantojam paste komandu.
+
+.block {
+		// .block__container
+		&__container {
+		}
+		// .block__items
+		&__items {
+			display: flex;
+	    flex-wrap: wrap;
+	    row-gap: 30px;
+	    margin: 0px -15px;
+		}
+		// .block__item
+		&__item {
+			padding: 0px 15px;
+	    flex: 1 1 33.333%;
+	    min-width: 290px;
+		}
+}
+.item-block {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	@media (max-width: 1140px) {
+		max-width: 350px;
+	}
+		// .item-block__image
+		&__image {
+			padding: 0px 0px 74.28% 0px;
+		}
+		// .item-block__img
+		&__img {
+		}
+		// .item-block__body
+		&__body {
+			padding: 15px;
+	    background: #252525;
+	    display: flex;
+	    flex-direction: column;
+	    flex: 1 1 auto;
+			*:not(:last-child) {
+			margin-bottom: 15px;
+		}
+		}
+		// .item-block__title
+		&__title {
+			font-size: 30px;
+	    line-height: 30px;
+	    color: #d9d9d9;
+	    font-family: "Helvetica Neue", sans-serif;
+	    font-weight: 400;
+		}
+		// .item-block__text
+		&__text {
+			font-size: 13px;
+	    line-height: 18px;
+	    color: #84868c;
+	    flex: 1 1 auto;
+	    letter-spacing: -0.16px;
+		}
+		// .item-block__button
+		&__button {
+			padding: 10px 20px;
+	    background: #34C759;
+	    color: #252525;
+	    text-transform: uppercase;
+	    font-size: 10px;
+	    font-weight: 900;
+	    text-align: center;
+	    line-height: 30px;
+	    letter-spacing: 20%;
+	    border-radius: 40px;
+			&::before {
+				content: "";
+			}
+			&::after {
+				content: "";
+			}
+			&:hover {
+				background:#adff2f;
+			}
+			.loading & {
+				background: #ffa500;
+			}
+		}
+}
 ._ibg {
 	position: relative;
 	img {
@@ -283,30 +283,22 @@
 		left: 0;
 	}
 }
+// Izpildot šo taustiņu kombināciju, mēs iegūstam visas klases no HTML dokumenta bloku, jau pierakstītas SCSS sintaksē. Mēs varam izmantot šo taustiņu kombināciju, lai pārnestu klases uz SCSS failu, lai mums nebūtu jāraksta katru klasi atsevišķi.
 
-// Mēs pierakstām selektora nosaukumu, nosakām tam vajadzīgos stilus. iekš tā vēršamies pie visiem konkrētiem selektoriem, kas atrodas galvenajā selektorā un pievienojam vajadzīgos CSS stilus. Rezultātā: mums ir mazāk kodu rindas un kods ir saprotamāks, labāk lasāms. Bet gala kompilētajā CSS failā nekas nemainās. Mēs redzam divus selektorus, tā kā mums ir jau pierasts.
+// Mēs iegūstam konstrukciju, kad mums ir vecāka bloks iekš kura ir tā elementi. Šeit zīme: & - un nozīmē to, ka mēs vēršamies pie konkrētiem elementiem, kas atrodas vecāka blokā.
 
-// Kā mums rīkoties, ja mēs gribam iekš vecāka selektora - klases nosaukuma vērsties pie citiem selektoriem - klašu selektoriem, kas atrodas iekš konkrētā - vecāka selektora. Lai labāk saprastu kā tas darbojas un kāda ir pieraksta sintakse, izskatām to ar piemēru:
+// Šī ir viena no SCSS pre-procesora superspējām, kad mums vairs nav katru reizi jāraksta vecāka klases nosaukums, kad mēs vēršamies pie tā elementiem.
 
-// Atgriežamies HTML dokumentā un pievienojam mūsu kartīšu pogai vēl vienu klasi: button. Izslēdzam iepriekš aktīvo kodu.
+// Zīme: & - un šinī gadījumā nozīmē, vecāka bloka nosaukumu.
 
-.item-block__button {
-	padding: 10px 20px;
-	background: #34C759;
-	color: #252525;
-	text-transform: uppercase;
-	font-size: 10px;
-	font-weight: 900;
-	text-align: center;
-	line-height: 30px;
-	letter-spacing: 20%;
-	border-radius: 40px;
-	&.button {
-		color: #84868c;
-	}
-}
+// Tagad, kad esam iepazinušies ar SCSS pre-procesora izmantošanu, pārrakstīsim mūsu kodu, izmantojot SCSS pre-procesora sintaksi. Pārnesam parastos CSS parametrus attiecīgajos SCSS selektoros.
 
-// Mēs vēršamies pie konkrētas klases, iekš vecāka klases liekot zīmi: & - un liekam punktu un rakstām tās klases nosaukumu pie kuras vēlamies vērsties, bet, kas atrodas iekš galvenās klases. Pievienojam tos parametrus, kurus vēlamies izmantot šai ieliktajā klasē. Gala rezultātā, kompilētajā CSS failā mēs redzam jau pierastu lietu: mēs vēršamies pie konkrētas klases un pie klases, kas ir iekš tās.
+// Pierodam, ka no šī brīža mēs izmantosim tikai pre-procesoru SCSS. Izdzēšam no šī faila visus vecos CSS selektorus.
 
-// 
+// Vēl viena pre-procesora SCSS priekšrocība ir tā, ka mēs uzreiz iekš selektora varam izmantot @media iestatījumus lapas adaptīva izstrādei. Rakstam uzreiz iekš attiecīgā selektora @media iestatījumus. Ievērojam SCSS sintakses pierakstu, tā kā augstāk piemērā.
 
+// Kā mums jāpieraksta SCSS sintaksē, ja gribam izmantot pseido klases. Mēs attiecīgajā elementā liekam zīmi: & un, rakstām ierasto struktūru: ::before {} un ::after {}. Mēs varam izmantot jebkuru pseido klasi, bet šeit piemērā izmantosim ::before {} un ::after {}. Tā kā augstāk piemērā. Tas pats attiecas uz visām pārējām pseido klasēm.
+
+// Mums var rasties situācija, kad mums ir nepieciešams vispirms izpildīt kāda cita vecāka elementa stilus, iekš konkrēta elementa. Piemēram: mums ir situācija, kad mums vajag, lai no mūsu piemēra, mūsu poga ielādes laikā maina krāsu. Mēs ievērojot īpašu pierakstu varam noteikt, ka vispirms izpildīsies konkrētā vecāka, cita bloka parametri konkrētam elementam, bet pēc tam izpildīsies tā pārējie parametri. Kā mēs to varam panākt? Ieejam HTML dokumentā un izveidojam mūsu wrapper vēl vienu klasi: loading. Iekš SCSS faila ievērojot pieraksta sintaksi nosakām, ka mūsu poga pie ielādes: loading mainīs krāsu. Rakstām tā kā augstāk piemērā. 
+
+// Viena no superspējām SCSS pre-procesoram ir tā, ka mēs vienā style.scss failā varam pievienot, izmantojot: @import url("") daudzus scss failus. Mums vairs nav nepieciešams slēgt klāt HTML dokumentam daudzus CSS failus, mums pietiek ar vienu.
