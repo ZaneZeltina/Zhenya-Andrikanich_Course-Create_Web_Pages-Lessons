@@ -199,10 +199,7 @@ body {
   content: "";
 }
 .item-block__button:hover {
-  background: #adff2f;
-}
-.loading .item-block__button {
-  background: #ffa500;
+  background: #90ee90;
 }
 
 ._ibg {

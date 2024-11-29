@@ -38,6 +38,15 @@
   font-display: swap;
 }
 
+// Nosakām mainīgos, kurus izmantosim mūsu lapas izstrādē.
+
+// Kartītes fona krāsa
+$main-color: #252525;
+// Lapas galvenā fona krāsa
+$pageColor: #4b4b4b;
+// Visbiežāk izmantojamais projekta šrifta lielums
+$fontSize: 16px;
+
 // Izmantojam ierobežojošo konteineru mūsu piemērā:
 
 [class*="__container"] {
@@ -264,11 +273,11 @@
 				content: "";
 			}
 			&:hover {
-				background:#adff2f;
+				background: #90ee90;
 			}
-			.loading & {
-				background: #ffa500;
-			}
+			// .loading & {
+				// background: #ffa500;
+			// }
 		}
 }
 ._ibg {
@@ -295,10 +304,48 @@
 
 // Pierodam, ka no šī brīža mēs izmantosim tikai pre-procesoru SCSS. Izdzēšam no šī faila visus vecos CSS selektorus.
 
+// Kad mēs strādājam ar pre-procesoru, mums ir iespēja izstrādājot visu bloku izmantot saliekamo bultiņu, mēs saliekam visa bloka kodu un strādājam tālāk. Iekš CSS faila mēs varējām salikt tikai atsevišķus selektorus, bet SCSS pre-procesora gadījumā mēs varam salikt visu bloku.
+
 // Vēl viena pre-procesora SCSS priekšrocība ir tā, ka mēs uzreiz iekš selektora varam izmantot @media iestatījumus lapas adaptīva izstrādei. Rakstam uzreiz iekš attiecīgā selektora @media iestatījumus. Ievērojam SCSS sintakses pierakstu, tā kā augstāk piemērā.
 
 // Kā mums jāpieraksta SCSS sintaksē, ja gribam izmantot pseido klases. Mēs attiecīgajā elementā liekam zīmi: & un, rakstām ierasto struktūru: ::before {} un ::after {}. Mēs varam izmantot jebkuru pseido klasi, bet šeit piemērā izmantosim ::before {} un ::after {}. Tā kā augstāk piemērā. Tas pats attiecas uz visām pārējām pseido klasēm.
 
 // Mums var rasties situācija, kad mums ir nepieciešams vispirms izpildīt kāda cita vecāka elementa stilus, iekš konkrēta elementa. Piemēram: mums ir situācija, kad mums vajag, lai no mūsu piemēra, mūsu poga ielādes laikā maina krāsu. Mēs ievērojot īpašu pierakstu varam noteikt, ka vispirms izpildīsies konkrētā vecāka, cita bloka parametri konkrētam elementam, bet pēc tam izpildīsies tā pārējie parametri. Kā mēs to varam panākt? Ieejam HTML dokumentā un izveidojam mūsu wrapper vēl vienu klasi: loading. Iekš SCSS faila ievērojot pieraksta sintaksi nosakām, ka mūsu poga pie ielādes: loading mainīs krāsu. Rakstām tā kā augstāk piemērā. 
 
-// Viena no superspējām SCSS pre-procesoram ir tā, ka mēs vienā style.scss failā varam pievienot, izmantojot: @import url("") daudzus scss failus. Mums vairs nav nepieciešams slēgt klāt HTML dokumentam daudzus CSS failus, mums pietiek ar vienu.
+// Viena no superspējām SCSS pre-procesoram ir tā, ka mēs vienā style.scss failā varam pievienot, izmantojot: @import ""; daudzus citus scss failus. Mums vairs nav nepieciešams slēgt klāt HTML dokumentam daudzus CSS failus, mums pietiek tikai ar vienu.
+
+// SCSS pre-procesora priekšrocība ir arī tā, ka mēs SCSS faila sākumā varam noteikt mainīgos. Mēs liekam zīmi: $ - dolārs, rakstām mainīgā nosaukumu, piemēram: main-color, liekam zīmi : un rakstām vērtību. Heks krāsas kodu. Mēs varam noteikt jebkādu mainīgo. Priekšrocība ir tā, ka strādājot tālāk projektā, mums vairs nav nepieciešams paturēt galvā kādus krāsu heks kodus, vai noteiktus šrifta lielumus - font-size. Mēs vienkārši attiecīgajā vietā rakstām mainīgo nosaukumu.
+
+// Būtiski, ka šie noteiktiem mainīgi nepāriet gatavajā kompilētajā CSS failā. Mēs redzam ierasto sintaksi ar heks kodiem un šrifta izmēriem pikseļos. Būtiski: ja mēs gribam darba gaitā mainīt kāda iepriekš noteiktā mainīgā vērtību, mēs to varam izdarīt vienu reizi, un visur, kur šis mainīgais tiek izmantots, tā vērtība tiks mainīta.
+
+// Svarīgi: Interneta pārlūks neatpazīst, neredz SCSS failus. Tādēļ ir nepieciešams izmantot CSS faila kompilācijas programmu lai gala rezultātā, iegūto CSS failu mēs varētu pieslēgt HTML dokumentam. Gala rezultātā pārlūkā, atverot izstrādātāju rīku, mēs redzam ierasto CSS failu.
+
+// Arī tagad, kad strādājam, mums pieslēgts ir kompilētais CSS fails, mēs redzam, ka mūsu lapā nekas nav mainījies, vis darbojas pareizi.
+
+// Mēs jau redzam, kad izmantojam SCSS pre-procesoru, mums ir izmainījusies komentāru pieraksta sintakse, mums vairs nav pierastie CSS komentāri ar /* */ izmantošanu, mums tagad ir tāda sintakse kā visās citas programmēšanas valodās: // - divas slīpsvītras. Šie komentāri ir redzami tikai SCSS failā, tie netiek pārnesti uz kompilēto CSS failu. Mēs šeit varam rakstīt ko vien vēlamies, tas nekas netiek pārnests uz gatavo CSS failu.
+
+// Ja mums gadās, ka izmantojot VSCode paplašinājumu: ecsstractor un mums kāds klašu selektors vai parastais selektors paliek tukšs, bez CSS parametriem, tas arī netiek pārnests uz gala rezultāta CSS failu.
+
+// Atceramies: mainīgie jāraksta SCSS faila sākumā, jo tādejādi mums ir vieglāk tos atrast, vieglāk orientēties kodā, un mēs jebkurā brīdī jebkuru mainīgo varam mainīt.
+
+// Mainīgie mums ir jānosaka iekš SCSS faila, faila sākumā, un mēs nevaram noteiktos mainīgos style.scss failā izmantot citos SCSS failos, jo VSCode paplašinājums: saas compiler nespēj šo lietu apstrādāt. Kaut gan faktiski būtu jābūt tā, ka mēs varam pat noteikt atsevišķu mainīgo SCSS failu, to pieslēgt pie galvenā: style.scss faila un visam būtu jādarbojas pareizi. Bet mūsu gadījumā tas tā nenotiek, tādēļ atstājam to uz vēlāku laiku, kad strādāsim starta šablonā, un, kad darbosies papildus programma: GULP.
+
+// Mainīgo noteikšana style.scss faila sākuma ir laba izstrādātāja darbības prakse. Ja mums ir ļoti mazs projekts, tad mēs varam nenoteikt mainīgos, bet, ja projekts ir lielāks, tad laba izstrādāta piemērs ir, ka tas nosaka faila sākumā visus mainīgos. Tādus, kurus vajadzēs izmantot vairākkārt. Krāsas, šriftus, augstumus. Mēs varam iekš mainīgajiem izmantot jebkuru CSS parametru.
+
+// kad strādāsim ar starta šablonu tur jau būs daudz noteikti mainīgie, kurus varēsim izmantot, kā arī noteikt savus attiecīgajam projektam vajadzīgos mainīgos.
+
+// Ir vēl viens variants, ja mums ir noteikta CSS parametru vērtība daudzās vietās, mēs varam iekš VSCode explorer CSS mapē atvērt meklētāju, ierakstīt meklējamo vērtību, ierakstīt jaunu vērtību, nospiest replace, un tas tiks aizstāts visā failā. Bet ērtāk ir izmantot mainīgos, jo šāda pieeja ar explorer izmantošanu ir sarežģītāka un prasa ilgāku laiku. Kamēr izmantojot mainīgos, mēs to panākam daudz ātrāk un ērtāk.
+
+// Pie katra mainīgā noteikšanas SCSS faila sākumā, mēs varam pierakstīt ar komentāru, kas tieši ir domāts. Tādā veidā mums pēc tam ir vieglāk atrast kodā vajadzīgo, viegli orientēties. Atceramies: komentāri ieks scss faila nav redzami gala CSS failā.
+
+// Mums ir iespēja noteikt mainīgos arī iekš CSS faila, bet tas ir diezgan sarežģīti, un tās tiek parādītas arī pārlūkā, kas nevienmēr ir vēlams, tādēļ labāk noteikt mainīgos iekš SCSS faila.
+
+// Būtiska SCSS pre-procesora superspēja ir tā, ka mēs iekš galvenā style.scss faila, faila sākumā varam pieslēgt vairākus citus SCSS failus. Mums iekš CSS mapes ir CSS fails: reset.css. Mēs pārnesam tā saturu uz jaunu SCSS failu: _reset.scss un mūsu saas kompilators tā saturu pievieno gala CSS failam.
+
+// Svarīgi: Mūsu paplašinājums: saas compiler, ja rakstīsim vienkārši scss failu nosaukumus kompilēs galā mums vairākus CSS failus. Lai tas nenotiktu, lai visi SCSS faili būtu apvienoti vienā CSS failā, mums veidojot jaunus SCSS failus katra faila nosaukuma priekšā jāliek apakšsvītra: _reset.scss. Tādējādi mūsu paplašinājums sapratīs, ka šis fails ir jāpievieno galvenajam style.scss failam.
+
+// Lai pievienotu citus failus galvenajam style.scss failam, mums faila sākumā jāraksta sekojoši: @import "_reset"; Faila paplašinājumu mēs varam nerakstīt.
+
+// Izmantojot šādu pieeju, mēs iekš galvenā faila varam pieslēgt neskaitāmus scss failus. Ja strādājam pēc BEM metodoloģijas, tā paredz, ka mēs projektu sadalām mazos atsevišķos gabaliņos, daudzos failos, bet tik sīki gan mēs to nedarīsim. Bet mēs varam izveidot vairākus SCSS failus, kur katrs saturēs atsevišķu bloku, vai kādu lapas daļu, pagrabu vai cepuri, vai formu.
+
+// 
