@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
 
+// Pievienojam šeit _reset.scss failu
 @import "_reset";
+// Pievienojam šeit _mixins.scss failu
+@import "_mixins";
 
 @font-face {
 	font-family: "Gilroy";
@@ -55,6 +58,12 @@ $fontSize: 16px;
 	padding: 0 15px;
 }
 
+// Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats.
+
+//  Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies.
+
+// Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk.
+
 // Standarta lapas adaptīva siets
 
 @media (max-width: 1140px) {
@@ -75,11 +84,36 @@ $fontSize: 16px;
 	}
 } 
 
-// Mēs izmantojam šo klasi, lai ierobežotu saturu, lai tas nebūtu pārāk plats.
+// Nosakām šeit izmantojamos šablonus
 
-//  Kādēļ mēs iekš __container mainām CSS parametru: box-sizing: content-box? Mēs to mainām, tādēļ, lai tajā netiktu ieskaitīts: padding: 15px. Lai tas neietekmētu: __container izmēru. Protams mēs varam vienkārši tos 30px pieskaitīt pie konteinera max-width un nemainīt box-sizing. Jo rezultāts būs identisks. Šeit varam izmantot jeb kuru no šiem variantiem, rezultāts nemainīsies.
+// %ibg {
+	// position: relative;
+	// img {
+		// position: absolute;
+		// object-position: center;
+		// object-fit: cover;
+		// width: 100%;
+		// height: 100%;
+		// top: 0;
+		// left: 0;
+	// }
+// }
 
-// Ar content-box izmantošanu ir viena priekšrocība: mums nevajag neko rēķināt, mēs vienkārši pierakstām: box-sizing: content-box un vis, bet šie aprēķini nav tik grūti, lai tos nevarētu izdarīt. Mēs aprēķinot padding varam samazināt kodu pa vienu rindu. Tam gan nav lielas nozīmes. Šeit varam izvēlēties: darīt tā kā mums ir ērtāk.
+// Nosakām šeit tehniskās klases, kuras izmantosim
+
+/*
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		object-position: center;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+} */
 
 // Šinī lekcijā mēs mācīsimies par SCSS procesora izmantošanu. Bet vēl pirms tam atgriežamies iepriekšējās lekcijas tēmā par lapas adaptīva izstrādi. Izskatām piemēru no maketa ar kartītes izveidošanu un tās adaptīva izstrādi. Atgriežamies HTML dokumentā un izveidojam kartītes struktūru.
 
@@ -195,6 +229,7 @@ $fontSize: 16px;
 
 // Lai klases tiktu pārnestas uz SCSS failu mums vēlamajā SCSS pre-procesora sintaksē, atceramies, ka mums jāizmanto īsinājumu taustiņu kombinācija: alt + b b - iekš HTML faila. Bet iekš SCSS faila mēs izmantojam paste komandu.
 
+/* 
 .block {
 		// .block__container
 		&__container {
@@ -223,6 +258,9 @@ $fontSize: 16px;
 		// .item-block__image
 		&__image {
 			padding: 0px 0px 74.28% 0px;
+			// @extend %ibg;
+			// @include ibg();
+			@extend ._ibg;
 		}
 		// .item-block__img
 		&__img {
@@ -257,7 +295,7 @@ $fontSize: 16px;
 		// .item-block__button
 		&__button {
 			padding: 10px 20px;
-	    background: #34C759;
+	    @include theme(#34c759);
 	    color: #252525;
 	    text-transform: uppercase;
 	    font-size: 10px;
@@ -279,19 +317,8 @@ $fontSize: 16px;
 				// background: #ffa500;
 			// }
 		}
-}
-._ibg {
-	position: relative;
-	img {
-		position: absolute;
-		object-position: center;
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-	}
-}
+} */
+
 // Izpildot šo taustiņu kombināciju, mēs iegūstam visas klases no HTML dokumenta bloku, jau pierakstītas SCSS sintaksē. Mēs varam izmantot šo taustiņu kombināciju, lai pārnestu klases uz SCSS failu, lai mums nebūtu jāraksta katru klasi atsevišķi.
 
 // Mēs iegūstam konstrukciju, kad mums ir vecāka bloks iekš kura ir tā elementi. Šeit zīme: & - un nozīmē to, ka mēs vēršamies pie konkrētiem elementiem, kas atrodas vecāka blokā.
@@ -348,4 +375,119 @@ $fontSize: 16px;
 
 // Izmantojot šādu pieeju, mēs iekš galvenā faila varam pieslēgt neskaitāmus scss failus. Ja strādājam pēc BEM metodoloģijas, tā paredz, ka mēs projektu sadalām mazos atsevišķos gabaliņos, daudzos failos, bet tik sīki gan mēs to nedarīsim. Bet mēs varam izveidot vairākus SCSS failus, kur katrs saturēs atsevišķu bloku, vai kādu lapas daļu, pagrabu vai cepuri, vai formu.
 
+// Vēl viena CSS pre-procesora super spēja ir: moduļu izmantošana. Kas tad ir modulis? Moduļu izmantošana iekš SCSS pre-procesora parādījās samērā nesen. Ja gribam izmantot moduļus, mums jāizveido jauns SCSS fails: _modules.scss iekš kura rakstām piemēram: $fontSize: 24px; Mēs nosakām mainīgo. Iekš galvenā style.scss faila sākumā rakstām: @use "_modules"; 
+
+// Dotais VSCode saas kompilators vēl nesaprot pieeju, kad izmantojam moduļus un mums nekas nemainās gala CSS failā, tādēļ moduļu izmantošanu atliekam uz to laiku, kad izmantosim speciālu programmu: GULP ar starta šablonu.
+
+// Kad strādāsim ar GULP un varēsim izmantot moduļus, tad tanīs vietās, kur mēs vēlēsimies tos izmantot būs jāraksta šādi: _modules.$fontSize. Tādējādi mēs varēsim izmantot moduļus, kas saturēs atkārtotus CSS parametrus. Bet pagaidām tos neizmantojam, jo mūsu saas compiler to nesaprot.
+
+// Mums vēl ir daudz nezināmu lietu par SCSS pre-procesoru. Viena no tām ir mixins izmantošana. Kas tad ir mixin? Mixin ir gatavs uzstādīts koda gabaliņš, ko mēs varam izmantot, lai iekš tā izmantotu vairākus mainīgos. Kā tas īsti darbojas? Izskatīsim mixin izmantošanu ar piemēru: 
+
+// @mixin theme($color) {
+	// color: $color;
+	// border: 1px solid $color;
+// }
+
+// Šāda ir mixin sintakse: mēs rakstam @mixin, rakstam mixin nosaukumu, kas mūsu gadījumā ir: theme, liekam () iekavās, kurās rakstām mainīgo nosaukumus, no mūsu piemēra: $color. Liekam {} figūriekavas, kurās rakstām CSS parametrus, kuriem vēlamies izmantot kā vērtības liekam mainīgo: $color. Pēc tam attiecīgajā vietā, kur vēlamies izmantot mixin, rakstām: @include theme(#34c759); Iekš () iekavām rakstām mainīgā vērtību, mūsu gadījumā krāsas heks kodu.
+
+// Svarīgi: Lai mēs varētu izmantot mixin, tam jābūt noteiktam pirms tā izmantošanas, augstāk kodā, jo, ja būs otrādi mums tas nedarbosies, un gala CSS failā nekas nemainīsies.
+
+// Izslēdzam mūsu mixin un pārvietojam to augstāk kodā, lai varētu izmantot un redzēt, kas notiek gala CSS kompilētajā failā. Izpildot visu pareizi mēs redzam, ka, kad izmantojam doto mixin mūsu pogai, gala CSS kompilētajā failā parādās ierastie CSS parametri. Redzam, ka mixin darbojas tā kā mēs to noteicām.
+
+// Mēs varam sadalīt sīkāk un izveidot atsevišķu SCSS failu: _mixins, pieslēgt to aiz faila: _reset, un tur rakstīt visus mixins, kādus vēlamies izmantot. Tādējādi mums būs ļoti ērti un ātri izmantot mixins.
+
+// Izdarām to, izveidojam atsevišķu SCSS failu, ieliekam tur mūsu mixin, un paskatamies vai mums viss darbojas. Izpildot visu pareizi, mēs redzam, ka mums vis darbojas, un gala CSS kompilētajā failā mēs redzam mixin darbību, mums jau ierastos CSS parametrus.
+
+// Kad strādāsim ar starta šablonu un GULP, mēs izmantosim daudz sarežģītākus mixins, kur ir daudzi mainīgie.
+
+// Bet tagad, par cik mūsu VSCode paplašinājums: saas compiler nesaprot situāciju, kad izmantojam @use, mēs sarežģītos mixin atliksim, bet turpināsim izskatīt visas SCSS pre-procesora iespējas.
+
+// Izmantojot SCSS pre-procesoru mums ir iespēja izmantot šablonus. Izskatīsim šablona izmantošanu ar mūsu kartīšu attēliem. Lai izmantotu šablonus, tiem jābūt pierakstītiem  - noteiktiem pirms to izmantošanas, tā pat kā ar mixins. Izskatīsim šablona izmantošanas piemēru:
+
+// Lai izmantotu šablonu, mums mūsu tehniskais klases nosaukums attēliem: _ibg ir nedaudz jāmaina. Atgriežamies HTML dokumentā un noņemam visām sešām kartītēm šo tehnisko klasi. Atgriežamies šeit un izveidojam šablonu, pierakstot:
+
+// %ibg {
+	// position: relative;
+	// img {
+		// position: absolute;
+		// object-position: center;
+		// object-fit: cover;
+		// width: 100%;
+		// height: 100%;
+		// top: 0;
+		// left: 0;
+	// }
+// }
+
+// Pārnesam šo šablonu augstāk kodā, jo mēs to varam izmantot tikai aiz tā noteikšanas. Atrodam ieks SCSS faila, kur mums ir klase: &__image un iekš parametriem rakstām: @extend %ibg; Tādejādi mēs varam izmantot jau gatavus šablonus mūsu projektā visur, kur mums tas ir vajadzīgs.
+
+// Vienkārši nosakot šablonu izmantojot zīmi: %, tas nav redzams gala CSS kompilētajā failā. Tā parametri kļūst redzami tikai tad, kad iekš style.scss faila mēs izmantojam šo šablonu konkrētai klasei.
+
+// Izpildot šo skatamies, kas mums notiek gala CSS kompilētajā failā. Mēs redzam, ka mums ir izveidojušas - kompilējušās divas klases, kas atbild par attēlu mūsu kartītēs, un tām ir visi nepieciešamie CSS stili, tie, ko noteicām šablonā. Redzam, ka visu esam izdarījuši pareizi un mums vis darbojas.
+
+// Ar ko tad šablonu izmantošana atšķiras ar mixins izmantošanu? Iekš mixins mēs varam noteikt kādus datus, izmantot mainīgos, bet šabloni ir statistiski, mēs tajos nevaram noteikt mainīgos vai ko tamlīdzīgu. Mēs iekš tiem varam izmantot CSS parametrus. 
+
+// Bet šablonu izmantošana ir noderīga, mēs vienreiz faila sākumā pierakstām mums vajadzīgos šablonus, un izmantojam tos visur kur vien mums vajag, neskaitāmas reizes. Šī arī ir liela SCSS pre-procesora priekšrocība.
+
+// Izskatīsim kā mēs šo pašu varam panākt, ja izmantojam mixin, kur varam pievienot mainīgos un pat iekš () iekavām pievienot vērtības mainīgajiem. Izskatām to ar mūsu piemēru, pierakstām mixin iekš mūsu _mixins.scss faila.
+
+// Atgriežamies ieks mūsu darba faila: style.scss un iekš klases: &__image pievienojam doto mixin rakstot: @include ibg(). 
+
+// Lai mums netraucētu iepriekš noteiktais šablons: %ibg, izslēdzam šo koda rindu un aizstājam ar mixin @include rindu. Skatamies, kas mums notiek gala CSS kompilētajā failā.
+
+// Mixins izmantošanai ir ļoti liela priekšrocība, mēs varam pievienot un mainīt datus. Kamēr šablonu izmantošana ir statistiska, tikmēr iekš mixin, kad to izmantojam kā mūsu piemērā, iekš klases: &__image {} iekavām mēs varam ierakstīt: @include ibg(left); kas nozīmē, ka mēs mainām mainīgā: $position vērtību no center uz left. Izmēģinām to ar mūsu piemēru un skatamies, kas notiek gala CSS kompilētajā failā. Mēs redzam, ka mainot mainīgā: $position vērtību uz left, kad lietojam konkrēto mixin, mūsu gala CSS failā mainās CSS parametra: object-position: vērtība no center uz left.
+
+// Mēs redzam, ka visērtāk un ātrāk ir izmantot mixins. Mēs jebkurā brīdī varam mainīt mainīgo vērtības, kas automātiski tiek parādīts kompilētajā CSS failā.
+
+// Ar laiku strādājot, lai katru reizi mums nebūtu jāraksta bieži izmantojami koda fragmenti, mēs varam izveidot savus snippets. Kur būs gatavi kodu gabaliņi, un mums atliek tikai uzrakstīt dažus simbolus un mēs iegūstam gatavu koda gabalu. Tas ir ļoti ērti. Mēs jau tagad daudz kur izmantojam mums iedotos gatavos snippets, bet mēs tos varam paildzināt un izveidot savus snippets.
+
+// Laba izstrādātāja prakse ir tomēr lietot klases, arī tehniskās klases, iekš HTML dokumenta, jo tas dod iespēju lapas īpašniekam no admin paneļa noteikt, vai klase tiks pievienota vai nē. Šāds variants ir daudz elastīgāks un pareizāks no lapas izstrādes viedokļa puses.
+
+// Ja mēs neizmantojam papildus klases, un lietojam vienu klasi, iekļaujot mixins, tad mainīt šo kodu - ietekmēt to, lapas īpašniekam jau ir daudz grūtāk.
+
+// Atgriežamies HTML dokumentā un atliekam atpakaļ pie image tehnisko klasi: _img.
+
+// Atgriežoties pie šablonu izmantošanas izmantojot zīmi: %, mēs tos varam izmantot, ja mums pietiek ar statistiskiem datiem, CSS parametriem. Tad mēs kā gatavu kodu to varam izmantot attiecīgās vietās mūsu projektā.
+
+// Mums ir iespēja iekš kādas klases pieslēgt citu klasi izmantojot @extend liekot punktu un rakstot klases nosaukumu. Atgriezīsimies sākotnējā stāvoklī, kad mums iekš HTML dokumenta ir tehniskā klase: _ibg. Mēs iekš klases: &__image {} iekavām rakstām: @extend ._ibg;
+
+// Izpildām šos nosacījumus un skatamies, kas mums notiek gala CSS failā. Redzam, ka par cik iekš SCSS faila mēs noteicām konkrētai klasei piemērojamos stilus, iekš CSS dokumenta ir izveidojies interesants klašu pieraksts, kur tiek pārskaitītas visas klases, šinī gadījumā divas klases, kurām tiek piemēroti attiecīgie stili.
+
+// Tagad mēs zinam, ja mums nav nepieciešams iekš HTML izmantot atsevišķu klasi, tad ierastajām klasēm varam izmantot mixins, jo tie ir daudz ērtāki, un atceramies, ka iekš mixins mēs varam noteikt mainīgos, to vērtības, bet pēc tam lietojot attiecīgos mixins attiecīgajās klases, mēs varam ātri šīs vērtības mainīt.
+
+// Mixins var salīdzināt ar BEM metodoloģijas modifikatoru izmantošanu, tikai bez HTML.
+
+// Izskatīsim kā SCSS sintaksē darbojas modifikatoru lietošana, izmantojot HTML un BEM metodoloģiju. Atgriežamies HTML dokumentā un izveidojam klasei: block__item papildus klasi: block__item_big, kas ir jau ar modifikatoru. Izmantojot shortcut pārnesam klases uz galveno style.scss dokumentu un paskatamies kāda ir sintakse. Atceramies, ka lai nokopētu klases no HTML dokumenta pēc BEM metodoloģijas un pārnestu mums vajadzīgā SCSS faila sintaksē, mums jāizmanto karstie taustiņi: alt + ~;
+
+.block {
+		// .block__item
+		&__item {
+		}
+		// .block__item_big
+		&__item_big {
+		}
+}
+
+// Mēs redzam, ka mums ir kopīga klase: block un divas apakšklases: block__item un klase ar modifikatora izmantošanu: block__item_big. Vēl viens variants kā mēs varam pierakstīt šādas klases ar modifikatora izmantošanu ir šāds:
+
+.block {
+	  // .block__item
+		&__item {
+			// .block__item_big
+			&_big {
+
+			}
+		}
+}
+
+// Pierakstot šādi, mēs iegūstam vēl vienu veidu kā pierakstīt ieliktas klases un klases ar modifikatoru.
+
+// Strādājam tālāk, izslēdzam HTML dokumentā visu: block, un izslēdzam šeit visus tā stilus. 
+
+// Izmantojam CSS sintakses komentārus, lai mums visi CSS parametri paliktu arī gala kompilētajā CSS failā, jo, ja izmantosim SCSS sintakses komentārus zīmes, tie neparādīsies gala CSS failā.
+
 // 
+
+
+
+
