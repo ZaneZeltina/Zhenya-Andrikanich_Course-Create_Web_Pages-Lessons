@@ -84,6 +84,8 @@ $fontSize: 16px;
 	}
 } 
 
+// # 1. SCSS pre-procesora izmantošana
+
 // Nosakām šeit izmantojamos šablonus
 
 // %ibg {
@@ -485,6 +487,128 @@ $fontSize: 16px;
 // Strādājam tālāk, izslēdzam HTML dokumentā visu: block, un izslēdzam šeit visus tā stilus. 
 
 // Izmantojam CSS sintakses komentārus, lai mums visi CSS parametri paliktu arī gala kompilētajā CSS failā, jo, ja izmantosim SCSS sintakses komentārus zīmes, tie neparādīsies gala CSS failā.
+
+// Atgriežamies HTML dokumentā un izveidojam sarakstu. Izveidojam menu konstrukciju, nokopējam klašu nosaukumus pēc BEM metodoloģijas ar komentāriem šeit SCSS failā.
+
+// Izmantojamā funkcija, lai aprēķinātu šrifta lielumu rem mērvienībās
+
+@function rem($fontSize) {
+	$result: $fontSize / 16 + rem;
+	@return $result;
+}
+@function em($fontSize) {
+	$result: $fontSize / 16 + em;
+	@return $result;
+}
+.list {
+	padding: 30px;
+	font-size: em(14);
+	font-size: rem(14);
+		// .list__item
+		&__item {
+			transform: translate(-100%, 0px);
+			transition: 0.4s;
+			@for $let from 1 to 5 {
+				&:nth-child(#{$let}) {
+					transition-delay: 0.1s * $let;
+				}
+			} 
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+		// .list__link
+		&__link {
+			color: #fff;
+		}
+		&:hover {
+			// .list__item
+			.list__item {
+				transform: translate(0px, 0px);
+			}
+		}
+}
+
+// Mēs izstrādājam sarakstu ar animāciju, katram punktam liekot animācijas aizturi. Šādu lietu mēs jau bijām taisījuši. Paskatīsimies kā mēs šo varam uzlabot, izstrādāt labāk - automatizēt.
+
+// Izmantojot SCSS pre-procesoru mēs šo garo koda pierakstu varam automatizēt izmantojot @for ciklu. Izpildām to un pierakstām @for ciklu, stingri ievērojot sintaksi. Tā kā augstāk piemērā.
+
+// Mēs pierakstām ciklu: @for un liekam tam izpildīt nosacījumus no 1 līdz 5 elementam. Kā nosacījumu nosakām, ka animācijas aizture būs 0.1s reizināts ar elementa kārtas numuru.
+
+// Kādēļ mēs šo saraksta animāciju automatizējām? Mēs protams varējām četras reizes pierakstīt: nth-child(1), nth-child(2), nth-child(3), nth-child(4), bet tas būtu ļoti ilgi un neērti. Tādēļ mēs izmantojām @for ciklu, lai šo darbu automatizētu. Šinī piemērā mums ir četri punkti, bet mums var būt arī 20 un vairāk punktu. Šādā gadījumā mēs varam izmantot @for ciklu norādot, ka tas izpildīsies no 1 līdz 21 elementam. Mēs jebkurā brīdī varam mainīt elementu skaitu no kura līdz kram tiks izpildīts @for cikls.
+
+// Gala CSS kompilētajā failā mēs redzam ierasto pierakstu, kur katru reizi tiek noteikta :nth-child() izmantošana.
+
+// Darba sākumā pirmajā gadā mēs šo pieeju visticamāk neizmantosim. Bet laikam ejot, ar pieredzi, mēs varēsim daudzus stilu procesus automatizēt, tā kā mums nepieciešams katrā reizē.
+
+// Mēs jau tagad daļēji iepazīstamies ar programmēšanas valodu: JavaScript. Mēs jau lietojam tās darbības principus.
+
+// Šim ciklam @for mēs varam noteikt arī nosacījumus: @if kas nozīmē, ja. Ja izpildās nosacījums, tad kaut kas notiek. Šis vis nāk no JavaScript programmēšanas valodas.
+
+// Iekš SCSS pre-procesora mēs pat varam izmantot funkcijas, kas arī ir no JavaScript programmēšanas valodas. Izskatīsim to ar piemēru:
+
+// @function rem($fontSize) {
+	// $result: $fontSize / 16 + rem;
+	// @return $result;
+// }
+
+// Mēs pierakstām funkciju, kurai nosakām mainīgo: $fontSize. Mēs aprēķinām mainīgā vērtību, dalot to ar 16 un piesakot rem. Pēc tam mēs atgriežam mainīgā vērtību.
+
+// Mēs varam izmantot šo funkciju un paskatīties kā tā darbojas, un kas notiek gala CSS kompilētajā failā.
+
+// Redzam, ka mūsu pierakstītā funkcija nedarbojas, pārnesam to augstāk kodā pirms tās izmantošanas.
+
+// Redzam, ka izpildās nosacījums, kas ir JavaScript programmēšanas valodā, mēs varam lietot funkciju pēc tās noteikšanas. Tikko mēs pārnesām funkciju augstāk un pēc tam to izmantojam, tā redzam, ka tā darbojas un gala kompilētajā CSS failā mēs redzam, ka mūsu noteiktais šrifta lielums ir pārvērsts rem mērvienību sistēmā.
+
+// Mēs iegūstam to, ka tagad mēs varam šrifta lielumu šeit iekš SCSS faila pierakstīt pikseļos, priekšā rakstot: rem() iekavās rakstot pikseļus. Redzam, ka gala CSS kompilētajā failā pikseļi ir pārvērsti rem mērvienību sistēmā.
+
+// Par mērvienību sistēmām un pareizu to izmantošanu mēs mācīsimies vēlāk.
+
+// Mēs šo srifta aprēķināšanas funkciju varam izmantot arī lai iegūtu šrifta lielumu em mērvienību sistēmā. Pierakstām augstāk šo funkciju un izmēģinām kā tā darbojas iekš tās pašas klases: .list.
+
+// Redzam, ka iekš šī SCSS faila mēs rakstām lielumu pikseļos iekš () iekavām, priekšā rakstot em, un gala CSS failā mēs iegūstam šrifta lielumu em mērvienības sistēmā.
+
+// Abos gadījumos, kad izmantojam funkciju, mēs redzam, ka vis darbojas korekti. Atceramies: Lai funkcija darbotos, tai jābūt noteiktai pirms tās izmantošanas.
+
+// Mēs izskatījām iespējas kā mēs varam izmantot SCSS pre-procesoru. Izskatījām dažādas tā priekšrocības. Izskatījām arī kā mēs varam izmantot ciklus un funkcijas, bet tas nenozīmē, ka šo visu mēs uzreiz izmantosim. Galvenokārt mēs sākumā izmantosim ielikšanas sistēmu pēc BEM metodoloģijas. Tikai ar laiku, ar pieredzi, ar jaunām zināšanām mēs sāksim izmantot SCSS pre-procesora iespējas pilnībā. Bet mums jau tagad ir svarīgi zināt par visām SCSS pre-procesora iespējām.
+
+// No šodienas mums ir jāsaprot dažas lietas. Kas ir pre-procesors, kā tas ir jāizmanto, kā tas darbojas kā SAAS tikai SCSS sintaksē, Kā tiek pierakstīta ielikšanas sistēma, kā darbojas klašu kopēšana pēc BEM metodoloģijas kopā ar komentāriem, kā darbojas mixins, mainīgie.
+
+// Tālākajās lekcijās mēs uzzināsim vēl par tām lietām, kas mums šodien nesanāca: moduļu izmantošanu, matemātiskām darbībām - aprēķināšanu. Par visiem tehniskajiem ierobežojumiem, kas ir saistīti ar vienkāršā VSCode paplašinājuma izmantošanu: saas compiler. Mēs to un vēl daudz ko citu izskatīsim vēlāk, kad strādāsim ar starta šablonu un GULP.
+
+// Nākošajā lekcijā mēs iepazīsimies ar programmu: GULP. Bet, lai saprastu, kas tas vispār ir, un kas mūs sagida, sāksim ar to iepazīties jau tagad, šinī pat lekcijā. Izskatīsim GULP teoriju. 
+
+// ==============================================
+
+// # 2. GULP TEORIJA
+
+// GULP ir viens no vispopulārākajiem uzdevumu vadības rīkiem, kas izmantojams web izstrādē. GULP ir rakstīts JavaScript valodā, un tas darbojas uz Node.js platformas. GULP ir izstrādāts, lai automatizētu atkārtotus uzdevumus, kas saistīti ar web izstrādi. GULP ir izstrādāts, lai palīdzētu mums web izstrādē, automatizētu - izpildītu atkārtotus rutīnas uzdevumus.
+
+// Izmantojot GULP mēs varam konvertēt šriftu saimes, konvertēt, saspiest attēlus, konvertēt no SCSS faila uz CSS failu, saspiest visus mūsu failus, mainīt attēlu formātus, saspiest attēlus un daudz ko citu.
+
+// Ļoti svarīgi: lai mums korekti darbotos GULP bez kļūdām, mums mūsu VSCode programmai ir iestatījumos, iekš properties jāieliek ķeksītis: atvērt kā administratoram. Lai mums katru reizi nebūtu jāspiež atvērt kā administratoram, lai tas notiktu automātiski.
+
+// Mēs turpmāk strādāsim ar GULP tādēļ ir svarīgi ievērot katru tehnisko nosacījumu, lai mums vēlāk nerastos kļūdas un mēs neteiktu, ka mums nekas nestrādā. 
+
+// Izejam no VSCode programmas, iestatām palaist kā administratoram. Lai mēs droši varētu strādāt ar GULP.
+
+// Strādājot ar GULP mēs beidzot izmantosim VSCode termināli. Kas ir ļoti liela VSCode programmas izmantošanas priekšrocība. Ieteicams ir izmantot tieši: Git Bash termināli. Tas nozīmē, ka uz mūsu datora ir jābūt uzinstalētam GIT programmai. To mēs varam izdarīt no oficiālās Git mājas lapas.
+
+// Lai iekš VSCode atvērtu termināli mēs varam izmantot dažādās iespējas. Visērtāk to ir izdarīt vienkārši pavelkot bultiņu no apakšas uz augšu. Mums atvērsies terminālis. Uzstādām kā noklusējuma termināli git bash.
+
+// Mēs jau mazliet protams strādāt ar termināļa komandu rindu. To apguvām, kad mācījāmies par Git versiju kontroli un github izmantošanu. Bet mēs vēl atskatīsimies uz šo tēmu.
+
+// Mums ir ļoti svarīgi prast strādāt ar git versiju kontroli, jo pat, ja mēs strādājam vienatnē pie projekta, mums ir ļoti ērti, ja kas nobrūk atgriezties pie iepriekšējās projekta versijas. Tādēļ ir svarīgi, pie katrām lielākām izmaiņām saglabāt projekta versiju, izmantojot git commit komandu.
+
+// Pēc Git instalēšanas uz datora, svarīgi atvērt VSCode programmu, atvērt termināli un noteikt git bash termināļa izmantošanu pēc noklusējuma. Lai vienmēr tiktu izmantots tieši git bash terminālis.
+
+// Kad strādāsim ar GULP mēs daudz izmantosim VSCode termināli. 
+
+// Mums ir vēl viens uzdevums. Ir tāda lieta, ka vis GULP ir uz JavaScript programmēšanas valodas sistēmas. To lieliski saprot visi pārlūki, jo vis internets vairumā ir izstrādāts izmantojot JavaScript. Bet mums ir nepieciešams, lai JavaScript kods tiktu saprasts un palaists arī uz mūsu datora. Tādēļ mums kopā ar Git ir jāuzinstalē uz datora arī Node.js. To arī varam izdarīt Node.js oficiālajā mājas lapā.
+
+// Node.js ir JavaScript valodas izpildītājs, kas darbojas uz mūsu datora. Node.js ir nepieciešams, lai mēs varētu izpildīt JavaScript kodu uz mūsu datora. Tādēļ mums ir jāuzinstalē uz datora Node.js.
+
+// Mēs sākot lietot GULP uzinstalēsim to globāli, izmantojot git bash termināli un atsevišķi instalēsim tā paplašinājumus, papildus moduļus, kas mums būs nepieciešami, lai GULP varētu darbotos tā kā mums to vajag.
 
 // 
 
