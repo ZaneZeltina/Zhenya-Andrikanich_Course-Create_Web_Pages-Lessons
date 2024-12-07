@@ -610,7 +610,15 @@ $fontSize: 16px;
 
 // Mēs sākot lietot GULP uzinstalēsim to globāli, izmantojot git bash termināli un atsevišķi instalēsim tā paplašinājumus, papildus moduļus, kas mums būs nepieciešami, lai GULP varētu darbotos tā kā mums to vajag.
 
-// 
+// Mēs nestrādāsim tikai ar GULP, mēs izmantosim divas programmas vienlaicīgi, kas optimizēs ikdienas rutīnas darbus. Mēs darbosimies gan ar GULP, gan ar Webpack. Webpack ir vēl viens uzdevumu vadības rīks, kas ir ļoti līdzīgs GULP, bet Webpack ir vēl sarežģītāks un spēcīgāks rīks. Mēs sākumā iepazīsimies ar GULP, jo tas ir vienkāršāks un vieglāk saprotams.
+
+// Mēs strādāsim ar starta šablonu, kur pamatā ir GULP, bet tur būs arī šis tas no Webpack. Bet mēs nemācīsimies visu par Webpack, mēs vairāk pievērsīsimies GULP lietošanai.
+
+// Sākot ar nākošo lekciju, mēs strādāsim jau pavisam ar citu failu struktūru. Mums nebūs vairs šis ierastais šablons. Vis būs daudz savādāk, sarežģītāk. Tagad mums liekas, ka GULP ir ļoti sarežģīts, un tā tas arī ir. Bet tas mums ir nepieciešams. Visur, arī firmās, kur notiek izstrāde tiek izmantots kāds no šiem rīkiem, vai GULP, vai Webpack, vai Vite. Un mums jāprot ar tiem strādāt.
+
+// Mēs turpinām lapu izstrādi pēc maketiem, turpinām strādāt pēc BEM metodoloģijas, turpinam izmantot moduli flex un turpinām izstrādāt lapas adaptīvu, plus tagad mēs strādājam izmantojot SCSS pre-procesoru.
+
+
 
 
 
